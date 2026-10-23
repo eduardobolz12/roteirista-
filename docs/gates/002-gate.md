@@ -17,3 +17,10 @@
 | tests/acceptance/002-pdf-real/test_CA3_virada_de_pagina.py | b4796de6320b3be78f769fe2bb533dc36487acc85f0ade50f1d6c2f4303802ed |
 | tests/acceptance/002-pdf-real/fixtures/tres-paginas.pdf | dcf04a3507e692a16ee9aa88d13564ac295932b7d1c32f24549b6127dfc35eb1 |
 | tests/acceptance/002-pdf-real/fixtures/_gerar_pdf.py | 47d84ec4cc8e06167e0a98a620c01cc5d241db5cc0a48d5b500f3b6b0035cafd |
+
+## Prova
+- Data: 2026-10-23
+- Commit: 4af79ece26ad38d0f38664e7f84e81be6b1dad9d
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde
