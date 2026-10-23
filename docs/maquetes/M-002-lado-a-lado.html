@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lado a lado — cap. 1</title>
+<style>
+  :root {
+    --bg: #f7f6f2; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a65; --line: #e2e0d8;
+    --warn-bg: #fff4d6; --warn-line: #e0b84a; --ok: #2f7d4f; --accent: #3b5bab;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161614; --card: #201f1c; --text: #ecebe6; --muted: #a09e96; --line: #34332e;
+      --warn-bg: #3a3017; --warn-line: #b8922f; --ok: #6cc28f; --accent: #8aa4e8;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161614; --card: #201f1c; --text: #ecebe6; --muted: #a09e96; --line: #34332e;
+    --warn-bg: #3a3017; --warn-line: #b8922f; --ok: #6cc28f; --accent: #8aa4e8;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.55 Georgia, "Times New Roman", serif; }
+  header, main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  header h1 { font: 600 22px/1.3 system-ui, sans-serif; margin: 8px 0 4px; }
+  .meta { font: 14px/1.5 system-ui, sans-serif; color: var(--muted); }
+  .aviso { font: 13px/1.5 system-ui, sans-serif; background: var(--warn-bg);
+           border-left: 4px solid var(--warn-line); padding: 8px 12px; margin: 12px 0; }
+  .cab, .par { display: grid; grid-template-columns: 44px 1fr 1fr; gap: 16px; }
+  .cab { font: 600 13px/1.4 system-ui, sans-serif; color: var(--muted); text-transform: uppercase;
+         letter-spacing: .04em; padding: 8px 12px; }
+  .par { background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+         padding: 12px; margin-bottom: 10px; }
+  .par.suspeito { border-color: var(--warn-line); box-shadow: inset 4px 0 0 var(--warn-line); }
+  .num { font: 600 13px system-ui, sans-serif; color: var(--muted); }
+  .nota { grid-column: 2 / 4; font: 13px/1.5 system-ui, sans-serif; background: var(--warn-bg);
+          padding: 6px 10px; border-radius: 6px; }
+  .ok { grid-column: 2 / 4; font: 13px system-ui, sans-serif; color: var(--ok); }
+  .decisao { font: 14px/1.6 system-ui, sans-serif; background: var(--card);
+             border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin-top: 16px; }
+  @media (max-width: 700px) {
+    .cab { display: none; }
+    .par { grid-template-columns: 1fr; gap: 8px; }
+    .nota, .ok { grid-column: 1; }
+    .par p::before { display: block; font: 600 11px system-ui, sans-serif; color: var(--muted);
+                     text-transform: uppercase; margin-bottom: 2px; }
+    .par p.en::before { content: "Inglês"; }
+    .par p.pt::before { content: "Retrotradução (pt)"; }
+  }
+  p { margin: 0; }
+</style>
+</head>
+<body>
+<header>
+  <div class="meta">Tema 01 Narcisse · Inglês · Capítulo 1 de 6</div>
+  <h1>Humanizado × retrotradução</h1>
+  <div class="meta">Retrotradução: qwen3:14b local · 2 parágrafos marcados para conferir</div>
+  <div class="aviso">MAQUETE. A coluna da esquerda é a tradução do piloto (ainda não humanizada). A da
+    direita é a retrotradução real que o 14B fez no experimento E-001. Na versão real, um script gera
+    este arquivo sem gastar tokens.</div>
+</header>
+<main>
+  <div class="cab"><span>§</span><span>Inglês (vai para a narração)</span><span>Retrotradução para você ler</span></div>
+
+  <div class="par">
+    <span class="num">1</span>
+    <p class="en">Emily Dickinson wrote: I felt a funeral in my brain.</p>
+    <p class="pt">Emily Dickinson escreveu: Eu senti um funeral em minha mente.</p>
+    <span class="ok">✓ sem alerta</span>
+  </div>
+
+  <div class="par">
+    <span class="num">2</span>
+    <p class="en">By the side of a road in Haiti, a man takes minutes to get his bearings. He makes his way past tombs of cracked concrete and stops at one. In the cement, carved twenty years before: Ici Repose Clairvius Narcisse. Here lies Clairvius Narcisse. The man is Clairvius Narcisse.</p>
+    <p class="pt">Ao lado de uma estrada na Haiti, um homem leva minutos para se orientar. Ele se dirige passando por túmulos de concreto rachado e para em um. No cimento, gravado vinte anos antes: Ici Repose Clairvius Narcisse. Aqui jaz Clairvius Narcisse. O homem é Clairvius Narcisse.</p>
+    <span class="ok">✓ sem alerta</span>
+  </div>
+
+  <div class="par">
+    <span class="num">3</span>
+    <p class="en">I'm Alderick, and I've always thought that burying someone is the most final thing one person does for another.</p>
+    <p class="pt">Sou Alderick, e sempre achei que enterrar alguém é a coisa mais definitiva que uma pessoa pode fazer por outra.</p>
+    <span class="ok">✓ sem alerta</span>
+  </div>
+
+  <div class="par">
+    <span class="num">4</span>
+    <p class="en">There's a death certificate in that name, from 1962. Two doctors, one of them American, declared him dead. His sister, Marie Claire, put her fingerprint on it. The BBC took a copy to Scotland Yard: the fingerprint is hers.</p>
+    <p class="pt">Existe um certificado de óbito com esse nome, de 1962. Dois médicos, um deles americano, declararam-no morto. Sua irmã, Marie Claire, colocou sua impressão digital nele. A BBC levou uma cópia para a Scotland Yard: a impressão digital é dela.</p>
+    <span class="ok">✓ números e nomes iguais ao português original (1962, Marie Claire, BBC, Scotland Yard)</span>
+  </div>
+
+  <div class="par">
+    <span class="num">5</span>
+    <p class="en">What happened to that body, for it to die on paper and stand up again in front of its own name?</p>
+    <p class="pt">O que aconteceu com esse corpo, para que morresse no papel e se levantasse novamente diante do próprio nome?</p>
+    <span class="ok">✓ sem alerta</span>
+  </div>
+
+  <div class="par">
+    <span class="num">6</span>
+    <p class="en">Wade Davis, a Harvard researcher, saw that certificate. He got a photo of the man, and one week to find a biological explanation. The book came out in 1985.</p>
+    <p class="pt">Wade Davis, um pesquisador da Harvard, viu esse certificado. Ele obteve uma foto do homem, e uma semana para encontrar uma explicação biológica. O livro saiu em 1985.</p>
+    <span class="ok">✓ sem alerta</span>
+  </div>
+
+  <div class="par suspeito">
+    <span class="num">7</span>
+    <p class="en">The zombie poison, a powder applied to the victim, contained puffer fish. Many fish in that group carry a nerve poison, tetrodotoxin. It paralyzes the entire body, and in most cases the person stays conscious. In that state, even trained doctors can't see the border between life and death. This is how I read the hospital: a motionless man, awake inside.</p>
+    <p class="pt">O veneno zumbi, uma poeira aplicada na vítima, continha peixe-palha. Muitos peixes desse grupo carregam um veneno nervoso, o tetrodotoxina. Ele paralisa todo o corpo, e na maioria dos casos a pessoa permanece consciente. Nesse estado, mesmo médicos treinados não conseguem ver a fronteira entre vida e morte. Assim eu leio o hospital: um homem imóvel, acordado por dentro.</p>
+    <span class="nota">⚠ Termo do glossário diferente: "puffer fish" deveria voltar como <b>baiacu</b> e voltou como "peixe-palha". O erro é da retrotradução, não do inglês. Com o glossário no prompt, isso some.</span>
+  </div>
+
+  <div class="par suspeito">
+    <span class="num">8</span>
+    <p class="en">"They called my name three times," he said. The sorcerer, the bokor, took Narcisse out of the grave. Davis describes what comes next: before a cross, the victim gets a new name and eats a paste, the zombi’s cucumber. It disorients, and it erases memory.</p>
+    <p class="pt">"Eles chamaram meu nome três vezes", disse. O feiticeiro, o bokor, tirou Narcisse do túmulo. Davis descreve o que acontece em seguida: diante de uma cruz, a vítima recebe um novo nome e come uma pasta, o pepino do zumbi. Ela desorienta e apaga a memória.</p>
+    <span class="nota">⚠ Citação: confira se "They called my name three times" bate com o original do livro (o script confere; aqui é só o lembrete visual de onde há citação).</span>
+  </div>
+
+  <div class="decisao">
+    <b>Sua decisão sobre este capítulo</b><br>
+    ☐ Aprovado · ☐ Aprovado com sugestões (escreva abaixo, em português, citando o §) · ☐ Refazer<br>
+    <span class="meta">As sugestões voltam para o Claude aplicar no inglês. O que você aprova fica protegido em <code>decisoes.md</code>.</span>
+  </div>
+</main>
+</body>
+</html>

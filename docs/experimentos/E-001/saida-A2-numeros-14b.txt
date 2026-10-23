@@ -1,0 +1,9 @@
+[04.015] | 40 | anos, tempo desde que o catálogo foi escrito  
+[04.021] | 16º século | século em que o explorador português Christoval Acosta encontrou prostitutas usando sementes da planta  
+[04.021] | 17º século | século em que Johann Albert de Mandelslo observou mulheres usando datura  
+[04.023] | 6 | idade em que os jovens Shuar recebem a poção maikua  
+[04.023] | 2 ou 3 semanas | duração do isolamento dos adolescentes Algonquin durante o uso de datura  
+[04.025] | 12 anos | período entre 1779 e 1790, quando muitos escravos foram importados para Saint Domingue  
+[04.025] | 400.000 | número de escravos desembarcados em Saint Domingue entre 1779 e 1790  
+[04.033] | 10 pés | distância da linha que o acusado deveria caminhar durante o julgamento com a poção do feijão de Calabar  
+[04.036] | 16 | número de sementes do feijão de Calabar usadas no julgamento dos Efik

@@ -1,0 +1,9 @@
+﻿{
+    "modelo":  "qwen3:8b",
+    "carga_s":  0,
+    "tokens_entrada":  5637,
+    "leitura_tok_s":  1324,
+    "tokens_saida":  1613,
+    "escrita_tok_s":  44.9,
+    "total_s":  40
+}

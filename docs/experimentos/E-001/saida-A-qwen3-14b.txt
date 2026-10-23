@@ -1,0 +1,31 @@
+ids | tipo | afirmacao  
+[04.004] | numero | A droga precisa causar um estado psicótico prolongado e um estado de torpor semelhante à morte.  
+[04.005] | termo | Datura é chamada de "a flor sagrada da Estrela do Norte".  
+[04.006] | caso | Um pescador desapareceu e reapareceu como um simulacro de morte, nu e insano.  
+[04.007] | cena | O curandero realizou cerimônias com objetos sagrados e ingeriu achuma, uma cacto sagrado.  
+[04.008] | doutrina | O curandero precisava se submeter a visões desorientadoras para obter revelação.  
+[04.009] | marginal | O curandero tinha uma cara distorcida, com lábios azul-escuros e um nariz alongado.  
+[04.010] | cena | O curandero bebeu uma substância em um recipiente de porcelana, sentando-se em silêncio.  
+[04.011] | cena | O curandero sofreu convulsões violentas, com espuma na boca e gritos de agonia.  
+[04.012] | termo | Cimora é a árvore do falcão mau, parente botânico da datura.  
+[04.015] | caso | Datura cresce na Haiti, e uma espécie é chamada de concombre zombi.  
+[04.017] | informante | Professor Schultes entra no quarto com volumes em braços.  
+[04.019] | doutrina | Schultes compartilha a intuição do autor sobre a datura.  
+[04.020] | doutrina | A datura é usada por indígenas para simular a sensação de voo.  
+[04.021] | caso | Prostitutas hindus usavam a datura para deixar vítimas inconscientes por horas.  
+[04.022] | doutrina | A datura causa alucinações, confusão e, em doses altas, torpor e morte.  
+[04.023] | doutrina | A datura está associada a rituais de passagem e morte em várias culturas indígenas.  
+[04.024] | doutrina | A datura está ligada à morte e ao mundo espiritual em várias tradições.  
+[04.025] | termo | Datura stramonium é conhecida na Haiti como concombre zombi.  
+[04.026] | caso | Tribos africanas usam a datura para rituais, festas e até assassinatos.  
+[04.027] | termo | Physostigmine é o antídoto para a datura, extraído da feijão de Calabar.  
+[04.028] | doutrina | Muitos escravos foram trazidos da África Ocidental para as plantações de Haiti.  
+[04.029] | informante | Efik é uma tribo que controlava o comércio de escravos na costa da África.  
+[04.030] | doutrina | Os europeus tinham que pagar tributos para negociar com os Efik.  
+[04.031] | termo | O Egbo é uma sociedade secreta masculina com poder político e judicial.  
+[04.032] | doutrina | O Egbo aplicava punições severas, incluindo mutilação e morte.  
+[04.033] | caso | O acusado bebia uma poção de feijão de Calabar e era julgado por sua capacidade de caminhar.  
+[04.034] | marginal | O acusado morto tinha os olhos arrancados e o corpo jogado na floresta.  
+[04.036] | doutrina | A datura e o feijão de Calabar podem ter sido levados à Haiti com os escravos.  
+[04.037] | doutrina | A hipótese de Calabar é uma conjectura que oferece um quadro inicial para o fenômeno dos zumbis.  
+[04.038] | contradicao | A hipótese de Calabar, embora elegante, está incorreta, mas revelou uma conexão sociológica importante.

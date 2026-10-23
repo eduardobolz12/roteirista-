@@ -1,0 +1,24 @@
+Você vai indexar um capítulo de livro. Cada parágrafo começa com um id entre colchetes, por exemplo [04.023].
+
+Liste as passagens importantes do capítulo, uma por linha, neste formato exato:
+
+ids | tipo | afirmacao
+
+Regras:
+- ids: o id de um parágrafo (04.023) ou um intervalo de até 3 parágrafos seguidos (04.021-04.023). Use SOMENTE ids que aparecem entre colchetes no capítulo.
+- tipo: exatamente uma destas palavras: doutrina, cena, caso, numero, contradicao, termo, informante, marginal.
+  - doutrina: como o sistema funciona (crença, regra, explicação).
+  - cena: ação concreta, com pessoas, num momento.
+  - caso: pessoa ou episódio específico usado como exemplo.
+  - numero: quantidade, prazo, duração, data.
+  - contradicao: o autor hesita, se corrige, admite incerteza ou discorda de outro pesquisador.
+  - termo: termo nativo definido ou usado.
+  - informante: fala atribuída a alguém do campo.
+  - marginal: detalhe concreto de passagem (objeto, gesto, lugar).
+- afirmacao: em português, uma frase de no máximo 25 palavras dizendo O QUE o texto afirma (não "o autor discute X").
+- Não copie frases do livro. Não escreva nada além das linhas.
+- Percorra o capítulo do primeiro ao último parágrafo.
+
+/no_think
+
+CAPÍTULO:

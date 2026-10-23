@@ -1,0 +1,38 @@
+04.001 | doutrina | O autor compara os trens americanos com caravanas latino-americanas, destacando a diferença na atmosfera e no aroma.  
+04.002 | caso | O autor reflete sobre a frase "fronteira da morte" de Lehman, que o perturba e o mantém acordado.  
+04.003 | caso | O autor analisa as palavras de Kline e Lehman, mas se concentra nos fatos do caso para iniciar sua investigação.  
+04.004 | doutrina | O autor considera que o veneno poderia ser absorvido pelos pés, sugerindo que o composto químico deve ser ativo tópicamente.  
+04.005 | termo | O autor menciona a planta datura, uma substância psicoativa e potencialmente letal, associada a práticas mágicas e criminosas.  
+04.006 | caso | O autor descreve um pescador que sofreu uma sequência de eventos trágicos, incluindo a perda de sua família e uma condição psicótica.  
+04.007 | cena | O curandero realiza rituais com o paciente, usando objetos sagrados e bebendo uma mistura de cacto sagrado para tentar curá-lo.  
+04.008 | doutrina | O curandero decide enfrentar a realidade da planta, aceitando a perda de controle e a possibilidade de revelação através da loucura.  
+04.009 | marginal | O autor observa o curandero em uma cabana, descrevendo sua aparência e as preparações para a ingestão da poção.  
+04.010 | cena | O curandero bebe a poção com reverência, como se fosse uma cerimônia religiosa, e cai em um estado de calma após a ingestão.  
+04.011 | cena | O curandero sofre uma reação violenta à poção, com convulsões, gritos e uma perda total de controle.  
+04.012 | termo | O autor identifica a planta cimora como a mais próxima botanicamente da datura, associada ao zombi.  
+04.013 | marginal | O autor descreve a saída do trem e a transição para a luz do amanhecer em Boston.  
+04.014 | cena | O autor chega ao Museu Botânico, enfrentando a agitação de crianças e finalmente acessando a biblioteca.  
+04.015 | doutrina | O autor descobre que a datura cresce na Guiana e é conhecida pelos haitianos como "cucumber do zombi", confirmando sua hipótese.  
+04.016 | numero | Um ponto finaliza a seção, indicando o fim de uma parte do texto.  
+04.017 | informante | O professor Schultes entra no ambiente, trazendo livros e iniciando uma conversa sobre o caso.  
+04.018 | informante | Schultes pergunta ao autor sobre seu sono e o atual estado da investigação.  
+04.019 | doutrina | Schultes e o autor trabalham juntos para construir o caso com base na datura.  
+04.020 | doutrina | O autor explica como a datura é usada por tribos indígenas e europeias, incluindo práticas de magia e rituais.  
+04.021 | doutrina | A datura é associada à indução de estados de inconsciência, com exemplos históricos de uso em rituais e práticas criminosas.  
+04.022 | doutrina | O autor descreve os efeitos farmacológicos da datura, incluindo alucinações, confusão e, em doses altas, paralisia e morte.  
+04.023 | doutrina | O autor vincula a datura a rituais de passagem e transição, como a iniciação de jovens em várias culturas.  
+04.024 | doutrina | A datura é associada à morte em várias culturas, com uso em rituais funerários e comunicação com espíritos.  
+04.025 | doutrina | O autor foca na espécie Datura stramonium, conhecida como "cucumber do zombi" na Guiana, e sua origem africana.  
+04.026 | doutrina | O autor descreve o uso da datura em diferentes regiões da África, incluindo práticas de ritual e criminalidade.  
+04.027 | doutrina | O autor descobre que o antídoto para a datura é extraído da Calabar bean, uma planta africana.  
+04.028 | doutrina | O autor explica a importação de escravos para a Saint Domingue, destacando a origem africana dos trabalhadores.  
+04.029 | doutrina | O autor descreve a posição estratégica dos Efik no comércio de escravos e sua relação com os europeus.  
+04.030 | doutrina | O autor menciona as condições comerciais e as restrições impostas aos europeus no comércio com os Efik.  
+04.031 | doutrina | O autor explica a estrutura de poder dos Efik, incluindo a figura do obong e a sociedade secreta Egbo.  
+04.032 | doutrina | O autor descreve as funções e sanções da sociedade secreta Egbo, incluindo julgamentos e punições.  
+04.033 | cena | O autor descreve o julgamento com a poção da Calabar bean, onde o acusado é submetido a uma tentativa de suicídio.  
+04.034 | cena | O autor descreve a morte horrível de um acusado após a ingestão da poção da Calabar bean.  
+04.035 | marginal | O autor menciona a presença de escravos nas terras dos Efik e a exposição a rituais de julgamento.  
+04.036 | doutrina | O autor propõe a hipótese de que a datura e a Calabar bean foram trazidas para a Guiana com os escravos, formando a base da crença nos zombis.  
+04.037 | doutrina | O autor apresenta sua hipótese como uma possível explicação para a crença nos zombis, baseada em plantas africanas.  
+04.038 | contradicao | O autor reconhece que sua hipótese é simples, mas errada, mas revela uma conexão sociológica importante com as sociedades secretas dos Efik.

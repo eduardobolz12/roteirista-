@@ -1,0 +1,24 @@
+Você vai resumir um capítulo de livro para um roteirista. Cada parágrafo começa com um id entre colchetes, por exemplo [04.023].
+
+Escreva em português, neste formato:
+
+## Temas
+- <tema> [ids]
+
+## Cenas
+- <o que acontece e com quem> [ids]
+
+## Números
+- <o número e a que se refere> [ids]
+
+## Contradições e incertezas do autor
+- <a dúvida ou a divergência> [ids]
+
+Regras:
+- Toda linha termina com os ids que a sustentam, SOMENTE ids que aparecem entre colchetes no capítulo.
+- Não copie frases do livro. Não interprete: diga o que o texto afirma.
+- Se uma seção não tiver nada, escreva "nenhum".
+
+/no_think
+
+CAPÍTULO:

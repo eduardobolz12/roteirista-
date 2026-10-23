@@ -1,0 +1,11 @@
+Cada parágrafo do capítulo abaixo começa com um id entre colchetes, por exemplo [04.023].
+
+Liste TODOS os parágrafos que trazem um número: quantidade, data, ano, prazo, duração, distância, dose, idade. Uma linha por número, neste formato exato:
+
+id | o número | a que ele se refere, em português, no máximo 15 palavras
+
+Use SOMENTE ids que aparecem entre colchetes. Ignore o título e as páginas. Não escreva nada além das linhas.
+
+/no_think
+
+CAPÍTULO:

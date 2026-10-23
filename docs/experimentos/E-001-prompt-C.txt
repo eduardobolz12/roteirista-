@@ -1,0 +1,11 @@
+Traduza o texto em inglês abaixo para o português do Brasil.
+
+Regras:
+- Tradução fiel ao sentido, parágrafo por parágrafo, na mesma ordem.
+- Não embeleze, não resuma, não acrescente nada.
+- Se uma frase for ambígua no inglês, traduza e marque [ambíguo] no fim dela.
+- Escreva só a tradução.
+
+/no_think
+
+TEXTO:

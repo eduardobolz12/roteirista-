@@ -1,0 +1,11 @@
+Cada parágrafo do capítulo abaixo começa com um id entre colchetes, por exemplo [04.023].
+
+Liste os parágrafos em que o AUTOR hesita, se corrige, admite que não sabe, admite que errou, ou discorda de outro pesquisador. Só o que o texto diz explicitamente; não deduza. Uma linha por caso, neste formato exato:
+
+id | a dúvida ou a correção, em português, no máximo 25 palavras
+
+Use SOMENTE ids que aparecem entre colchetes. Se não houver nenhum, escreva: nenhum. Não escreva nada além das linhas.
+
+/no_think
+
+CAPÍTULO:
