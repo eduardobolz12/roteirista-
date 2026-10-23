@@ -28,10 +28,10 @@ def main() -> None:
     args = _argumentos().parse_args()
 
     if args.comando == "novo":
-        capitulos = extrair(args.pdf)
-        banco.criar(args.slug, capitulos)
-        total = sum(len(capitulo.paragrafos) for capitulo in capitulos)
-        sys.stdout.write(f"{len(capitulos)} capítulos, {total} parágrafos\n")
+        livro = extrair(args.pdf)
+        banco.criar(args.slug, livro)
+        total = sum(len(capitulo.paragrafos) for capitulo in livro.capitulos)
+        sys.stdout.write(f"{len(livro.capitulos)} capítulos, {total} parágrafos\n")
         return
 
     texto = banco.trecho(args.slug, args.id)
