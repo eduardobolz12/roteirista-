@@ -1,0 +1,4 @@
+docs/SPECS/*.md -text
+tests/acceptance/** -text
+pytest.ini -text
+*.pdf -text
