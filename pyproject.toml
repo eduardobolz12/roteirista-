@@ -1,0 +1,15 @@
+[project]
+name = "roteirista"
+version = "0.1.0"
+description = "Conversão de livros em PDF para consulta literal por parágrafo"
+requires-python = ">=3.12"
+dependencies = [
+    "pypdf>=6.0,<7",
+]
+
+[project.scripts]
+livro = "roteirista.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
