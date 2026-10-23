@@ -17,3 +17,10 @@
 | tests/acceptance/001-walking-skeleton/test_CA3_id_inexistente.py | 1d134b85a16827180e2a0b32d80706db265c75661f9512868732437b48bb1f0f |
 | tests/acceptance/001-walking-skeleton/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
 | tests/acceptance/001-walking-skeleton/fixtures/_gerar_pdf.py | f65f1348af7834ea5722add1c53151aab1646a7042fef55c6cfa562d30fb6f1c |
+
+## Prova
+- Data: 2026-10-23
+- Commit: d29c881b2cd2800fc9dc12dd1453225418afcfc8
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: nenhuma (001 é a primeira)
