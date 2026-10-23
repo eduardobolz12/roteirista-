@@ -17,3 +17,10 @@
 | tests/acceptance/003-notas-bibliografia/test_CA3_bibliografia_fora_do_corpo.py | 0373f1978f724ce88cf03308ebe8ea6e58b42e0efb504228281d950c64f1ab54 |
 | tests/acceptance/003-notas-bibliografia/fixtures/notas.pdf | 1d3315353c7b1b553e3819bcc735bbc78f88364d37b7d4614646d1eff16cbcf5 |
 | tests/acceptance/003-notas-bibliografia/fixtures/_gerar_pdf.py | 1d75fb075e820705ccd8d81307355609eb9a924ae498471367992a0268f4d4f0 |
+
+## Prova
+- Data: 2026-10-23
+- Commit: 3efc4ac4cf7f957b2359ab8b2a527af11b004203
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde
