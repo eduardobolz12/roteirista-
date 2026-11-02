@@ -5,7 +5,8 @@ from pathlib import Path
 import sys
 
 from roteirista import banco
-from roteirista.pdf import extrair
+from roteirista.epub import extrair as extrair_epub
+from roteirista.pdf import extrair as extrair_pdf
 
 
 def _argumentos() -> argparse.ArgumentParser:
@@ -13,7 +14,7 @@ def _argumentos() -> argparse.ArgumentParser:
     comandos = parser.add_subparsers(dest="comando", required=True)
 
     novo = comandos.add_parser("novo")
-    novo.add_argument("pdf", type=Path)
+    novo.add_argument("arquivo", type=Path)
     novo.add_argument("--slug", required=True)
 
     trecho = comandos.add_parser("trecho")
@@ -28,7 +29,8 @@ def main() -> None:
     args = _argumentos().parse_args()
 
     if args.comando == "novo":
-        livro = extrair(args.pdf)
+        extrair = extrair_epub if args.arquivo.suffix.casefold() == ".epub" else extrair_pdf
+        livro = extrair(args.arquivo)
         banco.criar(args.slug, livro)
         total = sum(len(capitulo.paragrafos) for capitulo in livro.capitulos)
         sys.stdout.write(f"{len(livro.capitulos)} capítulos, {total} parágrafos\n")
