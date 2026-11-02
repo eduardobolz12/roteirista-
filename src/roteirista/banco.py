@@ -12,12 +12,15 @@ def _caminho(slug: str) -> Path:
     return raiz / slug / "livro.sqlite"
 
 
-def criar(slug: str, livro: Livro) -> None:
+def criar(slug: str, livro: Livro, lingua: str | None = None) -> None:
     caminho = _caminho(slug)
     caminho.parent.mkdir(parents=True, exist_ok=True)
     with sqlite3.connect(caminho) as conexao:
         conexao.executescript(
             """
+            CREATE TABLE ficha (
+                lingua TEXT
+            );
             CREATE TABLE capitulos (
                 numero INTEGER PRIMARY KEY,
                 titulo TEXT NOT NULL
@@ -43,6 +46,7 @@ def criar(slug: str, livro: Livro) -> None:
             );
             """
         )
+        conexao.execute("INSERT INTO ficha (lingua) VALUES (?)", (lingua,))
         for numero_capitulo, capitulo in enumerate(livro.capitulos, start=1):
             conexao.execute(
                 "INSERT INTO capitulos (numero, titulo) VALUES (?, ?)",
@@ -79,6 +83,33 @@ def criar(slug: str, livro: Livro) -> None:
                 for numero, texto in enumerate(livro.bibliografia, start=1)
             ],
         )
+
+
+def ficha(slug: str) -> tuple[str | None, int, int]:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        lingua = conexao.execute("SELECT lingua FROM ficha").fetchone()[0]
+        capitulos = conexao.execute("SELECT COUNT(*) FROM capitulos").fetchone()[0]
+        paragrafos = conexao.execute("SELECT COUNT(*) FROM paragrafos").fetchone()[0]
+    return lingua, capitulos, paragrafos
+
+
+def capitulos(slug: str) -> list[tuple[int, list[str]]]:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        linhas = conexao.execute(
+            """
+            SELECT capitulos.numero, paragrafos.texto
+            FROM capitulos
+            LEFT JOIN paragrafos ON paragrafos.capitulo = capitulos.numero
+            ORDER BY capitulos.numero, paragrafos.numero
+            """
+        ).fetchall()
+    resultado: list[tuple[int, list[str]]] = []
+    for numero, texto in linhas:
+        if not resultado or resultado[-1][0] != numero:
+            resultado.append((numero, []))
+        if texto is not None:
+            resultado[-1][1].append(texto)
+    return resultado
 
 
 def trecho(slug: str, id: str) -> str | None:
