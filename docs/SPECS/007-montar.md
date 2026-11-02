@@ -1,6 +1,6 @@
 # SPEC 007 — Montar
 
-**Estado:** testes vermelhos escritos a pedido do Decisor; **exemplos ainda não aprovados — não levar ao gate antes da aprovação**
+**Estado:** exemplos aprovados pelo Decisor em 2026-11-02; testes vermelhos entregues para o gate
 
 ## Intenção
 Como Decisor, quero juntar num documento o texto literal de vários parágrafos escolhidos, na ordem

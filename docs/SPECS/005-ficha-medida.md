@@ -1,6 +1,6 @@
 # SPEC 005 — Ficha do livro e medida
 
-**Estado:** testes vermelhos escritos a pedido do Decisor; **exemplos ainda não aprovados — não levar ao gate antes da aprovação**
+**Estado:** exemplos aprovados pelo Decisor em 2026-11-02; testes vermelhos entregues para o gate
 
 ## Intenção
 Como Decisor, quero informar a língua do livro na conversão, conferir de relance três parágrafos e
