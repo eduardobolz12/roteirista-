@@ -3,6 +3,7 @@
 import argparse
 import math
 from pathlib import Path
+import re
 import sys
 import unicodedata
 
@@ -12,6 +13,7 @@ from roteirista.pdf import Livro, extrair as extrair_pdf
 
 
 _LINGUAS = {"en", "fr", "pt", "es", "de", "it"}
+_INTERVALO = re.compile(r"^(\d{2})\.(\d{3})-(\d{2})\.(\d{3})$")
 
 
 def _argumentos() -> argparse.ArgumentParser:
@@ -32,6 +34,10 @@ def _argumentos() -> argparse.ArgumentParser:
 
     medir = comandos.add_parser("medir")
     medir.add_argument("slug")
+
+    montar = comandos.add_parser("montar")
+    montar.add_argument("slug")
+    montar.add_argument("ids", nargs="+")
     return parser
 
 
@@ -44,6 +50,29 @@ def _conferencia(livro: Livro) -> list[str]:
         f"{numero:02d}.001 {ultimo.paragrafos[0]}",
         f"{numero:02d}.{len(ultimo.paragrafos):03d} {ultimo.paragrafos[-1]}",
     ]
+
+
+def _montar(slug: str, argumentos: list[str]) -> tuple[list[tuple[str, str]], str | None]:
+    blocos = []
+    for argumento in argumentos:
+        ids = [argumento]
+        if "-" in argumento:
+            intervalo = _INTERVALO.fullmatch(argumento)
+            if intervalo is None:
+                return [], f"intervalo inválido: {argumento}"
+            capitulo_inicial, inicio, capitulo_final, fim = intervalo.groups()
+            if capitulo_inicial != capitulo_final or int(inicio) > int(fim):
+                return [], f"intervalo inválido: {argumento}"
+            ids = [
+                f"{capitulo_inicial}.{numero:03d}"
+                for numero in range(int(inicio), int(fim) + 1)
+            ]
+        for id in ids:
+            texto = banco.trecho(slug, id)
+            if texto is None:
+                return [], f"id inexistente: {id}"
+            blocos.append((id, texto))
+    return blocos, None
 
 
 def main() -> None:
@@ -82,6 +111,15 @@ def main() -> None:
             total_tokens += tokens
             sys.stdout.write(f"{numero:02d} {palavras} palavras, {tokens} tokens\n")
         sys.stdout.write(f"total {total_palavras} palavras, {total_tokens} tokens\n")
+        return
+
+    if args.comando == "montar":
+        blocos, erro = _montar(args.slug, args.ids)
+        if erro is not None:
+            sys.stderr.write(f"{erro}\n")
+            raise SystemExit(2)
+        saida = "\n\n".join(f"## {id}\n\n{texto}" for id, texto in blocos)
+        sys.stdout.write(f"{saida}\n")
         return
 
     texto = banco.trecho(args.slug, args.id)
