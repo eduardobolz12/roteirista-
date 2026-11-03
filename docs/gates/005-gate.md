@@ -16,3 +16,10 @@
 | tests/acceptance/005-ficha-medida/test_CA2_ficha.py | 18e1edc34dc311f5276a51d3ef43abbafff29e91a48548c18f9e275a0d3c7eeb |
 | tests/acceptance/005-ficha-medida/test_CA3_medir.py | 28f8ad15c14a09c00ad7d63bf9a6f9ac83607c606ab447295324549d5c71a9f3 |
 | tests/acceptance/005-ficha-medida/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
+
+## Prova
+- Data: 2026-11-02
+- Commit: 79a20a873efdecf7f9d956655c85fab210274c0f
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde

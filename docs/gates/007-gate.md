@@ -16,3 +16,10 @@
 | tests/acceptance/007-montar/test_CA2_intervalo.py | f4630cb0148b0731b317580693972ec828dc903c91300989e59d24b18cb90272 |
 | tests/acceptance/007-montar/test_CA3_tudo_ou_nada.py | 58a2326e028fabd56b930e69f3072b09ea9832a1aa751924e52b700a21d70324 |
 | tests/acceptance/007-montar/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
+
+## Prova
+- Data: 2026-11-02
+- Commit: 6150930a8d6e731394f9f891a496d3eda826b56b
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde

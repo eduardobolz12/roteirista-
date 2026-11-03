@@ -17,3 +17,10 @@
 | tests/acceptance/004-epub/test_CA3_marcas_e_entidades.py | 2a9655143406ff78d5c7375bff3978768985b93c2140463181158df77e57bac5 |
 | tests/acceptance/004-epub/fixtures/dois-capitulos.epub | dd184f6aa160356fbed267abde0cf8debccfa93828b016aee7dd94796f71e648 |
 | tests/acceptance/004-epub/fixtures/_gerar_epub.py | be99a2977c47da7584ee5c8c362380cc7580094855186e6b99850c9932d87895 |
+
+## Prova
+- Data: 2026-11-02
+- Commit: c277799f10d54812f4f202d84fac84281e3b8887
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde
