@@ -112,6 +112,22 @@ def capitulos(slug: str) -> list[tuple[int, list[str]]]:
     return resultado
 
 
+def textos(slug: str) -> list[tuple[str, str]]:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        return conexao.execute(
+            """
+            SELECT id, texto FROM (
+                SELECT id, texto, capitulo, 0 AS tipo, numero FROM paragrafos
+                UNION ALL
+                SELECT id, texto, capitulo, 1 AS tipo, numero FROM notas
+                UNION ALL
+                SELECT id, texto, 2147483647 AS capitulo, 2 AS tipo, numero FROM bibliografia
+            )
+            ORDER BY capitulo, tipo, numero
+            """
+        ).fetchall()
+
+
 def trecho(slug: str, id: str) -> str | None:
     with sqlite3.connect(_caminho(slug)) as conexao:
         for tabela in ("paragrafos", "notas", "bibliografia"):

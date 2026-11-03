@@ -38,6 +38,14 @@ def _argumentos() -> argparse.ArgumentParser:
     montar = comandos.add_parser("montar")
     montar.add_argument("slug")
     montar.add_argument("ids", nargs="+")
+
+    conferir = comandos.add_parser("conferir")
+    conferir.add_argument("slug")
+    conferir.add_argument("frase")
+
+    buscar = comandos.add_parser("buscar")
+    buscar.add_argument("slug")
+    buscar.add_argument("termo")
     return parser
 
 
@@ -111,6 +119,32 @@ def main() -> None:
             total_tokens += tokens
             sys.stdout.write(f"{numero:02d} {palavras} palavras, {tokens} tokens\n")
         sys.stdout.write(f"total {total_palavras} palavras, {total_tokens} tokens\n")
+        return
+
+    if args.comando == "conferir":
+        frase = unicodedata.normalize("NFC", re.sub(r"\s+", " ", args.frase).strip())
+        ids = []
+        for id, texto in banco.textos(args.slug):
+            texto = re.sub(r"\[n\d{2}\]", "", texto)
+            texto = unicodedata.normalize("NFC", re.sub(r"\s+", " ", texto).strip())
+            if frase in texto:
+                ids.append(id)
+        if not ids:
+            sys.stdout.write("NÃO EXISTE\n")
+            raise SystemExit(1)
+        sys.stdout.write(f"EXISTE {' '.join(ids)}\n")
+        return
+
+    if args.comando == "buscar":
+        termo = unicodedata.normalize("NFC", args.termo).casefold()
+        ids = [
+            id
+            for id, texto in banco.textos(args.slug)
+            if termo in unicodedata.normalize("NFC", texto).casefold()
+        ]
+        if not ids:
+            raise SystemExit(1)
+        sys.stdout.write("".join(f"{id}\n" for id in ids))
         return
 
     if args.comando == "montar":
