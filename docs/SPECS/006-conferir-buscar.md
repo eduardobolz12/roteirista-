@@ -1,6 +1,6 @@
 # SPEC 006 — Conferir e buscar
 
-**Estado:** testes vermelhos escritos a pedido do Decisor; **exemplos ainda não aprovados — não levar ao gate antes da aprovação**
+**Estado:** exemplos aprovados pelo Decisor em 2026-11-02 (CA-1 e fixture refeitos, opção A); testes vermelhos entregues para o gate
 
 ## Intenção
 Como Decisor, quero saber se uma frase existe literalmente no livro e onde aparece um termo, para
@@ -23,7 +23,7 @@ Valem os formatos das SPECs anteriores. Acrescentam-se:
 - **Onde procurar:** parágrafos do corpo, notas (`CC.nPP`) e bibliografia (`bib.PPP`).
 - **Conferir:** a frase existe quando aparece **literalmente**, diferenciando maiúsculas e acentos,
   depois de normalizar frase e texto em NFC e reduzir espaços repetidos a um. As marcas de chamada
-  `[nPP]` do texto são ignoradas: `corpo. O` confere com `corpo.[n01] O`.
+  `[nPP]` do texto são ignoradas: `certidão sem` confere com `certidão[n01] sem`.
 - **Saída de conferir:** existe → stdout `EXISTE <ids>`, ids separados por espaço, na ordem do
   livro; código `0`. Não existe → stdout `NÃO EXISTE`; código `1`.
 - **Buscar:** o termo é procurado sem diferenciar maiúsculas (acentos continuam diferenciando),
@@ -33,14 +33,16 @@ Valem os formatos das SPECs anteriores. Acrescentam-se:
 
 ## Tabela de CA
 
-Fixture: `tests/acceptance/006-conferir-buscar/fixtures/notas.pdf`, cópia do PDF da SPEC 003
-(`01.001` = `O médico assinou a certidão sem examinar o corpo.[n01]`; `01.002` = `A família
+Fixture: `tests/acceptance/006-conferir-buscar/fixtures/nota-no-meio.pdf`, gerado por
+`_gerar_pdf.py` na mesma pasta. É o PDF da SPEC 003 com uma diferença: o `1` em sobrescrito vem
+logo depois de `certidão`, no meio do 1º parágrafo
+(`01.001` = `O médico assinou a certidão[n01] sem examinar o corpo.`; `01.002` = `A família
 guardou uma cópia na igreja.`; `01.n01` = `A certidão foi encontrada em 1981 nos arquivos do
 hospital.`; `02.001` = `O caso chegou aos jornais da capital.`; `bib.001` e `bib.002`).
 
 | ID | Dado | Quando | Então |
 |------|------|--------|-------|
-| CA-1 | `notas.pdf` convertido com `--slug teste` | `livro conferir teste "sem examinar o corpo."` e `livro conferir teste "guardou uma   cópia"` (três espaços) | stdout `EXISTE 01.001\n` e `EXISTE 01.002\n`; código `0` nos dois |
+| CA-1 | `nota-no-meio.pdf` convertido com `--slug teste` | `livro conferir teste "a certidão sem examinar"` (atravessa a marca `[n01]`) e `livro conferir teste "guardou uma   cópia"` (três espaços) | stdout `EXISTE 01.001\n` e `EXISTE 01.002\n`; código `0` nos dois |
 | CA-2 | o mesmo livro | `livro conferir teste "sem examinar o cadáver"` e `livro conferir teste "O MÉDICO assinou"` | stdout `NÃO EXISTE\n` nos dois; código `1` nos dois |
 | CA-3 | o mesmo livro | `livro buscar teste "CERTIDÃO"`, `livro buscar teste "serpent"` e `livro buscar teste "zumbi"` | stdout exatamente `01.001\n01.n01\n`, `bib.001\n` e vazio; códigos `0`, `0` e `1` |
 

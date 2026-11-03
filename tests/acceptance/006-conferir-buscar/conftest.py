@@ -1,4 +1,4 @@
-"""Fronteira da SPEC 006 (PDF copiado da fixture da 003): o executável `livro`, chamado como processo."""
+"""Fronteira da SPEC 006 (PDF próprio, gerado por fixtures/_gerar_pdf.py): o executável `livro`, chamado como processo."""
 import os
 import subprocess
 from dataclasses import dataclass
@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 FIXTURES = Path(__file__).parent / "fixtures"
-PDF = FIXTURES / "notas.pdf"
+PDF = FIXTURES / "nota-no-meio.pdf"
 
 
 @dataclass
@@ -27,7 +27,7 @@ class Saida:
 
 @pytest.fixture
 def pdf():
-    """A fixture da tabela de CA: notas.pdf."""
+    """A fixture da tabela de CA: nota-no-meio.pdf."""
     return PDF
 
 
