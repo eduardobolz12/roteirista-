@@ -74,7 +74,7 @@ _SERVICO = {
     "índice remissivo",
 }
 _PALAVRA = re.compile(r"[^\W\d_]+(?:-[^\W\d_]+)*")
-_FIM_DE_LINHA_HIFENIZADA = re.compile(r"([^\W\d_]+)-$")
+_FIM_DE_LINHA_HIFENIZADA = re.compile(r"([^\W\d_]+(?:-[^\W\d_]+)*)-$")
 _INICIO_DE_PALAVRA = re.compile(r"^([^\W\d_]+)(.*)$", re.DOTALL)
 _FIM_DE_PARAGRAFO = re.compile(r"[.!?…][\"'”’»]*$")
 _INICIO_DE_NOTA = re.compile(r"^(\d+)\s+(.+)$")
@@ -322,24 +322,39 @@ def _sem_cabecalhos_e_rodapes(
     return paginas_limpas
 
 
-def _juntar_linhas(linhas: list[str], vocabulario: set[str]) -> str:
+def _juntar_linhas(linhas: list[str], vocabulario: Counter[str]) -> str:
     resultado = linhas[0]
     for linha in linhas[1:]:
+        if resultado.endswith(("—", "–")) or linha.startswith(("—", "–")):
+            resultado += linha
+            continue
+
         anterior = _FIM_DE_LINHA_HIFENIZADA.search(resultado)
         seguinte = _INICIO_DE_PALAVRA.match(linha)
-        if anterior and seguinte and seguinte.group(1)[0].islower():
-            com_hifen = f"{anterior.group(1)}-{seguinte.group(1)}"
-            sem_hifen = f"{anterior.group(1)}{seguinte.group(1)}"
-            if com_hifen not in vocabulario or sem_hifen in vocabulario:
-                resultado = resultado[:-1]
-            resultado += linha
-        else:
-            resultado += f" {linha}"
+        if anterior and seguinte:
+            primeira = anterior.group(1)
+            segunda = seguinte.group(1)
+            if segunda[0].isupper():
+                resultado += linha
+                continue
+            if segunda[0].islower():
+                com_hifen = f"{primeira}-{segunda}"
+                sem_hifen = f"{primeira}{segunda}"
+                manter = sem_hifen not in vocabulario and (
+                    com_hifen in vocabulario
+                    or "-" in primeira
+                    or (vocabulario[primeira] > 1 and vocabulario[segunda] > 1)
+                )
+                if not manter:
+                    resultado = resultado[:-1]
+                resultado += linha
+                continue
+        resultado += f" {linha}"
     return _texto(resultado)
 
 
 def _separar_notas(
-    paginas: list[list[Linha]], corpo: float, vocabulario: set[str]
+    paginas: list[list[Linha]], corpo: float, vocabulario: Counter[str]
 ) -> tuple[list[list[Linha]], dict[int, list[Nota]]]:
     paginas_sem_notas = []
     notas_por_pagina: dict[int, list[Nota]] = {}
@@ -434,7 +449,7 @@ def _linhas_capitulo(
 
 
 def _compor_paragrafos(
-    linhas: list[Linha], vocabulario: set[str], quebras: list[bool]
+    linhas: list[Linha], vocabulario: Counter[str], quebras: list[bool]
 ) -> list[str]:
     paragrafos: list[str] = []
     atual: list[Linha] = []
@@ -459,7 +474,7 @@ def _margem_direita(linhas: list[Linha], corpo: float) -> float:
     return sum(margem) / len(margem)
 
 
-def _paragrafos(linhas: list[Linha], vocabulario: set[str], corpo: float) -> list[str]:
+def _paragrafos(linhas: list[Linha], vocabulario: Counter[str], corpo: float) -> list[str]:
     if not linhas:
         return []
     de_corpo = [linha for linha in linhas if linha.tamanho == corpo]
@@ -579,12 +594,12 @@ def extrair(caminho: Path) -> Livro:
     paginas = _sem_cabecalhos_e_rodapes(
         paginas, [float(pagina.mediabox.height) for pagina in leitor.pages]
     )
-    vocabulario = {
+    vocabulario = Counter(
         palavra
         for linhas in paginas
         for linha in linhas
         for palavra in _PALAVRA.findall(linha.texto)
-    }
+    )
     paginas, notas_por_pagina = _separar_notas(paginas, corpo, vocabulario)
 
     numeros: list[int | None] = []
