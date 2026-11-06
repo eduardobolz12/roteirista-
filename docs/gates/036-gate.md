@@ -17,3 +17,10 @@
 | tests/acceptance/036-medida-da-linha/test_CA3_glossario.py | 2696c62e4333c3dc75ca4f5139f3f220dfa2deccdeb3f0908feb177cd45c761d |
 | tests/acceptance/036-medida-da-linha/fixtures/recuo-escala.pdf | d16af2a79dccc2a12a13a701073c232792493c40d6ec746c4f812a03808b8e28 |
 | tests/acceptance/036-medida-da-linha/fixtures/_gerar_pdf.py | 8394860840de8c6a3a8c2ebb343fb9988d32cde96b15c636d5ce1b9a1bc39e47 |
+
+## Prova
+- Data: 2026-11-06
+- Commit: bb4b1437a56a09e36930818f66648d347da00cfb
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde, 035 verde

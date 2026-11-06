@@ -17,3 +17,10 @@
 | tests/acceptance/037-juncao-de-linhas/test_CA3_partes_do_livro.py | 46bf62bb05250c1f7fd88124aeac86ced7e891c45fa5a5dd98ad1cd035b03a81 |
 | tests/acceptance/037-juncao-de-linhas/fixtures/juncao.pdf | 908e2da024766df6ec976c33361893e3173d27389fe10f32abfd531fe65a20e0 |
 | tests/acceptance/037-juncao-de-linhas/fixtures/_gerar_pdf.py | dd70191aa2fb6f92dd3b22776c66b2c5857efdec8575ff3185330e90beb7a1af |
+
+## Prova
+- Data: 2026-11-06
+- Commit: af3fbe631db59983c5e8ed3d7a593d6888491be7
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde, 035 verde, 036 verde
