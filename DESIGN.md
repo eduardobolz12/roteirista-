@@ -110,3 +110,8 @@ Evidência do modelo local: `docs/experimentos/E-001-modelo-local.md`.
 - Decidido: capítulo é o marcador sem filhos, em qualquer nível; marcador com filhos é parte e não é capítulo. Capa e dedicatória ficam como capítulos; copyright, sumário e índice remissivo saem do livro, porque a organização vem dos marcadores e o `buscar` substitui o índice. Parágrafo também se separa por recuo horizontal. Vale sobre as SPECs 001, 002 e 005, pelas SPECs 034 e 035.
 - Alternativa rejeitada: manter "marcador de primeiro nível" e parágrafo só por espaço vertical, que no Serpent deram 12 capítulos e 210 parágrafos, com partes inteiras num id; e tirar também capa e dedicatória, que o Decisor preferiu manter.
 - Gatilho de revisão: um livro real em que a estrutura de marcadores ou a composição fuja destas regras no roteiro manual.
+
+### D-021 — Fatias em lote, com o livro real antes do aceite
+- Decidido: as fatias andam em lotes de 3 ou 4, seguindo as dependências do MAPA: aprovação, gate, construção e prova de todas de uma vez, um commit por fatia, e o Kimi para na primeira falha. Cada lote fecha com um teste no Serpent. Antes de pedir aprovação, o arquiteto roda as regras no livro real, pelo código do núcleo sempre que ele existir. Fixture é só uma amostra: teste verde não prova que o livro saiu bom.
+- Alternativa rejeitada: fatia por fatia, com o Decisor levando cada mensagem entre os agentes; e automatizar a aprovação ou o aceite, que foi o que revelou os defeitos do Serpent depois de 7 fatias verdes.
+- Gatilho de revisão: um defeito atravessar um lote inteiro sem ser pego no teste com o Serpent.

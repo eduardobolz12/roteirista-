@@ -17,6 +17,8 @@ de uma que os escreve. "Livro de teste" = fixture pequena dentro da pasta da fat
 | 007 | montar | 001 | `livro montar` gera um documento com o texto literal de uma lista de ids e intervalos, na ordem pedida |
 | 034 | estrutura do livro: partes, páginas de serviço, abertura de capítulo | 006, 005 | capítulo é marcador sem filhos; copyright, sumário e índice saem; capa sem texto mantém o número; nenhum texto aparece em dois capítulos |
 | 035 | parágrafos por recuo | 034 | recuo horizontal separa parágrafos e decide a virada de página; citação em bloco é um parágrafo; glossário sai por entrada |
+| 036 | medida da linha em PDF comercial | 035 | as regras da 035 valem num PDF com escala, fonte embutida e texto letra por letra; o parágrafo do Serpent sai inteiro |
+| 037 | junção de linhas | 002, 036 | travessão une sem espaço; hífen fica antes de maiúscula e em composto cujas partes o livro conhece |
 
 ## Bloco B — Leitura pelo modelo local (escreve o índice)
 
