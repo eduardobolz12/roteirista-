@@ -2,6 +2,7 @@
 
 from collections import Counter
 from dataclasses import dataclass, replace
+from math import hypot
 from pathlib import Path
 import re
 from statistics import median
@@ -9,7 +10,7 @@ import unicodedata
 
 from pypdf import PdfReader
 from pypdf._page import PageObject
-from pypdf._text_extraction import Font
+from pypdf._text_extraction import Font, get_text_operands
 
 
 @dataclass(frozen=True)
@@ -94,32 +95,166 @@ def _texto(texto: str) -> str:
 
 def _linhas_da_pagina(pagina: PageObject, numero: int) -> list[Linha]:
     fragmentos: list[Fragmento] = []
-    espacamento = [0.0]
+    medidas: list[Fragmento] = []
+    recursos = pagina["/Resources"].get("/Font", {})
+    fontes = {
+        nome: Font.from_font_resource(referencia.get_object())
+        for nome, referencia in recursos.items()
+    }
+    fonte_atual: Font | None = None
+    tamanho_atual = 12.0
+    espacamento = 0.0
+    espacamento_de_palavra = 0.0
+    escala_horizontal = 1.0
+    avanco = 0.0
+    estados = []
 
-    def visitar_operador(operador: bytes, operandos: list, _cm, _tm) -> None:
-        if operador == b"Tc":
-            espacamento[0] = float(operandos[0])
+    def bases(cm: list[float], tm: list[float]) -> tuple[tuple[float, float], ...]:
+        origem = (
+            tm[4] * cm[0] + tm[5] * cm[2] + cm[4],
+            tm[4] * cm[1] + tm[5] * cm[3] + cm[5],
+        )
+        horizontal = (
+            tm[0] * cm[0] + tm[1] * cm[2],
+            tm[0] * cm[1] + tm[1] * cm[3],
+        )
+        vertical = (
+            tm[2] * cm[0] + tm[3] * cm[2],
+            tm[2] * cm[1] + tm[3] * cm[3],
+        )
+        return origem, horizontal, vertical
+
+    def registrar(operando, cm: list[float], tm: list[float]) -> None:
+        nonlocal avanco
+        if fonte_atual is None:
+            return
+        decodificado, _, largura_dos_glifos = get_text_operands(
+            [operando], cm, tm, fonte_atual, (0, 90, 180, 270)
+        )
+        espacos = (
+            decodificado.count(fonte_atual.space_char) if fonte_atual.space_char else 0
+        )
+        largura = (
+            largura_dos_glifos * tamanho_atual / 1000
+            + len(decodificado) * espacamento
+            + espacos * espacamento_de_palavra
+        ) * escala_horizontal
+        origem, horizontal, vertical = bases(cm, tm)
+        x = origem[0] + avanco * horizontal[0]
+        y = origem[1] + avanco * horizontal[1]
+        medidas.append(
+            Fragmento(
+                texto="",
+                x=x,
+                y=y,
+                fim=x + largura * horizontal[0],
+                tamanho=abs(tamanho_atual) * hypot(*vertical),
+                ordem=len(medidas),
+            )
+        )
+        avanco += largura
+
+    def visitar_operador(operador: bytes, operandos: list, cm, tm) -> None:
+        nonlocal fonte_atual, tamanho_atual, espacamento, espacamento_de_palavra
+        nonlocal escala_horizontal, avanco
+        if operador == b"q":
+            estados.append(
+                (
+                    fonte_atual,
+                    tamanho_atual,
+                    espacamento,
+                    espacamento_de_palavra,
+                    escala_horizontal,
+                )
+            )
+        elif operador == b"Q" and estados:
+            (
+                fonte_atual,
+                tamanho_atual,
+                espacamento,
+                espacamento_de_palavra,
+                escala_horizontal,
+            ) = estados.pop()
+        elif operador == b"Tf":
+            fonte_atual = fontes.get(operandos[0])
+            tamanho_atual = float(operandos[1])
+        elif operador == b"Tc":
+            espacamento = float(operandos[0])
+        elif operador == b"Tw":
+            espacamento_de_palavra = float(operandos[0])
+        elif operador == b"Tz":
+            escala_horizontal = float(operandos[0]) / 100
+        elif operador in {b"BT", b"ET", b"Td", b"TD", b"Tm", b"T*"}:
+            avanco = 0.0
+        elif operador in {b"Tj", b"'", b'"'}:
+            if operador != b"Tj":
+                avanco = 0.0
+            registrar(operandos[-1], cm, tm)
+        elif operador == b"TJ" and operandos:
+            for operando in operandos[0]:
+                if isinstance(operando, (str, bytes)):
+                    registrar(operando, cm, tm)
+                else:
+                    avanco -= (
+                        float(operando)
+                        * tamanho_atual
+                        / 1000
+                        * escala_horizontal
+                    )
 
     def visitar(texto: str, cm: list[float], tm: list[float], fonte, tamanho: float) -> None:
         partes = texto.splitlines()
         if not partes and texto and not texto.isspace():
             partes = [texto]
-        for parte in partes:
-            x = tm[4] * cm[0] + tm[5] * cm[2] + cm[4]
-            largura = Font.from_font_resource(fonte).get_text_width(parte) * tamanho / 1000
+        if not partes:
+            return
+        medidas_do_texto = medidas[:]
+        medidas.clear()
+        if texto.isspace() and not medidas_do_texto:
+            return
+
+        faixas: list[list[Fragmento]] = []
+        for medida in sorted(medidas_do_texto, key=lambda item: -item.y):
+            tolerancia = max(1, medida.tamanho * 0.5)
+            if faixas and abs(faixas[-1][0].y - medida.y) <= tolerancia:
+                faixas[-1].append(medida)
+            else:
+                faixas.append([medida])
+        if len(partes) == 1 and medidas_do_texto:
+            faixas = [medidas_do_texto]
+
+        origem, horizontal, vertical = bases(cm, tm)
+        for indice, parte in enumerate(partes):
+            if faixas:
+                faixa = faixas[min(indice, len(faixas) - 1)]
+                x = min(medida.x for medida in faixa)
+                y = max(medida.y for medida in faixa)
+                fim = max(medida.fim for medida in faixa)
+                tamanho_impresso = max(medida.tamanho for medida in faixa)
+            else:
+                largura = (
+                    Font.from_font_resource(fonte).get_text_width(parte) * tamanho / 1000
+                    if fonte is not None
+                    else 0.0
+                )
+                x, y = origem
+                fim = x + (
+                    largura + max(len(parte) - 1, 0) * espacamento
+                ) * escala_horizontal * horizontal[0]
+                tamanho_impresso = abs(tamanho) * hypot(*vertical)
             fragmentos.append(
                 Fragmento(
                     texto=parte,
                     x=x,
-                    y=tm[4] * cm[1] + tm[5] * cm[3] + cm[5],
-                    fim=x + largura + max(len(parte) - 1, 0) * espacamento[0],
-                    tamanho=tamanho,
+                    y=y,
+                    fim=fim,
+                    tamanho=tamanho_impresso,
                     ordem=len(fragmentos),
                 )
             )
 
     pagina.extract_text(
-        visitor_operand_before=visitar_operador,
+        visitor_operand_after=visitar_operador,
         visitor_text=visitar,
     )
     grupos: list[list[Fragmento]] = []
