@@ -4,10 +4,12 @@ from collections import Counter
 from dataclasses import dataclass, replace
 from pathlib import Path
 import re
+from statistics import median
 import unicodedata
 
 from pypdf import PdfReader
 from pypdf._page import PageObject
+from pypdf._text_extraction import Font
 
 
 @dataclass(frozen=True)
@@ -34,6 +36,7 @@ class Fragmento:
     texto: str
     x: float
     y: float
+    fim: float
     tamanho: float
     ordem: int
 
@@ -43,6 +46,7 @@ class Linha:
     texto: str
     x: float
     y: float
+    fim: float
     tamanho: float
     pagina: int
     fragmentos: tuple[Fragmento, ...]
@@ -90,23 +94,34 @@ def _texto(texto: str) -> str:
 
 def _linhas_da_pagina(pagina: PageObject, numero: int) -> list[Linha]:
     fragmentos: list[Fragmento] = []
+    espacamento = [0.0]
 
-    def visitar(texto: str, cm: list[float], tm: list[float], _fonte, tamanho: float) -> None:
+    def visitar_operador(operador: bytes, operandos: list, _cm, _tm) -> None:
+        if operador == b"Tc":
+            espacamento[0] = float(operandos[0])
+
+    def visitar(texto: str, cm: list[float], tm: list[float], fonte, tamanho: float) -> None:
         partes = texto.splitlines()
         if not partes and texto and not texto.isspace():
             partes = [texto]
         for parte in partes:
+            x = tm[4] * cm[0] + tm[5] * cm[2] + cm[4]
+            largura = Font.from_font_resource(fonte).get_text_width(parte) * tamanho / 1000
             fragmentos.append(
                 Fragmento(
                     texto=parte,
-                    x=tm[4] * cm[0] + tm[5] * cm[2] + cm[4],
+                    x=x,
                     y=tm[4] * cm[1] + tm[5] * cm[3] + cm[5],
+                    fim=x + largura + max(len(parte) - 1, 0) * espacamento[0],
                     tamanho=tamanho,
                     ordem=len(fragmentos),
                 )
             )
 
-    pagina.extract_text(visitor_text=visitar)
+    pagina.extract_text(
+        visitor_operand_before=visitar_operador,
+        visitor_text=visitar,
+    )
     grupos: list[list[Fragmento]] = []
     for fragmento in sorted(fragmentos, key=lambda item: -item.y):
         tolerancia = max(1, fragmento.tamanho * 0.5)
@@ -125,6 +140,7 @@ def _linhas_da_pagina(pagina: PageObject, numero: int) -> list[Linha]:
                     texto=texto,
                     x=min(fragmento.x for fragmento in grupo),
                     y=max(fragmento.y for fragmento in grupo),
+                    fim=max(fragmento.fim for fragmento in grupo),
                     tamanho=max(fragmento.tamanho for fragmento in grupo),
                     pagina=numero,
                     fragmentos=ordenados,
@@ -282,27 +298,93 @@ def _linhas_capitulo(
     )
 
 
-def _paragrafos(linhas: list[Linha], vocabulario: set[str]) -> list[str]:
+def _compor_paragrafos(
+    linhas: list[Linha], vocabulario: set[str], quebras: list[bool]
+) -> list[str]:
     paragrafos: list[str] = []
     atual: list[Linha] = []
+    for linha, quebra in zip(linhas, quebras, strict=True):
+        if atual and quebra:
+            paragrafos.append(_juntar_linhas([item.texto for item in atual], vocabulario))
+            atual = []
+        atual.append(linha)
+    if atual:
+        paragrafos.append(_juntar_linhas([item.texto for item in atual], vocabulario))
+    return paragrafos
 
-    for linha in linhas:
-        if atual:
-            anterior = atual[-1]
+
+def _margem_direita(linhas: list[Linha], corpo: float) -> float:
+    grupos: list[list[float]] = []
+    for fim in sorted(linha.fim for linha in linhas):
+        if grupos and fim - grupos[-1][-1] <= 0.6 * corpo:
+            grupos[-1].append(fim)
+        else:
+            grupos.append([fim])
+    margem = max(grupos, key=lambda grupo: (len(grupo), sum(grupo) / len(grupo)))
+    return sum(margem) / len(margem)
+
+
+def _paragrafos(linhas: list[Linha], vocabulario: set[str], corpo: float) -> list[str]:
+    if not linhas:
+        return []
+    de_corpo = [linha for linha in linhas if linha.tamanho == corpo]
+    esquerda = min((linha.x for linha in de_corpo), default=0)
+    recuadas = [linha.x - esquerda > 0.6 * corpo for linha in de_corpo]
+    if sum(recuadas) < 3:
+        quebras = [False]
+        for anterior, linha in zip(linhas, linhas[1:]):
             if anterior.pagina != linha.pagina:
                 quebra = _FIM_DE_PARAGRAFO.search(anterior.texto) is not None
             else:
                 recuo = anterior.y - linha.y
                 tamanho = max(anterior.tamanho, linha.tamanho, 1)
                 quebra = recuo > tamanho * 1.8
-            if quebra:
-                paragrafos.append(_juntar_linhas([item.texto for item in atual], vocabulario))
-                atual = []
-        atual.append(linha)
+            quebras.append(quebra)
+        return _compor_paragrafos(linhas, vocabulario, quebras)
 
-    if atual:
-        paragrafos.append(_juntar_linhas([item.texto for item in atual], vocabulario))
-    return paragrafos
+    direita = _margem_direita(de_corpo, corpo)
+    cheias = [direita - linha.fim <= 0.6 * corpo for linha in de_corpo]
+    curtas = [direita - linha.fim > 2.5 * corpo for linha in de_corpo]
+    depois_da_margem = [
+        indice
+        for indice in range(1, len(de_corpo))
+        if recuadas[indice] and not recuadas[indice - 1]
+    ]
+    glossario = len(depois_da_margem) >= 5 and (
+        sum(cheias[indice - 1] for indice in depois_da_margem) / len(depois_da_margem) > 0.8
+    )
+    if glossario:
+        return _compor_paragrafos(
+            de_corpo, vocabulario, [False, *[not recuada for recuada in recuadas[1:]]]
+        )
+
+    distancias = [
+        anterior.y - linha.y
+        for anterior, linha in zip(de_corpo, de_corpo[1:])
+        if anterior.pagina == linha.pagina and anterior.y > linha.y
+    ]
+    entrelinha = median(distancias) if distancias else corpo
+    quebras = [False]
+    for indice, (anterior, linha) in enumerate(zip(de_corpo, de_corpo[1:]), start=1):
+        salto_vertical = (
+            anterior.pagina == linha.pagina and anterior.y - linha.y > 1.6 * entrelinha
+        )
+        if recuadas[indice]:
+            citacao = (
+                recuadas[indice - 1]
+                and not cheias[indice - 1]
+                and not curtas[indice - 1]
+                and not cheias[indice]
+            )
+            quebra = not citacao
+        else:
+            fim_de_recuo = recuadas[indice - 1] and not cheias[indice - 1]
+            fim_curto = curtas[indice - 1] and re.search(
+                r"[.!?…:][\"'”’»]*$", anterior.texto
+            ) is not None
+            quebra = fim_de_recuo or fim_curto
+        quebras.append(salto_vertical or quebra)
+    return _compor_paragrafos(de_corpo, vocabulario, quebras)
 
 
 def _e_bibliografia(titulo: str) -> bool:
@@ -391,7 +473,7 @@ def extrair(caminho: Path) -> Livro:
         if not marcador.folha or _e_servico(marcador.titulo):
             continue
         paragrafos = _paragrafos(
-            _linhas_capitulo(paginas, marcadores, indice, corpo), vocabulario
+            _linhas_capitulo(paginas, marcadores, indice, corpo), vocabulario, corpo
         )
         numero_capitulo = numeros[indice]
         if numero_capitulo is None:
