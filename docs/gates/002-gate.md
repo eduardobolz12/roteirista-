@@ -24,3 +24,9 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde
+
+## Aceite
+- Data: 2026-11-06
+- Decisor: aceito
+- Evidência: Serpent reconvertido em 2026-11-06 no commit 36a514c: 20 capítulos, 1489 parágrafos; 1.394 dos 1.433 parágrafos do piloto idênticos.
+- Roteiro manual: parágrafos inteiros nas viradas de página 58→59, 105→106 e 147→148; `hell-on-earth` mantém o hífen.

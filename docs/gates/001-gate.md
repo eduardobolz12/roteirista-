@@ -24,3 +24,9 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: nenhuma (001 é a primeira)
+
+## Aceite
+- Data: 2026-11-06
+- Decisor: aceito
+- Evidência: Serpent reconvertido em 2026-11-06 no commit 36a514c: 20 capítulos, 1489 parágrafos; 1.394 dos 1.433 parágrafos do piloto idênticos.
+- Roteiro manual: `02.001` é a dedicatória; `06.001` começa por "I ENJOY TRAINS"; um único banco em `livros/serpent/`. O `04.001` do roteiro virou `06.001` pela SPEC 034.

@@ -24,3 +24,9 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde
+
+## Aceite
+- Data: 2026-11-06
+- Decisor: aceito
+- Evidência: Serpent reconvertido em 2026-11-06 no commit 36a514c: 20 capítulos, 1489 parágrafos; 1.394 dos 1.433 parágrafos do piloto idênticos.
+- Roteiro manual: as regras só valeram no livro real depois da fatia 036. Citação em bloco da página 106 é um parágrafo só (`10.087`). O `10.083` do roteiro é o `10.084`: `“Professor.”` é parágrafo próprio aqui.
