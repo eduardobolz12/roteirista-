@@ -17,3 +17,10 @@
 | tests/acceptance/035-paragrafos-por-recuo/test_CA3_glossario.py | 3725b77af6a1adc5c0b43caa847914db56b758e1d10cd3cb4c5e4ca066353a2e |
 | tests/acceptance/035-paragrafos-por-recuo/fixtures/recuo.pdf | f5f05d27ca33c49a05da5cb9012b9002747a669cb5de4454ada08670b3a04f98 |
 | tests/acceptance/035-paragrafos-por-recuo/fixtures/_gerar_pdf.py | 29fe6f88c181926cbc41d605898dde6fa8baabbe3f97b2b4455c587a80af68b0 |
+
+## Prova
+- Data: 2026-11-06
+- Commit: 9a5295ab87b1603fece2d3449a3da624b1fda06d
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde

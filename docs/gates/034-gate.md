@@ -17,3 +17,10 @@
 | tests/acceptance/034-estrutura-do-livro/test_CA3_abertura_de_capitulo.py | a5f28d71b61aa99c0fd60c8842aebae24accce3ca91cd0395fe26c3f4519fe0f |
 | tests/acceptance/034-estrutura-do-livro/fixtures/estrutura.pdf | 55f8d881f376f284383952525e725df391be193a35762952d4bf5abf48ef62e5 |
 | tests/acceptance/034-estrutura-do-livro/fixtures/_gerar_pdf.py | 0282f706f662379de647f0240d28daae3301d8717ba6d64432abca48637fe870 |
+
+## Prova
+- Data: 2026-11-06
+- Commit: 0ed7fcad69ca38508ae97d0f7b3f26f6fe8bcddf
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde
