@@ -105,3 +105,8 @@ Evidência do modelo local: `docs/experimentos/E-001-modelo-local.md`.
 - Decidido: as skills (prompts de orquestração do Claude Code) são escritas pelo arquiteto como parte da spec da fatia. O aceite é o validador do arquivo que a skill produz, construído pelo Kimi com teste, mais o roteiro manual do Decisor. É a única exceção à regra "arquiteto não escreve produção" e não vale para código.
 - Alternativa rejeitada: o Kimi escrever as skills, porque seria um modelo instruindo o Claude sem o contexto do debate; e o Decisor escrever, pelo trabalho.
 - Gatilho de revisão: uma skill produzir arquivo que passa no validador mas falha no roteiro manual em mais de uma fatia.
+
+### D-020 — O que é capítulo e parágrafo num livro comercial
+- Decidido: capítulo é o marcador sem filhos, em qualquer nível; marcador com filhos é parte e não é capítulo. Capa e dedicatória ficam como capítulos; copyright, sumário e índice remissivo saem do livro, porque a organização vem dos marcadores e o `buscar` substitui o índice. Parágrafo também se separa por recuo horizontal. Vale sobre as SPECs 001, 002 e 005, pelas SPECs 034 e 035.
+- Alternativa rejeitada: manter "marcador de primeiro nível" e parágrafo só por espaço vertical, que no Serpent deram 12 capítulos e 210 parágrafos, com partes inteiras num id; e tirar também capa e dedicatória, que o Decisor preferiu manter.
+- Gatilho de revisão: um livro real em que a estrutura de marcadores ou a composição fuja destas regras no roteiro manual.

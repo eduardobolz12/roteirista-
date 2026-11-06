@@ -15,6 +15,8 @@ de uma que os escreve. "Livro de teste" = fixture pequena dentro da pasta da fat
 | 005 | ficha do livro e medida | 001 | `livro medir` dá palavras e tokens por capítulo; `livro novo` grava a língua informada na ficha e mostra 3 parágrafos para conferência |
 | 006 | conferir e buscar | 001 | `livro conferir` diz EXISTE/NÃO EXISTE para uma frase literal; `livro buscar` devolve todos os ids de um termo, sem diferenciar maiúsculas |
 | 007 | montar | 001 | `livro montar` gera um documento com o texto literal de uma lista de ids e intervalos, na ordem pedida |
+| 034 | estrutura do livro: partes, páginas de serviço, abertura de capítulo | 006, 005 | capítulo é marcador sem filhos; copyright, sumário e índice saem; capa sem texto mantém o número; nenhum texto aparece em dois capítulos |
+| 035 | parágrafos por recuo | 034 | recuo horizontal separa parágrafos e decide a virada de página; citação em bloco é um parágrafo; glossário sai por entrada |
 
 ## Bloco B — Leitura pelo modelo local (escreve o índice)
 
