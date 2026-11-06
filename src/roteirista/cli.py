@@ -50,11 +50,15 @@ def _argumentos() -> argparse.ArgumentParser:
 
 
 def _conferencia(livro: Livro) -> list[str]:
-    primeiro = livro.capitulos[0]
+    numero_primeiro, primeiro = next(
+        (numero, capitulo)
+        for numero, capitulo in enumerate(livro.capitulos, start=1)
+        if capitulo.paragrafos
+    )
     ultimo = livro.capitulos[-1]
     numero = len(livro.capitulos)
     return [
-        f"01.001 {primeiro.paragrafos[0]}",
+        f"{numero_primeiro:02d}.001 {primeiro.paragrafos[0]}",
         f"{numero:02d}.001 {ultimo.paragrafos[0]}",
         f"{numero:02d}.{len(ultimo.paragrafos):03d} {ultimo.paragrafos[-1]}",
     ]

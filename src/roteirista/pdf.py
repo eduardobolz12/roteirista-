@@ -48,6 +48,26 @@ class Linha:
     fragmentos: tuple[Fragmento, ...]
 
 
+@dataclass(frozen=True)
+class Marcador:
+    titulo: str
+    pagina: int
+    folha: bool
+
+
+_SERVICO = {
+    "copyright",
+    "copyright page",
+    "direitos autorais",
+    "contents",
+    "table of contents",
+    "sumário",
+    "sommaire",
+    "table des matières",
+    "index",
+    "índice",
+    "índice remissivo",
+}
 _PALAVRA = re.compile(r"[^\W\d_]+(?:-[^\W\d_]+)*")
 _FIM_DE_LINHA_HIFENIZADA = re.compile(r"([^\W\d_]+)-$")
 _INICIO_DE_PALAVRA = re.compile(r"^([^\W\d_]+)(.*)$", re.DOTALL)
@@ -226,20 +246,40 @@ def _antes_do_titulo(linhas: list[Linha], titulo: str) -> list[Linha]:
     return linhas
 
 
-def _linhas_capitulo(
-    paginas: list[list[Linha]], marcadores: list[tuple[str, int]], indice: int
-) -> list[Linha]:
-    titulo, inicio = marcadores[indice]
-    if indice + 1 == len(marcadores):
-        selecao = [list(linhas) for linhas in paginas[inicio:]]
-        selecao[0] = _depois_do_titulo(selecao[0], titulo)
-        return [linha for linhas in selecao for linha in linhas]
+def _sem_abertura(linhas: list[Linha], corpo: float) -> list[Linha]:
+    resultado = []
+    antes_do_corpo = True
+    for linha in linhas:
+        if antes_do_corpo and linha.tamanho > corpo:
+            continue
+        if linha.tamanho >= corpo:
+            antes_do_corpo = False
+        resultado.append(linha)
+    return resultado
 
-    proximo_titulo, fim = marcadores[indice + 1]
-    selecao = [list(linhas) for linhas in paginas[inicio:fim + 1]]
-    selecao[0] = _depois_do_titulo(selecao[0], titulo)
-    selecao[-1] = _antes_do_titulo(selecao[-1], proximo_titulo)
-    return [linha for linhas in selecao for linha in linhas]
+
+def _linhas_capitulo(
+    paginas: list[list[Linha]], marcadores: list[Marcador], indice: int, corpo: float
+) -> list[Linha]:
+    atual = marcadores[indice]
+    fim = len(paginas)
+    proximo_impresso = False
+    if indice + 1 < len(marcadores):
+        proximo = marcadores[indice + 1]
+        proximo_impresso = any(
+            linha.texto == _texto(proximo.titulo) for linha in paginas[proximo.pagina]
+        )
+        fim = proximo.pagina + 1 if proximo_impresso else proximo.pagina
+    if fim <= atual.pagina:
+        return []
+
+    selecao = [list(linhas) for linhas in paginas[atual.pagina:fim]]
+    selecao[0] = _depois_do_titulo(selecao[0], atual.titulo)
+    if proximo_impresso:
+        selecao[-1] = _antes_do_titulo(selecao[-1], marcadores[indice + 1].titulo)
+    return _sem_abertura(
+        [linha for linhas in selecao for linha in linhas], corpo
+    )
 
 
 def _paragrafos(linhas: list[Linha], vocabulario: set[str]) -> list[str]:
@@ -269,24 +309,48 @@ def _e_bibliografia(titulo: str) -> bool:
     return _texto(titulo).casefold() in _BIBLIOGRAFIAS
 
 
+def _e_servico(titulo: str) -> bool:
+    return _texto(titulo).casefold() in _SERVICO
+
+
+def _ler_marcadores(itens: list, leitor: PdfReader) -> list[Marcador]:
+    marcadores = []
+    indice = 0
+    while indice < len(itens):
+        item = itens[indice]
+        if isinstance(item, list):
+            indice += 1
+            continue
+        tem_filhos = indice + 1 < len(itens) and isinstance(itens[indice + 1], list)
+        marcadores.append(
+            Marcador(
+                titulo=item.title,
+                pagina=leitor.get_destination_page_number(item),
+                folha=not tem_filhos,
+            )
+        )
+        if tem_filhos:
+            marcadores.extend(_ler_marcadores(itens[indice + 1], leitor))
+            indice += 2
+        else:
+            indice += 1
+    return marcadores
+
+
 def _capitulos_por_pagina(
-    marcadores: list[tuple[str, int]], numeros: list[int | None], total: int
+    marcadores: list[Marcador], numeros: list[int | None], total: int
 ) -> dict[int, int | None]:
     resultado = {}
-    for indice, (_, inicio) in enumerate(marcadores):
-        fim = marcadores[indice + 1][1] - 1 if indice + 1 < len(marcadores) else total - 1
-        for pagina in range(inicio, fim + 1):
+    for indice, marcador in enumerate(marcadores):
+        fim = marcadores[indice + 1].pagina - 1 if indice + 1 < len(marcadores) else total - 1
+        for pagina in range(marcador.pagina, fim + 1):
             resultado[pagina] = numeros[indice]
     return resultado
 
 
 def extrair(caminho: Path) -> Livro:
     leitor = PdfReader(caminho)
-    marcadores = [
-        (item.title, leitor.get_destination_page_number(item))
-        for item in leitor.outline
-        if not isinstance(item, list)
-    ]
+    marcadores = _ler_marcadores(leitor.outline, leitor)
     paginas = [
         _linhas_da_pagina(pagina, numero)
         for numero, pagina in enumerate(leitor.pages)
@@ -308,8 +372,8 @@ def extrair(caminho: Path) -> Livro:
 
     numeros: list[int | None] = []
     numero = 0
-    for titulo, _ in marcadores:
-        if _e_bibliografia(titulo):
+    for marcador in marcadores:
+        if not marcador.folha or _e_servico(marcador.titulo) or _e_bibliografia(marcador.titulo):
             numeros.append(None)
         else:
             numero += 1
@@ -323,9 +387,11 @@ def extrair(caminho: Path) -> Livro:
 
     capitulos = []
     bibliografia = []
-    for indice, (titulo, _) in enumerate(marcadores):
+    for indice, marcador in enumerate(marcadores):
+        if not marcador.folha or _e_servico(marcador.titulo):
+            continue
         paragrafos = _paragrafos(
-            _linhas_capitulo(paginas, marcadores, indice), vocabulario
+            _linhas_capitulo(paginas, marcadores, indice, corpo), vocabulario
         )
         numero_capitulo = numeros[indice]
         if numero_capitulo is None:
@@ -333,7 +399,7 @@ def extrair(caminho: Path) -> Livro:
         else:
             capitulos.append(
                 Capitulo(
-                    titulo=titulo,
+                    titulo=marcador.titulo,
                     paragrafos=paragrafos,
                     notas=notas_por_capitulo.get(numero_capitulo, []),
                 )
