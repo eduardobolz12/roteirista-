@@ -22,3 +22,10 @@
 | tests/acceptance/009-janelas/fixtures/respostas/padrao/01.001.txt | 0d15eb261d661687957b23034fc1192510c450df68916109f25d9ca3e2d70cd1 |
 | tests/acceptance/009-janelas/fixtures/respostas/padrao/01.002.txt | 65f659b9e3527b55b1ef3f8d79d0d679f9b1d2a8a1484101c2c12ed9b085ee07 |
 | tests/acceptance/009-janelas/fixtures/respostas/padrao/01.003.txt | f4c7b76bb48e19a29659b517c0f1ef1aa0eae6a35a3327863cedb568c55664e4 |
+
+## Prova
+- Data: 2026-11-10
+- Commit: b1f9633f4213dec282455c8903ccbf7adaadac44
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde, 035 verde, 036 verde, 037 verde, 008 verde

@@ -21,3 +21,10 @@
 | tests/acceptance/008-indexar/fixtures/respostas/padrao/01.001.txt | 1d1f537e6424f8f526e18a128e6fb23e112dd40052430a44b76f06ebec40c88b |
 | tests/acceptance/008-indexar/fixtures/respostas/padrao/02.001.txt | dee5e377adbd8fa8c8e9fcfc3c7b686c6e0c519ce3ab3ed07c52bf3cb92362c5 |
 | tests/acceptance/008-indexar/fixtures/respostas/segunda/01.001.txt | 481803df4ad508ae0e57eb069744bdbcf17d75f90e127f1e1c148bcd385024b3 |
+
+## Prova
+- Data: 2026-11-10
+- Commit: 8a0fc3466afce00916b67c06c08ec9283138e45d
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde, 035 verde, 036 verde, 037 verde

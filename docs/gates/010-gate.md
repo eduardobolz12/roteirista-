@@ -22,3 +22,10 @@
 | tests/acceptance/010-ancoras/fixtures/respostas/literal/01.001.txt | 43a0ac272534e9e88e64a16b8251d96741dbf218ba9ce19a673f731efb1fe9ce |
 | tests/acceptance/010-ancoras/fixtures/respostas/rejeitar/01.001.txt | 4c60f93811e9a15173a00265c99a87f20812f84fbbe2edc0a7975c826c30ca45 |
 | tests/acceptance/010-ancoras/fixtures/respostas/vizinho/01.001.txt | 534cde9c7e6d6f2fc56f3543afdf7b716409530f31dc66e1ba229c4ced57ef90 |
+
+## Prova
+- Data: 2026-11-10
+- Commit: b432729bab55efba596027ada54286e6e67264be
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde, 035 verde, 036 verde, 037 verde, 008 verde, 009 verde
