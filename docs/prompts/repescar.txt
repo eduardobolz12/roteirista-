@@ -1,4 +1,4 @@
-"Estes parágrafos de um livro ficaram sem registro no índice. Cada parágrafo começa com um id entre colchetes, por exemplo [04.023].
+Estes parágrafos de um livro ficaram sem registro no índice. Cada parágrafo começa com um id entre colchetes, por exemplo [04.023].
 
 Para cada parágrafo, escreva uma linha neste formato exato:
 

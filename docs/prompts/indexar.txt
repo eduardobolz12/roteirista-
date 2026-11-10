@@ -1,4 +1,4 @@
-"Você vai indexar um trecho de livro. Cada parágrafo começa com um id entre colchetes, por exemplo [04.023].
+Você vai indexar um trecho de livro. Cada parágrafo começa com um id entre colchetes, por exemplo [04.023].
 
 Liste as passagens importantes do trecho, uma por linha, neste formato exato:
 
