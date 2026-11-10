@@ -50,6 +50,7 @@ def _argumentos() -> argparse.ArgumentParser:
     indexar = comandos.add_parser("indexar")
     indexar.add_argument("slug")
     indexar.add_argument("capitulo")
+    indexar.add_argument("--janela", type=int, default=2000)
 
     itens = comandos.add_parser("itens")
     itens.add_argument("slug")
@@ -161,7 +162,7 @@ def main() -> None:
 
     if args.comando == "indexar":
         try:
-            resultado = modelo.indexar(args.slug, args.capitulo)
+            resultado = modelo.indexar(args.slug, args.capitulo, args.janela)
         except modelo.CapituloInexistente:
             sys.stderr.write(f"capítulo inexistente: {args.capitulo}\n")
             raise SystemExit(2)

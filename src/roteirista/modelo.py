@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from importlib import resources
 import json
 import os
+import unicodedata
 from urllib import request
 
 from roteirista import banco
@@ -131,12 +132,51 @@ def _ler_itens(
     return resultado
 
 
-def indexar(slug: str, capitulo: str) -> Resultado:
+def _tokens(texto: str) -> int:
+    caracteres = len(unicodedata.normalize("NFC", texto))
+    return -(-caracteres // 4)
+
+
+def _janelas(
+    paragrafos: list[tuple[str, str]], limite: int
+) -> list[list[tuple[str, str]]]:
+    janelas = []
+    atual: list[tuple[str, str]] = []
+    total = 0
+    for paragrafo in paragrafos:
+        tokens = _tokens(paragrafo[1])
+        if atual and total + tokens > limite:
+            janelas.append(atual)
+            ultimo = atual[-1]
+            if _tokens(ultimo[1]) + tokens <= limite:
+                atual = [ultimo]
+                total = _tokens(ultimo[1])
+            else:
+                atual = []
+                total = 0
+        atual.append(paragrafo)
+        total += tokens
+    if atual:
+        janelas.append(atual)
+    return janelas
+
+
+def indexar(slug: str, capitulo: str, janela: int = 2000) -> Resultado:
     paragrafos = banco.paragrafos_capitulo(slug, capitulo)
     if paragrafos is None:
         raise CapituloInexistente(capitulo)
-    resposta = _pedir(_prompt("indexar.txt") + _trecho(paragrafos))
-    resultado = _ler_itens(slug, capitulo, paragrafos, resposta)
+    resultado = Resultado(itens=[], avisos=[], rejeitados=0)
+    vistos = set()
+    for janela_atual in _janelas(paragrafos, janela):
+        resposta = _pedir(_prompt("indexar.txt") + _trecho(janela_atual))
+        parcial = _ler_itens(slug, capitulo, paragrafos, resposta)
+        resultado.avisos.extend(parcial.avisos)
+        resultado.rejeitados += parcial.rejeitados
+        for item in parcial.itens:
+            chave = (item.id, item.tipo, item.ancora.casefold())
+            if chave not in vistos:
+                vistos.add(chave)
+                resultado.itens.append(item)
     banco.substituir_itens(
         slug,
         capitulo,
