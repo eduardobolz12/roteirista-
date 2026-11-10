@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from importlib import resources
 import json
 import os
+import re
 import unicodedata
 from urllib import request
 
@@ -99,6 +100,30 @@ def _trecho(paragrafos: list[tuple[str, str]]) -> str:
     return "\n\n".join(f"[{id}] {texto}" for id, texto in paragrafos)
 
 
+def _normalizar(texto: str) -> str:
+    texto = re.sub(r"\[n\d{2}\]", "", texto)
+    texto = texto.translate(str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'"}))
+    texto = unicodedata.normalize("NFC", texto).casefold()
+    return re.sub(r"\s+", " ", texto).strip()
+
+
+def _localizar_ancora(
+    ancora: str, id: str, paragrafos: list[tuple[str, str]]
+) -> str | None:
+    procurada = _normalizar(ancora)
+    if not procurada:
+        return None
+    posicao = next(pos for pos, (id_paragrafo, _) in enumerate(paragrafos) if id_paragrafo == id)
+    if procurada in _normalizar(paragrafos[posicao][1]):
+        return id
+    for distancia in (1, 2, 3):
+        for vizinho in (posicao - distancia, posicao + distancia):
+            if 0 <= vizinho < len(paragrafos):
+                if procurada in _normalizar(paragrafos[vizinho][1]):
+                    return paragrafos[vizinho][0]
+    return None
+
+
 def _ler_itens(
     slug: str,
     capitulo: str,
@@ -124,8 +149,18 @@ def _ler_itens(
             elif tipo not in _TIPOS:
                 motivo = "tipo inválido"
             else:
-                motivo = None
-                resultado.itens.append(Item(id, tipo, ancora, afirmacao))
+                id_localizado = _localizar_ancora(ancora, id, paragrafos)
+                if id_localizado is None:
+                    motivo = "âncora não encontrada"
+                else:
+                    motivo = None
+                    if id_localizado != id:
+                        resultado.avisos.append(
+                            f"corrigido: {id} -> {id_localizado}: {ancora}"
+                        )
+                    resultado.itens.append(
+                        Item(id_localizado, tipo, ancora, afirmacao)
+                    )
         if motivo is not None:
             resultado.avisos.append(f"rejeitado ({motivo}): {linha}")
             resultado.rejeitados += 1

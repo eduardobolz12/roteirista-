@@ -171,8 +171,9 @@ def main() -> None:
             raise SystemExit(3)
         for aviso in resultado.avisos:
             sys.stdout.write(f"{aviso}\n")
+        corrigidos = sum(aviso.startswith("corrigido:") for aviso in resultado.avisos)
         sys.stdout.write(
-            f"{len(resultado.itens)} itens gravados, 0 corrigidos, "
+            f"{len(resultado.itens)} itens gravados, {corrigidos} corrigidos, "
             f"{resultado.rejeitados} rejeitados\n"
         )
         return
