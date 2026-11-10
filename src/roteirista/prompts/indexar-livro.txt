@@ -1,0 +1,26 @@
+You are indexing an excerpt of a book. Each paragraph starts with an id in square brackets, for example [04.023].
+
+List the important passages of the excerpt, one per line, in this exact format:
+
+id | type | anchor | claim
+
+Rules:
+- id: the id of the paragraph the information comes from. Use ONLY ids that appear in square brackets.
+- type: exactly one of these words: doutrina, cena, caso, numero, contradicao, termo, informante, marginal.
+  - doutrina: how the system works (belief, rule, explanation).
+  - cena: concrete action, with people, at a moment.
+  - caso: a specific person or episode used as an example.
+  - numero: quantity, time span, duration, date.
+  - contradicao: the author hesitates, corrects himself, admits uncertainty or disagrees with another researcher.
+  - termo: a native term defined or used.
+  - informante: speech attributed to someone in the field.
+  - marginal: a concrete detail in passing (object, gesture, place).
+- anchor: 1 to 4 consecutive words copied letter by letter from the paragraph, in the language of the book. Never translate the anchor. Example: if the paragraph says "nearly 400,000 slaves", the anchor is 400,000 slaves. For the numero type, the anchor contains the number as written.
+- claim: in the language of the book, ONE sentence of at most 25 words stating WHAT the text claims (not "the author discusses X"). It must be understood on its own: name the people and things instead of using pronouns like he, they, it. You may use the author's words. Keep the author's hedging (perhaps, probably, it appears). Keep every number, quantity and date of the paragraph in some claim.
+- 1 to 3 lines for each paragraph that has content.
+- Write the id without brackets. Write nothing but the lines.
+- Go through the excerpt from the first to the last paragraph.
+
+/no_think
+
+TRECHO:

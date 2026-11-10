@@ -115,6 +115,18 @@ def _normalizar(texto: str) -> str:
     return re.sub(r"\s+", " ", texto).strip()
 
 
+def _contem_ancora(procurada: str, texto: str) -> bool:
+    inicio = texto.find(procurada)
+    while inicio >= 0:
+        fim = inicio + len(procurada)
+        antes = texto[inicio - 1] if inicio else ""
+        depois = texto[fim] if fim < len(texto) else ""
+        if not antes.isalnum() and not depois.isalnum():
+            return True
+        inicio = texto.find(procurada, inicio + 1)
+    return False
+
+
 def _localizar_ancora(
     ancora: str, id: str, paragrafos: list[tuple[str, str]]
 ) -> str | None:
@@ -122,14 +134,19 @@ def _localizar_ancora(
     if not procurada:
         return None
     posicao = next(pos for pos, (id_paragrafo, _) in enumerate(paragrafos) if id_paragrafo == id)
-    if procurada in _normalizar(paragrafos[posicao][1]):
+    if _contem_ancora(procurada, _normalizar(paragrafos[posicao][1])):
         return id
     for distancia in (1, 2, 3):
         for vizinho in (posicao - distancia, posicao + distancia):
             if 0 <= vizinho < len(paragrafos):
-                if procurada in _normalizar(paragrafos[vizinho][1]):
+                if _contem_ancora(procurada, _normalizar(paragrafos[vizinho][1])):
                     return paragrafos[vizinho][0]
     return None
+
+
+def _normalizar_afirmacao(afirmacao: str) -> str:
+    normalizada = re.sub(r"\s+", " ", afirmacao).strip().casefold()
+    return normalizada.removesuffix(".")
 
 
 def _ler_itens(
@@ -208,17 +225,22 @@ def indexar(slug: str, capitulo: str, janela: int = 2000) -> Resultado:
     paragrafos = banco.paragrafos_capitulo(slug, capitulo)
     if paragrafos is None:
         raise CapituloInexistente(capitulo)
+    lingua = banco.ficha(slug)[0]
+    prompt = "indexar-livro.txt" if lingua else "indexar.txt"
     resultado = Resultado(itens=[], avisos=[], rejeitados=0)
     vistos = set()
+    frases = set()
     for janela_atual in _janelas(paragrafos, janela):
-        resposta = _pedir(_prompt("indexar.txt") + _trecho(janela_atual))
+        resposta = _pedir(_prompt(prompt) + _trecho(janela_atual))
         parcial = _ler_itens(slug, capitulo, paragrafos, resposta)
         resultado.avisos.extend(parcial.avisos)
         resultado.rejeitados += parcial.rejeitados
         for item in parcial.itens:
             chave = (item.id, item.tipo, item.ancora.casefold())
-            if chave not in vistos:
+            frase = (item.id, _normalizar_afirmacao(item.afirmacao))
+            if chave not in vistos and frase not in frases:
                 vistos.add(chave)
+                frases.add(frase)
                 resultado.itens.append(item)
     banco.substituir_itens(
         slug,
@@ -264,11 +286,15 @@ def _ler_repescagem(
                 _, tipo, ancora, afirmacao = campos
                 if tipo not in _TIPOS:
                     motivo = "tipo inválido"
-                elif not _normalizar(ancora) or _normalizar(ancora) not in _normalizar(textos[id]):
-                    motivo = "âncora não encontrada"
                 else:
-                    motivo = None
-                    resultado.itens.append(Item(id, tipo, ancora, afirmacao))
+                    procurada = _normalizar(ancora)
+                    if not procurada or not _contem_ancora(
+                        procurada, _normalizar(textos[id])
+                    ):
+                        motivo = "âncora não encontrada"
+                    else:
+                        motivo = None
+                        resultado.itens.append(Item(id, tipo, ancora, afirmacao))
         if motivo is not None:
             resultado.avisos.append(f"rejeitado ({motivo}): {linha}")
             resultado.rejeitados += 1
@@ -282,20 +308,25 @@ def repescar(slug: str, capitulo: str, janela: int = 2000) -> ResultadoRepescage
     lacunas = banco.lacunas(slug, capitulo)
     lista = set(lacunas)
     selecionados = [paragrafo for paragrafo in paragrafos if paragrafo[0] in lista]
+    lingua = banco.ficha(slug)[0]
+    prompt = "repescar-livro.txt" if lingua else "repescar.txt"
     resultado = ResultadoRepescagem(
         itens=[], sem_conteudo=[], avisos=[], rejeitados=0
     )
     vistos = set()
+    frases = set()
     marcas = set()
     for janela_atual in _janelas(selecionados, janela):
-        resposta = _pedir(_prompt("repescar.txt") + _trecho(janela_atual))
+        resposta = _pedir(_prompt(prompt) + _trecho(janela_atual))
         parcial = _ler_repescagem(slug, paragrafos, lacunas, resposta)
         resultado.avisos.extend(parcial.avisos)
         resultado.rejeitados += parcial.rejeitados
         for item in parcial.itens:
             chave = (item.id, item.tipo, item.ancora.casefold())
-            if chave not in vistos:
+            frase = (item.id, _normalizar_afirmacao(item.afirmacao))
+            if chave not in vistos and frase not in frases:
                 vistos.add(chave)
+                frases.add(frase)
                 resultado.itens.append(item)
         for id in parcial.sem_conteudo:
             if id not in marcas:
