@@ -125,3 +125,8 @@ Evidência do modelo local: `docs/experimentos/E-001-modelo-local.md`.
 - Decidido: os resumos feitos pelo modelo local podem ser revisados por modelos gratuitos na nuvem (9Router ou OpenRouter), que recebem os trechos do livro necessários para conferir e devolvem uma versão corrigida. O Decisor aceitou, em 2026-11-10, que esses trechos saiam do computador, inclusive para provedores que treinam com o que recebem. Vai só o trecho que a revisão precisa, nunca o livro inteiro de uma vez. A versão corrigida passa pela mesma conferência por script (id e âncora no literal), e as duas versões ficam guardadas. O texto do livro e o material montado para o dossiê nunca são alterados.
 - Alternativa rejeitada: revisar só com uma segunda passada do modelo local, que é privada mas mais fraca; e só provedores que não treinam com os dados, o que reduz demais as opções gratuitas.
 - Gatilho de revisão: a revisão criar mais erros do que corrige, medida no capítulo 06 do Serpent antes da fatia; ou um provedor usado mudar os termos de forma que o Decisor não aceite.
+
+### D-024 — Índice na língua do livro
+- Decidido: livro com língua informada é indexado e repescado com os prompts `indexar-livro.txt` e `repescar-livro.txt`, que pedem a afirmação na língua do livro. A âncora confere como palavra inteira, e fichas do mesmo parágrafo com a mesma frase viram uma. Um pedido ao modelo que falha é tentado até 3 vezes. Atualiza a D-022.
+- Alternativa rejeitada: a afirmação em português, que no E-003 achou 1 dos 4 números do gabarito contra 4 de 4; e pedir "todo número", que dobrou o índice sem achar mais.
+- Gatilho de revisão: o índice na língua do livro passar de 40% do tamanho do capítulo, ou mais de 15% de recusas num capítulo real (D-022).

@@ -19,6 +19,7 @@ de uma que os escreve. "Livro de teste" = fixture pequena dentro da pasta da fat
 | 035 | parágrafos por recuo | 034 | recuo horizontal separa parágrafos e decide a virada de página; citação em bloco é um parágrafo; glossário sai por entrada |
 | 036 | medida da linha em PDF comercial | 035 | as regras da 035 valem num PDF com escala, fonte embutida e texto letra por letra; o parágrafo do Serpent sai inteiro |
 | 037 | junção de linhas | 002, 036 | travessão une sem espaço; hífen fica antes de maiúscula e em composto cujas partes o livro conhece |
+| 038 | livro antigo | 011 | livro gravado por uma versão anterior aceita os comandos novos sem perder nada |
 
 ## Bloco B — Leitura pelo modelo local (escreve o índice)
 
@@ -28,6 +29,8 @@ de uma que os escreve. "Livro de teste" = fixture pequena dentro da pasta da fat
 | 009 | capítulo longo em janelas | 008 | capítulo maior que o contexto é lido em janelas; nenhum parágrafo fica fora de todas as janelas; itens não se duplicam na emenda |
 | 010 | conferência de âncoras | 008, 006 | número ou nome de um item que não está no parágrafo apontado é procurado nos vizinhos (até 3) e o id é corrigido; não achado, o item é rejeitado |
 | 011 | cobertura e repescagem | 008 | `livro lacunas` lista os parágrafos sem item; a repescagem cobre só esses, com item ou `sem-conteudo` |
+| 039 | fichas na língua do livro | 011 | livro com língua usa os prompts na língua do livro; âncora como palavra inteira; mesma frase vira uma ficha |
+| 040 | nova tentativa | 009 | pedido que falha é repetido até 3 vezes antes do `modelo inacessível` |
 | 012 | resumo por capítulo | 008, 010 | `livro resumir` grava temas, cenas, números e contradições do capítulo, cada linha com ids válidos |
 | 013 | embeddings e busca por sentido | 001 | `livro vetorizar` grava um vetor por parágrafo no banco; `livro perguntar "<pergunta>"` devolve ids ordenados, nunca texto reescrito |
 | 014 | candidatos a contradição | 001 | `livro hesitacoes` lista os parágrafos com palavras-marca da língua do livro ("perhaps", "wrong", "conjecture"...); o julgamento do Claude é gravado só para ids da lista |

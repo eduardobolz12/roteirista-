@@ -1,0 +1,4 @@
+01.001 | cena | nome | O homem leu o nome.
+01.001 | caso | home | Âncora dentro de outra palavra.
+01.001 | caso | rosto | A irmã reconhece o rosto.
+01.003 | marginal | ar | Âncora curta dentro de palavras.

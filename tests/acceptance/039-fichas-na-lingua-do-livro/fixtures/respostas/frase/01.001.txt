@@ -1,0 +1,3 @@
+01.001 | cena | próprio nome | O homem lê o próprio nome no túmulo.
+01.001 | caso | túmulo | o homem lê o próprio  nome no TÚMULO
+01.002 | caso | apelido de infância | A irmã reconhece o apelido.

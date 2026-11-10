@@ -1,0 +1,46 @@
+06.001 | cena | sitting on the open ends | I rode them, sitting on the open ends, savoring the waves of tropical scents that the passage of the train whipped into an irresistible melange.
+06.002 | informante | The frontier of death | “The frontier of death”—it was that phrase of Lehman’s that haunted me most, pulling me back from the borders of sleep.
+06.003 | doutrina | bare facts of the case | they were enough to get started, and, moreover, they mercifully grounded my imagination.
+06.001 | numero | a dozen species of crushed flowers | smelling of a dozen species of crushed flowers.
+06.004 | termo | zombis | From descriptions of the wandering zombis, it appeared likely that the drug induced a prolonged psychotic state.
+06.005 | termo | datura, “the holy flower of the North Star.” | Its name is datura, “the holy flower of the North Star.”
+06.006 | caso | a prosperous fisherman | He had been a prosperous fisherman a season ago, before the currents shifted and the warm tropical waters came south to strangle the sea life of the entire coast.
+06.006 | marginal | adobe walls of the farmhouse | Against one wall sat the patient, alone and strangely solemn.
+06.008 | contradicao | he had no choice | He had no choice, and he approached his task with resignation, like the bearer of an incurable disease.
+06.008 | marginal | a worn poncho and an enormous hat | sheltered by a worn poncho and an enormous hat that covered all of his face save his chin.
+06.010 | caso | the enamel bowl | The curandero clasped the enamel bowl as a rural priest might hold a chalice, with his whole hands, firmly and without grace.
+06.011 | cena | foam issued from his mouth | foam issued from his mouth, and his entire body shook with horrible convulsions.
+06.012 | termo | cimora, the tree of the evil eagle | This was cimora, the tree of the evil eagle, the closest botanical relative of datura.
+06.013 | numero | South Station led me out into the morning light | the slow scuffle of feet in South Station led me out into the morning light and onto the streets of Boston.
+06.013 | cena | pale lavender light | The pale lavender light of dawn shone through the opaque membrane of the train window, a mirage of life
+06.014 | marginal | horde of schoolchildren | I had to wade through a horde of schoolchildren being dragged by a schoolmaster to the exhibits
+06.015 | termo | concombre zombi | To the Haitians this was concombre zombi—the zombi’s cucumber!
+06.017 | caso | Professor Schultes | Professor Schultes walked in, his arm cradling several volumes
+06.018 | informante | Don’t you usually sleep | “Don’t you usually sleep in your office?” he asked wryly
+06.020 | doutrina | witches commonly rubbed | witches commonly rubbed their bodies with hallucinogenic ointments made from belladonna, mandrake, and henbane
+06.023 | numero | three weeks | adolescent males were confined in special longhouses and for two or three weeks ate nothing but the drug
+06.021 | caso | Hindu prostitutes | Hindu prostitutes were so adept at using the seeds of the plant that they gave it in doses corresponding to the number of hours
+06.021 | numero | six | give a potion called maikua to young boys when at the age of six they must seek their souls
+06.022 | doutrina | excessive doses resulted | Excessive doses resulted in stupor and death
+06.023 | termo | wysoccan | calling it wysoccan
+06.024 | termo | huaca | it is called huaca, the Quechua name for grave
+06.025 | numero | before the time of Columbus | its value as a drug was such that it was widely dispersed throughout Europe and Africa long before the time of Columbus
+06.026 | caso | women breed beetles | women breed beetles and feed them on a species of the plant, and in turn use the feces to kill unfaithful lovers
+06.026 | caso | Hausas of Nigeria used the seeds | The Hausas of Nigeria used the seeds to heighten the intoxication of ritual beverages.
+06.026 | caso | Fulani youths to excite them in the sharo contest | It was given to Fulani youths to excite them in the sharo contest, the ordeal of manhood.
+06.026 | caso | Witch doctors in Togo administered a drink of its leaves | Witch doctors in Togo administered a drink of its leaves and the root of a potent fish poison (Lonchocarpus capassa) to disputants who appeared before them for a settlement.
+06.026 | caso | women breed beetles and feed them on a species of the plant | In many parts of West Africa the use of Datura stramonium in criminal poisonings still takes a unique form: women breed beetles and feed them on a species of the plant, and in turn use the feces to kill unfaithful lovers.
+06.027 | doutrina | antidote that Kline had referred to would be found there as well | If the poison originated in Africa, it was reasonable to assume that the antidote that Kline had referred to would be found there as well.
+06.028 | numero | close to four hundred thousand slaves | In a mere twelve years, for example, between 1779 and 1790, the slave ships that plied the coast of Africa from Sierra Leone to Mozambique unloaded close to four hundred thousand slaves in Saint Domingue.
+06.028 | numero | twelve years | In a mere twelve years, for example, between 1779 and 1790, the slave ships that plied the coast of Africa from Sierra Leone to Mozambique unloaded close to four hundred thousand slaves in Saint Domingue.
+06.027 | termo | Calabar bean | The recognized medical antidote for datura poisoning is derived from a West African plant. The substance is physostigmine, a drug first isolated from the Calabar bean (Physostigmine venenosum).
+06.028 | caso | Efik of Old Calabar | Such was the scale of the trade that in the Kingdom of Dahomey it became a national industry, with the economy of the entire country based on annual expeditions against neighboring peoples. Many of the captured victims—Nagos, Mahis, and Aradas of the western Yoruba, among others—were taken down the Niger, and there they fell into the hands of a notorious and opportunistic tribe of traders, the Efik of Old Calabar.
+06.030 | marginal | no European was ever permitted to touch the shore | Though some of the slave ships anchored off the coast for up to a year, no European was ever permitted to touch the shore; they could only wait, sometimes for months, to pick up their cargo.
+06.031 | termo | Egbo, or leopard society | Apparently each major Efik settlement was ruled outwardly by an obong, or chief, who enforced laws, mediated in disputes, and led the armed forces in times of war. Besides this secular authority, however, there was a second and perhaps more powerful social and political force, a secret society called the Egbo, or leopard society.
+06.032 | doutrina | The leopard society promulgated and enforced laws | Under a secret council of community elders that constituted the supreme judicial authority, the leopard society promulgated and enforced laws, judged important cases, recovered debts, and protected the property of its members.
+06.033 | caso | The accused was made to drink a toxic potion made from eight seeds of the Calabar bean | The tribunal of the secret society determined guilt or innocence by a judgment of a most singular form. The accused was made to drink a toxic potion made from eight seeds of the Calabar bean, ground and mixed in water.
+06.034 | caso | The body was racked with terrible convulsions | Most often, however, given the toxicity of the Calabar bean, the accused died a ghastly death. The body was racked with terrible convulsions, mucus flowed from the nose, the mouth shook horribly.
+06.035 | marginal | the Efik lands were crowded with newly acquired slaves | At any one time during the later years of the slave trade, the Efik lands were crowded with newly acquired slaves, most of them thoroughly demoralized.
+06.035 | marginal | newly acquired slaves | The Efik lands were crowded with newly acquired slaves, most of them thoroughly demoralized.
+06.035 | cena | held awaiting shipment | Slaves were held awaiting shipment to the Americas for weeks and sometimes months.
+06.036 | termo | Calabar bean | The Calabar bean came from the same region and yielded the recognized medical antidote for datura poisoning.
