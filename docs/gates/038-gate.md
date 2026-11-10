@@ -23,3 +23,10 @@
 | tests/acceptance/038-livro-antigo/fixtures/antigo/livro.sqlite | 64b75b874211ffa3c4dd4015978d7fb26d063862159c75937a0bb963f4099301 |
 | tests/acceptance/038-livro-antigo/fixtures/respostas/padrao/01.001.txt | ae7ecf340fc52c839a2a75275859522eaf1c760250e40a512ea31cd8a73be15f |
 | tests/acceptance/038-livro-antigo/fixtures/respostas/padrao/01.002.txt | 0441316a7c50773203238e0095ce81c020441ab134ba03e92c6ebaf9b56ecb7d |
+
+## Prova
+- Data: 2026-11-10
+- Commit: 9909171dc47bba63992a24c67b44580d02d95bfa
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde

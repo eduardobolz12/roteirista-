@@ -24,3 +24,10 @@
 | tests/acceptance/039-fichas-na-lingua-do-livro/fixtures/respostas/padrao/01.001.txt | 6a616ac1ec1d6fd772580b4506a55a979e54ab3b3b0eb5ed6bc4875df071513a |
 | tests/acceptance/039-fichas-na-lingua-do-livro/fixtures/respostas/padrao/01.002.txt | fbd74214a2775f51f616e1e2a7749074ae9ed425accac0d13bafad32272481fd |
 | tests/acceptance/039-fichas-na-lingua-do-livro/fixtures/respostas/palavra/01.001.txt | 8960d80c77c1ba8a0c22534fa54231cfa03308a354e3ccbbda02a026ada10b24 |
+
+## Prova
+- Data: 2026-11-10
+- Commit: 7761383f78bf3336c86c117853c5a5950afc5696
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde

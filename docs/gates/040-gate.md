@@ -23,3 +23,10 @@
 | tests/acceptance/040-nova-tentativa/fixtures/respostas/padrao/01.001.txt | ae7ecf340fc52c839a2a75275859522eaf1c760250e40a512ea31cd8a73be15f |
 | tests/acceptance/040-nova-tentativa/fixtures/respostas/padrao/01.002.txt | 0441316a7c50773203238e0095ce81c020441ab134ba03e92c6ebaf9b56ecb7d |
 | tests/acceptance/040-nova-tentativa/fixtures/respostas/pouco/01.001.txt | 6a616ac1ec1d6fd772580b4506a55a979e54ab3b3b0eb5ed6bc4875df071513a |
+
+## Prova
+- Data: 2026-11-10
+- Commit: 29538fe0b2fb9d3967641c20d4174092b6b72e4e
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde
