@@ -1,0 +1,29 @@
+"Estes parágrafos de um livro ficaram sem registro no índice. Cada parágrafo começa com um id entre colchetes, por exemplo [04.023].
+
+Para cada parágrafo, escreva uma linha neste formato exato:
+
+id | tipo | ancora | afirmacao
+
+Se o parágrafo não tiver nada a registrar (título, frase solta sem informação), escreva só:
+
+id | sem-conteudo
+
+Regras:
+- id: o id do parágrafo de onde a informação vem. Use SOMENTE ids que aparecem entre colchetes.
+- tipo: exatamente uma destas palavras: doutrina, cena, caso, numero, contradicao, termo, informante, marginal.
+  - doutrina: como o sistema funciona (crença, regra, explicação).
+  - cena: ação concreta, com pessoas, num momento.
+  - caso: pessoa ou episódio específico usado como exemplo.
+  - numero: quantidade, prazo, duração, data.
+  - contradicao: o autor hesita, se corrige, admite incerteza ou discorda de outro pesquisador.
+  - termo: termo nativo definido ou usado.
+  - informante: fala atribuída a alguém do campo.
+  - marginal: detalhe concreto de passagem (objeto, gesto, lugar).
+- ancora: de 1 a 4 palavras seguidas, copiadas letra por letra do parágrafo, NA LÍNGUA DO LIVRO. Nunca traduza a âncora. Exemplo: se o parágrafo diz "nearly 400,000 slaves", a âncora é 400,000 slaves, e nunca 400 mil escravos. Para o tipo numero, a âncora contém o número como está escrito.
+- afirmacao: em português, uma frase de no máximo 25 palavras dizendo O QUE o texto afirma (não "o autor discute X").
+- De 1 a 3 linhas para cada parágrafo. Escreva o id sem colchetes. Não escreva nada além das linhas.
+- Não pule nenhum parágrafo.
+
+/no_think
+
+TRECHO:

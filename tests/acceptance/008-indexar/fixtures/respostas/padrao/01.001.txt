@@ -1,0 +1,4 @@
+01.001 | cena | próprio nome | O homem vê o próprio nome num túmulo.
+
+[01.002] | caso | apelido de infância | A irmã reconhece o homem pelo apelido.
+01.003 | marginal | aldeia | Ninguém na aldeia fala do enterro.

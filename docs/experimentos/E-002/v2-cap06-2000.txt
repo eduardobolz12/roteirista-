@@ -1,0 +1,62 @@
+06.001 | cena | open ends | O autor senta-se nos extremos abertos dos trens para apreciar os cheiros tropicais.
+06.001 | contradicao | American trains | Os trens americanos são descritos como estéreis, ao contrário dos trens latino-americanos que têm vida e aroma.
+06.002 | termo | frontier of death | A frase "fronteira da morte" de Lehman perturba o autor durante a viagem de trem.
+06.003 | caso | Kline and Lehman | O autor reflete sobre as palavras de Kline e Lehman, mas volta às evidências do caso.
+06.004 | numero | deathlike stupor | A substância causava um estado de estupor semelhante à morte.
+06.004 | termo | zombis | O autor menciona que os zombis eram induzidos a estados psicóticos prolongados.
+06.005 | termo | datura | A planta chamada datura é considerada a única possível fonte da substância usada nos zombis.
+06.005 | informante | Schultes | Schultes, apesar de experimentar plantas, nunca provou a datura por sua periculosidade.
+06.006 | cena | high Andes of Peru | O autor descreve uma noite fria e clara nos Andes, com um paciente em estado de insânia.
+06.006 | caso | fisherman | Um pescador rico que perdeu tudo após mudanças na corrente marítima.
+06.007 | cena | curandero | O curandero realiza rituais com objetos sagrados e plantas para tratar o paciente.
+06.007 | termo | achuma | A planta achuma, cactus sagrado das quatro direções, é usada nos rituais do curandero.
+06.008 | cena | solitary task | O curandero se prepara sozinho para enfrentar uma experiência espiritual intensa e perigosa.
+06.009 | marginal | worn poncho | O curandero usa um poncho desgastado e um chapéu grande que cobre seu rosto.
+06.009 | cena | broken door | A porta quebrada da cabana permite que a luz entre em raios verticais enquanto o curandero se prepara.
+06.010 | marginal | enamel bowl | O curandero segura uma tigela de esmalte como um sacerdote seguraria uma taça sagrada.
+06.011 | cena | convulsions | O curandero sofre convulsões violentas e gritos agoniados após tomar a poção.
+06.012 | termo | cimora | A planta chamada cimora é descrita como parente botânico da datura.
+06.013 | numero | South Station | O autor sai da estação de trem em South Station, em Boston, ao amanhecer.
+06.013 | marginal | pale lavender light | A luz pálida de lavanda do amanhecer atravessava a membrana opaca da janela do trem.
+06.014 | marginal | horde of schoolchildren | Uma multidão de crianças da escola era conduzida por um mestre para as exposições.
+06.015 | termo | concombre zombi | Concombre zombi é o nome dado à Datura stramonium pelos haitianos.
+06.017 | informante | Professor Schultes walked in | O professor Schultes entrou, com o braço apoiado em vários volumes.
+06.018 | cena | Don’t you usually sleep in your office? | O professor perguntou se eu normalmente dormia no meu escritório.
+06.020 | doutrina | witches commonly rubbed their bodies | Bruxas na Europa medieval frequentemente esfregavam seus corpos com pomadas alucinógenas.
+06.021 | caso | Hindu prostitutes gave it in doses | Prostitutas hindus davam doses da planta correspondentes ao número de horas que desejavam deixar suas vítimas inconscientes.
+06.022 | doutrina | Datura induced maddening hallucinations | A Datura, em dose moderada, induz alucinações e delírios intensos.
+06.023 | doutrina | datura is associated with transitional moments | A Datura está associada a momentos de transição, como iniciação e morte.
+06.024 | termo | huaca | Em partes do Peru alto, a Datura é chamada de huaca, que significa túmulo em quechua.
+06.025 | numero | at the age of six | Os meninos são submetidos ao uso da planta aos seis anos.
+06.026 | caso | women breed beetles and feed them | Mulheres criam besouros e os alimentam com a planta para usar suas fezes contra amantes infiéis.
+06.026 | caso | Datura stramonium | O uso de Datura stramonium era comum entre várias tribos africanas.
+06.026 | marginal | ritual beverages | Os Hausas usavam as sementes para intensificar bebidas rituais.
+06.026 | termo | sharo contest | O sharo contest era uma prova de virilidade para jovens Fulani.
+06.027 | doutrina | antidote | A antidoto para envenenamento por datura é derivado de uma planta africana.
+06.027 | numero | four hundred thousand slaves | Entre 1779 e 1790, quase quatrocentos mil escravos foram levados a Saint Domingue.
+06.028 | numero | twelve years | Em doze anos, entre 1779 e 1790, muitos escravos foram importados para Saint Domingue.
+06.028 | caso | Senegalese | Os senegaleses eram valorizados por sua moralidade superior.
+06.029 | termo | Efik | O nome Efik vem de uma palavra que significa "opressor".
+06.029 | marginal | estuary of the Niger River | Os Efik estavam localizados perto da foz do rio Níger.
+06.030 | termo | obong | Cada grande assentamento Efik era governado por um obong, ou chefe.
+06.030 | marginal | thousands of pounds sterling | Os europeus tinham que pagar itens valendo milhares de libras esterlinas.
+06.031 | termo | Egbo | A sociedade secreta chamada Egbo era uma associação masculina com hierarquia.
+06.031 | contradicao | perhaps more powerful | A sociedade Egbo talvez fosse mais poderosa que a autoridade secular.
+06.032 | termo | leopard society | A sociedade do leão promulgava e aplicava leis, julgava casos importantes.
+06.032 | marginal | decapitation or fatal mutilation | Punições graves incluíam decapitação ou mutilação letal.
+06.033 | termo | Calabar bean | O acusado bebia uma poção tóxica feita de sementes da vagem de Calabar.
+06.033 | numero | ten feet away | O acusado tinha que caminhar até uma linha a dez pés de distância.
+06.034 | marginal | mucus flowed from the nose | A vítima sofria convulsões e muco escorria do nariz durante o julgamento.
+06.034 | termo | executioner gouged out his eyes | O carrasco arrancava os olhos da vítima e a jogava na floresta.
+06.035 | numero | weeks and sometimes months | Os escravos eram mantidos por semanas ou meses antes do embarque.
+06.035 | termo | Egbo | Os agentes e carrascos da sociedade Egbo ajudavam a manter ordem entre os escravos.
+06.035 | doutrina | kept order and discipline | Os Efik dependiam dos agentes e carrascos do Egbo para manter ordem e disciplina.
+06.035 | marginal | newly acquired slaves | Escravos recém-adquiridos estavam presentes em grande número nas terras dos Efik.
+06.035 | contradicao | many may have undergone | Muitos podem ter passado pelo julgamento com a feijão de Calabar, mas isso é uma possibilidade.
+06.036 | termo | Calabar bean | O feijão de Calabar fornece o antídoto médico para intoxicação por datura.
+06.036 | numero | weeks and sometimes months | Os escravos eram mantidos em cativeiro por semanas ou meses antes do embarque.
+06.036 | informante | African species of datura | Espécies africanas de datura eram comuns na Haiti contemporânea.
+06.037 | doutrina | pharmacological properties | As propriedades farmacológicas das plantas tóxicas africanas provavelmente atravessaram o Atlântico com os escravos.
+06.037 | caso | Calabar hypothesis | A hipótese do feijão de Calabar era uma conjectura, mas serviu como base para novas descobertas.
+06.038 | contradicao | quite wrong | A hipótese simples e elegante acabou sendo incorreta.
+06.038 | caso | secret societies of the Efik | As sociedades secretas dos Efik revelaram-se uma chave para entender o fenômeno dos zumbis.

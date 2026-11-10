@@ -1,0 +1,3 @@
+01.002 | caso | Apelido de Infância | Segunda versão do mesmo item.
+01.002 | cena | reconhecer o rosto | Outra âncora no mesmo parágrafo.
+01.003 | marginal | aldeia | Ninguém na aldeia fala do enterro.

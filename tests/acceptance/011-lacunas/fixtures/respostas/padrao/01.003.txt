@@ -1,0 +1,4 @@
+01.003 | caso | uma cópia | A família guardou o documento.
+01.004 | sem-conteudo
+01.001 | cena | médico | Parágrafo que não é lacuna.
+01.005 | caso | palavra que não existe | Âncora que não está no parágrafo.

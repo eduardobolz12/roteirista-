@@ -1,0 +1,38 @@
+06.001 | doutrina | creaking Latin caravans | American trains are sterile compared to South American ones
+06.002 | contradicao | haunted me most | The phrase "frontier of death" pulled the author back from sleep
+06.003 | termo | bare facts of the case | The case's facts were enough to ground imagination
+06.004 | numero | a dozen species | The poison had to be topically active and derived from a plant or animal in Haiti
+06.005 | caso | datura, “the holy flower of the North Star” | Datura was the only plant that met zombi poison criteria
+06.006 | cena | naked and quite insane | A fisherman disappeared and reappeared as a simulacrum of death
+06.007 | marginal | adobe walls of the farmhouse | The patient sat alone in a farmhouse with agave plants nearby
+06.008 | doutrina | incurable disease | The curandero had to relinquish control to seek revelation
+06.009 | cena | elephantine nose that drooped | The curandero had a distorted face and was assisted by an assistant
+06.010 | marginal | enamel bowl of dark liquid | The curandero drank from a small bowl with deliberate care
+06.011 | cena | foam issued from his mouth | The curandero convulsed violently after drinking the potion
+06.012 | termo | cimora, the tree of the evil eagle | Cimora was the closest botanical relative of datura
+06.013 | marginal | pale lavender light of dawn | Dawn light shone through a train window as the author arrived in Boston
+06.014 | cena | horde of schoolchildren | The author reached the Botanical Museum amid a group of children
+06.015 | numero | forty years ago | An old catalog from 40 years ago listed datura species in Haiti
+06.016 | marginal | • | A bullet point marked the end of a section
+06.017 | informante | Professor Schultes walked in | The author met with Professor Schultes who carried books
+06.018 | doutrina | zombi investigation | The author briefed Schultes on the zombi case
+06.019 | doutrina | instincts for datura | Both shared an instinct that datura was involved in the case
+06.020 | doutrina | witch’s broomstick | Witches used a staff to apply hallucinogenic ointments on their bodies
+06.021 | numero | sixteenth century | Portuguese explorer found Hindu prostitutes using datura seeds
+06.022 | doutrina | excessive doses resulted in stupor | Datura caused hallucinations, confusion, and could lead to death
+06.023 | doutrina | passage rite | Datura was associated with transitional moments like initiation and death
+06.024 | termo | huaca, the Quechua name for grave | In Peru, datura is called huaca because it helps find graves
+06.025 | caso | zombi’s cucumber | Datura stramonium was known in Haiti as concombre zombi
+06.026 | numero | Nigeria used seeds to heighten intoxication | Hausas of Nigeria used datura seeds for ritual beverages
+06.027 | termo | physostigmine, Calabar bean | The antidote for datura poisoning came from the Calabar bean
+06.028 | numero | four hundred thousand slaves | Between 1779 and 1790, nearly 400,000 slaves were brought to Saint Domingue
+06.029 | informante | Efik, meaning “oppress” | The Efik were called oppressors by neighboring tribes due to their trade dominance
+06.030 | numero | thousands of pounds sterling | Europeans had to pay large sums in goods for trading with the Efik
+06.031 | termo | Egbo, or leopard society | A secret society enforced laws and judged cases using a toxic potion
+06.032 | doutrina | decapitation or fatal mutilation | The Egbo executed by slicing off the lower jaw of the accused
+06.033 | numero | ten feet away | The accused had to walk 10 feet after drinking the Calabar bean poison
+06.034 | cena | mucus flowed from the nose | Victims of the Calabar bean ordeal suffered violent convulsions and death
+06.035 | informante | Efik lands crowded with slaves | Slaves in Efik lands heard about the Calabar bean judgment
+06.036 | doutrina | transoceanic passage | The Calabar bean could have survived the journey to Haiti
+06.037 | doutrina | skeletal framework | The hypothesis was a beginning for solving the zombi mystery
+06.038 | contradicao | quite wrong | The hypothesis was elegant but ultimately incorrect

@@ -1,0 +1,2 @@
+01.005 | numero | 400,000 sacas | Muito açúcar chegou ao porto.
+01.007 | cena | fechou | O inverno isolou a aldeia.

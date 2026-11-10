@@ -1,0 +1,66 @@
+{
+ "resultado": {
+  "linhas": 38,
+  "formato_ruim": 0,
+  "tipo_ruim": 0,
+  "id_ruim": 0,
+  "ancora_ok": 30,
+  "ancora_vizinho": 3,
+  "ancora_longe": 5,
+  "numero": 7,
+  "cobertura": "30/38",
+  "tempo_s": 251
+ },
+ "janelas": [
+  {
+   "janela": 0,
+   "pars": 38,
+   "entrada": 5642,
+   "saida": 1139,
+   "s": 249,
+   "fim": "stop"
+  }
+ ],
+ "corrigidos": [
+  [
+   "06.004",
+   "06.001",
+   "a dozen species"
+  ],
+  [
+   "06.005",
+   null,
+   "datura, “the holy flower of the North Star”"
+  ],
+  [
+   "06.007",
+   "06.006",
+   "adobe walls of the farmhouse"
+  ],
+  [
+   "06.010",
+   "06.009",
+   "enamel bowl of dark liquid"
+  ],
+  [
+   "06.026",
+   null,
+   "Nigeria used seeds to heighten intoxication"
+  ],
+  [
+   "06.027",
+   null,
+   "physostigmine, Calabar bean"
+  ],
+  [
+   "06.029",
+   null,
+   "Efik, meaning “oppress”"
+  ],
+  [
+   "06.035",
+   null,
+   "Efik lands crowded with slaves"
+  ]
+ ]
+}

@@ -1,0 +1,242 @@
+[14.001] | cena | crimson with his own blood | O braço do escravo foi esmagado até o ombro e misturou-se com o suco da cana.
+[14.001] | doutrina | numbed by the rage of an intolerable impotence | A dor era familiar, mas a impotência causava raiva e paralisia emocional.
+[14.001] | termo | the wrathful call of crystallized hatred | O escravo gritou com ódio cristalizado, não por si, mas pelo povo africano.
+[14.002] | caso | François Macandal should have died | Macandal sobreviveu ao acidente e era um líder entre os escravos.
+[14.002] | doutrina | an envoy of the gods who would never be vanquished | Os escravos acreditavam que Macandal era imortal, enviado pelos deuses.
+[14.003] | caso | No longer fit to work in the fields | Após o acidente, Macandal foi feito pastor e se afastou da plantação.
+[14.003] | contradicao | Some said he discovered the magic in plants | Há diferentes versões sobre o que Macandal fazia durante seus passeios.
+[14.003] | termo | Maroons | Os escravos fugidos eram conhecidos como Maroons pelos franceses.
+[14.004] | numero | twenty-five years | Um escravo ficou em cadeias por vinte e cinco anos.
+[14.004] | numero | sixty French pounds | O preço para queimar um homem vivo era de sessenta libras francesas.
+[14.004] | doutrina | Slaves like cane were grist for the mill | Escravos eram tratados como matéria-prima, sem valor humano.
+[14.005] | doutrina | Slavery was not born of racism | A escravidão não nasceu do racismo, mas o racismo foi uma consequência dela.
+[14.005] | contradicao | the color of the worker’s skin meant no more to them | Para os mercadores, a cor da pele era irrelevante, como para reis africanos.
+[14.005] | termo | white trash | Trabalhadores brancos eram chamados de "white trash" por serem pobres e roubados.
+[14.005] | doutrina | the enemy had a face, and there was no doubt as to its color | Para os escravizados, o inimigo tinha um rosto e uma cor clara.
+[14.005] | doutrina | economic system | Slavery was not born of racism; rather, racism was the consequence of slavery.
+[14.005] | doutrina | color boundaries | Forced labor was the foundation of an economic system that knew no color boundaries;
+[14.005] | caso | indentured whites | first the Indians and then thousands of indentured whites—petty thieves, convicts, or simply urban poor kidnapped in the port cities of Europe—had toiled in servitude before them
+[14.005] | termo | white trash | when the Indians died, and the supply of white trash failed to meet demand
+[14.005] | doutrina | cheap limitless number | drawing away men and women not because they were black, but because they were cheap, limitless in number, and better.
+[14.005] | termo | Saint Domingue | For them the enemy had a face, and there was no doubt as to its color.
+[14.006] | cena | self-inflicted wounds | Those who chose to submit and endure did what was necessary to ease their plight: self-inflicted wounds allowed a respite from the brutal labor in the fields
+[14.006] | cena | abortion | women gave themselves to the overseers, or spared their unborn children by practicing abortion
+[14.006] | cena | suicide | Others sought immediate relief in suicide
+[14.006] | termo | Maroon | Some remained close by, hiding out by day and dependent on the collusion of their families and friends that remained behind
+[14.006] | marginal | faceless crowds | seeking work among the faceless crowds in the markets or on the docks
+[14.006] | termo | Santo Domingo | Still others made for the Spanish frontier of Santo Domingo, overland across the savannas and mountains
+[14.007] | termo | Maroon | But there was another type of Maroon, men like Macandal who were not content to hover in the shadows like animals
+[14.007] | doutrina | revenge for injustice | These were Africans who would take responsibility for their fate, men who sought not just to survive but to fight and to seek revenge for the weight of injustice that had tormented their people
+[14.007] | termo | Maroon retreats | these independent Maroon retreats were no less than training grounds for guerrilla fighters that threatened the order and stability of the entire colony
+[14.008] | numero | hundred years | One rebellion that covered a vast mountain block in the south lasted a hundred years
+[14.008] | numero | eighty-five years | Further north a Maroon community in the Bahoruco Mountains thrived for eighty-five years
+[14.008] | numero | forty-five years | it was discovered that he had been a Maroon for over forty-five years
+[14.009] | doutrina | slaves outnumbered whites | slaves outnumbered whites a hundred to one on the plantations
+[14.009] | termo | legend grew | with each successive generation their legend grew
+[14.009] | numero | 1770 | By 1770, according to a contemporary report, the number of Maroons had increased to such proportions that “security became nonexistent”
+14.009 | doutrina | Fear of the rebels | A legislação constante restringiu o movimento e a interação normal entre os escravos
+14.009 | marginal | Night searches were frequent | Buscas noturnas eram frequentes
+14.009 | numero | slaves outnumbered whites a hundred to one | Escravos superavam brancos em cem para um
+14.009 | doutrina | rebel bands fought for freedom | Bandas rebeldes lutaram pela liberdade
+14.009 | numero | By 1770 ... “security became nonexistent” | Em 1770, a segurança tornou-se inexistente
+14.010 | numero | forty-eight thousand cases of Maroonage | Quarenta e oito mil casos de maroonagem
+14.010 | numero | 43 new slaves escaped or recaptured | 43 novos escravos escaparam ou foram recapturados
+14.010 | numero | more than 2,000 got away | Mais de 2.000 fugiram
+14.010 | termo | Maroon enclaves | Enclaves dos maroons
+14.011 | doutrina | developed genuine political, economic, and religious systems | Desenvolveram sistemas políticos, econômicos e religiosos autênticos
+14.011 | caso | men of royal blood | Homens de sangue real
+14.011 | termo | Maroon camps | Camps dos maroons
+14.012 | doutrina | Acceptance into the ranks of the Maroons was strictly controlled | A aceitação nos rangos dos maroons era rigorosamente controlada
+14.012 | marginal | mutilating their brands with knives | Mutilando suas marcas com facas
+14.012 | termo | secret handshakes and pass words | Apertos de mão e palavras de passe secretas
+14.013 | doutrina | secret societies were a dominant social force | Sociedades secretas eram uma força social dominante
+14.013 | caso | Poro society of Sierra Leone | Sociedade Poro da Serra Leoa
+14.013 | termo | West African secret societies | Sociedades secretas da África Ocidental
+14.014 | doutrina | administration of justice | Administração da justiça
+14.014 | termo | poison ordeal | Ordeal com veneno
+14.014 | doutrina | knowledge of toxic preparations | Conhecimento de preparações tóxicas
+14.014 | doutrina | administration of justice | As secret societies tinham a função vital de administrar a justiça.
+14.014 | doutrina | poison ordeal | Os tribunais entregavam um veredito baseado no resultado do ordeiro com veneno.
+14.014 | doutrina | judgment by ordeal | O julgamento por ordeiro podia cobrir qualquer crime pessoal ou social.
+14.014 | doutrina | knowledge of toxic preparations | As sociedades secretas desenvolveram conhecimento refinado sobre preparações tóxicas.
+14.015 | caso | poison ordeals | O herdeiro de um rei tinha que submeter-se duas vezes a ordeiros com veneno para provar sua força sobrenatural.
+14.015 | termo | tali (Erythrophleum guineense— Leguminosae) | Uma preparação baseada na casca da árvore conhecida como *tali*.
+14.015 | numero | two thousand people | Cada ano, até duas mil pessoas morriam com a preparação tóxica.
+14.015 | informante | Moreau de Saint-Mery | Segundo Moreau de Saint-Mery, reis usaram tratados para deportar envenenadores.
+14.016 | cena | buried his vengeance deep within his breast | Macandal enterrava sua vingança dentro do peito.
+14.016 | termo | Mandingue | O nome tribal de Macandal era sinônimo de rebelião.
+14.016 | marginal | yellow, white, black kerchiefs | Ele usou três lenços de cores diferentes para representar grupos sociais.
+14.017 | doutrina | network spread | A rede se espalhou por seis anos, com os brancos totalmente ignorantes do perigo.
+14.017 | caso | coachman whose woman had been recently raped | Um cocheiro cuja mulher havia sido recentemente estuprada pelo senhor.
+14.017 | doutrina | secret would remain safe | Macandal precisava de terror para que o segredo permanecesse seguro.
+14.018 | cena | ran a school | Durante o dia, Macandal dava aulas com alunos espalhados na grama.
+14.018 | termo | old women and men in caves | Velhos vivendo sozinhos em cavernas retinham sabedoria antiga.
+14.018 | marginal | fruits that bled red | Frutas que sangravam vermelho e se enegreciam no ar.
+14.019 | numero | two thousand people | Cada ano, até duas mil pessoas morriam com a preparação tóxica.
+14.019 | cena | cattle died one by one | Os bois morreram um por um até que os corpos estivessem espalhados na planície norte.
+14.019 | informante | scientific minds, herbalists | Plantadores contrataram cientistas e ervanistas para investigar a morte dos animais.
+[14.019] | cena | poison seeped into the lives | A toxina afetou as vidas dos brancos.
+[14.019] | marginal | stiff carcasses littered | Os corpos rígidos de animais estavam espalhados pela planície.
+[14.019] | cena | work gangs had begun to sweep clean | As equipes de trabalho começaram a limpar os pastos.
+[14.019] | marginal | the first of the dogs died | O primeiro cão morreu.
+[14.020] | doutrina | dependent on the very people | Os brancos dependiam das pessoas que eram agentes de sua ruína.
+[14.020] | cena | innocent slaves were flayed alive | Escravos inocentes foram flagelados vivos.
+[14.020] | doutrina | the enemy could not be seen | O inimigo não podia ser visto, apenas seu efeito era sentido.
+[14.020] | numero | six thousand at least would be dead | Pelo menos seis mil pessoas morreram.
+[14.021] | cena | a young girl arrested along with three men | Uma jovem foi presa junto com três homens e condenada à morte.
+[14.021] | marginal | the belly of the men bloat, bubbling at the surface | Os abdômen dos homens incharam, borbulhando na superfície.
+[14.021] | cena | she broke, releasing the names of fifty others | Ela quebrou e revelou os nomes de cinquenta outros.
+[14.022] | doutrina | Macandal looked neither frightened nor even defiant | Macandal não parecia assustado nem desafiador.
+[14.022] | cena | the slaves standing ebony black and solemn | Os escravos estavam de pé, negros e sérios.
+[14.022] | marginal | his free stump pounding the air | Seu membro livre batia no ar.
+[14.022] | doutrina | Macandal is free! | "Macandal é livre!" foi o grito da multidão.
+[14.022] | contradicao | it was to little effect | A medida teve pouco efeito.
+[14.023] | caso | Padrejean had killed his master | Padrejean matou seu senhor.
+[14.023] | numero | 1681 | Ocorreu em 1681.
+[14.023] | doutrina | ears cut off and a shoulder branded | Os ouvidos eram cortados e um ombro marcado.
+[14.023] | numero | 1738 | Em 1738, venenos foram proibidos por decreto real.
+[14.023] | termo | Maroon revolt | Revolta dos Maroons.
+[14.024] | doutrina | the greed of the entire system | A ganância do sistema inteiro levou a destruição da colônia.
+[14.024] | numero | half a million blacks | Cerca de meio milhão de negros.
+[14.024] | doutrina | steeped in a military tradition | Eram imersos em uma tradição militar.
+14.024 | doutrina | system had set | O sistema estava destinado à autodestruição devido à sua ganância.
+14.024 | numero | fifteen years | A população de escravos dobrou em quinze anos.
+14.024 | contradicao | how long could the whites possibly have expected | Os brancos hesitavam sobre a capacidade de controlar os escravos.
+14.025 | informante | an informant reported | Um informante relatou reuniões secretas de mais de 200 escravos.
+14.025 | termo | vodoun rituals | As cerimônias do vodoun eram centrais para a propagação da ideia de liberdade.
+14.026 | caso | Maroon bands grew in number as well as size | Os bandos de maroons cresceram em número e tamanho.
+14.026 | numero | summer of 1791 | O ponto de virada ocorreu no verão de 1791.
+14.027 | marginal | spindly branches of a frail acacia | A cerimônia ocorreu sob uma árvore frágil e espinhosa.
+14.027 | termo | vodoun ceremony | A reunião histórica foi realizada em uma cerimônia de vodoun.
+14.027 | caso | Boukman Dutty | Boukman Dutty liderou a reunião e proclamou o pacto da revolta final.
+14.028 | numero | August 14, 1791 | A cerimônia ocorreu em 14 de agosto de 1791.
+14.028 | numero | two days later | Dois dias depois, a primeira plantação queimou.
+14.028 | numero | August 21 | Noite de 21 de agosto, os escravos se levantaram em cinco plantações.
+14.028 | marginal | dark columns of smoke | Colunas escuras de fumaça subiram do norte da colônia.
+14.029 | termo | Voodoo King | O "Rei do Vodoun" declarou guerra e liderou o ataque às cidades.
+14.029 | caso | Romaine La Prophétesse | Romaine marchava com uma entourage de houngan e carregava varas benditas.
+14.029 | termo | agitating the little bells | A rainha do vodoun agitava pequenos sinos em sua caixa.
+14.030 | doutrina | tactics and organization of the rebel bands came directly from the precedent established by the Maroons | As táticas e organização dos rebeldes vieram diretamente da experiência dos maroons.
+14.030 | marginal | large perches on which a variety of dead birds had been affixed | Perchas com aves mortas eram encontradas ao longo do caminho.
+14.030 | termo | password but she would never give it to me | A senha era um segredo que não seria revelado.
+[14.030] | doutrina | tactics and organization | os rebeldes usavam táticas e organização estabelecidas pelos Maroons
+[14.030] | cena | ravaging plantations | os rebeldes atacavam plantações, interrompiam comunicações e saqueavam trens de suprimentos
+[14.030] | marginal | fire, poison, and corpses | os ataques deixavam fogo, veneno e corpos para trás
+[14.030] | termo | Vodoun | a magia dos feiticeiros protegia os rebeldes
+[14.030] | informante | the Voodoo priestess had not fled | a sacerdotisa vodu não fugiu e era respeitada pelos rebeldes
+[14.030] | numero | twenty-four hundred troops | uma força francesa de 2.400 tropas foi enviada em fevereiro de 1792
+[14.030] | marginal | password but she would never give it to me | a iniciada revelou que havia um senha, mas não a daria
+[14.031] | doutrina | social discrimination | os mulatos eram discriminados e tornaram-se ricos e poderosos
+[14.031] | caso | the mulattos marched on the government | os mulatos marcharam contra o governo exigindo direitos
+[14.031] | contradicao | dangerous combination for the French | a combinação de riqueza e ressentimento era perigosa, mas não foi claramente definida como tal
+[14.031] | doutrina | reign of confusion | houve confusão, caos e destruição entre brancos, mulatos e negros
+[14.032] | numero | February 1793 | em fevereiro de 1793, a revolução haitiana foi afetada pela guerra europeia
+[14.032] | caso | the Maroons aligned with the invaders | os Maroons alinharam-se com os invasores espanhóis
+[14.032] | termo | Toussaint L’Ouverture | Toussaint, ex-escravo, começou sua ascensão ao poder
+[14.033] | doutrina | abolition of slavery | a administração colonial oficialmente aboliu a escravidão em 1793
+[14.033] | contradicao | no more than a desperate attempt | a abolição foi vista como um esforço desesperado para conter os negros
+[14.033] | caso | Toussaint shifted his allegiance back to the French | Toussaint voltou ao lado francês, embora menos poderoso que os Maroons
+[14.034] | numero | 1797 | em 1797, Toussaint L’Ouverture tornou-se o governante absoluto de Saint Domingue
+[14.034] | doutrina | compelled to work | os trabalhadores eram obrigados a trabalhar como no sistema colonial
+[14.034] | termo | Roman Catholic | Toussaint era católico e rejeitava crenças africanas
+[14.035] | numero | 1801 | em 1801, a invasão de Leclerc e a traição de Toussaint por Napoleão ocorreram
+[14.035] | caso | Dessalines and Christophe | Dessalines e Christophe ajudaram os franceses a destruir os Maroons
+[14.036] | doutrina | final alliance | os Maroons formaram uma aliança com libertos negros e mulatos
+[14.036] | termo | dictatorial rulers | governantes ditatoriais emergiram após a independência
+[14.036] | numero | twenty thousand subjects | Christophe gastou 20 mil súbditos para construir um palácio e uma fortaleza
+14.036 | doutrina | tactics of the Maroons—raids, fire, poison, ambush | As táticas das Maroon incluíam ataques, fogo, veneno e emboscadas.
+14.036 | marginal | margin of victory | As táticas das Maroon proporcionaram a margem de vitória.
+14.036 | numero | twenty thousand subjects | Christophe gastou vinte mil súbditos para construir um palácio opulento.
+14.036 | caso | Christophe—a former slave who had fought by the side of Toussaint, taken part in the deceitful raid on the forces of Biassou and Jean François, and then temporarily joined hands with the French armies of Leclerc—became the ruler of the northern half of the country in 1806 | Christophe foi um ex-escravo que lutou ao lado de Toussaint e tornou-se rei do norte em 1806.
+14.037 | doutrina | their struggle, in fact, continued | A luta das Maroon continuou mesmo após a aparente traição.
+14.037 | termo | secret societies | Existiam sociedades secretas que terrorizavam os habitantes locais.
+14.038 | caso | Zora Neale Hurston, a young American black woman and a former student of the great ethnographer Franz Boas | Zora Neale Hurston era uma jovem americana negra e ex-aluna de Franz Boas.
+14.038 | termo | vodoun society | A sociedade vodoun foi mencionada em um monográfico confiável.
+14.038 | caso | the valley of Mirebalais | No vale de Mirebalais havia sociedades secretas que assustavam os moradores.
+14.038 | termo | Zangbeto | As sociedades eram chamadas com batidas de pedra, semelhantes ao Zangbeto.
+14.038 | caso | Les Cochons sans Poils—the Pigs without Hair | Uma das sociedades era conhecida como "Les Cochons sans Poils".
+14.039 | termo | African roots of her people | Hurston percebeu cedo as raízes africanas de seu povo.
+14.039 | numero | nine years old | Zora Neale tinha nove anos quando sua mãe morreu.
+14.039 | caso | Howard University | Hurston estudou na Universidade Howard e obteve uma bolsa para Columbia.
+14.040 | doutrina | he rejected arbitrary notions of progress and evolutionary theories that invariably placed Western society at the top of a social ladder | Boas rejeitava teorias evolutivas que colocavam a sociedade ocidental no topo da escala social.
+14.040 | termo | participant observation | Hurston aplicou rigorosamente o método de observação participante.
+14.041 | cena | she had to steal a black cat, then kill it by dropping it into boiling water | Hurston roubou um gato preto e o matou jogando-o em água fervente.
+14.041 | numero | sixty-nine hours | Durante sessenta e nove horas, ela ficou deitada nua com uma pele de cobra tocando seu umbigo.
+14.041 | cena | five men lifted her from the floor and began a long ritual that culminated with the painting of a symbolic streak of lightning across her back | Cinco homens a levantaram do chão e fizeram um ritual que terminou com uma faixa simbólica de relâmpago em suas costas.
+[14.041] | cena | Packing a pearl-handled pistol | Zora Neale Hurston armou-se e viajou pela região sul dos Estados Unidos
+[14.041] | termo | participant observation | O método de observação participante é descrito como algo que Hurston levou ao limite
+[14.041] | marginal | steal a black cat, then kill it by dropping it into boiling water | Hurston teve que roubar e matar um gato negro para satisfazer um sacerdote de hoodoo
+[14.041] | numero | sixty-nine hours | Durante sessenta e nove horas, Hurston ficou nua em uma cama durante uma cerimônia
+[14.041] | marginal | painting of a symbolic streak of lightning across her back | Um ritual culminou com o desenho de um raio simbólico na costas de Hurston
+[14.042] | doutrina | vodoun as a legitimate and complex religion | Hurston viajava para Haiti com intenção de promover o vodu como religião legítima e complexa
+[14.042] | contradicao | any country where such abominations took place could find its salvation only through military occupation | Livros sensacionalistas sugeriam que a ocupação militar era necessária em países com práticas consideradas aberrantes
+[14.042] | caso | Cannibal Cousins and Black Bagdad | Títulos de livros populares da época caricaturavam Haiti como uma nação pobre e bizarra
+[14.042] | numero | 1915-1934 | A ocupação americana em Haiti ocorreu entre 1915 e 1934
+[14.043] | cena | the drum that sounded one Thursday above her village | Hurston ouviu um tambor com batida rápida e repetitiva acima de sua aldeia
+[14.043] | marginal | a trembling child, unwilling to step beyond the threshold of their doorway | A empregada de Hurston tremia e recusava-se a sair da porta
+[14.043] | termo | Cochons Gris | O grupo secreto conhecido como Cochons Gris era mencionado por moradores locais
+[14.043] | marginal | figures draped in red gowns and hoods | Os membros do Cochons Gris eram descritos como figuras vestidas em roupas vermelhas e capuzes
+[14.043] | termo | mot de passage | Hurston recebeu um “mot de passage” como senha para uma sociedade secreta
+[14.044] | doutrina | members recognized each other by means of ritualized greetings learned at initiation | Membros reconheciam-se por cumprimentos rituais aprendidos durante a iniciação
+[14.044] | termo | passports | Os membros usavam passaportes como identificação para se mover à noite
+[14.044] | cena | the sound and movement of hell boiling over | Hurston comparou uma reunião noturna ao som e movimento do inferno fervendo
+[14.044] | termo | Baron Samedi | O ritual envolvia invocar o Baron Samedi, guardião do cemitério
+[14.044] | marginal | a goat without horns | A oferenda solicitada era um cabrito sem chifres
+[14.045] | contradicao | Hurston was never able to attend one of these gatherings herself | Hurston não conseguiu participar de uma reunião dos grupos secretos pessoalmente
+[14.045] | informante | a member of the mulatto elite | Um membro da elite mestiça descreveu os grupos como “bandas de feiticeiros, criminosos de um tipo especial”
+[14.045] | contradicao | never able to attend | Hurston could not get beyond the public face of the societies
+[14.045] | termo | bands of sorcerers | The societies were described as “bands of sorcerers, criminals of a special kind.”
+[14.046] | caso | mulatto elite | A member of the mulatto elite told Hurston about the Sect Rouge.
+[14.046] | termo | Sect Rouge | The society was known as the Sect Rouge, Vinbrindingue and Cochons gris.
+[14.046] | numero | short illness | Some one dies after a short illness or sudden indisposition.
+[14.046] | marginal | cemetery | The cemeteries are where they display the most horrible aspects of their inclinations.
+[14.046] | cena | body spirited away | The body is spirited away after the grave is profaned.
+[14.047] | termo | zombification | Hurston describes what she could not have realized was the primary method of zombification.
+[14.047] | doutrina | punishment for garrulous | There is swift punishment for the adept who talks.
+[14.047] | cena | poison rubbed into wound | A deadly and quick-acting poison is then rubbed into the wound.
+[14.048] | informante | peasants converted to Protestantism | Laguerre met peasants who had converted to Protestantism and were willing to talk.
+[14.048] | termo | Macandal | Among the names of secret societies was Macandal, which is most interestingly mentioned.
+[14.048] | numero | forty years later | It wasn’t until almost forty years later that Laguerre began to answer Hurston’s questions.
+[14.048] | termo | sekey madoulè | The sacred coffin known as the sekey madoulè is part of the secret societies’ rituals.
+[14.049] | contradicao | not criminal organizations | Laguerre said they were not criminal organizations, unlike Hurston’s view.
+[14.049] | doutrina | conscience of peasantry | The secret societies functioned as the very conscience of the peasantry.
+[14.049] | termo | quasi-political arm | They were a quasi-political arm of the vodoun society.
+[14.050] | doutrina | struggle of Maroons | The struggle of the Maroons continued after the war of independence.
+[14.050] | numero | 1860 | In certain parts, Maroon bands had persisted as late as 1860.
+[14.050] | termo | hounfour | Each society was loosely attached to a hounfour whose houngan acted as liaison.
+[14.050] | doutrina | political protection | The secret societies were charged with the political protection of the vodoun society.
+[14.051] | contradicao | zombification is social sanction | Zombification was actually a social sanction imposed by recognized groups.
+[14.051] | doutrina | form of capital punishment | No form of capital punishment is pleasant, and zombification had always been seen as horrible.
+14.051 | doutrina | criminal activity | Zombification was considered a criminal activity by medical authorities in Port-au-Prince.
+14.051 | contradicao | collective good | Medical authorities believed zombification should be eradicated for the collective good, but it may have been a social sanction in vodoun society.
+14.051 | doutrina | social sanction | In vodoun society, zombification was a social sanction imposed by recognized corporate groups.
+14.051 | termo | zombification | Zombification was described as the most horrible of fates.
+14.052 | caso | Ti Femme | Ti Femme and Clairvius Narcisse had received a poison and were pariahs in their communities.
+14.052 | numero | 1936 | In October 1936, a naked woman was found wandering by the roadside in the Artibonite Valley.
+14.052 | informante | Max Beauvoir | Max Beauvoir stated that the answer to the zombi mystery would be found in the councils of the secret societies.
+14.053 | doutrina | sociological matrix | The work of Michel Laguerre and information from Max Beauvoir suggested a sociological matrix for zombification.
+14.053 | termo | Zora Neale Hurston | Zora Neale Hurston provided a critical clue regarding the phenomenon of zombification.
+14.054 | caso | Felicia Felix-Mentor | Felicia Felix-Mentor was found wandering in the Artibonite Valley and identified by her brother.
+14.054 | numero | 29 years | Twenty-nine years before, Felicia Felix-Mentor had suddenly taken ill, died, and been buried.
+14.054 | marginal | blank face | Hurston described the woman as having a “blank face with dead eyes” and eyelids “white as if they had been burned with acid.”
+14.055 | informante | Zora Neale Hurston | Hurston wrote that zombies are not awakened from death but placed in a semblance of death by a drug.
+14.055 | termo | secret societies | The knowledge of the poison was kept secret and handed down generation to generation by secret societies.
+14.056 | doutrina | poison belief | The belief in the poison was so common that virtually every subsequent student of Haitian culture referenced it.
+14.056 | termo | Penal Code | The existence of the poison was specifically referred to in the Penal Code of Haiti.
+14.057 | contradicao | credibility | Hurston’s problem was less one of credibility than of timing regarding her hypothesis about zombis.
+14.057 | doutrina | folklore | Haitian intellectuals consigned the subject of zombies to the realm of folklore.
+14.058 | contradicao | magical power | Many informants insisted that raising a zombi depended solely on the magical power of the bokor.
+14.058 | numero | no case | No physician had examined an indisputably legitimate case of a zombi.
+14.058 | contradicao | secret families | The knowledge of the plants and formulae were kept in certain families and never divulged.
+14.058 | informante | Haitian medical authorities | Haitian medical authorities warned Hurston that pursuing the mystery could lead to permanent disappearance.
+14.058 | contradicao | insisted that | Many informants claimed the raising of a zombi depended solely on the magical power of the bokor
+14.058 | caso | case of Felicia Felix-Mentor | No physician had examined an indisputably legitimate case
+14.058 | numero | no one had penetrated | No one had penetrated the cults to obtain a sample of the reputed poison
+14.058 | termo | knowledge of the plants and the formulae are secret | The knowledge of the plants and the formulae are secret
+14.058 | informante | Haitian medical authorities | Hurston was unduly influenced by the warnings she had received from Haitian medical authorities
+14.058 | marginal | imprisoned on no charges | A zealous physician had used his connections to have a bokor imprisoned on no charges
+14.058 | termo | mystery brought over from Guinée | The old man said it was a mystery brought over from Guinée
+14.058 | informante | Many Haitian intellectuals | Many Haitian intellectuals were told they may disappear permanently if they dabble in such matters
+14.058 | afirmacao | If she persisted, she would find herself involved in something terrible | She was warned that pursuing the secret societies directly could lead to a fate from which she could not extricate herself alive
+14.059 | doutrina | worked as a pioneer in a complete vacuum | Zora Neale Hurston worked as a pioneer in a complete vacuum with no option but to heed her Haitian colleagues
+14.059 | caso | Herard Simon | In Herard Simon, I had someone who could take me there

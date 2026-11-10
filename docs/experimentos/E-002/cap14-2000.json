@@ -1,0 +1,289 @@
+{
+ "resultado": {
+  "linhas": 242,
+  "formato_ruim": 0,
+  "tipo_ruim": 1,
+  "id_ruim": 0,
+  "ancora_ok": 206,
+  "ancora_vizinho": 11,
+  "ancora_longe": 24,
+  "numero": 39,
+  "cobertura": "59/59",
+  "tempo_s": 693
+ },
+ "janelas": [
+  {
+   "janela": 0,
+   "pars": 5,
+   "entrada": 1841,
+   "saida": 621,
+   "s": 55,
+   "fim": "stop"
+  },
+  {
+   "janela": 1,
+   "pars": 5,
+   "entrada": 1847,
+   "saida": 766,
+   "s": 61,
+   "fim": "stop"
+  },
+  {
+   "janela": 2,
+   "pars": 6,
+   "entrada": 1840,
+   "saida": 617,
+   "s": 45,
+   "fim": "stop"
+  },
+  {
+   "janela": 3,
+   "pars": 6,
+   "entrada": 1999,
+   "saida": 739,
+   "s": 55,
+   "fim": "stop"
+  },
+  {
+   "janela": 4,
+   "pars": 6,
+   "entrada": 2135,
+   "saida": 793,
+   "s": 59,
+   "fim": "stop"
+  },
+  {
+   "janela": 5,
+   "pars": 7,
+   "entrada": 2116,
+   "saida": 750,
+   "s": 57,
+   "fim": "stop"
+  },
+  {
+   "janela": 6,
+   "pars": 7,
+   "entrada": 2132,
+   "saida": 966,
+   "s": 72,
+   "fim": "stop"
+  },
+  {
+   "janela": 7,
+   "pars": 6,
+   "entrada": 1792,
+   "saida": 857,
+   "s": 61,
+   "fim": "stop"
+  },
+  {
+   "janela": 8,
+   "pars": 5,
+   "entrada": 2044,
+   "saida": 908,
+   "s": 66,
+   "fim": "stop"
+  },
+  {
+   "janela": 9,
+   "pars": 7,
+   "entrada": 1922,
+   "saida": 765,
+   "s": 55,
+   "fim": "stop"
+  },
+  {
+   "janela": 10,
+   "pars": 8,
+   "entrada": 2063,
+   "saida": 773,
+   "s": 57,
+   "fim": "stop"
+  },
+  {
+   "janela": 11,
+   "pars": 2,
+   "entrada": 905,
+   "saida": 379,
+   "s": 25,
+   "fim": "stop"
+  }
+ ],
+ "corrigidos": [
+  [
+   "14.005",
+   null,
+   "cheap limitless number"
+  ],
+  [
+   "14.006",
+   "14.007",
+   "Maroon"
+  ],
+  [
+   "14.007",
+   null,
+   "revenge for injustice"
+  ],
+  [
+   "14.009",
+   null,
+   "By 1770 ... “security became nonexistent”"
+  ],
+  [
+   "14.016",
+   null,
+   "yellow, white, black kerchiefs"
+  ],
+  [
+   "14.018",
+   null,
+   "old women and men in caves"
+  ],
+  [
+   "14.019",
+   null,
+   "two thousand people"
+  ],
+  [
+   "14.019",
+   null,
+   "cattle died one by one"
+  ],
+  [
+   "14.024",
+   null,
+   "half a million blacks"
+  ],
+  [
+   "14.025",
+   "14.026",
+   "vodoun rituals"
+  ],
+  [
+   "14.027",
+   "14.026",
+   "vodoun ceremony"
+  ],
+  [
+   "14.028",
+   "14.027",
+   "August 14, 1791"
+  ],
+  [
+   "14.031",
+   null,
+   "the mulattos marched on the government"
+  ],
+  [
+   "14.032",
+   null,
+   "the Maroons aligned with the invaders"
+  ],
+  [
+   "14.032",
+   "14.034",
+   "Toussaint L’Ouverture"
+  ],
+  [
+   "14.033",
+   null,
+   "abolition of slavery"
+  ],
+  [
+   "14.037",
+   "14.038",
+   "secret societies"
+  ],
+  [
+   "14.040",
+   "14.041",
+   "participant observation"
+  ],
+  [
+   "14.044",
+   null,
+   "the sound and movement of hell boiling over"
+  ],
+  [
+   "14.044",
+   null,
+   "a goat without horns"
+  ],
+  [
+   "14.046",
+   "14.045",
+   "mulatto elite"
+  ],
+  [
+   "14.047",
+   null,
+   "punishment for garrulous"
+  ],
+  [
+   "14.047",
+   null,
+   "poison rubbed into wound"
+  ],
+  [
+   "14.048",
+   null,
+   "peasants converted to Protestantism"
+  ],
+  [
+   "14.049",
+   null,
+   "not criminal organizations"
+  ],
+  [
+   "14.049",
+   null,
+   "conscience of peasantry"
+  ],
+  [
+   "14.050",
+   null,
+   "struggle of Maroons"
+  ],
+  [
+   "14.050",
+   "14.049",
+   "hounfour"
+  ],
+  [
+   "14.051",
+   null,
+   "zombification is social sanction"
+  ],
+  [
+   "14.052",
+   "14.054",
+   "1936"
+  ],
+  [
+   "14.054",
+   null,
+   "29 years"
+  ],
+  [
+   "14.055",
+   "14.054",
+   "Zora Neale Hurston"
+  ],
+  [
+   "14.056",
+   null,
+   "poison belief"
+  ],
+  [
+   "14.058",
+   null,
+   "no case"
+  ],
+  [
+   "14.058",
+   null,
+   "secret families"
+  ]
+ ]
+}

@@ -1,0 +1,4 @@
+01.001 | cena | certidão | O médico assinou o documento.
+01.003 | caso | uma cópia | A família guardou o documento.
+01.004 | marginal | primeira parte | Termina a primeira parte.
+01.005 | caso | jornais | O caso saiu na imprensa.

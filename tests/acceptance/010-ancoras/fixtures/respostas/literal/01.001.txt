@@ -1,0 +1,2 @@
+01.001 | cena | LIVERPOOL em março | O navio partiu na primavera.
+01.004 | caso | “governador” | O capitão escreveu à autoridade.

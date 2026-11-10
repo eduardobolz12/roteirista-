@@ -1,0 +1,5 @@
+01.002 | marginal | alfândega | Âncora longe demais.
+01.003 | doutrina | palavra que não existe | Âncora que não está no livro.
+01.004 | caso |  | Sem âncora.
+01.003 | numero | 400,000 sacas | Muito açúcar chegou ao porto.
+01.005 | numero | 400,000 sacas | O mesmo número, no parágrafo errado.

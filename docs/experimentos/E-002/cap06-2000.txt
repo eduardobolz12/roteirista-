@@ -1,0 +1,85 @@
+[06.001] | cena | sitting on the open ends | O autor descreve a experiência de viajar em trens na América do Sul, sentado nas extremidades abertas.
+[06.001] | contradicao | American trains are sadly sterile | O autor considera os trens americanos estéreis e sem vida em comparação aos trens sul-americanos.
+[06.001] | marginal | waves of tropical scents | A passagem menciona o aroma tropical que o trem espalha, criando uma mistura irresistível.
+[06.002] | termo | The frontier of death | O autor menciona a frase "fronteira da morte", de Lehman, que o perturba.
+[06.002] | cena | I questioned my reflection in the train window | O autor questiona sua imagem no vidro do trem, refletindo sobre sentimentos e ideias inexplicáveis.
+[06.003] | caso | Kline and Lehman | O autor menciona Kline e Lehman como pessoas cujas palavras ele analisa para entender um caso específico.
+[06.004] | numero | a dozen species of crushed flowers | A passagem menciona uma dezena de espécies de flores esmagadas, relacionadas ao cheiro dos trens sul-americanos.
+[06.004] | doutrina | poison sprinkled across a threshold was presumably absorbed through the feet | O autor afirma que um veneno espalhado em uma soleira é absorvido pelos pés.
+[06.004] | termo | zombis | A passagem menciona "zombis" como uma referência à cultura haitiana e ao uso de substâncias psicoativas.
+[06.005] | termo | datura, “the holy flower of the North Star.” | O autor identifica a planta chamada datura como "a flor sagrada da Estrela do Norte".
+[06.005] | informante | Schultes | O autor menciona Schultes como alguém que não experimentou a planta devido ao seu perigo.
+[06.006] | cena | A brown dusty trail curved past agave swollen in bud | Descreve uma paisagem no Peru, com um caminho e uma casa de adobe.
+[06.006] | caso | the patient | O autor descreve o caso de um paciente que sofreu mudanças na vida após eventos trágicos.
+[06.007] | doutrina | In nocturnal ceremonies he and the patient had together inhaled a decoction of alcohol and tobacco | Descreve uma cerimônia noturna com o uso de uma decocção de álcool e tabaco.
+[06.007] | termo | achuma, the sacred cactus of the four winds | A passagem menciona "achuma", um cacto sagrado das quatro direções do vento.
+[06.008] | doutrina | It was left for the curandero to work alone | O autor afirma que o curandero teve de agir sozinho para buscar uma solução espiritual.
+[06.009] | marginal | a vaguely distorted face—distended blue-black lips and an elephantine nose | Descreve visualmente o rosto do curandero, com traços distorcidos e grotescos.
+[06.010] | cena | The curandero clasped the enamel bowl as a rural priest might hold a chalice | O autor descreve como o curandero segura uma tigela de forma ritualística.
+[06.011] | cena | foam issued from his mouth, and his entire body shook with horrible convulsions | Descreve os efeitos físicos intensos do veneno no corpo do curandero.
+[06.012] | termo | cimora, the tree of the evil eagle | A passagem menciona "cimora", a árvore da águia má, como parente botânico da datura.
+[06.013] | marginal | The pale lavender light of dawn shone through the opaque membrane of the train window | Descreve a luz do amanhecer filtrando-se pelo vidro do trem.
+[06.013] | marginal | pale lavender light | A luz pálida de alvorada atravessa a janela do trem.
+[06.014] | cena | horde of schoolchildren | O autor chega ao museu botânico e precisa se esforçar para passar por uma multidão de crianças.
+[06.015] | termo | concombre zombi | A espécie Datura stramonium é chamada de "concombre zombi" pelos haitianos.
+[06.015] | caso | old brown-paged catalog | O autor encontra um catálogo antigo que menciona a presença de Datura na Haiti.
+[06.017] | cena | key touched the outer lock | Professor Schultes entra no local com vários volumes em braços.
+[06.018] | informante | Don’t you usually sleep in your office? | Schultes pergunta ao autor se ele normalmente dorme no escritório.
+[06.019] | doutrina | shared my instincts for datura | Schultes compartilha a intuição do autor sobre Datura.
+[06.020] | caso | Yaqui Indians | Os Yaquis usam uma pomada de folhas de Datura para sentir a sensação de voo.
+[06.020] | doutrina | witches commonly rubbed their bodies | Bruxas da Europa medieval usavam unguentos alucinógenos derivados de plantas relacionadas à Datura.
+[06.021] | termo | dhatureas | O nome "Datura" vem de grupos de ladrões na Índia antiga que usavam a planta para embriagar vítimas.
+[06.021] | numero | sixteenth century | No século XVI, o explorador português Christoval Acosta observou prostitutas usando sementes de Datura.
+[06.021] | caso | Chibcha Indians | Os Chibchas administravam uma planta relacionada à Datura às esposas e escravos de reis mortos antes de enterrá-los vivos.
+[06.022] | doutrina | induced maddening hallucinations | Em doses moderadas, a Datura causa alucinações intensas e delirium.
+[06.023] | doutrina | transition from one stage to the next | Muitos grupos ameríndios associam a vida a estágios rituais marcados por atividades cerimoniais.
+[06.023] | caso | Luisena Indians | Os Luisenas acreditavam que jovens precisavam passar por uma narcose de Datura para se tornarem homens.
+[06.023] | termo | wysoccan | Algonquinos e outros povos chamavam a Datura de "wysoccan".
+[06.024] | doutrina | associated with death | A Datura está associada à morte em várias culturas indígenas, como entre os Zuni e os peruanos.
+[06.025] | termo | zombi’s cucumber | Em Haiti, a espécie Datura stramonium é chamada de "concombre zombi".
+[06.025] | numero | six | A planta foi introduzida na África Ocidental antes da época de Colombo.
+[06.026] | caso | Hausas of Nigeria | Os Hausas usavam sementes de Datura para intensificar bebidas rituais.
+[06.026] | caso | Fulani youths | Os Fulani davam Datura a jovens durante o ritual de sharo, um teste de virilidade.
+[06.026] | caso | Togo witch doctors | Em Togo, bruxos administravam uma bebida com folhas de Datura e raiz de Lonchocarpus capassa.
+[06.026] | caso | West Africa | Na África Ocidental, mulheres usam fezes de besouros alimentados com Datura para matar amantes infiéis.
+[06.026] | termo | Datura stramonium | A planta Datura stramonium era usada por várias tribos.
+[06.026] | caso | Hausas de Nígeria | Os Hausas usavam as sementes para intensificar a embriaguez em bebidas rituais.
+[06.026] | caso | jovens Fulani | Jovens Fulani recebiam Datura stramonium para excitar durante o sharo, ritual de virilidade.
+[06.026] | caso | curandeiros de Togo | Curandeiros administravam uma bebida com folhas de Datura e raiz de Lonchocarpus capassa.
+[06.026] | caso | mulheres da África Ocidental | Mulheres criavam besouros alimentados com a planta para usar suas fezes contra amantes infiéis.
+[06.027] | termo | physostigmine | O antídoto para envenenamento por Datura é o physostigmine, extraído da vagem de Calabar.
+[06.027] | numero | Sierra Leone a Camarões | A planta cresce em áreas costeiras do sudoeste da África Ocidental, desde Serra Leoa até Camarões.
+[06.027] | caso | costa de Calabar | O antídoto é especialmente conhecido na costa de Calabar, perto da foz do rio Níger.
+[06.028] | numero | 400.000 escravos | Entre 1779 e 1790, cerca de 400 mil escravos foram levados para Saint Domingue.
+[06.028] | caso | Senegaleses | Os Senegaleses eram valorizados por sua moralidade superior e natureza tímida.
+[06.028] | caso | Ibos | Os Ibos trabalhavam bem, mas tinham tendência ao suicídio.
+[06.028] | caso | Congo e Angola | Pessoas do Congo e Angola eram altamente valorizadas e importadas em grande número.
+[06.028] | caso | Dahomey | No Reino de Dahomey, a escravidão tornou-se uma indústria nacional.
+[06.029] | termo | Efik | O nome Efik vem de uma palavra que significa “opressor”, dado pelos vizinhos.
+[06.029] | caso | Efik | Os Efik controlavam o comércio de escravos como intermediários avariçosos.
+[06.030] | numero | milhares de libras esterlinas | Itens comerciais tinham valor em milhares de libras esterlinas.
+[06.030] | caso | navios escravistas | Navios escravistas ficavam ancorados por até um ano no litoral.
+[06.031] | termo | Egbo | A sociedade secreta chamada Egbo era uma associação masculina com hierarquia e roupas distintivas.
+[06.031] | caso | obong | O obong, ou chefe, media disputas e liderava forças armadas em tempos de guerra.
+[06.032] | numero | 10 pés | A linha a ser percorrida estava a dez pés de distância.
+[06.032] | caso | Egbo | O Egbo impunha multas, detenções e até execuções por decapitação ou mutilação.
+[06.033] | termo | Calabar bean | A bebida tóxica era feita com sementes de vagem de Calabar moídas em água.
+[06.033] | caso | acusado | O acusado deveria caminhar até a linha se não vomitasse o veneno.
+[06.033] | numero | 8 sementes | A dose tóxica era feita com oito sementes de vagem de Calabar.
+[06.034] | caso | acusado morto | Se o acusado morresse, seu corpo era mutilado e jogado na floresta.
+[06.035] | numero | semanas ou meses | Escravos eram mantidos por semanas ou meses antes do embarque.
+[06.035] | caso | Egbo | O Egbo garantia ordem entre os escravos durante o período de espera para a venda.
+[06.035] | doutrina | demoralized | escravos estavam desmoralizados
+[06.035] | doutrina | Egbo | Efik dependiam de agentes e carrascos do Egbo
+[06.035] | marginal | Calabar bean | escravos ouviam sobre o sofrimento da feijão de Calabar
+[06.035] | cena | held awaiting shipment | escravos eram mantidos aguardando embarque
+[06.036] | termo | Datura | planta psicoativa usada como veneno em África
+[06.036] | doutrina | antidote | feijão de Calabar fornece antídoto para veneno da datura
+[06.036] | numero | Atlantic | conhecimento passou do Atlântico
+[06.036] | termo | Saint Domingue | solo fértil onde a planta poderia ter sido plantada
+[06.037] | doutrina | hypothesis | hipótese se encaixava nos fatos escassos do caso
+[06.037] | doutrina | pharmacological properties | propriedades farmacológicas das plantas viajaram com os escravos
+[06.037] | contradicao | conjecture | hipótese era apenas conjectura, mas um começo
+[06.037] | doutrina | zombis | base material para crença em zumbis
+[06.038] | contradicao | wrong | hipótese era simples e elegante, mas errada
+[06.038] | caso | Efik | descoberta de conexão sociológica com sociedades secretas dos Efik

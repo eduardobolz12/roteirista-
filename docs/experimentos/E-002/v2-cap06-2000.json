@@ -1,0 +1,95 @@
+{
+ "resultado": {
+  "linhas": 62,
+  "formato_ruim": 0,
+  "tipo_ruim": 0,
+  "id_ruim": 0,
+  "ancora_ok": 53,
+  "ancora_vizinho": 5,
+  "ancora_longe": 4,
+  "numero": 8,
+  "cobertura": "33/38",
+  "tempo_s": 181
+ },
+ "janelas": [
+  {
+   "janela": 0,
+   "pars": 13,
+   "entrada": 2268,
+   "saida": 711,
+   "s": 54,
+   "fim": "stop"
+  },
+  {
+   "janela": 1,
+   "pars": 14,
+   "entrada": 2186,
+   "saida": 469,
+   "s": 36,
+   "fim": "stop"
+  },
+  {
+   "janela": 2,
+   "pars": 10,
+   "entrada": 2128,
+   "saida": 752,
+   "s": 57,
+   "fim": "stop"
+  },
+  {
+   "janela": 3,
+   "pars": 4,
+   "entrada": 953,
+   "saida": 386,
+   "s": 26,
+   "fim": "stop"
+  }
+ ],
+ "corrigidos": [
+  [
+   "06.009",
+   "06.008",
+   "worn poncho"
+  ],
+  [
+   "06.021",
+   null,
+   "Hindu prostitutes gave it in doses"
+  ],
+  [
+   "06.022",
+   null,
+   "Datura induced maddening hallucinations"
+  ],
+  [
+   "06.023",
+   null,
+   "datura is associated with transitional moments"
+  ],
+  [
+   "06.025",
+   "06.023",
+   "at the age of six"
+  ],
+  [
+   "06.027",
+   "06.028",
+   "four hundred thousand slaves"
+  ],
+  [
+   "06.030",
+   "06.031",
+   "obong"
+  ],
+  [
+   "06.035",
+   null,
+   "kept order and discipline"
+  ],
+  [
+   "06.036",
+   "06.035",
+   "weeks and sometimes months"
+  ]
+ ]
+}

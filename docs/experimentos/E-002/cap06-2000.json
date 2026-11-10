@@ -1,0 +1,150 @@
+{
+ "resultado": {
+  "linhas": 85,
+  "formato_ruim": 0,
+  "tipo_ruim": 0,
+  "id_ruim": 0,
+  "ancora_ok": 65,
+  "ancora_vizinho": 3,
+  "ancora_longe": 17,
+  "numero": 10,
+  "cobertura": "34/38",
+  "tempo_s": 308
+ },
+ "janelas": [
+  {
+   "janela": 0,
+   "pars": 13,
+   "entrada": 2199,
+   "saida": 979,
+   "s": 85,
+   "fim": "stop"
+  },
+  {
+   "janela": 1,
+   "pars": 14,
+   "entrada": 2117,
+   "saida": 969,
+   "s": 85,
+   "fim": "stop"
+  },
+  {
+   "janela": 2,
+   "pars": 10,
+   "entrada": 2059,
+   "saida": 1095,
+   "s": 96,
+   "fim": "stop"
+  },
+  {
+   "janela": 3,
+   "pars": 4,
+   "entrada": 884,
+   "saida": 426,
+   "s": 34,
+   "fim": "stop"
+  }
+ ],
+ "corrigidos": [
+  [
+   "06.004",
+   "06.001",
+   "a dozen species of crushed flowers"
+  ],
+  [
+   "06.025",
+   "06.023",
+   "six"
+  ],
+  [
+   "06.026",
+   null,
+   "Togo witch doctors"
+  ],
+  [
+   "06.026",
+   null,
+   "Hausas de Nígeria"
+  ],
+  [
+   "06.026",
+   null,
+   "jovens Fulani"
+  ],
+  [
+   "06.026",
+   null,
+   "curandeiros de Togo"
+  ],
+  [
+   "06.026",
+   null,
+   "mulheres da África Ocidental"
+  ],
+  [
+   "06.027",
+   null,
+   "Sierra Leone a Camarões"
+  ],
+  [
+   "06.027",
+   null,
+   "costa de Calabar"
+  ],
+  [
+   "06.028",
+   null,
+   "400.000 escravos"
+  ],
+  [
+   "06.028",
+   null,
+   "Senegaleses"
+  ],
+  [
+   "06.028",
+   null,
+   "Congo e Angola"
+  ],
+  [
+   "06.030",
+   null,
+   "milhares de libras esterlinas"
+  ],
+  [
+   "06.030",
+   null,
+   "navios escravistas"
+  ],
+  [
+   "06.032",
+   null,
+   "10 pés"
+  ],
+  [
+   "06.032",
+   "06.031",
+   "Egbo"
+  ],
+  [
+   "06.033",
+   null,
+   "acusado"
+  ],
+  [
+   "06.033",
+   null,
+   "8 sementes"
+  ],
+  [
+   "06.034",
+   null,
+   "acusado morto"
+  ],
+  [
+   "06.035",
+   null,
+   "semanas ou meses"
+  ]
+ ]
+}

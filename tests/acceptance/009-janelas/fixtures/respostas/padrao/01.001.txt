@@ -1,0 +1,2 @@
+01.001 | cena | próprio nome | O homem vê o próprio nome.
+01.002 | caso | apelido de infância | Primeira versão do item.

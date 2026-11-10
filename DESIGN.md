@@ -115,3 +115,8 @@ Evidência do modelo local: `docs/experimentos/E-001-modelo-local.md`.
 - Decidido: as fatias andam em lotes de 3 ou 4, seguindo as dependências do MAPA: aprovação, gate, construção e prova de todas de uma vez, um commit por fatia, e o Kimi para na primeira falha. Cada lote fecha com um teste no Serpent. Antes de pedir aprovação, o arquiteto roda as regras no livro real, pelo código do núcleo sempre que ele existir. Fixture é só uma amostra: teste verde não prova que o livro saiu bom.
 - Alternativa rejeitada: fatia por fatia, com o Decisor levando cada mensagem entre os agentes; e automatizar a aprovação ou o aceite, que foi o que revelou os defeitos do Serpent depois de 7 fatias verdes.
 - Gatilho de revisão: um defeito atravessar um lote inteiro sem ser pego no teste com o Serpent.
+
+### D-022 — Item com âncora literal, lido em janelas
+- Decidido: cada item do índice tem um id, tipo, âncora e afirmação. A âncora é de 1 a 4 palavras copiadas do parágrafo, na língua do livro, e é o que o script confere no literal para corrigir o id ou rejeitar o item (D-003). O capítulo é lido em janelas de 2000 tokens, e os parágrafos sem item são relidos pela repescagem. Os prompts ficam em `docs/prompts/`. Atualiza a D-006, que previa intervalo de ids e não tinha âncora.
+- Alternativa rejeitada: extrair número ou nome da frase em português, porque `160 mil` não confere com `160,000`; e ler o capítulo inteiro, que no E-002 rendeu menos da metade dos itens.
+- Gatilho de revisão: mais de 15% dos itens rejeitados por âncora num capítulo real, ou a correção por vizinho errar mais do que acerta (D-003).
