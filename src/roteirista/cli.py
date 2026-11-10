@@ -7,7 +7,7 @@ import re
 import sys
 import unicodedata
 
-from roteirista import banco
+from roteirista import banco, modelo
 from roteirista.epub import extrair as extrair_epub
 from roteirista.pdf import Livro, extrair as extrair_pdf
 
@@ -46,6 +46,14 @@ def _argumentos() -> argparse.ArgumentParser:
     buscar = comandos.add_parser("buscar")
     buscar.add_argument("slug")
     buscar.add_argument("termo")
+
+    indexar = comandos.add_parser("indexar")
+    indexar.add_argument("slug")
+    indexar.add_argument("capitulo")
+
+    itens = comandos.add_parser("itens")
+    itens.add_argument("slug")
+    itens.add_argument("capitulo")
     return parser
 
 
@@ -149,6 +157,28 @@ def main() -> None:
         if not ids:
             raise SystemExit(1)
         sys.stdout.write("".join(f"{id}\n" for id in ids))
+        return
+
+    if args.comando == "indexar":
+        try:
+            resultado = modelo.indexar(args.slug, args.capitulo)
+        except modelo.CapituloInexistente:
+            sys.stderr.write(f"capítulo inexistente: {args.capitulo}\n")
+            raise SystemExit(2)
+        except modelo.ModeloInacessivel as erro:
+            sys.stderr.write(f"modelo inacessível: {erro.url}\n")
+            raise SystemExit(3)
+        for aviso in resultado.avisos:
+            sys.stdout.write(f"{aviso}\n")
+        sys.stdout.write(
+            f"{len(resultado.itens)} itens gravados, 0 corrigidos, "
+            f"{resultado.rejeitados} rejeitados\n"
+        )
+        return
+
+    if args.comando == "itens":
+        for id, tipo, ancora, afirmacao in banco.itens(args.slug, args.capitulo):
+            sys.stdout.write(f"{id} | {tipo} | {ancora} | {afirmacao}\n")
         return
 
     if args.comando == "montar":

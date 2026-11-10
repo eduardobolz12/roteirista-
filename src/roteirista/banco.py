@@ -44,6 +44,13 @@ def criar(slug: str, livro: Livro, lingua: str | None = None) -> None:
                 numero INTEGER NOT NULL UNIQUE,
                 texto TEXT NOT NULL
             );
+            CREATE TABLE itens (
+                sequencia INTEGER PRIMARY KEY AUTOINCREMENT,
+                id TEXT NOT NULL REFERENCES paragrafos(id),
+                tipo TEXT NOT NULL,
+                ancora TEXT NOT NULL,
+                afirmacao TEXT NOT NULL
+            );
             """
         )
         conexao.execute("INSERT INTO ficha (lingua) VALUES (?)", (lingua,))
@@ -137,3 +144,57 @@ def trecho(slug: str, id: str) -> str | None:
             if linha:
                 return linha[0]
     return None
+
+
+def paragrafos_capitulo(slug: str, capitulo: str) -> list[tuple[str, str]] | None:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        existe = conexao.execute(
+            "SELECT EXISTS(SELECT 1 FROM capitulos WHERE numero = ?)",
+            (int(capitulo),),
+        ).fetchone()[0]
+        if not existe:
+            return None
+        return conexao.execute(
+            """
+            SELECT id, texto FROM paragrafos
+            WHERE capitulo = ? ORDER BY numero
+            """,
+            (int(capitulo),),
+        ).fetchall()
+
+
+def existe_paragrafo(slug: str, id: str) -> bool:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        return bool(
+            conexao.execute(
+                "SELECT EXISTS(SELECT 1 FROM paragrafos WHERE id = ?)", (id,)
+            ).fetchone()[0]
+        )
+
+
+def substituir_itens(
+    slug: str, capitulo: str, itens: list[tuple[str, str, str, str]]
+) -> None:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        conexao.execute(
+            "DELETE FROM itens WHERE id IN (SELECT id FROM paragrafos WHERE capitulo = ?)",
+            (int(capitulo),),
+        )
+        conexao.executemany(
+            "INSERT INTO itens (id, tipo, ancora, afirmacao) VALUES (?, ?, ?, ?)",
+            itens,
+        )
+
+
+def itens(slug: str, capitulo: str) -> list[tuple[str, str, str, str]]:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        return conexao.execute(
+            """
+            SELECT itens.id, itens.tipo, itens.ancora, itens.afirmacao
+            FROM itens
+            JOIN paragrafos ON paragrafos.id = itens.id
+            WHERE paragrafos.capitulo = ?
+            ORDER BY paragrafos.numero, itens.sequencia
+            """,
+            (int(capitulo),),
+        ).fetchall()
