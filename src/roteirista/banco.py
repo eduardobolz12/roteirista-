@@ -51,6 +51,9 @@ def criar(slug: str, livro: Livro, lingua: str | None = None) -> None:
                 ancora TEXT NOT NULL,
                 afirmacao TEXT NOT NULL
             );
+            CREATE TABLE sem_conteudo (
+                id TEXT PRIMARY KEY REFERENCES paragrafos(id)
+            );
             """
         )
         conexao.execute("INSERT INTO ficha (lingua) VALUES (?)", (lingua,))
@@ -180,6 +183,13 @@ def substituir_itens(
             "DELETE FROM itens WHERE id IN (SELECT id FROM paragrafos WHERE capitulo = ?)",
             (int(capitulo),),
         )
+        conexao.execute(
+            """
+            DELETE FROM sem_conteudo
+            WHERE id IN (SELECT id FROM paragrafos WHERE capitulo = ?)
+            """,
+            (int(capitulo),),
+        )
         conexao.executemany(
             "INSERT INTO itens (id, tipo, ancora, afirmacao) VALUES (?, ?, ?, ?)",
             itens,
@@ -198,3 +208,37 @@ def itens(slug: str, capitulo: str) -> list[tuple[str, str, str, str]]:
             """,
             (int(capitulo),),
         ).fetchall()
+
+
+def lacunas(slug: str, capitulo: str) -> list[str]:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        linhas = conexao.execute(
+            """
+            SELECT paragrafos.id, paragrafos.texto
+            FROM paragrafos
+            LEFT JOIN itens ON itens.id = paragrafos.id
+            LEFT JOIN sem_conteudo ON sem_conteudo.id = paragrafos.id
+            WHERE paragrafos.capitulo = ?
+              AND itens.sequencia IS NULL
+              AND sem_conteudo.id IS NULL
+            ORDER BY paragrafos.numero
+            """,
+            (int(capitulo),),
+        ).fetchall()
+    return [id for id, texto in linhas if any(caractere.isalnum() for caractere in texto)]
+
+
+def gravar_repescagem(
+    slug: str,
+    itens: list[tuple[str, str, str, str]],
+    sem_conteudo: list[str],
+) -> None:
+    with sqlite3.connect(_caminho(slug)) as conexao:
+        conexao.executemany(
+            "INSERT INTO itens (id, tipo, ancora, afirmacao) VALUES (?, ?, ?, ?)",
+            itens,
+        )
+        conexao.executemany(
+            "INSERT OR IGNORE INTO sem_conteudo (id) VALUES (?)",
+            [(id,) for id in sem_conteudo],
+        )

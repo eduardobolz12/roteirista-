@@ -55,6 +55,15 @@ def _argumentos() -> argparse.ArgumentParser:
     itens = comandos.add_parser("itens")
     itens.add_argument("slug")
     itens.add_argument("capitulo")
+
+    lacunas = comandos.add_parser("lacunas")
+    lacunas.add_argument("slug")
+    lacunas.add_argument("capitulo")
+
+    repescar = comandos.add_parser("repescar")
+    repescar.add_argument("slug")
+    repescar.add_argument("capitulo")
+    repescar.add_argument("--janela", type=int, default=2000)
     return parser
 
 
@@ -181,6 +190,29 @@ def main() -> None:
     if args.comando == "itens":
         for id, tipo, ancora, afirmacao in banco.itens(args.slug, args.capitulo):
             sys.stdout.write(f"{id} | {tipo} | {ancora} | {afirmacao}\n")
+        return
+
+    if args.comando == "lacunas":
+        for id in banco.lacunas(args.slug, args.capitulo):
+            sys.stdout.write(f"{id}\n")
+        return
+
+    if args.comando == "repescar":
+        try:
+            resultado = modelo.repescar(args.slug, args.capitulo, args.janela)
+        except modelo.CapituloInexistente:
+            sys.stderr.write(f"capítulo inexistente: {args.capitulo}\n")
+            raise SystemExit(2)
+        except modelo.ModeloInacessivel as erro:
+            sys.stderr.write(f"modelo inacessível: {erro.url}\n")
+            raise SystemExit(3)
+        for aviso in resultado.avisos:
+            sys.stdout.write(f"{aviso}\n")
+        sys.stdout.write(
+            f"{len(resultado.itens)} itens gravados, "
+            f"{len(resultado.sem_conteudo)} sem conteúdo, "
+            f"{resultado.rejeitados} rejeitados\n"
+        )
         return
 
     if args.comando == "montar":

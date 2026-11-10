@@ -50,6 +50,14 @@ class Resultado:
     rejeitados: int
 
 
+@dataclass
+class ResultadoRepescagem:
+    itens: list[Item]
+    sem_conteudo: list[str]
+    avisos: list[str]
+    rejeitados: int
+
+
 def _url() -> str:
     return os.environ.get("ROTEIRISTA_OLLAMA", "http://localhost:11434").rstrip("/")
 
@@ -216,5 +224,86 @@ def indexar(slug: str, capitulo: str, janela: int = 2000) -> Resultado:
         slug,
         capitulo,
         [(item.id, item.tipo, item.ancora, item.afirmacao) for item in resultado.itens],
+    )
+    return resultado
+
+
+def _ler_repescagem(
+    slug: str,
+    paragrafos: list[tuple[str, str]],
+    lacunas: list[str],
+    resposta: str,
+) -> ResultadoRepescagem:
+    ids = {id for id, _ in paragrafos}
+    textos = dict(paragrafos)
+    lista = set(lacunas)
+    resultado = ResultadoRepescagem(
+        itens=[], sem_conteudo=[], avisos=[], rejeitados=0
+    )
+    for linha in resposta.splitlines():
+        if not linha.strip():
+            continue
+        campos = [campo.strip() for campo in linha.split("|")]
+        marca = len(campos) == 2 and campos[1] == "sem-conteudo"
+        if not marca and len(campos) != 4:
+            motivo = "formato"
+        else:
+            id = campos[0]
+            if id.startswith("[") and id.endswith("]"):
+                id = id[1:-1].strip()
+            if not banco.existe_paragrafo(slug, id):
+                motivo = "id inexistente"
+            elif id not in ids:
+                motivo = "id fora do capítulo"
+            elif id not in lista:
+                motivo = "id fora da lista"
+            elif marca:
+                motivo = None
+                resultado.sem_conteudo.append(id)
+            else:
+                _, tipo, ancora, afirmacao = campos
+                if tipo not in _TIPOS:
+                    motivo = "tipo inválido"
+                elif not _normalizar(ancora) or _normalizar(ancora) not in _normalizar(textos[id]):
+                    motivo = "âncora não encontrada"
+                else:
+                    motivo = None
+                    resultado.itens.append(Item(id, tipo, ancora, afirmacao))
+        if motivo is not None:
+            resultado.avisos.append(f"rejeitado ({motivo}): {linha}")
+            resultado.rejeitados += 1
+    return resultado
+
+
+def repescar(slug: str, capitulo: str, janela: int = 2000) -> ResultadoRepescagem:
+    paragrafos = banco.paragrafos_capitulo(slug, capitulo)
+    if paragrafos is None:
+        raise CapituloInexistente(capitulo)
+    lacunas = banco.lacunas(slug, capitulo)
+    lista = set(lacunas)
+    selecionados = [paragrafo for paragrafo in paragrafos if paragrafo[0] in lista]
+    resultado = ResultadoRepescagem(
+        itens=[], sem_conteudo=[], avisos=[], rejeitados=0
+    )
+    vistos = set()
+    marcas = set()
+    for janela_atual in _janelas(selecionados, janela):
+        resposta = _pedir(_prompt("repescar.txt") + _trecho(janela_atual))
+        parcial = _ler_repescagem(slug, paragrafos, lacunas, resposta)
+        resultado.avisos.extend(parcial.avisos)
+        resultado.rejeitados += parcial.rejeitados
+        for item in parcial.itens:
+            chave = (item.id, item.tipo, item.ancora.casefold())
+            if chave not in vistos:
+                vistos.add(chave)
+                resultado.itens.append(item)
+        for id in parcial.sem_conteudo:
+            if id not in marcas:
+                marcas.add(id)
+                resultado.sem_conteudo.append(id)
+    banco.gravar_repescagem(
+        slug,
+        [(item.id, item.tipo, item.ancora, item.afirmacao) for item in resultado.itens],
+        resultado.sem_conteudo,
     )
     return resultado
