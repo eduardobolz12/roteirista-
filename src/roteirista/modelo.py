@@ -5,6 +5,8 @@ from importlib import resources
 import json
 import os
 import re
+import sys
+import time
 import unicodedata
 from urllib import request
 
@@ -94,14 +96,20 @@ def _pedir(prompt: str) -> str:
         headers={"Content-Type": "application/json"},
         method="POST",
     )
-    try:
-        with request.urlopen(pedido, timeout=600) as resposta:
-            dados = json.loads(resposta.read().decode("utf-8"))
-    except (OSError, UnicodeError, ValueError) as erro:
-        raise ModeloInacessivel(url) from erro
-    if not isinstance(dados, dict) or not isinstance(dados.get("response"), str):
-        raise ModeloInacessivel(url)
-    return dados["response"]
+    for tentativa in range(3):
+        try:
+            with request.urlopen(pedido, timeout=600) as resposta:
+                dados = json.loads(resposta.read().decode("utf-8"))
+            if not isinstance(dados, dict) or not isinstance(dados.get("response"), str):
+                raise ValueError("resposta sem texto")
+        except (OSError, UnicodeError, ValueError) as erro:
+            if tentativa == 2:
+                raise ModeloInacessivel(url) from erro
+            sys.stderr.write(f"modelo falhou, nova tentativa ({tentativa + 1} de 2)\n")
+            time.sleep(2)
+        else:
+            return dados["response"]
+    raise AssertionError("inalcançável")
 
 
 def _trecho(paragrafos: list[tuple[str, str]]) -> str:
