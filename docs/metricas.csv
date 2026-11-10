@@ -10,3 +10,7 @@ fatia,nome,cas,vermelho,gate,entrega,prova,aceite,min_gate_a_entrega,defeito_no_
 035,paragrafos-por-recuo,3,2026-11-06 12:05,2026-11-06 13:01,2026-11-06 13:47,2026-11-06 14:16,2026-11-06 15:03,46,medida do fim de linha errada em PDF comercial
 036,medida-da-linha,3,2026-11-06 14:16,2026-11-06 14:19,2026-11-06 14:37,2026-11-06 14:54,2026-11-06 15:03,18,
 037,juncao-de-linhas,3,2026-11-06 14:16,2026-11-06 14:19,2026-11-06 14:45,2026-11-06 14:54,2026-11-06 15:03,26,
+008,indexar,3,2026-11-06 15:40,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito com ressalvas,,livro convertido antes do lote nao tem tabela de itens
+009,janelas,3,2026-11-06 15:40,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito com ressalvas,,
+010,ancoras,3,2026-11-06 15:40,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito com ressalvas,,ancora aceita como pedaco de palavra
+011,lacunas,3,2026-11-06 15:40,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito com ressalvas,,

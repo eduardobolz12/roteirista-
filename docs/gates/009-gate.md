@@ -29,3 +29,10 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 034 verde, 035 verde, 036 verde, 037 verde, 008 verde
+
+## Aceite
+- Data: 2026-11-10
+- Decisor: aceito, com ressalvas
+- Evidência: Serpent reconvertido; capítulo 06 indexado com o qwen3:14b real em 2026-11-10 pelo Decisor e pelo arquiteto, com resultado idêntico nas duas rodadas: 57 itens gravados, 4 corrigidos, 3 rejeitados; 2 lacunas, fechadas pela repescagem.
+- Roteiro manual: leitura em janelas de 2000 tokens, sem parágrafo de fora; 2 min 40 s no capítulo 06.
+- Ressalvas: o índice em português perde números e detalhes (1 de 4 números do gabarito) e o tipo do item não é confiável, sobretudo `contradicao`. Em teste: índice na língua do livro (E-003).
