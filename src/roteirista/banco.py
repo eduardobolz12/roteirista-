@@ -12,6 +12,25 @@ def _caminho(slug: str) -> Path:
     return raiz / slug / "livro.sqlite"
 
 
+def _abrir(slug: str) -> sqlite3.Connection:
+    conexao = sqlite3.connect(_caminho(slug))
+    conexao.executescript(
+        """
+        CREATE TABLE IF NOT EXISTS itens (
+            sequencia INTEGER PRIMARY KEY AUTOINCREMENT,
+            id TEXT NOT NULL REFERENCES paragrafos(id),
+            tipo TEXT NOT NULL,
+            ancora TEXT NOT NULL,
+            afirmacao TEXT NOT NULL
+        );
+        CREATE TABLE IF NOT EXISTS sem_conteudo (
+            id TEXT PRIMARY KEY REFERENCES paragrafos(id)
+        );
+        """
+    )
+    return conexao
+
+
 def criar(slug: str, livro: Livro, lingua: str | None = None) -> None:
     caminho = _caminho(slug)
     caminho.parent.mkdir(parents=True, exist_ok=True)
@@ -96,7 +115,7 @@ def criar(slug: str, livro: Livro, lingua: str | None = None) -> None:
 
 
 def ficha(slug: str) -> tuple[str | None, int, int]:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         lingua = conexao.execute("SELECT lingua FROM ficha").fetchone()[0]
         capitulos = conexao.execute("SELECT COUNT(*) FROM capitulos").fetchone()[0]
         paragrafos = conexao.execute("SELECT COUNT(*) FROM paragrafos").fetchone()[0]
@@ -104,7 +123,7 @@ def ficha(slug: str) -> tuple[str | None, int, int]:
 
 
 def capitulos(slug: str) -> list[tuple[int, list[str]]]:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         linhas = conexao.execute(
             """
             SELECT capitulos.numero, paragrafos.texto
@@ -123,7 +142,7 @@ def capitulos(slug: str) -> list[tuple[int, list[str]]]:
 
 
 def textos(slug: str) -> list[tuple[str, str]]:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         return conexao.execute(
             """
             SELECT id, texto FROM (
@@ -139,7 +158,7 @@ def textos(slug: str) -> list[tuple[str, str]]:
 
 
 def trecho(slug: str, id: str) -> str | None:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         for tabela in ("paragrafos", "notas", "bibliografia"):
             linha = conexao.execute(
                 f"SELECT texto FROM {tabela} WHERE id = ?", (id,)
@@ -150,7 +169,7 @@ def trecho(slug: str, id: str) -> str | None:
 
 
 def paragrafos_capitulo(slug: str, capitulo: str) -> list[tuple[str, str]] | None:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         existe = conexao.execute(
             "SELECT EXISTS(SELECT 1 FROM capitulos WHERE numero = ?)",
             (int(capitulo),),
@@ -167,7 +186,7 @@ def paragrafos_capitulo(slug: str, capitulo: str) -> list[tuple[str, str]] | Non
 
 
 def existe_paragrafo(slug: str, id: str) -> bool:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         return bool(
             conexao.execute(
                 "SELECT EXISTS(SELECT 1 FROM paragrafos WHERE id = ?)", (id,)
@@ -178,7 +197,7 @@ def existe_paragrafo(slug: str, id: str) -> bool:
 def substituir_itens(
     slug: str, capitulo: str, itens: list[tuple[str, str, str, str]]
 ) -> None:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         conexao.execute(
             "DELETE FROM itens WHERE id IN (SELECT id FROM paragrafos WHERE capitulo = ?)",
             (int(capitulo),),
@@ -197,7 +216,7 @@ def substituir_itens(
 
 
 def itens(slug: str, capitulo: str) -> list[tuple[str, str, str, str]]:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         return conexao.execute(
             """
             SELECT itens.id, itens.tipo, itens.ancora, itens.afirmacao
@@ -211,7 +230,7 @@ def itens(slug: str, capitulo: str) -> list[tuple[str, str, str, str]]:
 
 
 def lacunas(slug: str, capitulo: str) -> list[str]:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         linhas = conexao.execute(
             """
             SELECT paragrafos.id, paragrafos.texto
@@ -233,7 +252,7 @@ def gravar_repescagem(
     itens: list[tuple[str, str, str, str]],
     sem_conteudo: list[str],
 ) -> None:
-    with sqlite3.connect(_caminho(slug)) as conexao:
+    with _abrir(slug) as conexao:
         conexao.executemany(
             "INSERT INTO itens (id, tipo, ancora, afirmacao) VALUES (?, ?, ?, ?)",
             itens,
