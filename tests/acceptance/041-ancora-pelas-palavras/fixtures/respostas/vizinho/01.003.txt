@@ -1,0 +1,2 @@
+01.003 | caso | aldeia quis falar | Ninguém na aldeia quer falar.
+01.003 | caso | irmã apelido | Âncora de outro parágrafo.

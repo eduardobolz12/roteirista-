@@ -1,0 +1,2 @@
+02.001 | cena | três horas | O médico assina a certidão.
+02.002 | caso | família | Ninguém soube dizer à família quem abriu a cova.

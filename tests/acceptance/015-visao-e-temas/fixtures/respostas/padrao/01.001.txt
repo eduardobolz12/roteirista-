@@ -1,0 +1,4 @@
+01.001 | numero | more cargo | The ship from Saint Marc carried more cargo than the records show.
+01.002 | contradicao | quite wrong | The author says his hypothesis was quite wrong.
+01.003 | caso | Marcel Pierre | Marcel Pierre sold the powder to Max Beauvoir in Saint Marc.
+01.003 | termo | powder | The powder went to Max Beauvoir.

@@ -1,0 +1,4 @@
+02.001 | informante | Schultes | Schultes said the Yaqui learned it from the Spaniards.
+02.002 | termo | Bizango | The Bizango met at night in Saint Marc.
+02.003 | caso | judged Narcisse | The Bizango judged Narcisse in Saint Marc.
+02.003 | termo | Bizango | The Bizango judged at night.

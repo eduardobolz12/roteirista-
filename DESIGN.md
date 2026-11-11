@@ -135,3 +135,8 @@ Evidência do modelo local: `docs/experimentos/E-001-modelo-local.md`.
 - Decidido: depois do ensaio E-004, o que falta do MAPA vai em lotes, na ordem em que o produto precisa: base do índice para os temas, revisão do sentido e pesquisa web, validadores do briefing e do capítulo, skills do tema ao capítulo escrito, e por fim tradução, humanização e aprovação. Fatias que o ensaio não pediu (resumo por capítulo, embeddings, PDFs externos e /novo-livro) ficam na reserva.
 - Alternativa rejeitada: seguir a ordem dos blocos C a G do plano original, que construiria resumos e embeddings antes de saber se o roteiro precisa deles.
 - Gatilho de revisão: um lote revelar que uma fatia da reserva é necessária antes do previsto.
+
+### D-026 — Âncora conferida pelas palavras
+- Decidido: a âncora confere quando as palavras dela aparecem no parágrafo na mesma ordem, com no máximo 2 palavras do parágrafo entre duas palavras seguidas dela, ignorando pontuação, aspas e maiúsculas. Âncora de mais de 4 palavras confere se algum trecho de 4 palavras seguidas dela conferir; na medição dos capítulos 07 e 10, isso recuperou 49 das 68 fichas recusadas. Substitui a comparação exata das D-022 e D-024. A âncora continua sendo conferida no texto literal, no parágrafo apontado e nos vizinhos.
+- Alternativa rejeitada: a comparação exata, que no Serpent recusou fichas certas em que o modelo tirou uma vírgula ou um "of" (cerca de 12%, concentradas nos diálogos); e aceitar palavras parecidas ou traduzidas, que deixaria passar paráfrase.
+- Gatilho de revisão: uma correção por vizinho aceita pela regra nova apontar o parágrafo errado no roteiro manual.

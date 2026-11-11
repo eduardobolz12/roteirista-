@@ -1,0 +1,3 @@
+01.001 | cena | homem parou túmulo | O homem para diante do túmulo.
+01.002 | caso | A irmã reconheceu o apelido da escola | A irmã reconhece o apelido.
+01.003 | cena | Naquela tarde ninguém | Ninguém fala do enterro.

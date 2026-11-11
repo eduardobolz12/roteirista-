@@ -46,8 +46,8 @@ curto até um vídeo completo. Os números das fatias não mudam; as novas receb
 |-----|------|-----------|-------------------------------|
 | 041 | âncora pelas palavras | 039 | a âncora confere quando as palavras dela aparecem no parágrafo, na mesma ordem e próximas, ignorando a pontuação; `make somebody lot money` confere com "make somebody a lot of money" |
 | 043 | indexar o livro inteiro | 040 | `livro indexar-livro <slug>` indexa e repesca todos os capítulos em ordem, grava o andamento e retoma de onde parou |
-| 015 | visão compacta e contagem por assunto | 008, 012 | `livro visao` dá o índice compacto do livro; `livro assuntos` agrupa e conta itens por tipo e capítulo |
-| 014 | candidatos a contradição | 001 | `livro hesitacoes` lista os parágrafos com palavras-marca da língua do livro ("perhaps", "wrong", "conjecture"...); o julgamento do Claude é gravado só para ids da lista |
+| 015 | visão compacta e contagem por tema | 039 | `livro visao` dá, por capítulo, fichas, nomes repetidos e termos; `livro contar-tema` conta fichas, parágrafos e capítulos de um tema |
+| 014 | hesitações do autor | 005 | `livro hesitacoes` lista os parágrafos com palavras-marca fortes da língua do livro (`--todas` inclui as fracas); `livro julgar` grava o julgamento do Claude só para ids da lista |
 
 ## Lote 4 — Revisão e pesquisa web
 

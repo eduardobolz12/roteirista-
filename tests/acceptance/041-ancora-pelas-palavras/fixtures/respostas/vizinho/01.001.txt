@@ -1,0 +1,2 @@
+01.001 | caso | irmã apelido infância | A irmã reconhece o apelido.
+01.001 | cena | próprio nome | O homem lê o próprio nome.

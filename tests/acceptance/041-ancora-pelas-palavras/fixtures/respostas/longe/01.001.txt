@@ -1,0 +1,5 @@
+01.001 | caso | homem nome | Palavras longe demais.
+01.001 | caso | nome próprio | Fora de ordem.
+01.001 | caso | home | Pedaço de palavra.
+01.001 | caso | homem viu o túmulo de pedra | Nenhum trecho de quatro palavras confere.
+01.002 | caso | apelido infância | A irmã lembra o apelido.
