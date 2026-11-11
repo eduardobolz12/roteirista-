@@ -20,3 +20,10 @@
 | tests/acceptance/041-ancora-pelas-palavras/fixtures/respostas/perto/01.001.txt | c9b15e7c1f14080f79ca46d825cce5e8b968299c74346922162d3f2b29277085 |
 | tests/acceptance/041-ancora-pelas-palavras/fixtures/respostas/vizinho/01.001.txt | 55acb955df3de6840ce8e2c1d0f352148bc8143266619ce329683ad7c19dd502 |
 | tests/acceptance/041-ancora-pelas-palavras/fixtures/respostas/vizinho/01.003.txt | d2d7c199d52dd4db644aca044124fa3aebd983895c0fd5d4b2668f3b64a88f8f |
+
+## Prova
+- Data: 2026-11-11
+- Commit: 6cb110a705b47af2be59526c199e1fe196185339
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde

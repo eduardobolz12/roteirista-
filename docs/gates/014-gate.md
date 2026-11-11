@@ -17,3 +17,10 @@
 | tests/acceptance/014-hesitacoes/test_CA3_julgar.py | ab1762309105e68d39a413d65271fe3b8aeba98dcb1cf8cf215fcf68bb97caa5 |
 | tests/acceptance/014-hesitacoes/fixtures/ingles.pdf | 616be2ae59ac056ff8254b56ac866bf6141df94eaf28cd199912582a8b293d40 |
 | tests/acceptance/014-hesitacoes/fixtures/_gerar_pdf.py | 3a5b9347694036ee1873c82372622233d8034ea2f9c47370df3bdcd5fb7baee2 |
+
+## Prova
+- Data: 2026-11-11
+- Commit: 3363c431c7b0f6e59742b173852ba0284984c01c
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 043 verde, 015 verde

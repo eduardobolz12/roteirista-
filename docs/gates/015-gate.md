@@ -19,3 +19,10 @@
 | tests/acceptance/015-visao-e-temas/fixtures/_gerar_pdf.py | 760d902669bd22b4b3a407e93cb0d32043749fe6bccc3204c06a54a887d61ef4 |
 | tests/acceptance/015-visao-e-temas/fixtures/respostas/padrao/01.001.txt | 7c3d5e499bcd195f45455d4300c5867a6f1e3ccdcb7c753209eae8a1622b2ac2 |
 | tests/acceptance/015-visao-e-temas/fixtures/respostas/padrao/02.001.txt | 2d4f5ee27534d3139b29de9a927ff2da9cb9c7b1ea0f0621a8f80a8d780ab4f9 |
+
+## Prova
+- Data: 2026-11-11
+- Commit: f063285b74809e46e0ba8ee7f1a89dcb0ef04be1
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 043 verde

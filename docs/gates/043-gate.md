@@ -18,3 +18,10 @@
 | tests/acceptance/043-indexar-livro/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
 | tests/acceptance/043-indexar-livro/fixtures/respostas/padrao/01.001.txt | ae7ecf340fc52c839a2a75275859522eaf1c760250e40a512ea31cd8a73be15f |
 | tests/acceptance/043-indexar-livro/fixtures/respostas/padrao/02.001.txt | 6be089a3cdb58006ed5c344d601d3ecc438ba1b5355ac57ed016311538bd252e |
+
+## Prova
+- Data: 2026-11-11
+- Commit: ec58f6236db6f105636bbc6468cee482eba53da2
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde
