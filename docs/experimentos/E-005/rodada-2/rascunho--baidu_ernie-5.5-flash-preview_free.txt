@@ -1,0 +1,11 @@
+"Primeiro, um secretário ergue um facão numa mão e um caderno gasto na outra. Lê em voz alta a data e o lugar da sessão." | ordem trocada: no livro o caixão já entrou e foi pousado antes de o secretário ler a data | 15.086 / 15.089
+
+"Só depois uma mulher entra com um caixão pequeno e preto equilibrado na cabeça." | ordem trocada: no livro ela entra junto do secretário, antes da leitura da data | 15.086
+
+"Gonaives, Haiti, uma noite de março de 1984." | "noite" não consta no material (só a data, 24 de março) | 15.089
+
+"Nessas noites, ninguém o chama de túmulo." | contraste que o livro não faz (não menciona "túmulo") | 16.147
+
+"Que poder é esse, que faz um povo inteiro jurar silêncio diante de um caixão?" | generalização maior que o livro (trata de uma sociedade, não de "um povo inteiro") | 15.081
+
+"Quem assistia a essa cerimônia, com uma vela acesa nas mãos, era Wade Davis" | detalhe acrescentado: o material não diz que Davis segurava uma vela | sem apoio
