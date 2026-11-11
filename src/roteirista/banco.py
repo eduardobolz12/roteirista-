@@ -26,6 +26,9 @@ def _abrir(slug: str) -> sqlite3.Connection:
         CREATE TABLE IF NOT EXISTS sem_conteudo (
             id TEXT PRIMARY KEY REFERENCES paragrafos(id)
         );
+        CREATE TABLE IF NOT EXISTS capitulos_indexados (
+            capitulo INTEGER PRIMARY KEY REFERENCES capitulos(numero)
+        );
         """
     )
     return conexao
@@ -261,3 +264,87 @@ def gravar_repescagem(
             "INSERT OR IGNORE INTO sem_conteudo (id) VALUES (?)",
             [(id,) for id in sem_conteudo],
         )
+
+
+EstadoCapitulo = tuple[list[tuple[int, str, str, str, str]], list[str], bool]
+
+
+def capitulos_prontos(slug: str) -> set[int]:
+    with _abrir(slug) as conexao:
+        linhas = conexao.execute("SELECT capitulo FROM capitulos_indexados").fetchall()
+    return {capitulo for (capitulo,) in linhas}
+
+
+def marcar_capitulo(slug: str, capitulo: str) -> None:
+    with _abrir(slug) as conexao:
+        conexao.execute(
+            "INSERT OR REPLACE INTO capitulos_indexados (capitulo) VALUES (?)",
+            (int(capitulo),),
+        )
+
+
+def desmarcar_capitulo(slug: str, capitulo: str) -> None:
+    with _abrir(slug) as conexao:
+        conexao.execute(
+            "DELETE FROM capitulos_indexados WHERE capitulo = ?", (int(capitulo),)
+        )
+
+
+def capturar_capitulo(slug: str, capitulo: str) -> EstadoCapitulo:
+    with _abrir(slug) as conexao:
+        itens = conexao.execute(
+            """
+            SELECT itens.sequencia, itens.id, itens.tipo, itens.ancora, itens.afirmacao
+            FROM itens
+            JOIN paragrafos ON paragrafos.id = itens.id
+            WHERE paragrafos.capitulo = ?
+            ORDER BY itens.sequencia
+            """,
+            (int(capitulo),),
+        ).fetchall()
+        sem_conteudo = conexao.execute(
+            """
+            SELECT sem_conteudo.id FROM sem_conteudo
+            JOIN paragrafos ON paragrafos.id = sem_conteudo.id
+            WHERE paragrafos.capitulo = ?
+            ORDER BY paragrafos.numero
+            """,
+            (int(capitulo),),
+        ).fetchall()
+        pronto = conexao.execute(
+            "SELECT EXISTS(SELECT 1 FROM capitulos_indexados WHERE capitulo = ?)",
+            (int(capitulo),),
+        ).fetchone()[0]
+    return itens, [id for (id,) in sem_conteudo], bool(pronto)
+
+
+def restaurar_capitulo(slug: str, capitulo: str, estado: EstadoCapitulo) -> None:
+    itens, sem_conteudo, pronto = estado
+    with _abrir(slug) as conexao:
+        conexao.execute(
+            "DELETE FROM itens WHERE id IN (SELECT id FROM paragrafos WHERE capitulo = ?)",
+            (int(capitulo),),
+        )
+        conexao.execute(
+            """
+            DELETE FROM sem_conteudo
+            WHERE id IN (SELECT id FROM paragrafos WHERE capitulo = ?)
+            """,
+            (int(capitulo),),
+        )
+        conexao.executemany(
+            "INSERT INTO itens (sequencia, id, tipo, ancora, afirmacao) VALUES (?, ?, ?, ?, ?)",
+            itens,
+        )
+        conexao.executemany(
+            "INSERT INTO sem_conteudo (id) VALUES (?)",
+            [(id,) for id in sem_conteudo],
+        )
+        conexao.execute(
+            "DELETE FROM capitulos_indexados WHERE capitulo = ?", (int(capitulo),)
+        )
+        if pronto:
+            conexao.execute(
+                "INSERT INTO capitulos_indexados (capitulo) VALUES (?)",
+                (int(capitulo),),
+            )

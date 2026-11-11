@@ -52,6 +52,11 @@ def _argumentos() -> argparse.ArgumentParser:
     indexar.add_argument("capitulo")
     indexar.add_argument("--janela", type=int, default=2000)
 
+    indexar_livro = comandos.add_parser("indexar-livro")
+    indexar_livro.add_argument("slug")
+    indexar_livro.add_argument("--janela", type=int, default=2000)
+    indexar_livro.add_argument("--refazer", action="store_true")
+
     itens = comandos.add_parser("itens")
     itens.add_argument("slug")
     itens.add_argument("capitulo")
@@ -103,6 +108,54 @@ def _montar(slug: str, argumentos: list[str]) -> tuple[list[tuple[str, str]], st
                 return [], f"id inexistente: {id}"
             blocos.append((id, texto))
     return blocos, None
+
+
+def _resumo_indexacao(resultado: modelo.Resultado) -> str:
+    corrigidos = sum(aviso.startswith("corrigido:") for aviso in resultado.avisos)
+    return (
+        f"{len(resultado.itens)} itens gravados, {corrigidos} corrigidos, "
+        f"{resultado.rejeitados} rejeitados"
+    )
+
+
+def _resumo_repescagem(resultado: modelo.ResultadoRepescagem) -> str:
+    return (
+        f"{len(resultado.itens)} itens gravados, "
+        f"{len(resultado.sem_conteudo)} sem conteúdo, "
+        f"{resultado.rejeitados} rejeitados"
+    )
+
+
+def _indexar_livro(slug: str, janela: int, refazer: bool) -> int:
+    prontos = set() if refazer else banco.capitulos_prontos(slug)
+    indexados = 0
+    ja_estavam = 0
+    for numero, paragrafos in banco.capitulos(slug):
+        capitulo = f"{numero:02d}"
+        if numero in prontos:
+            sys.stdout.write(f"{capitulo} | já indexado\n")
+            ja_estavam += 1
+            continue
+        if not paragrafos:
+            sys.stdout.write(f"{capitulo} | sem parágrafos\n")
+            continue
+        estado = banco.capturar_capitulo(slug, capitulo)
+        try:
+            indexacao = modelo.indexar(slug, capitulo, janela)
+            repescagem = modelo.repescar(slug, capitulo, janela)
+        except modelo.ModeloInacessivel as erro:
+            banco.restaurar_capitulo(slug, capitulo, estado)
+            sys.stderr.write(f"modelo inacessível: {erro.url}\n")
+            return 3
+        banco.marcar_capitulo(slug, capitulo)
+        lacunas = len(banco.lacunas(slug, capitulo))
+        sys.stdout.write(
+            f"{capitulo} | {_resumo_indexacao(indexacao)} | "
+            f"{_resumo_repescagem(repescagem)} | lacunas {lacunas}\n"
+        )
+        indexados += 1
+    sys.stdout.write(f"{indexados} capítulos indexados, {ja_estavam} já estavam\n")
+    return 0
 
 
 def main() -> None:
@@ -178,14 +231,14 @@ def main() -> None:
         except modelo.ModeloInacessivel as erro:
             sys.stderr.write(f"modelo inacessível: {erro.url}\n")
             raise SystemExit(3)
+        banco.desmarcar_capitulo(args.slug, args.capitulo)
         for aviso in resultado.avisos:
             sys.stdout.write(f"{aviso}\n")
-        corrigidos = sum(aviso.startswith("corrigido:") for aviso in resultado.avisos)
-        sys.stdout.write(
-            f"{len(resultado.itens)} itens gravados, {corrigidos} corrigidos, "
-            f"{resultado.rejeitados} rejeitados\n"
-        )
+        sys.stdout.write(f"{_resumo_indexacao(resultado)}\n")
         return
+
+    if args.comando == "indexar-livro":
+        raise SystemExit(_indexar_livro(args.slug, args.janela, args.refazer))
 
     if args.comando == "itens":
         for id, tipo, ancora, afirmacao in banco.itens(args.slug, args.capitulo):
@@ -208,11 +261,7 @@ def main() -> None:
             raise SystemExit(3)
         for aviso in resultado.avisos:
             sys.stdout.write(f"{aviso}\n")
-        sys.stdout.write(
-            f"{len(resultado.itens)} itens gravados, "
-            f"{len(resultado.sem_conteudo)} sem conteúdo, "
-            f"{resultado.rejeitados} rejeitados\n"
-        )
+        sys.stdout.write(f"{_resumo_repescagem(resultado)}\n")
         return
 
     if args.comando == "montar":
