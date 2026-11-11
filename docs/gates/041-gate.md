@@ -27,3 +27,9 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde
+
+## Aceite
+- Data: 2026-11-11
+- Decisor: aceito
+- Evidência: Serpent reindexado inteiro com `livro indexar-livro serpent --refazer` em 2026-11-11 (retomado depois de queda do Ollama no capítulo 07): 2.035 fichas (antes 1.993), 19 de 1.489 parágrafos sem ficha (antes 57), 63 marcados sem conteúdo.
+- Roteiro manual: capítulo 07 com 123 fichas gravadas, 9 corrigidas e 9 recusadas (antes 31 recusadas); capítulo 05 de 20 parágrafos sem ficha para 2.

@@ -17,3 +17,7 @@ fatia,nome,cas,vermelho,gate,entrega,prova,aceite,min_gate_a_entrega,defeito_no_
 038,livro-antigo,3,2026-11-10,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito,,
 039,fichas-na-lingua-do-livro,3,2026-11-10,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito,,ancora exata recusa fichas certas sem virgulas e palavras curtas
 040,nova-tentativa,3,2026-11-10,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito,,
+041,ancora-pelas-palavras,3,2026-11-10 23:19,2026-11-10 23:26,2026-11-10 23:35,2026-11-11 12:27,2026-11-11 aceito,9,
+043,indexar-livro,3,2026-11-10 23:19,2026-11-10 23:26,2026-11-10 23:52,2026-11-11 12:27,2026-11-11 aceito,26,
+015,visao-e-temas,3,2026-11-10 23:19,2026-11-10 23:26,2026-11-11 00:04,2026-11-11 12:27,2026-11-11 aceito com ressalvas,38,nome comum The na visao
+014,hesitacoes,3,2026-11-10 23:19,2026-11-10 23:26,2026-11-11 11:29,2026-11-11 12:27,2026-11-11 aceito,723,

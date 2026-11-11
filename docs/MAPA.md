@@ -37,10 +37,7 @@ curto até um vídeo completo. Os números das fatias não mudam; as novas receb
 | 039 | fichas na língua do livro | 011 | livro com língua usa os prompts na língua do livro; âncora como palavra inteira; mesma frase vira uma ficha |
 | 040 | nova tentativa | 009 | pedido que falha é repetido até 3 vezes antes do `modelo inacessível` |
 
-
-# A seguir
-
-## Lote 3 — Base do índice para os temas
+## Bloco C — Base do índice para os temas (lote 3, aceito em 2026-11-11)
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
@@ -48,6 +45,9 @@ curto até um vídeo completo. Os números das fatias não mudam; as novas receb
 | 043 | indexar o livro inteiro | 040 | `livro indexar-livro <slug>` indexa e repesca todos os capítulos em ordem, grava o andamento e retoma de onde parou |
 | 015 | visão compacta e contagem por tema | 039 | `livro visao` dá, por capítulo, fichas, nomes repetidos e termos; `livro contar-tema` conta fichas, parágrafos e capítulos de um tema |
 | 014 | hesitações do autor | 005 | `livro hesitacoes` lista os parágrafos com palavras-marca fortes da língua do livro (`--todas` inclui as fracas); `livro julgar` grava o julgamento do Claude só para ids da lista |
+
+
+# A seguir
 
 ## Lote 4 — Revisão e pesquisa web
 
