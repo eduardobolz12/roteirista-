@@ -14,3 +14,6 @@ fatia,nome,cas,vermelho,gate,entrega,prova,aceite,min_gate_a_entrega,defeito_no_
 009,janelas,3,2026-11-06 15:40,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito com ressalvas,,
 010,ancoras,3,2026-11-06 15:40,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito com ressalvas,,ancora aceita como pedaco de palavra
 011,lacunas,3,2026-11-06 15:40,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito com ressalvas,,
+038,livro-antigo,3,2026-11-10,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito,,
+039,fichas-na-lingua-do-livro,3,2026-11-10,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito,,ancora exata recusa fichas certas sem virgulas e palavras curtas
+040,nova-tentativa,3,2026-11-10,2026-11-10,2026-11-10,2026-11-10,2026-11-10 aceito,,

@@ -30,3 +30,10 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 034 verde, 035 verde, 036 verde, 037 verde
+
+## Aceite
+- Data: 2026-11-10
+- Decisor: aceito
+- Evidência: Serpent indexado inteiro em inglês em 2026-11-10 (19:49 a 22:06): 1.993 fichas, índice com 32% do tamanho do livro, 57 de 1.489 parágrafos sem ficha, cerca de 12% de fichas recusadas por âncora.
+- Roteiro manual: o Serpent indexado no lote 1 aceitou os comandos novos sem reconverter e manteve as 62 fichas do capítulo 06.
+- Observação para o lote 3: a âncora exata recusa fichas certas quando o modelo tira vírgulas e palavras curtas (`make somebody lot money`); concentra-se nos diálogos e nos capítulos 07, 10, 12 e no Epílogo. Regra da SPEC 010, não deste lote.
