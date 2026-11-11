@@ -123,31 +123,48 @@ def _normalizar(texto: str) -> str:
     return re.sub(r"\s+", " ", texto).strip()
 
 
-def _contem_ancora(procurada: str, texto: str) -> bool:
-    inicio = texto.find(procurada)
-    while inicio >= 0:
-        fim = inicio + len(procurada)
-        antes = texto[inicio - 1] if inicio else ""
-        depois = texto[fim] if fim < len(texto) else ""
-        if not antes.isalnum() and not depois.isalnum():
-            return True
-        inicio = texto.find(procurada, inicio + 1)
-    return False
+def _palavras(texto: str) -> list[str]:
+    texto = re.sub(r"\[n\d{2}\]", "", texto)
+    texto = unicodedata.normalize("NFC", texto).casefold()
+    return re.findall(r"[^\W_]+", texto)
+
+
+def _trecho_confere(procuradas: list[str], palavras: list[str]) -> bool:
+    anterior = -1
+    for procurada in procuradas:
+        try:
+            posicao = palavras.index(procurada, anterior + 1)
+        except ValueError:
+            return False
+        if anterior >= 0 and posicao - anterior - 1 > 2:
+            return False
+        anterior = posicao
+    return True
+
+
+def _contem_ancora(ancora: str, texto: str) -> bool:
+    procuradas = _palavras(ancora)
+    if not procuradas:
+        return False
+    palavras = _palavras(texto)
+    if len(procuradas) > 4:
+        return any(
+            _trecho_confere(procuradas[inicio : inicio + 4], palavras)
+            for inicio in range(len(procuradas) - 3)
+        )
+    return _trecho_confere(procuradas, palavras)
 
 
 def _localizar_ancora(
     ancora: str, id: str, paragrafos: list[tuple[str, str]]
 ) -> str | None:
-    procurada = _normalizar(ancora)
-    if not procurada:
-        return None
     posicao = next(pos for pos, (id_paragrafo, _) in enumerate(paragrafos) if id_paragrafo == id)
-    if _contem_ancora(procurada, _normalizar(paragrafos[posicao][1])):
+    if _contem_ancora(ancora, paragrafos[posicao][1]):
         return id
     for distancia in (1, 2, 3):
         for vizinho in (posicao - distancia, posicao + distancia):
             if 0 <= vizinho < len(paragrafos):
-                if _contem_ancora(procurada, _normalizar(paragrafos[vizinho][1])):
+                if _contem_ancora(ancora, paragrafos[vizinho][1]):
                     return paragrafos[vizinho][0]
     return None
 
@@ -295,10 +312,7 @@ def _ler_repescagem(
                 if tipo not in _TIPOS:
                     motivo = "tipo inválido"
                 else:
-                    procurada = _normalizar(ancora)
-                    if not procurada or not _contem_ancora(
-                        procurada, _normalizar(textos[id])
-                    ):
+                    if not _contem_ancora(ancora, textos[id]):
                         motivo = "âncora não encontrada"
                     else:
                         motivo = None
