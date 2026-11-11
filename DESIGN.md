@@ -130,3 +130,8 @@ Evidência do modelo local: `docs/experimentos/E-001-modelo-local.md`.
 - Decidido: livro com língua informada é indexado e repescado com os prompts `indexar-livro.txt` e `repescar-livro.txt`, que pedem a afirmação na língua do livro. A âncora confere como palavra inteira, e fichas do mesmo parágrafo com a mesma frase viram uma. Um pedido ao modelo que falha é tentado até 3 vezes. Atualiza a D-022.
 - Alternativa rejeitada: a afirmação em português, que no E-003 achou 1 dos 4 números do gabarito contra 4 de 4; e pedir "todo número", que dobrou o índice sem achar mais.
 - Gatilho de revisão: o índice na língua do livro passar de 40% do tamanho do capítulo, ou mais de 15% de recusas num capítulo real (D-022).
+
+### D-025 — Plano reordenado pelo caminho mais curto até um vídeo
+- Decidido: depois do ensaio E-004, o que falta do MAPA vai em lotes, na ordem em que o produto precisa: base do índice para os temas, revisão do sentido e pesquisa web, validadores do briefing e do capítulo, skills do tema ao capítulo escrito, e por fim tradução, humanização e aprovação. Fatias que o ensaio não pediu (resumo por capítulo, embeddings, PDFs externos e /novo-livro) ficam na reserva.
+- Alternativa rejeitada: seguir a ordem dos blocos C a G do plano original, que construiria resumos e embeddings antes de saber se o roteiro precisa deles.
+- Gatilho de revisão: um lote revelar que uma fatia da reserva é necessária antes do previsto.

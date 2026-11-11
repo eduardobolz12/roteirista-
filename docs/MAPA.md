@@ -4,6 +4,11 @@ Premissa: `DESIGN.md`. Cada fatia tem 2–3 CAs e cabe numa sessão. Toda fatia 
 de uma que os escreve. "Livro de teste" = fixture pequena dentro da pasta da fatia, nunca o Serpent
 (direitos autorais). Modelo local nos testes = servidor falso (D-013).
 
+Reorganizado em 2026-11-10 depois do ensaio E-004 (D-025): o que falta vai em lotes, pelo caminho mais
+curto até um vídeo completo. Os números das fatias não mudam; as novas recebem números livres.
+
+# Feito
+
 ## Bloco A — O livro (escreve o texto; tudo depende dele)
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
@@ -31,34 +36,53 @@ de uma que os escreve. "Livro de teste" = fixture pequena dentro da pasta da fat
 | 011 | cobertura e repescagem | 008 | `livro lacunas` lista os parágrafos sem item; a repescagem cobre só esses, com item ou `sem-conteudo` |
 | 039 | fichas na língua do livro | 011 | livro com língua usa os prompts na língua do livro; âncora como palavra inteira; mesma frase vira uma ficha |
 | 040 | nova tentativa | 009 | pedido que falha é repetido até 3 vezes antes do `modelo inacessível` |
-| 012 | resumo por capítulo | 008, 010 | `livro resumir` grava temas, cenas, números e contradições do capítulo, cada linha com ids válidos |
-| 013 | embeddings e busca por sentido | 001 | `livro vetorizar` grava um vetor por parágrafo no banco; `livro perguntar "<pergunta>"` devolve ids ordenados, nunca texto reescrito |
+
+
+# A seguir
+
+## Lote 3 — Base do índice para os temas
+
+| NNN | nome | depende de | como se sabe que ficou pronta |
+|-----|------|-----------|-------------------------------|
+| 041 | âncora pelas palavras | 039 | a âncora confere quando as palavras dela aparecem no parágrafo, na mesma ordem e próximas, ignorando a pontuação; `make somebody lot money` confere com "make somebody a lot of money" |
+| 043 | indexar o livro inteiro | 040 | `livro indexar-livro <slug>` indexa e repesca todos os capítulos em ordem, grava o andamento e retoma de onde parou |
+| 015 | visão compacta e contagem por assunto | 008, 012 | `livro visao` dá o índice compacto do livro; `livro assuntos` agrupa e conta itens por tipo e capítulo |
 | 014 | candidatos a contradição | 001 | `livro hesitacoes` lista os parágrafos com palavras-marca da língua do livro ("perhaps", "wrong", "conjecture"...); o julgamento do Claude é gravado só para ids da lista |
 
-## Bloco C — Temas (lê o índice)
+## Lote 4 — Revisão e pesquisa web
+
+Antes das specs: medir a revisão no capítulo 06 do Serpent (D-023) e a pesquisa web gratuita contra as
+perguntas do piloto, com o 9Router lendo as páginas.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
-| 015 | visão compacta e contagem por assunto | 008, 012 | `livro visao` dá o índice compacto do livro; `livro assuntos` agrupa e conta itens por tipo e capítulo |
-| 016 | validador da sugestão de temas | 015 | `livro validar-temas` confere um arquivo no formato M-003: ids existem, todo candidato tem enigma, números e rachadura com ids, casas sem assunto órfão |
-
-## Bloco D — Pesquisa web (escreve as fontes externas)
-
-| NNN | nome | depende de | como se sabe que ficou pronta |
-|-----|------|-----------|-------------------------------|
+| 042 | revisão do sentido por modelo gratuito | 041 | um modelo gratuito na nuvem (D-023) lê a ficha ou o capítulo escrito junto com o literal e aponta afirmação que o texto não sustenta; o apontado é conferido por script e as duas versões ficam guardadas |
 | 017 | página web vira fonte com ids | 001 | `livro fonte-web <url>` baixa, quebra em parágrafos com id e grava autor, título, data e URL; a origem `[W ...]` sai do script |
 | 018 | busca web gratuita | 017 | `livro pesquisar-web "<pergunta>"` busca, baixa os primeiros resultados e grava cada um como fonte; bloqueio do buscador vira erro claro, não silêncio |
-| 019 | PDFs externos | 002, 017 | PDF em `externas/` vira fonte `[E ...]` com ids, pelo mesmo caminho do livro |
 
-## Bloco E — Briefing e conferência do roteiro (lê índice, temas e fontes)
+## Lote 5 — Validadores do briefing e do capítulo
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
+| 016 | validador da sugestão de temas | 015 | `livro validar-temas` confere um arquivo no formato M-003: ids existem, todo candidato tem enigma, números e rachadura com ids, casas sem assunto órfão |
 | 020 | validador do briefing | 016, 017 | `livro validar-briefing` confere o formato M-001: seções presentes, ids existem, toda linha tem origem, citação prevista transcrita por script |
 | 021 | casa dos assuntos | 020 | passagem marcada "desenvolver" que é casa de outro vídeo gera aviso, sem bloquear; "mencionar" nunca avisa |
 | 022 | contar e conferir citações do capítulo | 006 | `livro contar` dá palavras e minutos só do texto narrado; toda citação do capítulo é conferida no literal |
 
-## Bloco F — Tradução, humanização e aprovação
+## Lote 6 — Skills: do tema ao capítulo escrito
+
+As skills são prompts: o resultado delas não é sim/não e não passa por teste automático de conteúdo.
+Cada uma vira fatia **depois** do núcleo que ela usa, com aceite pelo validador do arquivo que ela
+produz + roteiro manual. As skills são escritas pelo arquiteto (D-019).
+
+| NNN | nome | depende de | como se sabe que ficou pronta |
+|-----|------|-----------|-------------------------------|
+| 029 | /temas | 016 | o arquivo de sugestão passa no `validar-temas` |
+| 030 | /pesquisar e /completar | 018, 019 | o dossiê só tem origens `[L]`, `[W]`, `[E]` que existem |
+| 031 | /briefing | 020, 021, 029, 030 | os 6 briefings passam no `validar-briefing` |
+| 032 | /escrever e /revisar | 022, 031 | cada capítulo passa no `contar` e na conferência de citações |
+
+## Lote 7 — Tradução, humanização e aprovação
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
@@ -67,18 +91,15 @@ de uma que os escreve. "Livro de teste" = fixture pequena dentro da pasta da fat
 | 025 | legibilidade en/fr | — | `livro legibilidade` dá, por parágrafo, tamanho de frase, palavras fora da lista de vocabulário e expressões idiomáticas marcadas |
 | 026 | retrotradução local | 023 | `livro retraduzir` grava a versão em português, parágrafo por parágrafo, com os termos do glossário respeitados |
 | 027 | tela lado a lado | 026, 024 | `livro lado-a-lado` gera o HTML da M-002 sem rede e sem tokens; parágrafo com alerta aparece marcado |
+| 033 | /traduzir e /humanizar | 023, 024, 025, 027 | o capítulo humanizado passa nas invariantes e gera a tela lado a lado |
 
-## Bloco G — Orquestração (skills do Claude Code)
+# Reserva
 
-As skills são prompts: o resultado delas não é sim/não e não passa por teste automático de conteúdo.
-Cada uma vira fatia **depois** do núcleo que ela usa, com aceite pelo validador do arquivo que ela
-produz + roteiro manual. As skills são escritas pelo arquiteto (D-019).
+Fatias do plano original que o ensaio E-004 não pediu. Entram num lote quando fizerem falta.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
+| 012 | resumo por capítulo | 008, 010 | `livro resumir` grava temas, cenas, números e contradições do capítulo, cada linha com ids válidos |
+| 013 | embeddings e busca por sentido | 001 | `livro vetorizar` grava um vetor por parágrafo no banco; `livro perguntar "<pergunta>"` devolve ids ordenados, nunca texto reescrito |
+| 019 | PDFs externos | 002, 017 | PDF em `externas/` vira fonte `[E ...]` com ids, pelo mesmo caminho do livro |
 | 028 | /novo-livro e /indexar | 005, 009, 011, 012, 013, 014 | um livro de teste sai convertido, indexado e com resumos, sem o Claude ler o livro |
-| 029 | /temas | 016 | o arquivo de sugestão passa no `validar-temas` |
-| 030 | /pesquisar e /completar | 018, 019 | o dossiê só tem origens `[L]`, `[W]`, `[E]` que existem |
-| 031 | /briefing | 020, 021, 029, 030 | os 6 briefings passam no `validar-briefing` |
-| 032 | /escrever e /revisar | 022, 031 | cada capítulo passa no `contar` e na conferência de citações |
-| 033 | /traduzir e /humanizar | 023, 024, 025, 027 | o capítulo humanizado passa nas invariantes e gera a tela lado a lado |
