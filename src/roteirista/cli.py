@@ -1,6 +1,7 @@
 """Interface de linha de comando do roteirista."""
 
 import argparse
+from collections import Counter
 import math
 from pathlib import Path
 import re
@@ -69,6 +70,13 @@ def _argumentos() -> argparse.ArgumentParser:
     repescar.add_argument("slug")
     repescar.add_argument("capitulo")
     repescar.add_argument("--janela", type=int, default=2000)
+
+    visao = comandos.add_parser("visao")
+    visao.add_argument("slug")
+
+    contar_tema = comandos.add_parser("contar-tema")
+    contar_tema.add_argument("slug")
+    contar_tema.add_argument("termos", nargs="+")
     return parser
 
 
@@ -155,6 +163,115 @@ def _indexar_livro(slug: str, janela: int, refazer: bool) -> int:
         )
         indexados += 1
     sys.stdout.write(f"{indexados} capítulos indexados, {ja_estavam} já estavam\n")
+    return 0
+
+
+def _nomes_afirmacao(texto: str) -> list[str]:
+    sequencias: list[tuple[int, list[str]]] = []
+    sequencia: list[str] = []
+    inicio = 0
+    fim_anterior = None
+    for achado in re.finditer(r"[^\W\d_]+", texto):
+        palavra = achado.group()
+        seguida = bool(
+            sequencia
+            and fim_anterior is not None
+            and texto[fim_anterior : achado.start()].isspace()
+        )
+        valida = len(palavra) >= 2 and palavra[0].isupper()
+        if valida and (not sequencia or seguida):
+            if not sequencia:
+                inicio = achado.start()
+            sequencia.append(palavra)
+        else:
+            if sequencia:
+                sequencias.append((inicio, sequencia))
+            sequencia = [palavra] if valida else []
+            if valida:
+                inicio = achado.start()
+        fim_anterior = achado.end()
+    if sequencia:
+        sequencias.append((inicio, sequencia))
+
+    nomes = []
+    for inicio, palavras in sequencias:
+        prefixo = texto[:inicio].rstrip()
+        if not prefixo or prefixo[-1] in ".!?:;“‘\"'(«":
+            palavras = palavras[1:]
+        if palavras:
+            nomes.append(" ".join(palavras))
+    return nomes
+
+
+def _visao(slug: str) -> None:
+    capitulos: dict[int, tuple[str, list[tuple[str, str, str, str]]]] = {}
+    for numero, titulo, id, tipo, ancora, afirmacao in banco.itens_livro(slug):
+        capitulos.setdefault(numero, (titulo, []))[1].append(
+            (id, tipo, ancora, afirmacao)
+        )
+    for numero, (titulo, fichas) in capitulos.items():
+        tipos = Counter(ficha[1] for ficha in fichas)
+        sys.stdout.write(
+            f"{numero:02d} {titulo} — {len(fichas)} fichas; "
+            f"numero {tipos['numero']}, contradicao {tipos['contradicao']}\n"
+        )
+        nomes = Counter(
+            nome
+            for ficha in fichas
+            for nome in _nomes_afirmacao(ficha[3])
+        )
+        frequentes = sorted(
+            ((nome, vezes) for nome, vezes in nomes.items() if vezes >= 2),
+            key=lambda item: -item[1],
+        )[:10]
+        listagem = ", ".join(f"{nome} ({vezes})" for nome, vezes in frequentes)
+        sys.stdout.write(f"   nomes: {listagem or '—'}\n")
+        termos = Counter(ficha[2] for ficha in fichas if ficha[1] == "termo")
+        ordenados = sorted(termos, key=lambda termo: -termos[termo])[:8]
+        sys.stdout.write(f"   termos: {', '.join(ordenados) or '—'}\n")
+
+
+def _palavras_tema(texto: str) -> list[str]:
+    return re.findall(r"[^\W_]+", unicodedata.normalize("NFC", texto).casefold())
+
+
+def _tema_confere(texto: str, termos: list[list[str]]) -> bool:
+    palavras = _palavras_tema(texto)
+    for termo in termos:
+        for inicio in range(len(palavras) - len(termo) + 1):
+            if all(
+                palavras[inicio + deslocamento].startswith(procurada)
+                for deslocamento, procurada in enumerate(termo)
+            ):
+                return True
+    return False
+
+
+def _contar_tema(slug: str, termos: list[str]) -> int:
+    procurados = [palavras for termo in termos if (palavras := _palavras_tema(termo))]
+    fichas = [
+        ficha
+        for ficha in banco.itens_livro(slug)
+        if _tema_confere(ficha[4], procurados)
+        or _tema_confere(ficha[5], procurados)
+    ]
+    paragrafos = {ficha[2] for ficha in fichas}
+    por_capitulo = Counter(ficha[0] for ficha in fichas)
+    sys.stdout.write(
+        f"{len(fichas)} fichas, {len(paragrafos)} parágrafos, "
+        f"{len(por_capitulo)} capítulos\n"
+    )
+    if not fichas:
+        return 1
+    ordenados = sorted(por_capitulo, key=lambda capitulo: -por_capitulo[capitulo])
+    listagem = ", ".join(
+        f"{capitulo:02d} ({por_capitulo[capitulo]})" for capitulo in ordenados
+    )
+    sys.stdout.write(f"capítulos: {listagem}\n")
+    tipos = Counter(ficha[3] for ficha in fichas)
+    sys.stdout.write(
+        f"numero {tipos['numero']}, contradicao {tipos['contradicao']}\n"
+    )
     return 0
 
 
@@ -263,6 +380,13 @@ def main() -> None:
             sys.stdout.write(f"{aviso}\n")
         sys.stdout.write(f"{_resumo_repescagem(resultado)}\n")
         return
+
+    if args.comando == "visao":
+        _visao(args.slug)
+        return
+
+    if args.comando == "contar-tema":
+        raise SystemExit(_contar_tema(args.slug, args.termos))
 
     if args.comando == "montar":
         blocos, erro = _montar(args.slug, args.ids)

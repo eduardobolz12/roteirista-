@@ -232,6 +232,20 @@ def itens(slug: str, capitulo: str) -> list[tuple[str, str, str, str]]:
         ).fetchall()
 
 
+def itens_livro(slug: str) -> list[tuple[int, str, str, str, str, str]]:
+    with _abrir(slug) as conexao:
+        return conexao.execute(
+            """
+            SELECT capitulos.numero, capitulos.titulo, itens.id,
+                   itens.tipo, itens.ancora, itens.afirmacao
+            FROM capitulos
+            JOIN paragrafos ON paragrafos.capitulo = capitulos.numero
+            JOIN itens ON itens.id = paragrafos.id
+            ORDER BY capitulos.numero, paragrafos.numero, itens.sequencia
+            """
+        ).fetchall()
+
+
 def lacunas(slug: str, capitulo: str) -> list[str]:
     with _abrir(slug) as conexao:
         linhas = conexao.execute(
