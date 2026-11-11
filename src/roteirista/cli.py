@@ -15,6 +15,32 @@ from roteirista.pdf import Livro, extrair as extrair_pdf
 
 _LINGUAS = {"en", "fr", "pt", "es", "de", "it"}
 _INTERVALO = re.compile(r"^(\d{2})\.(\d{3})-(\d{2})\.(\d{3})$")
+_MARCAS_HESITACAO = {
+    "en": (
+        (
+            "conjecture", "hypothesis", "wrong", "mistaken", "uncertain",
+            "uncertainty", "doubt", "unclear", "speculat", "possibly",
+            "i suspect", "not sure", "no evidence", "remains to be",
+        ),
+        (
+            "perhaps", "probably", "apparently", "presumably", "it seems",
+            "it appears", "appears to", "seemed to", "may have", "might have",
+            "could have", "unknown",
+        ),
+    ),
+    "fr": (
+        (
+            "conjecture", "hypothèse", "erreur", "je me trompais", "incertain",
+            "incertitude", "doute", "douteux", "spécul", "possiblement",
+            "je soupçonne", "pas sûr", "aucune preuve", "reste à",
+        ),
+        (
+            "peut-être", "probablement", "sans doute", "apparemment",
+            "vraisemblablement", "il semble", "il paraît", "semblait",
+            "aurait pu", "pourrait",
+        ),
+    ),
+}
 
 
 def _argumentos() -> argparse.ArgumentParser:
@@ -77,6 +103,18 @@ def _argumentos() -> argparse.ArgumentParser:
     contar_tema = comandos.add_parser("contar-tema")
     contar_tema.add_argument("slug")
     contar_tema.add_argument("termos", nargs="+")
+
+    hesitacoes = comandos.add_parser("hesitacoes")
+    hesitacoes.add_argument("slug")
+    opcoes = hesitacoes.add_mutually_exclusive_group()
+    opcoes.add_argument("--todas", action="store_true")
+    opcoes.add_argument("--julgadas", action="store_true")
+
+    julgar = comandos.add_parser("julgar")
+    julgar.add_argument("slug")
+    julgar.add_argument("id")
+    julgar.add_argument("julgamento", choices=("hesitacao", "nao"))
+    julgar.add_argument("nota")
     return parser
 
 
@@ -275,6 +313,37 @@ def _contar_tema(slug: str, termos: list[str]) -> int:
     return 0
 
 
+def _marcas_livro(slug: str) -> tuple[tuple[str, ...], tuple[str, ...]] | None:
+    lingua = banco.ficha(slug)[0]
+    if lingua not in _MARCAS_HESITACAO:
+        sys.stderr.write(
+            f"sem palavras-marca para a língua: {lingua or 'não informada'}\n"
+        )
+        return None
+    return _MARCAS_HESITACAO[lingua]
+
+
+def _lista_hesitacoes(
+    slug: str, marcas: tuple[tuple[str, ...], tuple[str, ...]], todas: bool
+) -> list[tuple[str, list[str]]]:
+    fortes, fracas = marcas
+    procuradas = fortes + fracas if todas else fortes
+    resultado = []
+    for id, texto in banco.paragrafos_livro(slug):
+        normalizado = unicodedata.normalize("NFC", texto).casefold()
+        normalizado = normalizado.translate(
+            str.maketrans({"“": '"', "”": '"', "‘": "'", "’": "'"})
+        )
+        achadas = []
+        for marca in procuradas:
+            expressao = re.escape(marca).replace(r"\ ", r"\s+")
+            if re.search(rf"(?<!\w){expressao}", normalizado):
+                achadas.append(marca)
+        if achadas:
+            resultado.append((id, achadas))
+    return resultado
+
+
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
@@ -387,6 +456,32 @@ def main() -> None:
 
     if args.comando == "contar-tema":
         raise SystemExit(_contar_tema(args.slug, args.termos))
+
+    if args.comando == "hesitacoes":
+        marcas = _marcas_livro(args.slug)
+        if marcas is None:
+            raise SystemExit(2)
+        if args.julgadas:
+            for id, julgamento, nota in banco.hesitacoes_julgadas(args.slug):
+                sys.stdout.write(f"{id} | {julgamento} | {nota}\n")
+            return
+        for id, achadas in _lista_hesitacoes(args.slug, marcas, args.todas):
+            sys.stdout.write(f"{id} | {', '.join(achadas)}\n")
+        return
+
+    if args.comando == "julgar":
+        marcas = _marcas_livro(args.slug)
+        if marcas is None:
+            raise SystemExit(2)
+        ids = {
+            id
+            for id, _ in _lista_hesitacoes(args.slug, marcas, todas=True)
+        }
+        if args.id not in ids:
+            sys.stderr.write(f"id fora da lista: {args.id}\n")
+            raise SystemExit(2)
+        banco.julgar_hesitacao(args.slug, args.id, args.julgamento, args.nota)
+        return
 
     if args.comando == "montar":
         blocos, erro = _montar(args.slug, args.ids)

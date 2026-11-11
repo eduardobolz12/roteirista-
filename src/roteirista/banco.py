@@ -29,6 +29,11 @@ def _abrir(slug: str) -> sqlite3.Connection:
         CREATE TABLE IF NOT EXISTS capitulos_indexados (
             capitulo INTEGER PRIMARY KEY REFERENCES capitulos(numero)
         );
+        CREATE TABLE IF NOT EXISTS hesitacoes_julgadas (
+            id TEXT PRIMARY KEY REFERENCES paragrafos(id),
+            julgamento TEXT NOT NULL,
+            nota TEXT NOT NULL
+        );
         """
     )
     return conexao
@@ -156,6 +161,36 @@ def textos(slug: str) -> list[tuple[str, str]]:
                 SELECT id, texto, 2147483647 AS capitulo, 2 AS tipo, numero FROM bibliografia
             )
             ORDER BY capitulo, tipo, numero
+            """
+        ).fetchall()
+
+
+def paragrafos_livro(slug: str) -> list[tuple[str, str]]:
+    with _abrir(slug) as conexao:
+        return conexao.execute(
+            "SELECT id, texto FROM paragrafos ORDER BY capitulo, numero"
+        ).fetchall()
+
+
+def julgar_hesitacao(slug: str, id: str, julgamento: str, nota: str) -> None:
+    with _abrir(slug) as conexao:
+        conexao.execute(
+            """
+            INSERT INTO hesitacoes_julgadas (id, julgamento, nota) VALUES (?, ?, ?)
+            ON CONFLICT(id) DO UPDATE SET julgamento = excluded.julgamento, nota = excluded.nota
+            """,
+            (id, julgamento, nota),
+        )
+
+
+def hesitacoes_julgadas(slug: str) -> list[tuple[str, str, str]]:
+    with _abrir(slug) as conexao:
+        return conexao.execute(
+            """
+            SELECT hesitacoes_julgadas.id, julgamento, nota
+            FROM hesitacoes_julgadas
+            JOIN paragrafos ON paragrafos.id = hesitacoes_julgadas.id
+            ORDER BY paragrafos.capitulo, paragrafos.numero
             """
         ).fetchall()
 
