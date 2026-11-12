@@ -113,6 +113,11 @@ aceita em 2026-11-12).
 
 ## Lote 8 — Retrotradução, tela e skills da tradução
 
+Regras e prompt rodados antes no ensaio E-009 (o tema 1 do Serpent humanizado, retraduzido pelo
+qwen3:14b e montado na tela: 0 alertas; 2 erros de sentido da retrotradução em 62 parágrafos, um por
+capítulo, depois do capítulo como contexto e da regra de não traduzir nomes). D-011 e D-012. Ordem: 026,
+027; a 033 (skills) fecha com o Decisor lendo a tela do tema 1.
+
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
 | 026 | retrotradução local | 023 | `livro retraduzir` grava a versão em português, parágrafo por parágrafo, com os termos do glossário respeitados |

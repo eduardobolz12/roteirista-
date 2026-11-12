@@ -70,6 +70,7 @@ Evidência do modelo local: `docs/experimentos/E-001-modelo-local.md`.
 - Decidido: a cada capítulo humanizado, o qwen3:14b retraduz para português com o glossário, e um script gera a tela lado a lado (`docs/maquetes/M-002-lado-a-lado.html`) com os alertas. O Decisor aprova capítulo a capítulo e as sugestões voltam para o Claude.
 - Alternativa rejeitada: o Claude retraduzir (gasta tokens) ou o 8B (erros que parecem da tradução, no E-001).
 - Gatilho de revisão: a retrotradução gerar falso alarme em mais de um parágrafo por capítulo, ou o Decisor passar a ler en/fr.
+- No ensaio E-009 (2026-11-12): o prompt da retrotradução leva o capítulo inteiro como contexto e a regra de não traduzir nomes e títulos; sem eles, 10 parágrafos do tema 1 com erro que engana, em 4 capítulos; com eles, 2, em capítulos diferentes (dentro do gatilho). A tela mostra o português aprovado recolhido sob cada parágrafo, porque erro de sentido da retrotradução só a leitura pega.
 
 ### D-013 — Testes do núcleo sem o modelo real
 - Decidido: nos testes de aceite, a CLI fala com um servidor falso que imita a API do Ollama e devolve respostas fixas de `fixtures/`. A qualidade do modelo real é medida à parte, em `docs/experimentos/`.

@@ -1,6 +1,6 @@
 # Regras comuns das skills do roteiro
 
-Valem para `/temas`, `/pesquisar`, `/briefing`, `/escrever` e `/revisar`. Cada regra diz de qual decisão
+Valem para `/temas`, `/pesquisar`, `/briefing`, `/escrever`, `/revisar`, `/traduzir` e `/humanizar`. Cada regra diz de qual decisão
 do `DESIGN.md` ela vem; se esta lista e o `DESIGN.md` divergirem, vale o `DESIGN.md`.
 
 ## Onde ficam os arquivos
@@ -10,7 +10,10 @@ Tudo de um livro fica em `livros/<slug>/`, fora do git (direitos autorais, D-015
 - `temas.md`: a sugestão de temas (`/temas`);
 - `temas/<n>/`, uma pasta por tema escolhido, com `<n>` o número do tema em `temas.md`:
   `decisoes.md`, `pesquisa.md`, `plano.md`, `briefing-1.md` a `briefing-6.md`, `cap-1.md` a `cap-6.md`
-  com as conferências, `roteiro-pt.md` e `revisao.md`.
+  com as conferências, `roteiro-pt.md` e `revisao.md`; depois, por língua (`en` ou `fr`),
+  `roteiro-<língua>.md` e `traducao.md` (`/traduzir`), `roteiro-<língua>-humanizado.md` e `humanizacao.md`
+  (`/humanizar`), a retrotradução `retro-pt-roteiro-<língua>-humanizado.md` e a tela
+  `lado-a-lado-roteiro-<língua>-humanizado.html`.
 
 Cada skill lê dos arquivos o que precisa e pode rodar numa conversa nova.
 

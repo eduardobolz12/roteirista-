@@ -1,0 +1,16 @@
+Traduza para o português do Brasil o PARÁGRAFO em {lingua} que está no fim. O CAPÍTULO vem antes só para você entender o contexto: não o traduza.
+
+Regras:
+- Tradução fiel ao sentido, na mesma ordem. Não embeleze, não resuma, não acrescente nada.
+- Nomes de pessoas e de lugares e títulos de livros, filmes e revistas ficam exatamente como estão, sem tradução.
+- Se uma frase for ambígua, traduza e marque [ambíguo] no fim dela.
+- As marcas ⟦1⟧, ⟦2⟧... são citações: copie cada uma exatamente onde está, sem traduzir.
+{glossario}- Escreva só a tradução do PARÁGRAFO.
+
+CAPÍTULO:
+
+{capitulo}
+
+PARÁGRAFO:
+
+{texto}
