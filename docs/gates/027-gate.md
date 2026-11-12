@@ -23,3 +23,11 @@
 | tests/acceptance/027-tela-lado-a-lado/fixtures/roteiro-en-humanizado.md | 2978da18dd0b38a8dd5d0d7cbacb6973748b03f38b9b60bcd23bf8ec6e61c5bd |
 | tests/acceptance/027-tela-lado-a-lado/fixtures/roteiro-en.md | 5e80f96a24621452fe8663eb2955c422a0df836a1c8f704169db72df51a51c75 |
 | tests/acceptance/027-tela-lado-a-lado/fixtures/roteiro-pt.md | e7db7226ef6f1a68b56930c75271d2b447830d28691322221cf736e6259db401 |
+
+## Prova
+- Data: 2026-11-12
+- Commit: 07debaf580fa8c74aba4136d3ed6224d7eb7badd
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 026 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde, 045 verde
+- Manual: 3 de 3 passos conformes: 62 parágrafos em 6 capítulos, sem http, `<script>` nem `<link>`; 0 marcados, e, com a retrotradução do prompt antigo, 4 marcados e 17 alertas da retrotradução, iguais na página e no stdout; a cópia com "six cracks" marca só 1.2, com "Tradução: números: 7 → 6", e a retrotradução de 1.2 diz "seis". Fora dos passos: aberto, o "Português aprovado" cai na coluna estreita do número (a maquete M-002 não tem estilo para ele); correção proposta: 046.

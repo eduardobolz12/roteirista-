@@ -21,3 +21,11 @@
 | tests/acceptance/026-retrotraducao-local/fixtures/respostas.json | a56af65503deb024333aa4eb8d681cde5a6118578bf61306395d4bdc2b25c538 |
 | tests/acceptance/026-retrotraducao-local/fixtures/roteiro-en.md | a7ab016a51e19fef9fa9dea8462542c46edc93f070c2d529ce201410ff199a61 |
 | tests/acceptance/026-retrotraducao-local/fixtures/roteiro-pt.md | c382e36ad0ec99382e4037426f6609957b96f0f4d8592fade9f56da4cae7ecb7 |
+
+## Prova
+- Data: 2026-11-12
+- Commit: f1b60a2af253cf9fc4930a02846dc98ce16a1de8
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde, 045 verde
+- Manual: 3 de 3 passos conformes: 62 parágrafos retraduzidos em 389 s, nenhuma citação perdida; invariantes humanizado → retrotradução com 0 alertas (nenhum nome traduzido); 3.4 diz "ferir a própria família" (não "matar"; o passo dizia "prejudicar", erro de redação do arquiteto, sentido certo), 5.6 diz "sentença" e 1.7 diz "o secretário… ele".
