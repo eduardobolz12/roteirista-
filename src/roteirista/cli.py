@@ -96,6 +96,11 @@ def _argumentos() -> argparse.ArgumentParser:
     glossario.add_argument("traducao", nargs="?")
     glossario.add_argument("--conferir", type=Path, nargs=2)
 
+    invariantes = comandos.add_parser("invariantes")
+    invariantes.add_argument("slug")
+    invariantes.add_argument("antes", type=Path)
+    invariantes.add_argument("depois", type=Path)
+
     revisar = comandos.add_parser("revisar")
     revisar.add_argument("slug")
     revisar.add_argument("texto", type=Path)
@@ -503,6 +508,24 @@ def main() -> None:
                 f"trocado: {args.termo}: {anterior} → {args.traducao}\n"
             )
         return
+
+    if args.comando == "invariantes":
+        linguas = []
+        for arquivo in (args.antes, args.depois):
+            lingua = traducao.lingua_arquivo(arquivo)
+            if lingua is None:
+                sys.stderr.write(f"língua desconhecida: {arquivo.name}\n")
+                raise SystemExit(2)
+            linguas.append(lingua)
+        try:
+            resultado = traducao.conferir_invariantes(
+                args.slug, args.antes, args.depois, *linguas
+            )
+        except FileNotFoundError as erro:
+            sys.stderr.write(f"arquivo inexistente: {erro.filename}\n")
+            raise SystemExit(2)
+        sys.stdout.write(resultado.saida)
+        raise SystemExit(resultado.codigo)
 
     if args.comando == "validar-temas":
         try:
