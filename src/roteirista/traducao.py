@@ -116,7 +116,6 @@ def conferir_glossario(
 
 
 _PALAVRA = re.compile(r"[^\W\d_]+(?:[-’'][^\W\d_]+)*", re.UNICODE)
-_ALGORISMOS = re.compile(r"(?<!\w)\d+(?:[.,]\d+)*(?!\w)")
 
 
 def lingua_arquivo(arquivo: Path) -> str | None:
@@ -135,62 +134,180 @@ def _mapa_numeros(itens) -> dict[str, int]:
 _NUMEROS = {
     "pt": _mapa_numeros(
         [
-            (2, "dois duas ambos ambas"), (3, "três"), (4, "quatro"),
-            (5, "cinco"), (6, "seis"), (7, "sete"), (8, "oito"),
-            (9, "nove"), (10, "dez"), (11, "onze"), (12, "doze dúzia"),
-            (13, "treze"), (14, "catorze quatorze"), (15, "quinze"),
-            (16, "dezesseis"), (17, "dezessete"), (18, "dezoito"),
-            (19, "dezenove"), (20, "vinte"), (30, "trinta"),
-            (40, "quarenta"), (50, "cinquenta"), (60, "sessenta"),
-            (70, "setenta"), (80, "oitenta"), (90, "noventa"),
-            (100, "cem cento"), (200, "duzentos duzentas"),
-            (300, "trezentos trezentas"), (400, "quatrocentos quatrocentas"),
-            (500, "quinhentos quinhentas"), (600, "seiscentos seiscentas"),
-            (700, "setecentos setecentas"), (800, "oitocentos oitocentas"),
-            (900, "novecentos novecentas"), (1000, "mil"),
-            (1000000, "milhão milhões"),
+            (1, "um uma"), (2, "dois duas ambos ambas"), (3, "três"),
+            (4, "quatro"), (5, "cinco"), (6, "seis"), (7, "sete"),
+            (8, "oito"), (9, "nove"), (10, "dez"), (11, "onze"),
+            (12, "doze dúzia dúzias"), (13, "treze"),
+            (14, "catorze quatorze"), (15, "quinze"), (16, "dezesseis"),
+            (17, "dezessete"), (18, "dezoito"), (19, "dezenove"),
+            (20, "vinte"), (30, "trinta"), (40, "quarenta"),
+            (50, "cinquenta"), (60, "sessenta"), (70, "setenta"),
+            (80, "oitenta"), (90, "noventa"), (100, "cem cento"),
+            (200, "duzentos duzentas"), (300, "trezentos trezentas"),
+            (400, "quatrocentos quatrocentas"), (500, "quinhentos quinhentas"),
+            (600, "seiscentos seiscentas"), (700, "setecentos setecentas"),
+            (800, "oitocentos oitocentas"), (900, "novecentos novecentas"),
+            (1000, "mil"), (1000000, "milhão milhões"),
         ]
     ),
     "en": _mapa_numeros(
         [
-            (2, "two both"), (3, "three"), (4, "four"), (5, "five"),
-            (6, "six"), (7, "seven"), (8, "eight"), (9, "nine"),
-            (10, "ten"), (11, "eleven"), (12, "twelve dozen"),
-            (13, "thirteen"), (14, "fourteen"), (15, "fifteen"),
-            (16, "sixteen"), (17, "seventeen"), (18, "eighteen"),
-            (19, "nineteen"), (20, "twenty"), (30, "thirty"),
-            (40, "forty"), (50, "fifty"), (60, "sixty"),
+            (1, "one"), (2, "two both"), (3, "three"), (4, "four"),
+            (5, "five"), (6, "six"), (7, "seven"), (8, "eight"),
+            (9, "nine"), (10, "ten"), (11, "eleven"),
+            (12, "twelve dozen dozens"), (13, "thirteen"), (14, "fourteen"),
+            (15, "fifteen"), (16, "sixteen"), (17, "seventeen"),
+            (18, "eighteen"), (19, "nineteen"), (20, "twenty"),
+            (30, "thirty"), (40, "forty"), (50, "fifty"), (60, "sixty"),
             (70, "seventy"), (80, "eighty"), (90, "ninety"),
-            (100, "hundred"), (1000, "thousand"), (1000000, "million"),
+            (100, "hundred hundreds"), (1000, "thousand thousands"),
+            (1000000, "million millions"),
         ]
     ),
     "fr": _mapa_numeros(
         [
-            (2, "deux"), (3, "trois"), (4, "quatre"), (5, "cinq"),
-            (6, "six"), (7, "sept"), (8, "huit"), (9, "neuf"),
-            (10, "dix"), (11, "onze"), (12, "douze douzaine"),
-            (13, "treize"), (14, "quatorze"), (15, "quinze"),
-            (16, "seize"), (20, "vingt"), (30, "trente"),
-            (40, "quarante"), (50, "cinquante"), (60, "soixante"),
-            (100, "cent"), (1000, "mille"), (1000000, "million"),
+            (1, "un une"), (2, "deux"), (3, "trois"), (4, "quatre"),
+            (5, "cinq"), (6, "six"), (7, "sept"), (8, "huit"),
+            (9, "neuf"), (10, "dix"), (11, "onze"),
+            (12, "douze douzaine douzaines"), (13, "treize"),
+            (14, "quatorze"), (15, "quinze"), (16, "seize"),
+            (20, "vingt vingts"), (30, "trente"), (40, "quarante"),
+            (50, "cinquante"), (60, "soixante"), (100, "cent cents"),
+            (1000, "mille"), (1000000, "million millions"),
         ]
     ),
 }
 
+_MULTIPLICADORAS = {
+    "pt": _mapa_numeros([(12, "dúzia dúzias"), (1000, "mil"), (1000000, "milhão milhões")]),
+    "en": _mapa_numeros(
+        [(12, "dozen dozens"), (100, "hundred hundreds"),
+         (1000, "thousand thousands"), (1000000, "million millions")]
+    ),
+    "fr": _mapa_numeros(
+        [(12, "douzaine douzaines"), (100, "cent cents"),
+         (1000, "mille"), (1000000, "million millions")]
+    ),
+}
+_MULTIPLICADORAS_PLURAIS = {
+    "pt": {"dúzias", "milhões"},
+    "en": {"dozens", "hundreds", "thousands", "millions"},
+    "fr": {"douzaines", "cents", "millions"},
+}
+_UNIDADES_ARTIGO = {"pt": {"um", "uma"}, "en": {"one"}, "fr": {"un", "une"}}
+_CONECTORES = {"pt": "e", "en": "and", "fr": "et"}
+_TOKEN_NUMERO = re.compile(r"(?<!\w)\d+(?:[.,]\d+)*(?!\w)|[^\W\d_]+", re.UNICODE)
+
+
+def _casa_livre(valor: int, lingua: str) -> int:
+    if lingua == "fr" and valor in {60, 80}:
+        return 19
+    if 100 <= valor <= 900 and valor % 100 == 0:
+        return 99
+    if 10 <= valor <= 90 and valor % 10 == 0:
+        return 9
+    return 0
+
+
+def _proximo_token_numero(
+    texto: str, tokens: list[tuple[str, int, int]], indice: int, fim: int, lingua: str
+) -> int | None:
+    separador = r"(?:\s|-)+"
+    if indice >= len(tokens) or not re.fullmatch(
+        separador, texto[fim : tokens[indice][1]]
+    ):
+        return None
+    if tokens[indice][0] == _CONECTORES[lingua]:
+        indice += 1
+        if indice >= len(tokens) or not re.fullmatch(
+            separador, texto[tokens[indice - 1][2] : tokens[indice][1]]
+        ):
+            return None
+    return indice
+
+
+def _ler_numero(
+    texto: str, tokens: list[tuple[str, int, int]], inicio: int, lingua: str
+) -> tuple[int, int] | None:
+    palavra = tokens[inicio][0]
+    multiplicadoras = _MULTIPLICADORAS[lingua]
+    artigo_a = lingua == "en" and palavra == "a"
+    contextual = artigo_a or palavra in _UNIDADES_ARTIGO[lingua]
+    if palavra[0].isdigit():
+        total = int(re.sub(r"[.,]", "", palavra))
+        livre = 0
+    elif palavra in multiplicadoras:
+        if palavra in _MULTIPLICADORAS_PLURAIS[lingua]:
+            return None
+        total = multiplicadoras[palavra]
+        livre = total - 1
+    elif artigo_a:
+        total = 1
+        livre = 0
+    elif palavra in _NUMEROS[lingua]:
+        total = _NUMEROS[lingua][palavra]
+        livre = _casa_livre(total, lingua)
+    else:
+        return None
+
+    parcela = total
+    maior_multiplicadora = total if palavra in multiplicadoras else 0
+    fim = inicio + 1
+    continuou = False
+    while True:
+        proximo = _proximo_token_numero(texto, tokens, fim, tokens[fim - 1][2], lingua)
+        if proximo is None:
+            break
+        seguinte = tokens[proximo][0]
+        if seguinte[0].isdigit():
+            break
+        if seguinte in multiplicadoras:
+            if artigo_a and not continuou and seguinte in _MULTIPLICADORAS_PLURAIS[lingua]:
+                break
+            valor = multiplicadoras[seguinte]
+            if maior_multiplicadora and valor <= maior_multiplicadora:
+                total -= parcela
+                parcela *= valor
+                total += parcela
+            else:
+                total *= valor
+                parcela = total
+                maior_multiplicadora = valor
+            livre = valor - 1
+        else:
+            if seguinte not in _NUMEROS[lingua] or seguinte == "a":
+                break
+            valor = _NUMEROS[lingua][seguinte]
+            if lingua == "fr" and parcela == 4 and valor == 20:
+                total += 80 - parcela
+                parcela = 80
+                livre = 19
+            else:
+                if valor > livre:
+                    break
+                total += valor
+                parcela = valor
+                livre = _casa_livre(valor, lingua)
+        fim = proximo + 1
+        continuou = True
+    if contextual and not continuou:
+        return None
+    return total, fim
+
 
 def _numeros(texto: str, lingua: str) -> list[int]:
-    narrado = sem_citacoes(texto)
-    encontrados = [
-        (achado.start(), int(re.sub(r"[.,]", "", achado.group())))
-        for achado in _ALGORISMOS.finditer(narrado)
-    ]
-    palavras_numero = _NUMEROS[lingua]
-    encontrados.extend(
-        (achado.start(), palavras_numero[achado.group()])
-        for achado in re.finditer(r"[^\W\d_]+", narrado.casefold())
-        if achado.group() in palavras_numero
-    )
-    return [valor for _, valor in sorted(encontrados)]
+    narrado = sem_citacoes(texto).casefold()
+    tokens = [(a.group(), a.start(), a.end()) for a in _TOKEN_NUMERO.finditer(narrado)]
+    encontrados = []
+    indice = 0
+    while indice < len(tokens):
+        numero = _ler_numero(narrado, tokens, indice, lingua)
+        if numero is None:
+            indice += 1
+        else:
+            valor, indice = numero
+            encontrados.append(valor)
+    return encontrados
 
 
 def _texto_para_nomes(texto: str) -> str:
@@ -201,6 +318,9 @@ def _texto_para_nomes(texto: str) -> str:
     return _MARCA_ID.sub(" ", _CITACAO.sub(substituir, texto))
 
 
+_TITULOS = ("Dr", "Dra", "Sr", "Sra", "Mr", "Mrs", "Ms", "Prof", "St")
+
+
 def _primeira_da_frase(texto: str, inicio: int) -> bool:
     prefixo = texto[:inicio]
     if not prefixo.strip():
@@ -208,9 +328,13 @@ def _primeira_da_frase(texto: str, inicio: int) -> bool:
     achado = re.search(r"([.!?])\s+$", prefixo)
     if achado is None:
         return False
-    anterior = prefixo[: achado.start()]
-    if re.fullmatch(r"(?<!\w)[^\W\d_]", anterior) and anterior.isupper():
-        return False
+    if achado.group(1) == ".":
+        anterior = prefixo[: achado.start()]
+        inicial = re.search(r"(?<!\w)([^\W\d_])$", anterior)
+        if inicial and inicial.group(1).isupper():
+            return False
+        if re.search(rf"(?<!\w)(?:{'|'.join(_TITULOS)})$", anterior):
+            return False
     return True
 
 
@@ -219,7 +343,12 @@ def _sem_possessivo(palavra: str) -> str:
 
 
 def _ignorar_nome(palavra: str) -> bool:
-    return palavra.casefold() in {"i", "i'm", "i’ve", "i'll", "i’d", "i'd", "i've"}
+    chave = palavra.casefold()
+    return (
+        chave in {titulo.casefold() for titulo in _TITULOS}
+        or chave == "i"
+        or re.fullmatch(r"i['’][^\W\d_]+", chave) is not None
+    )
 
 
 def _nomes_normais(texto: str) -> list[str]:
@@ -340,7 +469,7 @@ def conferir_invariantes(
                 )
             numeros_antes = _numeros(anterior, lingua_antes)
             numeros_depois = _numeros(posterior, lingua_depois)
-            if numeros_antes != numeros_depois:
+            if sorted(numeros_antes) != sorted(numeros_depois):
                 alertas.append(
                     f"{posicao}: números: {_formatar_numeros(numeros_antes)} → "
                     f"{_formatar_numeros(numeros_depois)}"
@@ -349,18 +478,16 @@ def conferir_invariantes(
             depois_nomes = nomes_depois[(numero, indice)]
             texto_antes = _texto_para_nomes(anterior)
             texto_depois = _texto_para_nomes(posterior)
-            permitidos = set()
             for nome in antes_nomes:
                 traduzidos = _nomes_traduzidos(nome, termos, invertido)
-                permitidos.update(traduzidos)
                 if not _contem_forma(texto_depois, nome) and not any(
                     _contem_forma(texto_depois, traduzido) for traduzido in traduzidos
                 ):
                     alertas.append(f"{posicao}: nome sumiu: {nome}")
             for nome in depois_nomes:
-                if (
-                    not _contem_forma(texto_antes, nome)
-                    and nome.casefold() not in permitidos
+                traduzidos = _nomes_traduzidos(nome, termos, not invertido)
+                if not _contem_forma(texto_antes, nome) and not any(
+                    _contem_forma(texto_antes, traduzido) for traduzido in traduzidos
                 ):
                     alertas.append(f"{posicao}: nome novo: {nome}")
     alertas.append(f"{conferidos} parágrafos, {len(alertas)} alertas")
