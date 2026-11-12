@@ -82,12 +82,17 @@ As skills são prompts: o resultado delas não é sim/não e não passa por test
 Cada uma vira fatia **depois** do núcleo que ela usa, com aceite pelo validador do arquivo que ela
 produz + roteiro manual. As skills são escritas pelo arquiteto (D-019).
 
+Antes de escrever, o arquiteto leu as skills que já existem para este trabalho (E-007): o piloto é a
+base; das de terceiros entraram regras de gancho, checagem de fonte, escrita para o ouvido e vícios de IA.
+Skills escritas e testadas de ponta a ponta no tema 1 do Serpent em 2026-11-12; aguardam o roteiro manual
+e o aceite do Decisor.
+
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
 | 029 | /temas | 016 | o arquivo de sugestão passa no `validar-temas` |
-| 030 | /pesquisar e /completar | 018, 019 | o dossiê só tem origens `[L]`, `[W]`, `[E]` que existem |
-| 031 | /briefing | 020, 021, 029, 030 | os 6 briefings passam no `validar-briefing` |
-| 032 | /escrever e /revisar | 022, 031 | cada capítulo passa no `contar` e na conferência de citações |
+| 030 | /pesquisar | 018 | todo achado da `pesquisa.md` tem id W que existe; a 019 (PDFs externos) fica na reserva, e a lacuna que só ela resolveria vira "link do Decisor" ou "sem fonte" |
+| 031 | /briefing | 020, 021, 044, 029, 030 | os 6 briefings passam no `validar-briefing --temas` |
+| 032 | /escrever e /revisar | 022, 042, 031 | cada capítulo passa no `contar --briefing` com 0 problemas e cada apontamento do `revisar` está decidido |
 
 ## Lote 7 — Tradução, humanização e aprovação
 
