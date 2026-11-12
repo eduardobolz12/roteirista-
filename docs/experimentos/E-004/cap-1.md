@@ -6,7 +6,7 @@ Os homens voltam vestidos de vermelho e preto. As mulheres, em túnicas vermelha
 
 Entre apitos e chicotadas, eles cantam: "O que a gente vê aqui, eu não conto. Se a gente contar, engole a própria língua."
 
-Então uma mulher entra com um caixão pequeno e preto equilibrado na cabeça. Dá a volta no terreiro e o pousa sobre um pano vermelho.
+Então uma mulher entra com um caixão pequeno e preto equilibrado na cabeça. Dá a volta no poste central do terreiro e o pousa sobre um pano vermelho.
 
 Um secretário ergue um facão numa mão e um caderno gasto na outra. Lê em voz alta a data e o lugar da sessão.
 
@@ -16,6 +16,6 @@ Eu sou o Alderick, e sempre me intrigou o que faz gente comum guardar um segredo
 
 Guarde esse caixão. Nessas noites, ele tem nome: a mãe da sociedade.
 
-Que poder é esse, que se reúne à noite e faz essas pessoas jurarem silêncio diante de um caixão?
+Que poder é esse, que se reúne à noite e faz essas pessoas cantarem que engolem a língua se contarem?
 
 Quem assistia a essa cerimônia era Wade Davis, etnobotânico formado em Harvard. Ele tinha ido ao Haiti numa missão que acabou virando o livro The Serpent and the Rainbow.

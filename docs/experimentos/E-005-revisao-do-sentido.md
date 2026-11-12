@@ -51,6 +51,9 @@ devolvem resposta vazia.
    nenhum responde, não silêncio.
 5. Limite do OpenRouter grátis: cerca de 50 pedidos por dia; um vídeo usa 6 a 12 revisões.
 
+**Aplicado em 2026-11-11, com aprovação do Decisor:** `E-004/cap-1.md` corrigido nas duas frases
+procedentes ("poste central do terreiro"; "cantarem que engolem a língua se contarem").
+
 ## Para a SPEC 042
 - Entrada: o capítulo escrito e os ids que ele cita; o comando monta o material literal pelos ids.
 - Saída do modelo: `frase | motivo | id`; o script confere que a frase existe no capítulo e que o id
