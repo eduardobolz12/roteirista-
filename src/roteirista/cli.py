@@ -100,6 +100,12 @@ def _argumentos() -> argparse.ArgumentParser:
     retraduzir.add_argument("slug")
     retraduzir.add_argument("roteiro", type=Path)
 
+    lado_a_lado = comandos.add_parser("lado-a-lado")
+    lado_a_lado.add_argument("slug")
+    lado_a_lado.add_argument("portugues", type=Path)
+    lado_a_lado.add_argument("traducao", type=Path)
+    lado_a_lado.add_argument("retrotraducao", type=Path)
+
     invariantes = comandos.add_parser("invariantes")
     invariantes.add_argument("slug")
     invariantes.add_argument("antes", type=Path)
@@ -483,6 +489,46 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
     args = _argumentos().parse_args()
+
+    if args.comando == "lado-a-lado":
+        from roteirista import lado_a_lado
+
+        lingua_traducao = None
+        for arquivo, permitidas in (
+            (args.portugues, {"pt"}),
+            (args.traducao, {"en", "fr"}),
+            (args.retrotraducao, {"pt"}),
+        ):
+            lingua = traducao.lingua_arquivo(arquivo)
+            if lingua is None:
+                sys.stderr.write(f"língua desconhecida: {arquivo.name}\n")
+                raise SystemExit(2)
+            if lingua not in permitidas:
+                sys.stderr.write(f"língua errada: {arquivo.name}\n")
+                raise SystemExit(2)
+            if arquivo == args.traducao:
+                lingua_traducao = lingua
+        try:
+            resultado = lado_a_lado.gerar(
+                args.slug,
+                args.portugues,
+                args.traducao,
+                args.retrotraducao,
+                lingua_traducao,
+            )
+        except FileNotFoundError as erro:
+            sys.stderr.write(f"arquivo inexistente: {erro.filename}\n")
+            raise SystemExit(2)
+        nome = args.traducao.name.removesuffix(".md")
+        saida = args.traducao.with_name(f"lado-a-lado-{nome}.html")
+        saida.write_text(resultado.conteudo, encoding="utf-8", newline="\n")
+        for mensagem in resultado.mensagens:
+            sys.stdout.write(f"{mensagem}\n")
+        sys.stdout.write(
+            f"{resultado.paragrafos} parágrafos, {resultado.marcados} "
+            f"marcados: {saida.name}\n"
+        )
+        return
 
     if args.comando == "retraduzir":
         from roteirista import retrotraducao
