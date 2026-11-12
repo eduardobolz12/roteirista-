@@ -71,14 +71,10 @@ A 020 foi aceita com correção: linha de tabela com coluna faltando era ignorad
 | 021 | casa dos assuntos | 020 | com `--temas`, passagem `desenvolver` que é casa de outro tema gera aviso, sem mudar o código; `mencionar` nunca avisa |
 | 022 | contar e conferir o capítulo | 020 | `livro contar` dá palavras e minutos (150 por minuto) do texto narrado e confere cada citação no original pelas palavras (D-028) |
 
+| 044 | colunas faltando no briefing | 020 | linha de tabela do briefing com menos colunas que as do formato gera `<linha>: faltam colunas: <nomes>`, e as colunas que ela tem continuam conferidas (correção da 020, aceita em 2026-11-12) |
+
 
 # A seguir
-
-## Lote 5b — Correção do validador do briefing
-
-| NNN | nome | depende de | como se sabe que ficou pronta |
-|-----|------|-----------|-------------------------------|
-| 044 | colunas faltando no briefing | 020 | linha de tabela do briefing com menos colunas que as do formato gera `<linha>: faltam colunas: <nomes>`, e as colunas que ela tem continuam conferidas |
 
 ## Lote 6 — Skills: do tema ao capítulo escrito
 

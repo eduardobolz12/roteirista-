@@ -28,3 +28,9 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde
 - Manual: 3 de 3 passos conformes (maquete com 9 "faltam colunas: Trato" e 03.038 acusado; briefing real ok; briefing real sem Trato acusa as linhas 22 a 25).
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: a maquete M-001 deu 9 `faltam colunas: Trato` e acusou `03.038` e os outros ids do piloto; o briefing real do Bizango continua `ok` (também com `--temas`); sem a coluna `Trato`, acusa as linhas 22 a 25. Fecha a ressalva do aceite da 020.

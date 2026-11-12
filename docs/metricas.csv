@@ -28,4 +28,4 @@ fatia,nome,cas,vermelho,gate,entrega,prova,aceite,min_gate_a_entrega,defeito_no_
 020,validar-briefing,3,2026-11-11 23:19,2026-11-11 23:20,2026-11-11 23:49,2026-11-12 08:47,2026-11-12 aceito com correção,28,linha sem Trato ignorada; lacuna da SPEC 020
 021,casa-dos-assuntos,3,2026-11-11 23:19,2026-11-11 23:20,2026-11-11 23:58,2026-11-12 08:47,2026-11-12 aceito,37,
 022,contar-capitulo,3,2026-11-11 23:20,2026-11-11 23:20,2026-11-12 00:08,2026-11-12 08:47,2026-11-12 aceito,47,
-044,colunas-faltando,3,2026-11-12 09:13,2026-11-12 09:14,2026-11-12 09:34,2026-11-12 09:43,,20,
+044,colunas-faltando,3,2026-11-12 09:13,2026-11-12 09:14,2026-11-12 09:34,2026-11-12 09:43,2026-11-12 aceito,20,
