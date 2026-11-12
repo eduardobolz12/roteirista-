@@ -29,3 +29,10 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde, 045 verde
 - Manual: 3 de 3 passos conformes: 62 parágrafos retraduzidos em 389 s, nenhuma citação perdida; invariantes humanizado → retrotradução com 0 alertas (nenhum nome traduzido); 3.4 diz "ferir a própria família" (não "matar"; o passo dizia "prejudicar", erro de redação do arquiteto, sentido certo), 5.6 diz "sentença" e 1.7 diz "o secretário… ele".
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: 62 parágrafos retraduzidos em 389 s, nenhuma citação perdida; invariantes humanizado → retrotradução com 0 alertas; 3.4, 5.6 e 1.7 com o sentido certo (o passo 3 dizia "prejudicar"; a retrotradução diz "ferir", erro de redação do arquiteto).
+- Observação: sem `facão → machete` e `búzio → conch` no glossário, a retrotradução voltou "machete" como "machado" (1.7) e "faca de guerra" (1.5), e "conch" como "caracol" (1.2), sem marca na tela. O Decisor gravou os dois termos no glossário do Serpent em 2026-11-12.

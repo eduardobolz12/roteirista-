@@ -116,12 +116,15 @@ aceita em 2026-11-12).
 Regras e prompt rodados antes no ensaio E-009 (o tema 1 do Serpent humanizado, retraduzido pelo
 qwen3:14b e montado na tela: 0 alertas; 2 erros de sentido da retrotradução em 62 parágrafos, um por
 capítulo, depois do capítulo como contexto e da regra de não traduzir nomes). D-011 e D-012. Ordem: 026,
-027; a 033 (skills) fecha com o Decisor lendo a tela do tema 1.
+027, 046; a 033 (skills) fecha com o Decisor lendo a tela do tema 1.
+A 026 foi aceita; a 027, aceita com correção: aberto, o português aprovado caía na coluna estreita do
+número (fatia 046). No aceite, o Decisor gravou `facão → machete` e `búzio → conch` no glossário do Serpent.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
 | 026 | retrotradução local | 023 | `livro retraduzir` grava a versão em português, parágrafo por parágrafo, com os termos do glossário respeitados |
 | 027 | tela lado a lado | 026, 024 | `livro lado-a-lado` gera o HTML da M-002 sem rede e sem tokens; parágrafo com alerta aparece marcado |
+| 046 | português aprovado legível | 027 | aberto, o português aprovado fica embaixo das duas colunas de texto, como a nota de alerta, e na largura toda em tela estreita (correção da 027) |
 | 033 | /traduzir e /humanizar | 023, 024, 025, 027 | o capítulo humanizado passa nas invariantes e gera a tela lado a lado |
 
 # Reserva

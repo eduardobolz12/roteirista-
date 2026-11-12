@@ -50,3 +50,7 @@ dois termos a mais no glossário, `facão → machete` e `búzio → conch`. Sob
    modelo local mais erra na volta.
 5. **O glossário serve aos dois lados:** um termo que se repete e que o modelo erra na volta (facão,
    búzio) entra no glossário, e a `/traduzir` passa a usá-lo também.
+
+**Depois (2026-11-12, aceite da 026):** a retrotradução real do tema 1, sem os dois termos no glossário do
+livro, voltou "machete" como "machado" (1.7) e "faca de guerra" (1.5), e "conch" como "caracol" (1.2), sem
+marca na tela. O Decisor gravou `facão → machete` e `búzio → conch` no glossário do Serpent.

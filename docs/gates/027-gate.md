@@ -31,3 +31,10 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 026 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde, 045 verde
 - Manual: 3 de 3 passos conformes: 62 parágrafos em 6 capítulos, sem http, `<script>` nem `<link>`; 0 marcados, e, com a retrotradução do prompt antigo, 4 marcados e 17 alertas da retrotradução, iguais na página e no stdout; a cópia com "six cracks" marca só 1.2, com "Tradução: números: 7 → 6", e a retrotradução de 1.2 diz "seis". Fora dos passos: aberto, o "Português aprovado" cai na coluna estreita do número (a maquete M-002 não tem estilo para ele); correção proposta: 046.
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito com correção
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: os 3 passos conformes: 62 parágrafos em 6 capítulos, sem rede; a página igual ao stdout; a cópia com "six cracks" marca só 1.2, com `Tradução: números: 7 → 6`.
+- Ressalva: aberto, o "Português aprovado" caía na coluna estreita do número, uma palavra por linha (visto numa captura do navegador). A SPEC 027 pedia o estilo da maquete M-002, que não tinha regra para ele: lacuna da spec, não da construção. Correção na SPEC 046.
