@@ -8,7 +8,7 @@ import re
 import sys
 import unicodedata
 
-from roteirista import banco, modelo, nuvem, pesquisa, revisao, validadores, web
+from roteirista import banco, modelo, nuvem, pesquisa, revisao, traducao, validadores, web
 from roteirista.epub import extrair as extrair_epub
 from roteirista.pdf import Livro, extrair as extrair_pdf
 
@@ -88,6 +88,13 @@ def _argumentos() -> argparse.ArgumentParser:
     contar.add_argument("slug")
     contar.add_argument("capitulo", type=Path)
     contar.add_argument("--briefing", type=Path)
+
+    glossario = comandos.add_parser("glossario")
+    glossario.add_argument("slug")
+    glossario.add_argument("lingua")
+    glossario.add_argument("termo", nargs="?")
+    glossario.add_argument("traducao", nargs="?")
+    glossario.add_argument("--conferir", type=Path, nargs=2)
 
     revisar = comandos.add_parser("revisar")
     revisar.add_argument("slug")
@@ -462,6 +469,40 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
     args = _argumentos().parse_args()
+
+    if args.comando == "glossario":
+        if args.lingua not in {"en", "fr"}:
+            sys.stderr.write(f"língua inválida: {args.lingua}\n")
+            raise SystemExit(2)
+        if args.conferir is not None:
+            try:
+                resultado = traducao.conferir_glossario(
+                    args.slug, args.lingua, *args.conferir
+                )
+            except FileNotFoundError as erro:
+                sys.stderr.write(f"arquivo inexistente: {erro.filename}\n")
+                raise SystemExit(2)
+            sys.stdout.write(resultado.saida)
+            raise SystemExit(resultado.codigo)
+        if (args.termo is None) != (args.traducao is None):
+            sys.stderr.write("termo e tradução devem ser informados juntos\n")
+            raise SystemExit(2)
+        if args.termo is None:
+            termos = banco.glossario(args.slug, args.lingua)
+            for termo, traduzido in termos:
+                sys.stdout.write(f"{termo} → {traduzido}\n")
+            sys.stdout.write(f"{len(termos)} termos ({args.lingua})\n")
+            return
+        anterior = banco.gravar_termo(
+            args.slug, args.lingua, args.termo, args.traducao
+        )
+        if anterior is None:
+            sys.stdout.write(f"gravado: {args.termo} → {args.traducao}\n")
+        else:
+            sys.stdout.write(
+                f"trocado: {args.termo}: {anterior} → {args.traducao}\n"
+            )
+        return
 
     if args.comando == "validar-temas":
         try:

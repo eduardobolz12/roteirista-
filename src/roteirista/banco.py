@@ -50,6 +50,12 @@ def _abrir(slug: str) -> sqlite3.Connection:
             texto TEXT NOT NULL,
             UNIQUE (fonte_id, numero)
         );
+        CREATE TABLE IF NOT EXISTS glossario (
+            lingua TEXT NOT NULL,
+            termo TEXT NOT NULL,
+            traducao TEXT NOT NULL,
+            PRIMARY KEY (lingua, termo)
+        );
         """
     )
     return conexao
@@ -144,6 +150,31 @@ def ficha(slug: str) -> tuple[str | None, int, int]:
         capitulos = conexao.execute("SELECT COUNT(*) FROM capitulos").fetchone()[0]
         paragrafos = conexao.execute("SELECT COUNT(*) FROM paragrafos").fetchone()[0]
     return lingua, capitulos, paragrafos
+
+
+def glossario(slug: str, lingua: str) -> list[tuple[str, str]]:
+    with _abrir(slug) as conexao:
+        linhas = conexao.execute(
+            "SELECT termo, traducao FROM glossario WHERE lingua = ?", (lingua,)
+        ).fetchall()
+    return sorted(linhas, key=lambda linha: linha[0].casefold())
+
+
+def gravar_termo(slug: str, lingua: str, termo: str, traducao: str) -> str | None:
+    """Grava um termo e devolve a tradução anterior, se existia."""
+    with _abrir(slug) as conexao:
+        anterior = conexao.execute(
+            "SELECT traducao FROM glossario WHERE lingua = ? AND termo = ?",
+            (lingua, termo),
+        ).fetchone()
+        conexao.execute(
+            """
+            INSERT INTO glossario (lingua, termo, traducao) VALUES (?, ?, ?)
+            ON CONFLICT(lingua, termo) DO UPDATE SET traducao = excluded.traducao
+            """,
+            (lingua, termo, traducao),
+        )
+    return anterior[0] if anterior is not None else None
 
 
 def capitulos(slug: str) -> list[tuple[int, list[str]]]:
