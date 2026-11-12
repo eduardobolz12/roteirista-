@@ -8,7 +8,7 @@ import re
 import sys
 import unicodedata
 
-from roteirista import banco, modelo, nuvem, pesquisa, revisao, web
+from roteirista import banco, modelo, nuvem, pesquisa, revisao, validadores, web
 from roteirista.epub import extrair as extrair_epub
 from roteirista.pdf import Livro, extrair as extrair_pdf
 
@@ -74,6 +74,10 @@ def _argumentos() -> argparse.ArgumentParser:
     montar = comandos.add_parser("montar")
     montar.add_argument("slug")
     montar.add_argument("ids", nargs="+")
+
+    validar_temas = comandos.add_parser("validar-temas")
+    validar_temas.add_argument("slug")
+    validar_temas.add_argument("arquivo", type=Path)
 
     revisar = comandos.add_parser("revisar")
     revisar.add_argument("slug")
@@ -448,6 +452,15 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
     args = _argumentos().parse_args()
+
+    if args.comando == "validar-temas":
+        try:
+            resultado = validadores.validar_temas(args.slug, args.arquivo)
+        except FileNotFoundError:
+            sys.stderr.write(f"arquivo inexistente: {args.arquivo}\n")
+            raise SystemExit(2)
+        sys.stdout.write(resultado.saida)
+        raise SystemExit(resultado.codigo)
 
     if args.comando == "fonte":
         chave = web.chave_url(args.url)
