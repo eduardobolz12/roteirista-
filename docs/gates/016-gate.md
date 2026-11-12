@@ -26,3 +26,9 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 017 verde, 018 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: a maquete M-003 deu 49 problemas, entre eles `03.038` inexistente; a sugestão real (Bizango e Narcisse) deu `ok: 2 temas, 2 assuntos`; sem a rachadura do tema 1, `tema 1: falta a rachadura com id`.

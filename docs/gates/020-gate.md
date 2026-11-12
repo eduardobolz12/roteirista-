@@ -28,3 +28,10 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 017 verde, 018 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 016 verde
 - Manual: 11 de 12 passos; falha no passo 2 do 020 — linha de tabela sem a coluna Trato é ignorada em silêncio e os ids dela não são conferidos (03.038 da maquete não acusado). Lacuna da SPEC 020, não desvio da construção.
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito com correção
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: o briefing real do capítulo 1 do Bizango deu `ok: 3 momentos, 6 passagens, 2 citações, 1 dados da web`, com o canto 15.082-15.085 conferido apesar da outra pontuação; com `tongues` no lugar de `tongue`, `citação não confere`.
+- Ressalva: o passo 2 falhou. Linha de tabela com coluna faltando é ignorada em silêncio e os ids dela não são conferidos (`03.038` da maquete M-001 não foi acusado; um briefing sem a coluna `Trato` deu `ok`). Lacuna da SPEC 020, não desvio da construção. Correção na SPEC 044.

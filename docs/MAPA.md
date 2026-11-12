@@ -58,13 +58,11 @@ Wikipédia, 4 de 4 perguntas certas). Tudo gratuito (D-027). Ordem de construç�
 | 042 | revisão do sentido por modelo gratuito | 041, 017 | `livro revisar <slug> <texto> <ids>` manda texto e material a um modelo gratuito, com modelos de reserva; só sai apontamento cuja frase está no texto e cujo id está no material; o texto não muda |
 | 018 | pesquisa gratuita | 017, 042 | `livro pesquisar <slug> "<pergunta>" --busca "<termos>" [--wiki]` grava as fontes achadas e só mostra o fato cuja citação está no parágrafo apontado; busca fora do ar vira erro claro |
 
-
-# A seguir
-
-## Lote 5 — Validadores do briefing e do capítulo
+## Bloco E — Validadores do briefing e do capítulo (lote 5, aceito em 2026-11-12)
 
 Regras testadas antes num protótipo descartável, nos arquivos de teste (14 de 14 saídas) e em arquivos
 reais do Serpent (temas Bizango e Narcisse, briefing e capítulo 1 do Bizango). Ordem: 016, 020, 021, 022.
+A 020 foi aceita com correção: linha de tabela com coluna faltando era ignorada (fatia 044).
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
@@ -72,6 +70,15 @@ reais do Serpent (temas Bizango e Narcisse, briefing e capítulo 1 do Bizango). 
 | 020 | validador do briefing | 016, 017 | `livro validar-briefing` confere o formato M-001: campos, seções, ids, momentos, trato, origem de cada momento e citações pela regra da D-028 |
 | 021 | casa dos assuntos | 020 | com `--temas`, passagem `desenvolver` que é casa de outro tema gera aviso, sem mudar o código; `mencionar` nunca avisa |
 | 022 | contar e conferir o capítulo | 020 | `livro contar` dá palavras e minutos (150 por minuto) do texto narrado e confere cada citação no original pelas palavras (D-028) |
+
+
+# A seguir
+
+## Lote 5b — Correção do validador do briefing
+
+| NNN | nome | depende de | como se sabe que ficou pronta |
+|-----|------|-----------|-------------------------------|
+| 044 | colunas faltando no briefing | 020 | linha de tabela do briefing com menos colunas que as do formato gera `<linha>: faltam colunas: <nomes>`, e as colunas que ela tem continuam conferidas |
 
 ## Lote 6 — Skills: do tema ao capítulo escrito
 
