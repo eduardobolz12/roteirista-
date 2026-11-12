@@ -261,3 +261,164 @@ def validar_temas(slug: str, arquivo: Path) -> ResultadoTemas:
         problemas = [f"ok: {len(temas)} temas, {len(assuntos)} assuntos"]
         codigo = 0
     return ResultadoTemas("\n".join(problemas) + "\n", codigo, temas, assuntos)
+
+
+@dataclass
+class ResultadoBriefing:
+    saida: str
+    codigo: int
+
+
+_CAMPOS_BRIEFING = (
+    "Tema",
+    "Capítulo",
+    "Função do capítulo",
+    "Ao fim, o espectador entende",
+    "Duração estimada",
+)
+_SECOES_BRIEFING = (
+    "O que será abordado",
+    "Cenas e passagens do livro",
+    "Citações literais previstas",
+    "Dados da web",
+    "O que fica de fora deste capítulo",
+    "Ressalvas",
+    "Sua decisão",
+)
+
+
+def _referencias_celula(celula: str) -> list[str]:
+    referencias = [referencia for referencia, _ in ids_no_texto(celula)]
+    return referencias or [celula.strip()]
+
+
+def _conferir_ids(slug: str, celula: str) -> tuple[set[str], list[str], list[str]]:
+    ids = set()
+    textos = []
+    faltantes = []
+    for referencia in _referencias_celula(celula):
+        ids.update(expandir(referencia) or [])
+        encontrados, ausentes = textos_referencia(slug, referencia)
+        textos.extend(encontrados)
+        faltantes.extend(ausentes)
+        if expandir(referencia) is None:
+            faltantes.append(referencia)
+    return ids, textos, faltantes
+
+
+def validar_briefing(
+    slug: str, arquivo: Path, temas: ResultadoTemas | None = None
+) -> ResultadoBriefing:
+    linhas = arquivo.read_text(encoding="utf-8").splitlines()
+    campos = {}
+    for linha in linhas:
+        achado = re.match(r"^\*\*([^*]+):\*\*\s*(.*)$", linha)
+        if achado:
+            campos[achado.group(1)] = achado.group(2).strip()
+    secoes = _secoes(linhas)
+    problemas = [
+        f"falta o campo: {campo}" for campo in _CAMPOS_BRIEFING if campo not in campos
+    ]
+    problemas.extend(
+        f"falta a seção: {secao}" for secao in _SECOES_BRIEFING if secao not in secoes
+    )
+
+    tema = campos.get("Tema")
+    tema_numero = int(tema) if tema and tema.isdigit() else tema
+    tema_valido = temas is None or tema_numero in temas.temas
+    if temas is not None and tema is not None and not tema_valido:
+        problemas.append(f"tema {tema} não está no arquivo de temas")
+
+    erros = []
+    _, linhas_momentos = ler_tabela(linhas, "O que será abordado")
+    momentos = {}
+    for linha in linhas_momentos:
+        if len(linha.celulas) < 4 or not linha.celulas[0].isdigit():
+            continue
+        numero = int(linha.celulas[0])
+        origem = linha.celulas[3]
+        momentos[numero] = origem
+        if origem not in {"Livro", "Web", "Narrador"}:
+            erros.append((linha.numero, 3, f"origem inválida: {origem}"))
+
+    _, linhas_passagens = ler_tabela(linhas, "Cenas e passagens do livro")
+    passagens = []
+    passagens_por_momento = set()
+    for linha in linhas_passagens:
+        if len(linha.celulas) < 4:
+            continue
+        referencia = linha.celulas[0]
+        ids, _, faltantes = _conferir_ids(slug, referencia)
+        if faltantes:
+            erros.append((linha.numero, 0, f"id inexistente: {referencia}"))
+        numeros = [int(numero) for numero in re.findall(r"\d+", linha.celulas[2])]
+        for numero in numeros:
+            passagens_por_momento.add(numero)
+            if numero not in momentos:
+                erros.append(
+                    (linha.numero, 2, f"momento inexistente: {numero}")
+                )
+        trato = linha.celulas[3]
+        if trato not in {"desenvolver", "mencionar"}:
+            erros.append((linha.numero, 3, f"trato inválido: {trato}"))
+        passagens.append((linha.numero, referencia, ids, trato))
+
+    _, linhas_citacoes = ler_tabela(linhas, "Citações literais previstas")
+    for linha in linhas_citacoes:
+        if len(linha.celulas) < 3:
+            continue
+        referencia = linha.celulas[0]
+        _, textos, faltantes = _conferir_ids(slug, referencia)
+        if faltantes:
+            erros.append((linha.numero, 0, f"id inexistente: {referencia}"))
+            continue
+        citacao = linha.celulas[1].strip().strip('"“”«»')
+        if not citacao_confere(citacao, textos):
+            erros.append(
+                (
+                    linha.numero,
+                    1,
+                    f"citação não confere em {referencia}: {citacao}",
+                )
+            )
+
+    _, linhas_dados = ler_tabela(linhas, "Dados da web")
+    for linha in linhas_dados:
+        if not linha.celulas:
+            continue
+        referencia = linha.celulas[0]
+        _, _, faltantes = _conferir_ids(slug, referencia)
+        if faltantes:
+            erros.append((linha.numero, 0, f"id inexistente: {referencia}"))
+
+    problemas.extend(
+        f"{numero}: {mensagem}" for numero, _, mensagem in sorted(erros)
+    )
+    for numero in sorted(momentos):
+        if momentos[numero] == "Livro" and numero not in passagens_por_momento:
+            problemas.append(f"momento {numero}: origem Livro sem passagem")
+        if momentos[numero] == "Web" and not linhas_dados:
+            problemas.append(f"momento {numero}: origem Web sem dado")
+
+    avisos = []
+    if temas is not None and tema_valido:
+        for numero, referencia, ids, trato in sorted(passagens):
+            if trato != "desenvolver":
+                continue
+            for assunto in temas.assuntos:
+                if assunto.casa != tema_numero and ids.intersection(assunto.ids):
+                    avisos.append(
+                        f'aviso: {numero}: {referencia} é desenvolvido aqui, '
+                        f'mas a casa de "{assunto.nome}" é o tema {assunto.casa}'
+                    )
+
+    if problemas:
+        finais = problemas + avisos + [f"{len(problemas)} problemas"]
+        codigo = 1
+    else:
+        finais = avisos + [
+            f"ok: {len(linhas_momentos)} momentos, {len(linhas_passagens)} passagens, "
+            f"{len(linhas_citacoes)} citações, {len(linhas_dados)} dados da web"
+        ]
+        codigo = 0
+    return ResultadoBriefing("\n".join(finais) + "\n", codigo)

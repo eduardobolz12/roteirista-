@@ -79,6 +79,10 @@ def _argumentos() -> argparse.ArgumentParser:
     validar_temas.add_argument("slug")
     validar_temas.add_argument("arquivo", type=Path)
 
+    validar_briefing = comandos.add_parser("validar-briefing")
+    validar_briefing.add_argument("slug")
+    validar_briefing.add_argument("arquivo", type=Path)
+
     revisar = comandos.add_parser("revisar")
     revisar.add_argument("slug")
     revisar.add_argument("texto", type=Path)
@@ -456,6 +460,15 @@ def main() -> None:
     if args.comando == "validar-temas":
         try:
             resultado = validadores.validar_temas(args.slug, args.arquivo)
+        except FileNotFoundError:
+            sys.stderr.write(f"arquivo inexistente: {args.arquivo}\n")
+            raise SystemExit(2)
+        sys.stdout.write(resultado.saida)
+        raise SystemExit(resultado.codigo)
+
+    if args.comando == "validar-briefing":
+        try:
+            resultado = validadores.validar_briefing(args.slug, args.arquivo)
         except FileNotFoundError:
             sys.stderr.write(f"arquivo inexistente: {args.arquivo}\n")
             raise SystemExit(2)
