@@ -84,6 +84,11 @@ def _argumentos() -> argparse.ArgumentParser:
     validar_briefing.add_argument("arquivo", type=Path)
     validar_briefing.add_argument("--temas", type=Path)
 
+    contar = comandos.add_parser("contar")
+    contar.add_argument("slug")
+    contar.add_argument("capitulo", type=Path)
+    contar.add_argument("--briefing", type=Path)
+
     revisar = comandos.add_parser("revisar")
     revisar.add_argument("slug")
     revisar.add_argument("texto", type=Path)
@@ -484,6 +489,17 @@ def main() -> None:
             resultado = validadores.validar_briefing(args.slug, args.arquivo, temas)
         except FileNotFoundError:
             sys.stderr.write(f"arquivo inexistente: {args.arquivo}\n")
+            raise SystemExit(2)
+        sys.stdout.write(resultado.saida)
+        raise SystemExit(resultado.codigo)
+
+    if args.comando == "contar":
+        try:
+            resultado = validadores.contar_capitulo(
+                args.slug, args.capitulo, args.briefing
+            )
+        except FileNotFoundError as erro:
+            sys.stderr.write(f"arquivo inexistente: {erro.filename}\n")
             raise SystemExit(2)
         sys.stdout.write(resultado.saida)
         raise SystemExit(resultado.codigo)

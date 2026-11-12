@@ -422,3 +422,84 @@ def validar_briefing(
         ]
         codigo = 0
     return ResultadoBriefing("\n".join(finais) + "\n", codigo)
+
+
+@dataclass
+class ResultadoContagem:
+    saida: str
+    codigo: int
+
+
+_MARCA_ID = re.compile(
+    rf"\[\s*({_ID_SIMPLES}(?:[-–]{_ID_SIMPLES})?)\s*\]"
+)
+_MARCA_ID_SEGUIDA = re.compile(
+    rf"\s*\[\s*({_ID_SIMPLES}(?:[-–]{_ID_SIMPLES})?)\s*\]"
+)
+_ASPAS = re.compile(r'"([^"\n]*)"|“([^”\n]*)”|«([^»\n]*)»')
+
+
+def _ids_previstos(arquivo: Path | None) -> set[str] | None:
+    if arquivo is None:
+        return None
+    linhas = arquivo.read_text(encoding="utf-8").splitlines()
+    previstos = set()
+    for secao in ("Citações literais previstas", "Dados da web"):
+        _, dados = ler_tabela(linhas, secao)
+        previstos.update(
+            linha.celulas[0] for linha in dados if linha.celulas
+        )
+    return previstos
+
+
+def contar_capitulo(
+    slug: str, arquivo: Path, briefing: Path | None = None
+) -> ResultadoContagem:
+    linhas = arquivo.read_text(encoding="utf-8").splitlines()
+    previstos = _ids_previstos(briefing)
+    palavras = []
+    eventos = []
+    citacoes = 0
+    problemas = 0
+    for numero, linha in enumerate(linhas, start=1):
+        despojada = linha.strip()
+        if not despojada or despojada.startswith("#"):
+            continue
+        if re.fullmatch(r"\[[^\]]*\]", despojada):
+            continue
+        narrado = _MARCA_ID.sub("", linha)
+        palavras.extend(
+            pedaco for pedaco in narrado.split() if any(c.isalnum() for c in pedaco)
+        )
+        for aspas in _ASPAS.finditer(linha):
+            texto = next(grupo for grupo in aspas.groups() if grupo is not None)
+            marca = _MARCA_ID_SEGUIDA.match(linha, aspas.end())
+            if marca is None:
+                eventos.append(
+                    (numero, aspas.start(), f"{numero}: aviso: aspas sem id: {texto}")
+                )
+                continue
+            citacoes += 1
+            referencia = marca.group(1)
+            mensagem = None
+            ids = expandir(referencia)
+            textos, faltantes = textos_referencia(slug, referencia)
+            if ids is None or faltantes:
+                mensagem = f"{numero}: id inexistente: {referencia}"
+            elif not citacao_confere(texto, textos):
+                mensagem = (
+                    f"{numero}: citação não confere em {referencia}: {texto}"
+                )
+            elif previstos is not None and referencia not in previstos:
+                mensagem = f"{numero}: citação fora do briefing: {referencia}"
+            if mensagem is not None:
+                eventos.append((numero, aspas.start(), mensagem))
+                problemas += 1
+
+    minutos = f"{len(palavras) / 150:.1f}".replace(".", ",")
+    saida = [mensagem for _, _, mensagem in sorted(eventos)]
+    saida.append(
+        f"{len(palavras)} palavras, {minutos} min; "
+        f"{citacoes} citações, {problemas} problemas"
+    )
+    return ResultadoContagem("\n".join(saida) + "\n", 1 if problemas else 0)
