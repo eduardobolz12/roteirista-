@@ -21,3 +21,6 @@ fatia,nome,cas,vermelho,gate,entrega,prova,aceite,min_gate_a_entrega,defeito_no_
 043,indexar-livro,3,2026-11-10 23:19,2026-11-10 23:26,2026-11-10 23:52,2026-11-11 12:27,2026-11-11 aceito,26,
 015,visao-e-temas,3,2026-11-10 23:19,2026-11-10 23:26,2026-11-11 00:04,2026-11-11 12:27,2026-11-11 aceito com ressalvas,38,nome comum The na visao
 014,hesitacoes,3,2026-11-10 23:19,2026-11-10 23:26,2026-11-11 11:29,2026-11-11 12:27,2026-11-11 aceito,723,
+017,fonte-web,3,2026-11-11 21:42,2026-11-11 21:56,2026-11-11 22:09,2026-11-11 22:48,2026-11-11 aceito com ressalvas,13,titulo com marcas html
+042,revisao-do-sentido,3,2026-11-11 21:42,2026-11-11 21:56,2026-11-11 22:17,2026-11-11 22:48,2026-11-11 aceito,21,
+018,pesquisa-gratuita,3,2026-11-11 21:42,2026-11-11 21:56,2026-11-11 22:27,2026-11-11 22:48,2026-11-11 aceito com ressalvas,31,busca traz artigos fora do assunto

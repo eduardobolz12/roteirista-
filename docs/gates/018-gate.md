@@ -29,3 +29,10 @@
 - Hashes: todos iguais ao gate
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 043 verde, 017 verde, 042 verde
+
+## Aceite
+- Data: 2026-11-11
+- Decisor: aceito
+- Evidência: roteiros manuais nas APIs reais e no 9Router em 2026-11-11, depois da entrega do Kimi.
+- Roteiro manual: NAP5 com 1 achado conferido (`~1:8200`); o livro pela Wikipédia com 3 achados conferidos (1985, best-seller, críticas) e 1 recusado com razão (citação certa, parágrafo errado); citações conferidas com `livro trecho`.
+- Ressalva: a busca do Europe PMC traz às vezes artigos fora do assunto (NAP7); viram fonte, não geram achado.

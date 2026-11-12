@@ -47,9 +47,7 @@ curto até um vídeo completo. Os números das fatias não mudam; as novas receb
 | 014 | hesitações do autor | 005 | `livro hesitacoes` lista os parágrafos com palavras-marca fortes da língua do livro (`--todas` inclui as fracas); `livro julgar` grava o julgamento do Claude só para ids da lista |
 
 
-# A seguir
-
-## Lote 4 — Revisão e pesquisa web
+## Bloco D — Revisão e pesquisa gratuitas (lote 4, aceito em 2026-11-11)
 
 Medições feitas: E-005 (revisão, 4 de 4 infidelidades achadas) e E-006 (pesquisa por Europe PMC e
 Wikipédia, 4 de 4 perguntas certas). Tudo gratuito (D-027). Ordem de construção: 017, 042, 018.
@@ -59,6 +57,9 @@ Wikipédia, 4 de 4 perguntas certas). Tudo gratuito (D-027). Ordem de construç�
 | 017 | fonte web com ids | 001 | `livro fonte <slug> <url>` grava um artigo do Europe PMC ou uma página da Wikipédia como fonte `W01`, com parágrafos `W01.001`; `livro trecho` lê esses ids |
 | 042 | revisão do sentido por modelo gratuito | 041, 017 | `livro revisar <slug> <texto> <ids>` manda texto e material a um modelo gratuito, com modelos de reserva; só sai apontamento cuja frase está no texto e cujo id está no material; o texto não muda |
 | 018 | pesquisa gratuita | 017, 042 | `livro pesquisar <slug> "<pergunta>" --busca "<termos>" [--wiki]` grava as fontes achadas e só mostra o fato cuja citação está no parágrafo apontado; busca fora do ar vira erro claro |
+
+
+# A seguir
 
 ## Lote 5 — Validadores do briefing e do capítulo
 
