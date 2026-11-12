@@ -32,4 +32,4 @@ fatia,nome,cas,vermelho,gate,entrega,prova,aceite,min_gate_a_entrega,defeito_no_
 023,glossario,3,2026-11-12 12:11,2026-11-12 12:13,2026-11-12 12:35,2026-11-12 14:06,2026-11-12 aceito,23,
 024,invariantes,3,2026-11-12 12:11,2026-11-12 12:13,2026-11-12 12:57,2026-11-12 14:06,2026-11-12 aceito com correção,44,glossario nao vale nos dois sentidos com termo em minusculo (Haitian; President)
 025,legibilidade,3,2026-11-12 12:12,2026-11-12 12:13,2026-11-12 13:23,2026-11-12 14:06,2026-11-12 aceito com correção,71,seabrook apos inicial W. B. conta como rara
-045,correcao-das-conferencias,3,2026-11-12 14:27,2026-11-12 14:28,2026-11-12 14:49,2026-11-12 14:56,,22,
+045,correcao-das-conferencias,3,2026-11-12 14:27,2026-11-12 14:28,2026-11-12 14:49,2026-11-12 14:56,2026-11-12 aceito,22,

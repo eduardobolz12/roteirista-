@@ -31,3 +31,9 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde
 - Manual: 3 de 3 passos conformes: o tema 1 dá 62 parágrafos, 0 alertas; a cópia com six cracks, The boy tried e uma citação traduzida dá só os 3 alertas certos (1.2 números 7 → 6; 2.6 nome sumiu: Isnard; citação em 2.12); a legibilidade dá as 6 palavras raras do E-008 e as 2 expressões, sem seabrook. Os passos da 024 e da 025 que falharam no lote 7 agora conferem, e 54 casos de número por extenso em pt, en e fr batem.
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: o tema 1 deu `62 parágrafos, 0 alertas`; a cópia com "six cracks", "The boy tried" e uma citação traduzida deu só os 3 alertas certos (1.2, 2.6 e 2.12); a legibilidade deu as 6 palavras raras do E-008 e as 2 expressões, sem `seabrook`. Fecha as ressalvas do aceite da 024 e da 025.
