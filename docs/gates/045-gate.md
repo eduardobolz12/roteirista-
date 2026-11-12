@@ -23,3 +23,11 @@
 | tests/acceptance/045-correcao-das-conferencias/fixtures/numeros-en.md | 5a220f726d2145fa4f0e658ca0a2aaf4bf99fc81918adfc3b187ebd8f383ee52 |
 | tests/acceptance/045-correcao-das-conferencias/fixtures/numeros-fr.md | 025300a24e88de3391453b36f5b53c4eb2446532b75644d95de36a98c7505ba8 |
 | tests/acceptance/045-correcao-das-conferencias/fixtures/numeros-pt.md | 68ee3fea1a492156ba8d6260e3ef58f5ab68d28cc043896c4efbb70d59ddba5c |
+
+## Prova
+- Data: 2026-11-12
+- Commit: 0a60318712acad43e6c4141f8450847c0fe211c7
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde
+- Manual: 3 de 3 passos conformes: o tema 1 dá 62 parágrafos, 0 alertas; a cópia com six cracks, The boy tried e uma citação traduzida dá só os 3 alertas certos (1.2 números 7 → 6; 2.6 nome sumiu: Isnard; citação em 2.12); a legibilidade dá as 6 palavras raras do E-008 e as 2 expressões, sem seabrook. Os passos da 024 e da 025 que falharam no lote 7 agora conferem, e 54 casos de número por extenso em pt, en e fr batem.
