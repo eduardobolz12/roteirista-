@@ -94,13 +94,22 @@ problemas. O Decisor leu o roteiro e aceitou; escolheu os temas 1, 2, 3 e 4, nes
 
 # A seguir
 
-## Lote 7 — Tradução, humanização e aprovação
+## Lote 7 — Conferências da tradução
+
+Regras rodadas antes no ensaio E-008 (o tema 1 do Serpent traduzido para o inglês: 62 parágrafos, 0
+falsos alarmes nas invariantes) e em cinco arquivos de exemplo (12 de 12 saídas). D-029. Ordem: 023, 024,
+025.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
-| 023 | glossário | 001 | `livro glossario` grava termo → tradução por livro e língua; o mesmo termo com duas traduções no roteiro gera alerta |
-| 024 | invariantes entre versões | 022 | `livro invariantes <antes> <depois>` aponta parágrafo em que mudou citação, marca de origem, número ou nome |
-| 025 | legibilidade en/fr | — | `livro legibilidade` dá, por parágrafo, tamanho de frase, palavras fora da lista de vocabulário e expressões idiomáticas marcadas |
+| 023 | glossário | 001, 022 | `livro glossario` grava termo → tradução por livro e língua, com formas; `--conferir` aponta o parágrafo em que o termo não virou a tradução do glossário |
+| 024 | invariantes entre versões | 022, 023 | `livro invariantes <slug> <antes> <depois>` aponta o parágrafo em que mudou citação, número ou nome, com os nomes traduzidos pelo glossário |
+| 025 | legibilidade en/fr | 023, 024 | `livro legibilidade` dá, por parágrafo, frase acima de 25 palavras, palavra rara pela `wordfreq` e expressão idiomática da lista do projeto |
+
+## Lote 8 — Retrotradução, tela e skills da tradução
+
+| NNN | nome | depende de | como se sabe que ficou pronta |
+|-----|------|-----------|-------------------------------|
 | 026 | retrotradução local | 023 | `livro retraduzir` grava a versão em português, parágrafo por parágrafo, com os termos do glossário respeitados |
 | 027 | tela lado a lado | 026, 024 | `livro lado-a-lado` gera o HTML da M-002 sem rede e sem tokens; parágrafo com alerta aparece marcado |
 | 033 | /traduzir e /humanizar | 023, 024, 025, 027 | o capítulo humanizado passa nas invariantes e gera a tela lado a lado |

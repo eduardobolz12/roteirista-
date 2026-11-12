@@ -1,0 +1,20 @@
+# Expressions idiomatiques du français qu'un spectateur non natif peut ne pas comprendre (D-029).
+# Une par ligne, en minuscules. La lisibilité (SPEC 025) signale chacune qui apparaît dans le script.
+à la dure
+de près
+en douce
+avoir le cafard
+coûter les yeux de la tête
+du jour au lendemain
+en fin de compte
+faire la sourde oreille
+fermer les yeux sur
+mettre la main à la pâte
+mine de rien
+passer l'éponge
+pour de bon
+prendre au pied de la lettre
+sur le coup
+tenir le coup
+tomber dans le panneau
+tout compte fait
