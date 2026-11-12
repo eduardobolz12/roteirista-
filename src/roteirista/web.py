@@ -185,3 +185,75 @@ def carregar(url: str) -> Fonte:
             titulo = parse.unquote(achado.group(1)).replace("_", " ")
             return _wikipedia(url, titulo)
     raise FonteNaoSuportada(url)
+
+
+class BuscaFalhou(Exception):
+    """A busca ou a leitura das páginas encontradas falhou."""
+
+    def __init__(self, fonte: str, motivo: str):
+        self.fonte = fonte
+        self.motivo = motivo
+        super().__init__(motivo)
+
+
+def buscar(termos: str, wiki: bool = False) -> list[Fonte]:
+    """Busca até três fontes com texto, sem gravar nada no livro."""
+    nome = "wikipedia" if wiki else "europepmc"
+    try:
+        if wiki:
+            base = os.environ.get(
+                "ROTEIRISTA_WIKIPEDIA", "https://en.wikipedia.org/w/api.php"
+            )
+            resposta = _pedir_json(
+                base,
+                {
+                    "action": "query",
+                    "list": "search",
+                    "srsearch": termos,
+                    "srlimit": 3,
+                    "format": "json",
+                },
+            )
+            encontrados = resposta.get("query", {}).get("search", [])
+            fontes = []
+            for item in encontrados[:3]:
+                titulo = item.get("title")
+                if not isinstance(titulo, str) or not titulo.strip():
+                    continue
+                endereco = parse.quote(titulo.replace(" ", "_"), safe="")
+                url = f"https://en.wikipedia.org/wiki/{endereco}"
+                fontes.append(carregar(url))
+            return fontes
+
+        base = os.environ.get(
+            "ROTEIRISTA_EUROPEPMC",
+            "https://www.ebi.ac.uk/europepmc/webservices/rest",
+        ).rstrip("/")
+        resposta = _pedir_json(
+            f"{base}/search",
+            {
+                "query": termos,
+                "resultType": "core",
+                "format": "json",
+                "pageSize": 10,
+            },
+        )
+        encontrados = resposta.get("resultList", {}).get("result", [])
+        fontes = []
+        for dados in encontrados:
+            if not isinstance(dados, dict):
+                continue
+            resumo = dados.get("abstractText")
+            if not isinstance(resumo, str) or not resumo.strip():
+                continue
+            id = dados.get("id")
+            origem = dados.get("source")
+            if id is None or origem is None:
+                continue
+            url = f"https://europepmc.org/article/{origem}/{id}"
+            fontes.append(artigo_de_dados(url, dados))
+            if len(fontes) == 3:
+                break
+        return fontes
+    except (FonteInacessivel, FonteNaoEncontrada, FonteSemTexto) as erro:
+        raise BuscaFalhou(nome, str(erro)) from erro

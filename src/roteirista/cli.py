@@ -8,7 +8,7 @@ import re
 import sys
 import unicodedata
 
-from roteirista import banco, modelo, nuvem, revisao, web
+from roteirista import banco, modelo, nuvem, pesquisa, revisao, web
 from roteirista.epub import extrair as extrair_epub
 from roteirista.pdf import Livro, extrair as extrair_pdf
 
@@ -79,6 +79,12 @@ def _argumentos() -> argparse.ArgumentParser:
     revisar.add_argument("slug")
     revisar.add_argument("texto", type=Path)
     revisar.add_argument("ids", nargs="+")
+
+    pesquisar = comandos.add_parser("pesquisar")
+    pesquisar.add_argument("slug")
+    pesquisar.add_argument("pergunta")
+    pesquisar.add_argument("--busca", required=True)
+    pesquisar.add_argument("--wiki", action="store_true")
 
     conferir = comandos.add_parser("conferir")
     conferir.add_argument("slug")
@@ -392,6 +398,52 @@ def _revisar(slug: str, arquivo: Path, argumentos: list[str]) -> int:
     return 0
 
 
+def _pesquisar(slug: str, pergunta: str, termos: str, wiki: bool) -> int:
+    try:
+        encontradas = web.buscar(termos, wiki)
+    except web.BuscaFalhou as erro:
+        sys.stderr.write(f"busca falhou: {erro.fonte} ({erro.motivo})\n")
+        return 3
+    if not encontradas:
+        sys.stdout.write("0 fontes\n")
+        return 1
+
+    registros = []
+    for fonte in encontradas:
+        chave = web.chave_url(fonte.url)
+        registro = banco.fonte_por_url(slug, chave)
+        if registro is None:
+            registro = banco.gravar_fonte(slug, fonte, chave)
+        registros.append(registro)
+
+    blocos = [
+        bloco
+        for registro in registros
+        for bloco in banco.paragrafos_fonte(slug, registro[0])
+    ]
+    fontes = "\n\n".join(f"## {id}\n\n{texto}" for id, texto in blocos)
+    prompt = _prompt_documento("pesquisar.txt").replace("{pergunta}", pergunta)
+    prompt = prompt.replace("{fontes}", fontes)
+    try:
+        modelo_usado, resposta = nuvem.responder(prompt)
+    except nuvem.ChaveNaoInformada:
+        sys.stderr.write("chave da nuvem não informada: ROTEIRISTA_NUVEM_CHAVE\n")
+        return 2
+    except nuvem.NenhumModeloRespondeu:
+        sys.stderr.write("nenhum modelo gratuito respondeu\n")
+        return 3
+
+    linhas = [
+        f"fonte {id} | {autor} | {ano} | {titulo}"
+        for id, autor, ano, titulo, _ in registros
+    ]
+    conferidos, achados, recusados = pesquisa.conferir(resposta, dict(blocos))
+    linhas.extend(conferidos)
+    linhas.append(f"{achados} achados, {recusados} recusados — {modelo_usado}")
+    sys.stdout.write("\n".join(linhas) + "\n")
+    return 0
+
+
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
@@ -562,6 +614,11 @@ def main() -> None:
             raise SystemExit(2)
         banco.julgar_hesitacao(args.slug, args.id, args.julgamento, args.nota)
         return
+
+    if args.comando == "pesquisar":
+        raise SystemExit(
+            _pesquisar(args.slug, args.pergunta, args.busca, args.wiki)
+        )
 
     if args.comando == "revisar":
         raise SystemExit(_revisar(args.slug, args.texto, args.ids))

@@ -264,6 +264,17 @@ def gravar_fonte(slug: str, fonte, chave_url: str) -> tuple[str, str, str, str, 
     return id, fonte.autor, fonte.ano, fonte.titulo, fonte.url
 
 
+def paragrafos_fonte(slug: str, fonte_id: str) -> list[tuple[str, str]]:
+    with _abrir(slug) as conexao:
+        return conexao.execute(
+            """
+            SELECT id, texto FROM fontes_paragrafos
+            WHERE fonte_id = ? ORDER BY numero
+            """,
+            (fonte_id,),
+        ).fetchall()
+
+
 def trecho(slug: str, id: str) -> str | None:
     with _abrir(slug) as conexao:
         for tabela in ("paragrafos", "notas", "bibliografia", "fontes_paragrafos"):
