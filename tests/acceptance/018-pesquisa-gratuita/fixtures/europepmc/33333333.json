@@ -1,0 +1,16 @@
+{
+ "version": "6.9",
+ "hitCount": 1,
+ "resultList": {
+  "result": [
+   {
+    "id": "33333333",
+    "source": "MED",
+    "pmid": "33333333",
+    "authorString": "Nunes E, Reis F.",
+    "pubYear": "2020",
+    "title": "A record without abstract."
+   }
+  ]
+ }
+}

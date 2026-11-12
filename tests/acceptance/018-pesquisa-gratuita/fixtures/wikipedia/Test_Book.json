@@ -1,0 +1,13 @@
+{
+ "batchcomplete": "",
+ "query": {
+  "pages": {
+   "4242": {
+    "pageid": 4242,
+    "ns": 0,
+    "title": "Test Book",
+    "extract": "Test Book is a 1985 book.\n\n\n== Overview ==\nThe book tells a story.\nIt inspired a 1988 film.\n\n\n== References ==\nRef one."
+   }
+  }
+ }
+}

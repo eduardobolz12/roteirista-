@@ -1,0 +1,10 @@
+Answer the QUESTION using only the SOURCES below. Each paragraph of the SOURCES starts with a line "## <id>".
+For each fact you use, copy a short EXACT quote (8 to 30 words, letter by letter) from one paragraph that supports it.
+Answer only with lines in this format:
+<fact, in Portuguese> | "<exact quote>" | <id of the paragraph>
+If the sources do not answer, answer only: sem resposta
+
+QUESTION: {pergunta}
+
+SOURCES:
+{fontes}

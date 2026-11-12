@@ -51,14 +51,14 @@ curto até um vídeo completo. Os números das fatias não mudam; as novas receb
 
 ## Lote 4 — Revisão e pesquisa web
 
-Antes das specs: medir a revisão no capítulo 06 do Serpent (D-023) e a pesquisa web gratuita contra as
-perguntas do piloto, com o 9Router lendo as páginas.
+Medições feitas: E-005 (revisão, 4 de 4 infidelidades achadas) e E-006 (pesquisa por Europe PMC e
+Wikipédia, 4 de 4 perguntas certas). Tudo gratuito (D-027). Ordem de construção: 017, 042, 018.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
-| 042 | revisão do sentido por modelo gratuito | 041 | um modelo gratuito na nuvem (D-023) lê a ficha ou o capítulo escrito junto com o literal e aponta afirmação que o texto não sustenta; o apontado é conferido por script e as duas versões ficam guardadas |
-| 017 | página web vira fonte com ids | 001 | `livro fonte-web <url>` baixa, quebra em parágrafos com id e grava autor, título, data e URL; a origem `[W ...]` sai do script |
-| 018 | busca web gratuita | 017 | `livro pesquisar-web "<pergunta>"` busca, baixa os primeiros resultados e grava cada um como fonte; bloqueio do buscador vira erro claro, não silêncio |
+| 017 | fonte web com ids | 001 | `livro fonte <slug> <url>` grava um artigo do Europe PMC ou uma página da Wikipédia como fonte `W01`, com parágrafos `W01.001`; `livro trecho` lê esses ids |
+| 042 | revisão do sentido por modelo gratuito | 041, 017 | `livro revisar <slug> <texto> <ids>` manda texto e material a um modelo gratuito, com modelos de reserva; só sai apontamento cuja frase está no texto e cujo id está no material; o texto não muda |
+| 018 | pesquisa gratuita | 017, 042 | `livro pesquisar <slug> "<pergunta>" --busca "<termos>" [--wiki]` grava as fontes achadas e só mostra o fato cuja citação está no parágrafo apontado; busca fora do ar vira erro claro |
 
 ## Lote 5 — Validadores do briefing e do capítulo
 

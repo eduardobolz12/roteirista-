@@ -1,0 +1,12 @@
+Você revisa a fidelidade de um texto em português escrito a partir de trechos de um livro ou de fontes, que podem estar em outra língua.
+Compare o TEXTO com o MATERIAL. Cada parágrafo do MATERIAL começa por uma linha "## <id>".
+Liste cada afirmação do TEXTO que o MATERIAL não sustenta: fato inventado, detalhe acrescentado, ordem dos acontecimentos trocada, contraste ou comparação que o material não faz, generalização maior que o material. Ignore estilo, cortes e a apresentação do narrador.
+Responda só com linhas neste formato:
+<frase do TEXTO, copiada letra por letra> | <motivo curto> | <id do MATERIAL que contradiz, ou "sem apoio">
+Se não houver nenhuma, responda só: nada
+
+MATERIAL:
+{material}
+
+TEXTO:
+{texto}
