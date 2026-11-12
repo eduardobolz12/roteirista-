@@ -63,12 +63,15 @@ Wikipédia, 4 de 4 perguntas certas). Tudo gratuito (D-027). Ordem de construç�
 
 ## Lote 5 — Validadores do briefing e do capítulo
 
+Regras testadas antes num protótipo descartável, nos arquivos de teste (14 de 14 saídas) e em arquivos
+reais do Serpent (temas Bizango e Narcisse, briefing e capítulo 1 do Bizango). Ordem: 016, 020, 021, 022.
+
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
-| 016 | validador da sugestão de temas | 015 | `livro validar-temas` confere um arquivo no formato M-003: ids existem, todo candidato tem enigma, números e rachadura com ids, casas sem assunto órfão |
-| 020 | validador do briefing | 016, 017 | `livro validar-briefing` confere o formato M-001: seções presentes, ids existem, toda linha tem origem, citação prevista transcrita por script |
-| 021 | casa dos assuntos | 020 | passagem marcada "desenvolver" que é casa de outro vídeo gera aviso, sem bloquear; "mencionar" nunca avisa |
-| 022 | contar e conferir citações do capítulo | 006 | `livro contar` dá palavras e minutos só do texto narrado; toda citação do capítulo é conferida no literal |
+| 016 | validador da sugestão de temas | 015 | `livro validar-temas` confere o formato M-003: seções, ids que existem, enigma, números e rachadura com id em mais de um capítulo, uma casa por assunto |
+| 020 | validador do briefing | 016, 017 | `livro validar-briefing` confere o formato M-001: campos, seções, ids, momentos, trato, origem de cada momento e citações pela regra da D-028 |
+| 021 | casa dos assuntos | 020 | com `--temas`, passagem `desenvolver` que é casa de outro tema gera aviso, sem mudar o código; `mencionar` nunca avisa |
+| 022 | contar e conferir o capítulo | 020 | `livro contar` dá palavras e minutos (150 por minuto) do texto narrado e confere cada citação no original pelas palavras (D-028) |
 
 ## Lote 6 — Skills: do tema ao capítulo escrito
 

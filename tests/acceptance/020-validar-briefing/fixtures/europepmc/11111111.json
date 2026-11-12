@@ -1,0 +1,17 @@
+{
+ "version": "6.9",
+ "hitCount": 1,
+ "resultList": {
+  "result": [
+   {
+    "id": "11111111",
+    "source": "MED",
+    "pmid": "11111111",
+    "authorString": "Silva A, Souza B, Lima C.",
+    "pubYear": "2014",
+    "title": "Awareness under anaesthesia: a test record.",
+    "abstractText": "<h4>Background</h4>Patients may wake during surgery.<h4>Results</h4>The incidence with <i>neuromuscular</i> block was ~1:8200 (p<0.001)."
+   }
+  ]
+ }
+}
