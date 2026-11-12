@@ -20,3 +20,11 @@
 | tests/acceptance/044-colunas-faltando/fixtures/briefing-sem-trato.md | 4a1621d56e37b4e0df1b96b08cdd814bcfc41a8f9b14335f3e0a0c7eed10a8a4 |
 | tests/acceptance/044-colunas-faltando/fixtures/briefing-so-id.md | 2001eb0facecc36d3a0cc4698e231d7237bf115a191ef70afe12d979cfe12af6 |
 | tests/acceptance/044-colunas-faltando/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
+
+## Prova
+- Data: 2026-11-12
+- Commit: 2a7e09d80f5354eb07791acd015bcf9d32557912
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde
+- Manual: 3 de 3 passos conformes (maquete com 9 "faltam colunas: Trato" e 03.038 acusado; briefing real ok; briefing real sem Trato acusa as linhas 22 a 25).
