@@ -1,6 +1,7 @@
 """Conferências determinísticas entre as versões de um roteiro."""
 
 from dataclasses import dataclass
+import os
 from pathlib import Path
 import re
 import unicodedata
@@ -364,3 +365,86 @@ def conferir_invariantes(
                     alertas.append(f"{posicao}: nome novo: {nome}")
     alertas.append(f"{conferidos} parágrafos, {len(alertas)} alertas")
     return Resultado("\n".join(alertas) + "\n", 1 if len(alertas) > 1 else 0)
+
+
+_PALAVRA_CONTAGEM = re.compile(r"[^\W_]+(?:[-’'][^\W_]+)*", re.UNICODE)
+
+
+def _comprimento_frases(texto: str) -> list[int]:
+    narrado = _texto_para_nomes(texto)
+    comprimentos = []
+    atual = 0
+    for achado in _PALAVRA_CONTAGEM.finditer(narrado):
+        if atual and _primeira_da_frase(narrado, achado.start()):
+            comprimentos.append(atual)
+            atual = 0
+        atual += 1
+    if atual:
+        comprimentos.append(atual)
+    return comprimentos
+
+
+def _expressoes(lingua: str) -> list[str]:
+    raiz = Path(
+        os.environ.get(
+            "ROTEIRISTA_EXPRESSOES",
+            Path(__file__).resolve().parents[2] / "docs" / "expressoes",
+        )
+    )
+    try:
+        linhas = (raiz / f"{lingua}.txt").read_text(encoding="utf-8").splitlines()
+    except FileNotFoundError:
+        return []
+    return [linha.strip() for linha in linhas if linha.strip() and not linha.startswith("#")]
+
+
+def medir_legibilidade(
+    slug: str, arquivo: Path, lingua: str, limiar: float = 3.0
+) -> Resultado:
+    from wordfreq import zipf_frequency
+
+    capitulos = ler_roteiro(arquivo)
+    nomes = nomes_roteiro(capitulos)
+    termos_glossario = {
+        palavra.casefold()
+        for _, traducao in banco.glossario(slug, lingua)
+        for palavra in _palavras_nome(traducao)
+    }
+    expressoes = _expressoes(lingua)
+    saida = []
+    paragrafos = 0
+    total_longas = 0
+    total_raras = 0
+    total_expressoes = 0
+    for numero, textos in capitulos:
+        for indice, texto in enumerate(textos, start=1):
+            paragrafos += 1
+            posicao = f"{numero}.{indice}"
+            longas = [total for total in _comprimento_frases(texto) if total > 25]
+            for total in longas:
+                saida.append(f"{posicao}: frase de {total} palavras")
+            total_longas += len(longas)
+
+            narrado = _texto_para_nomes(texto)
+            nomes_paragrafo = {nome.casefold() for nome in nomes[(numero, indice)]}
+            raras = set()
+            for achado in _PALAVRA.finditer(narrado):
+                palavra = _sem_possessivo(achado.group()).casefold()
+                if palavra in nomes_paragrafo or palavra in termos_glossario:
+                    continue
+                if zipf_frequency(palavra, lingua) < limiar:
+                    raras.add(palavra)
+            if raras:
+                saida.append(f"{posicao}: raras: {', '.join(sorted(raras))}")
+            total_raras += len(raras)
+
+            narrado = sem_citacoes(texto)
+            for expressao in expressoes:
+                if _contem_forma(narrado, expressao):
+                    saida.append(f"{posicao}: expressão: {expressao}")
+                    total_expressoes += 1
+    saida.append(
+        f"{paragrafos} parágrafos, {total_longas} frases longas, "
+        f"{total_raras} palavras raras, {total_expressoes} expressões"
+    )
+    return Resultado("\n".join(saida) + "\n", 0)

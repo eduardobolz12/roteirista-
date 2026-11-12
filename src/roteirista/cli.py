@@ -101,6 +101,11 @@ def _argumentos() -> argparse.ArgumentParser:
     invariantes.add_argument("antes", type=Path)
     invariantes.add_argument("depois", type=Path)
 
+    legibilidade = comandos.add_parser("legibilidade")
+    legibilidade.add_argument("slug")
+    legibilidade.add_argument("roteiro", type=Path)
+    legibilidade.add_argument("--limiar", type=float, default=3.0)
+
     revisar = comandos.add_parser("revisar")
     revisar.add_argument("slug")
     revisar.add_argument("texto", type=Path)
@@ -520,6 +525,21 @@ def main() -> None:
         try:
             resultado = traducao.conferir_invariantes(
                 args.slug, args.antes, args.depois, *linguas
+            )
+        except FileNotFoundError as erro:
+            sys.stderr.write(f"arquivo inexistente: {erro.filename}\n")
+            raise SystemExit(2)
+        sys.stdout.write(resultado.saida)
+        raise SystemExit(resultado.codigo)
+
+    if args.comando == "legibilidade":
+        lingua = traducao.lingua_arquivo(args.roteiro)
+        if lingua is None:
+            sys.stderr.write(f"língua desconhecida: {args.roteiro.name}\n")
+            raise SystemExit(2)
+        try:
+            resultado = traducao.medir_legibilidade(
+                args.slug, args.roteiro, lingua, args.limiar
             )
         except FileNotFoundError as erro:
             sys.stderr.write(f"arquivo inexistente: {erro.filename}\n")
