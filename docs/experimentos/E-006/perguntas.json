@@ -1,0 +1,27 @@
+[
+ {
+  "id": "P1",
+  "busca": "NAP5 accidental awareness general anaesthesia summary main findings",
+  "pergunta": "According to the 5th National Audit Project (NAP5, 2014), what is the incidence of accidental awareness during general anaesthesia, overall and when a neuromuscular blocking drug (paralysis) was used?",
+  "esperado": "cerca de 1 em 19.600 no geral; cerca de 1 em 8.200 com bloqueador neuromuscular (Pandit et al., 2014)"
+ },
+ {
+  "id": "P2",
+  "busca": "NAP5 accidental awareness patient experience psychological consequences",
+  "pergunta": "According to NAP5, was distress or longer-term psychological harm after awareness more likely when the patient was paralysed?",
+  "esperado": "sim: paralisia associada a sofrimento e dano duradouro (Cook et al., 2014)"
+ },
+ {
+  "id": "P3",
+  "busca": "Sebel incidence of awareness during anesthesia multicenter United States study",
+  "pergunta": "What incidence of awareness with recall during general anesthesia did Sebel et al. (2004, Anesthesia & Analgesia) report in the United States multicenter study?",
+  "esperado": "0,13% (cerca de 1 a 2 por mil; 1,3 por mil)"
+ },
+ {
+  "id": "P4",
+  "busca": "The Serpent and the Rainbow Wade Davis",
+  "pergunta": "When was Wade Davis's book The Serpent and the Rainbow first published, and how was it received (popular success and scientific criticism)?",
+  "esperado": "1985 (Simon & Schuster); sucesso de público, virou filme de Wes Craven (1988); críticas de cientistas à tese do pó zumbi (ex.: Booth, Science, 1988)",
+  "fonte": "wikipedia"
+ }
+]

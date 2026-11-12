@@ -1,0 +1,44 @@
+[
+ {
+  "id": "P2",
+  "pergunta": "According to NAP5, was distress or longer-term psychological harm after awareness more likely when the patient was paralysed?",
+  "esperado": "sim: paralisia associada a sofrimento e dano duradouro (Cook et al., 2014)",
+  "urls": [
+   "https://europepmc.org/article/MED/36111390",
+   "https://europepmc.org/article/MED/25204696",
+   "https://europepmc.org/article/MED/25204237"
+  ],
+  "lidas": [
+   "https://europepmc.org/article/MED/36111390",
+   "https://europepmc.org/article/MED/25204696",
+   "https://europepmc.org/article/MED/25204237"
+  ],
+  "falhas": [],
+  "resposta": "Sim, o sofrimento e o dano a longo prazo foram particularmente prováveis quando o paciente experimentou paralisia. | \"Distress and longer term harm occurred across the full range of experiences but were particularly likely when the patient experienced paralysis (with or without pain).\" | https://europepmc.org/article/MED/25204696",
+  "linhas": [
+   {
+    "fato": "Sim, o sofrimento e o dano a longo prazo foram particularmente prováveis quando o paciente experimentou paralisia.",
+    "citacao": "Distress and longer term harm occurred across the full range of experiences but were particularly likely when the patient experienced paralysis (with or without pain).",
+    "url": "https://europepmc.org/article/MED/25204696",
+    "confere": true
+   }
+  ],
+  "segundos": 6,
+  "uso": {
+   "prompt_tokens": 3979,
+   "completion_tokens": 474,
+   "total_tokens": 4453,
+   "prompt_tokens_details": {
+    "cached_tokens": 0,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 396,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  }
+ }
+]

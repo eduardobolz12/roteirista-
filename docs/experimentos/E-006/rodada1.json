@@ -1,0 +1,188 @@
+[
+ {
+  "id": "P1",
+  "pergunta": "According to the 5th National Audit Project (NAP5, 2014), what is the incidence of accidental awareness during general anaesthesia, overall and when a neuromuscular blocking drug (paralysis) was used?",
+  "esperado": "cerca de 1 em 19.600 no geral; cerca de 1 em 8.200 com bloqueador neuromuscular (Pandit et al., 2014)",
+  "urls": [
+   "https://europepmc.org/article/MED/40606625",
+   "https://europepmc.org/article/MED/25204697",
+   "https://europepmc.org/article/MED/36111390"
+  ],
+  "lidas": [
+   "https://europepmc.org/article/MED/40606625",
+   "https://europepmc.org/article/MED/25204697",
+   "https://europepmc.org/article/MED/36111390"
+  ],
+  "falhas": [],
+  "resposta": "A incidência global de awareness acidental (casos certos/prováveis e possíveis) foi de aproximadamente 1:19.600 anestesias | \"The incidence of certain/probable and possible accidental awareness cases was ~1:19,600 anaesthetics (95% confidence interval 1:16,700-23,450).\" | https://europepmc.org/article/MED/25204697\nA incidência com bloqueio neuromuscular (NMB) foi de aproximadamente 1:8.200 | \"The incidence with neuromuscular block (NMB) was ~1:8200 (1:7030-9700), and without, it was ~1:135,900 (1:78,600-299,000).\" | https://europepmc.org/article/MED/25204697",
+  "linhas": [
+   {
+    "fato": "A incidência global de awareness acidental (casos certos/prováveis e possíveis) foi de aproximadamente 1:19.600 anestesias",
+    "citacao": "The incidence of certain/probable and possible accidental awareness cases was ~1:19,600 anaesthetics (95% confidence interval 1:16,700-23,450).",
+    "url": "https://europepmc.org/article/MED/25204697",
+    "confere": true
+   },
+   {
+    "fato": "A incidência com bloqueio neuromuscular (NMB) foi de aproximadamente 1:8.200",
+    "citacao": "The incidence with neuromuscular block (NMB) was ~1:8200 (1:7030-9700), and without, it was ~1:135,900 (1:78,600-299,000).",
+    "url": "https://europepmc.org/article/MED/25204697",
+    "confere": true
+   }
+  ],
+  "segundos": 4,
+  "uso": {
+   "prompt_tokens": 3704,
+   "completion_tokens": 769,
+   "total_tokens": 4473,
+   "prompt_tokens_details": {
+    "cached_tokens": 0,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 599,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  }
+ },
+ {
+  "id": "P2",
+  "pergunta": "According to NAP5, was distress or longer-term psychological harm after awareness more likely when the patient was paralysed?",
+  "esperado": "sim: paralisia associada a sofrimento e dano duradouro (Cook et al., 2014)",
+  "urls": [
+   "https://europepmc.org/article/MED/42817154",
+   "https://europepmc.org/article/MED/40056243",
+   "https://europepmc.org/article/MED/33777414"
+  ],
+  "lidas": [
+   "https://europepmc.org/article/MED/42817154",
+   "https://europepmc.org/article/MED/40056243"
+  ],
+  "falhas": [
+   "https://europepmc.org/article/MED/33777414 (pdf ou vazio)"
+  ],
+  "resposta": "sem resposta",
+  "linhas": [],
+  "segundos": 3,
+  "uso": {
+   "prompt_tokens": 2826,
+   "completion_tokens": 150,
+   "total_tokens": 2976,
+   "prompt_tokens_details": {
+    "cached_tokens": 0,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 147,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  }
+ },
+ {
+  "id": "P3",
+  "pergunta": "What incidence of awareness with recall during general anesthesia did Sebel et al. (2004, Anesthesia & Analgesia) report in the United States multicenter study?",
+  "esperado": "0,13% (cerca de 1 a 2 por mil; 1,3 por mil)",
+  "urls": [
+   "https://europepmc.org/article/MED/39754470",
+   "https://europepmc.org/article/MED/33540844",
+   "https://europepmc.org/article/MED/15333419"
+  ],
+  "lidas": [
+   "https://europepmc.org/article/MED/39754470",
+   "https://europepmc.org/article/MED/33540844",
+   "https://europepmc.org/article/MED/15333419"
+  ],
+  "falhas": [],
+  "resposta": "A incidência de awareness com recall durante anestesia geral relatada por Sebel et al. foi de 0,13%. | \"A total of 25 awareness cases were identified (0.13% incidence).\" | https://europepmc.org/article/MED/15333419",
+  "linhas": [
+   {
+    "fato": "A incidência de awareness com recall durante anestesia geral relatada por Sebel et al. foi de 0,13%.",
+    "citacao": "A total of 25 awareness cases were identified (0.13% incidence).",
+    "url": "https://europepmc.org/article/MED/15333419",
+    "confere": true
+   }
+  ],
+  "segundos": 6,
+  "uso": {
+   "prompt_tokens": 3522,
+   "completion_tokens": 730,
+   "total_tokens": 4252,
+   "prompt_tokens_details": {
+    "cached_tokens": 0,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 670,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  }
+ },
+ {
+  "id": "P4",
+  "pergunta": "When was Wade Davis's book The Serpent and the Rainbow first published, and how was it received (popular success and scientific criticism)?",
+  "esperado": "1985 (Simon & Schuster); sucesso de público, virou filme de Wes Craven (1988); críticas de cientistas à tese do pó zumbi (ex.: Booth, Science, 1988)",
+  "urls": [
+   "https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29",
+   "https://en.wikipedia.org/wiki/Wade_Davis_%28anthropologist%29",
+   "https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28film%29"
+  ],
+  "lidas": [
+   "https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29",
+   "https://en.wikipedia.org/wiki/Wade_Davis_%28anthropologist%29",
+   "https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28film%29"
+  ],
+  "falhas": [],
+  "resposta": "O livro The Serpent and the Rainbow foi publicado pela primeira vez em 1985. | \"The Serpent and the Rainbow: A Harvard Scientist's Astonishing Journey into the Secret Societies of Haitian Voodoo, Zombies, and Magic is a 1985 book\" | https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29\nO livro alcançou sucesso popular como best-seller e deu notoriedade a Wade Davis. | \"Davis came to prominence with his 1985 best-selling book The Serpent and the Rainbow about the zombies of Haiti.\" | https://en.wikipedia.org/wiki/Wade_Davis_%28anthropologist%29\nAs alegações de Davis foram criticadas por imprecisões científicas. | \"Davis' claims were criticized for a number of scientific inaccuracies.\" | https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29\nAlguns cientistas encontraram pouco ou nenhum tetrodotoxina nas amostras fornecidas por Davis, e alguns o acusaram de fraude. | \"Some scientists found little or no tetrodotoxin in samples provided by Davis, with some accusing him of fraud.\" | https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29",
+  "linhas": [
+   {
+    "fato": "O livro The Serpent and the Rainbow foi publicado pela primeira vez em 1985.",
+    "citacao": "The Serpent and the Rainbow: A Harvard Scientist's Astonishing Journey into the Secret Societies of Haitian Voodoo, Zombies, and Magic is a 1985 book",
+    "url": "https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29",
+    "confere": true
+   },
+   {
+    "fato": "O livro alcançou sucesso popular como best-seller e deu notoriedade a Wade Davis.",
+    "citacao": "Davis came to prominence with his 1985 best-selling book The Serpent and the Rainbow about the zombies of Haiti.",
+    "url": "https://en.wikipedia.org/wiki/Wade_Davis_%28anthropologist%29",
+    "confere": true
+   },
+   {
+    "fato": "As alegações de Davis foram criticadas por imprecisões científicas.",
+    "citacao": "Davis' claims were criticized for a number of scientific inaccuracies.",
+    "url": "https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29",
+    "confere": true
+   },
+   {
+    "fato": "Alguns cientistas encontraram pouco ou nenhum tetrodotoxina nas amostras fornecidas por Davis, e alguns o acusaram de fraude.",
+    "citacao": "Some scientists found little or no tetrodotoxin in samples provided by Davis, with some accusing him of fraud.",
+    "url": "https://en.wikipedia.org/wiki/The_Serpent_and_the_Rainbow_%28book%29",
+    "confere": true
+   }
+  ],
+  "segundos": 20,
+  "uso": {
+   "prompt_tokens": 7476,
+   "completion_tokens": 4722,
+   "total_tokens": 12198,
+   "prompt_tokens_details": {
+    "cached_tokens": 0,
+    "cache_write_tokens": 0,
+    "audio_tokens": 0,
+    "video_tokens": 0
+   },
+   "completion_tokens_details": {
+    "reasoning_tokens": 4448,
+    "image_tokens": 0,
+    "audio_tokens": 0
+   }
+  }
+ }
+]
