@@ -8,7 +8,7 @@ import re
 import sys
 import unicodedata
 
-from roteirista import banco, modelo
+from roteirista import banco, modelo, web
 from roteirista.epub import extrair as extrair_epub
 from roteirista.pdf import Livro, extrair as extrair_pdf
 
@@ -55,6 +55,13 @@ def _argumentos() -> argparse.ArgumentParser:
     trecho = comandos.add_parser("trecho")
     trecho.add_argument("slug")
     trecho.add_argument("id")
+
+    fonte = comandos.add_parser("fonte")
+    fonte.add_argument("slug")
+    fonte.add_argument("url")
+
+    fontes = comandos.add_parser("fontes")
+    fontes.add_argument("slug")
 
     ficha = comandos.add_parser("ficha")
     ficha.add_argument("slug")
@@ -348,6 +355,38 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
     args = _argumentos().parse_args()
+
+    if args.comando == "fonte":
+        chave = web.chave_url(args.url)
+        existente = banco.fonte_por_url(args.slug, chave)
+        if existente is not None:
+            sys.stdout.write(f"{existente[0]} | já gravada\n")
+            return
+        try:
+            fonte = web.carregar(args.url)
+        except web.FonteNaoSuportada:
+            sys.stderr.write(f"fonte não suportada: {args.url}\n")
+            raise SystemExit(2)
+        except web.FonteNaoEncontrada:
+            sys.stderr.write(f"fonte não encontrada: {args.url}\n")
+            raise SystemExit(2)
+        except web.FonteSemTexto:
+            sys.stderr.write(f"fonte sem texto: {args.url}\n")
+            raise SystemExit(2)
+        except web.FonteInacessivel:
+            sys.stderr.write(f"fonte inacessível: {args.url}\n")
+            raise SystemExit(3)
+        gravada = banco.gravar_fonte(args.slug, fonte, chave)
+        sys.stdout.write(
+            f"{gravada[0]} | {gravada[1]} | {gravada[2]} | {gravada[3]}\n"
+            f"{len(fonte.paragrafos)} parágrafos\n"
+        )
+        return
+
+    if args.comando == "fontes":
+        for id, autor, ano, titulo, url in banco.fontes(args.slug):
+            sys.stdout.write(f"{id} | {autor} | {ano} | {titulo} | {url}\n")
+        return
 
     if args.comando == "novo":
         if args.lingua is not None and args.lingua not in _LINGUAS:

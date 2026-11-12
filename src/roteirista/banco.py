@@ -34,6 +34,22 @@ def _abrir(slug: str) -> sqlite3.Connection:
             julgamento TEXT NOT NULL,
             nota TEXT NOT NULL
         );
+        CREATE TABLE IF NOT EXISTS fontes (
+            sequencia INTEGER PRIMARY KEY AUTOINCREMENT,
+            id TEXT NOT NULL UNIQUE,
+            autor TEXT NOT NULL,
+            ano TEXT NOT NULL,
+            titulo TEXT NOT NULL,
+            url TEXT NOT NULL,
+            chave_url TEXT NOT NULL UNIQUE
+        );
+        CREATE TABLE IF NOT EXISTS fontes_paragrafos (
+            id TEXT PRIMARY KEY,
+            fonte_id TEXT NOT NULL REFERENCES fontes(id),
+            numero INTEGER NOT NULL,
+            texto TEXT NOT NULL,
+            UNIQUE (fonte_id, numero)
+        );
         """
     )
     return conexao
@@ -195,9 +211,62 @@ def hesitacoes_julgadas(slug: str) -> list[tuple[str, str, str]]:
         ).fetchall()
 
 
+def fontes(slug: str) -> list[tuple[str, str, str, str, str]]:
+    with _abrir(slug) as conexao:
+        return conexao.execute(
+            "SELECT id, autor, ano, titulo, url FROM fontes ORDER BY sequencia"
+        ).fetchall()
+
+
+def fonte_por_url(slug: str, chave_url: str) -> tuple[str, str, str, str, str] | None:
+    with _abrir(slug) as conexao:
+        return conexao.execute(
+            """
+            SELECT id, autor, ano, titulo, url FROM fontes
+            WHERE chave_url = ?
+            """,
+            (chave_url,),
+        ).fetchone()
+
+
+def gravar_fonte(slug: str, fonte, chave_url: str) -> tuple[str, str, str, str, str]:
+    """Grava a ficha e todos os parágrafos em uma única transação."""
+    with _abrir(slug) as conexao:
+        sequencia = conexao.execute(
+            "SELECT COALESCE(MAX(sequencia), 0) + 1 FROM fontes"
+        ).fetchone()[0]
+        id = f"W{sequencia:02d}"
+        conexao.execute(
+            """
+            INSERT INTO fontes (sequencia, id, autor, ano, titulo, url, chave_url)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                sequencia,
+                id,
+                fonte.autor,
+                fonte.ano,
+                fonte.titulo,
+                fonte.url,
+                chave_url,
+            ),
+        )
+        conexao.executemany(
+            """
+            INSERT INTO fontes_paragrafos (id, fonte_id, numero, texto)
+            VALUES (?, ?, ?, ?)
+            """,
+            [
+                (f"{id}.{numero:03d}", id, numero, texto)
+                for numero, texto in enumerate(fonte.paragrafos, start=1)
+            ],
+        )
+    return id, fonte.autor, fonte.ano, fonte.titulo, fonte.url
+
+
 def trecho(slug: str, id: str) -> str | None:
     with _abrir(slug) as conexao:
-        for tabela in ("paragrafos", "notas", "bibliografia"):
+        for tabela in ("paragrafos", "notas", "bibliografia", "fontes_paragrafos"):
             linha = conexao.execute(
                 f"SELECT texto FROM {tabela} WHERE id = ?", (id,)
             ).fetchone()
