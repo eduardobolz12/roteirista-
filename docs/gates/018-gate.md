@@ -22,3 +22,10 @@
 | tests/acceptance/018-pesquisa-gratuita/fixtures/europepmc/busca/awareness_anaesthesia.json | d2a50db0cde84ee07b542271e3a7d5a98b87d993266f7b08ad814fedcb4d9f09 |
 | tests/acceptance/018-pesquisa-gratuita/fixtures/wikipedia/Test_Book.json | 043231c0410ccb126d95b1d4b076594cc8deae700432a88eec9eca61be557226 |
 | tests/acceptance/018-pesquisa-gratuita/fixtures/wikipedia/busca/Test_Book.json | 52cdf9e739267a113a800315f0277b74bc79c9823a11cb8c9263396872d662b0 |
+
+## Prova
+- Data: 2026-11-11
+- Commit: 68cbd9e26551ccc610a6b8cd25bcca7103e36dd4
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 043 verde, 017 verde, 042 verde

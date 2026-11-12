@@ -18,3 +18,10 @@
 | tests/acceptance/042-revisao-do-sentido/test_CA3_nenhum_modelo.py | 8d6e82bfea191e1f8b80e13664380d16081e3e2e82b4a973c2e3f34bb4a94f74 |
 | tests/acceptance/042-revisao-do-sentido/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
 | tests/acceptance/042-revisao-do-sentido/fixtures/texto.md | 381d73324d30e68ccdde5bccb39ac9738c3c35a99440a9256d58d43f4a8d6a0a |
+
+## Prova
+- Data: 2026-11-11
+- Commit: 2679a1968fe76d92eb5c826f8f1b0ef9827967e4
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 043 verde, 017 verde

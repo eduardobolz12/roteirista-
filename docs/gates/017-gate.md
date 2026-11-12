@@ -19,3 +19,10 @@
 | tests/acceptance/017-fonte-web/fixtures/europepmc/11111111.json | 6334f6e2b91f54dc8452ebdece5a5bacc8b4b8716fe5d8be2aaceedf21ebaf76 |
 | tests/acceptance/017-fonte-web/fixtures/europepmc/33333333.json | 8c7e4678c9bd9c219b04a7f70ff7dc89f653a6455522769611fab79993572c52 |
 | tests/acceptance/017-fonte-web/fixtures/wikipedia/Test_Book.json | 043231c0410ccb126d95b1d4b076594cc8deae700432a88eec9eca61be557226 |
+
+## Prova
+- Data: 2026-11-11
+- Commit: 974b0e6ea612173179be5591c8bee9bd90bc4d8f
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 043 verde
