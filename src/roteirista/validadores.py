@@ -330,59 +330,75 @@ def validar_briefing(
         problemas.append(f"tema {tema} não está no arquivo de temas")
 
     erros = []
+
+    def registrar_colunas_faltando(linha, colunas):
+        faltantes = colunas[len(linha.celulas) :]
+        if faltantes:
+            erros.append(
+                (
+                    linha.numero,
+                    len(colunas),
+                    f"faltam colunas: {', '.join(faltantes)}",
+                )
+            )
+
     _, linhas_momentos = ler_tabela(linhas, "O que será abordado")
+    colunas_momentos = ("#", "Momento", "O que entra", "De onde vem")
     momentos = {}
     for linha in linhas_momentos:
-        if len(linha.celulas) < 4 or not linha.celulas[0].isdigit():
+        if not linha.celulas[0].isdigit():
             continue
         numero = int(linha.celulas[0])
-        origem = linha.celulas[3]
+        origem = linha.celulas[3] if len(linha.celulas) > 3 else None
         momentos[numero] = origem
-        if origem not in {"Livro", "Web", "Narrador"}:
+        if origem is not None and origem not in {"Livro", "Web", "Narrador"}:
             erros.append((linha.numero, 3, f"origem inválida: {origem}"))
+        registrar_colunas_faltando(linha, colunas_momentos)
 
     _, linhas_passagens = ler_tabela(linhas, "Cenas e passagens do livro")
+    colunas_passagens = ("Id", "O que é", "Momento", "Trato")
     passagens = []
     passagens_por_momento = set()
     for linha in linhas_passagens:
-        if len(linha.celulas) < 4:
-            continue
         referencia = linha.celulas[0]
         ids, _, faltantes = _conferir_ids(slug, referencia)
         if faltantes:
             erros.append((linha.numero, 0, f"id inexistente: {referencia}"))
-        numeros = [int(numero) for numero in re.findall(r"\d+", linha.celulas[2])]
-        for numero in numeros:
-            passagens_por_momento.add(numero)
-            if numero not in momentos:
-                erros.append(
-                    (linha.numero, 2, f"momento inexistente: {numero}")
-                )
-        trato = linha.celulas[3]
-        if trato not in {"desenvolver", "mencionar"}:
+        if len(linha.celulas) > 2:
+            numeros = [int(numero) for numero in re.findall(r"\d+", linha.celulas[2])]
+            for numero in numeros:
+                passagens_por_momento.add(numero)
+                if numero not in momentos:
+                    erros.append(
+                        (linha.numero, 2, f"momento inexistente: {numero}")
+                    )
+        trato = linha.celulas[3] if len(linha.celulas) > 3 else None
+        if trato is not None and trato not in {"desenvolver", "mencionar"}:
             erros.append((linha.numero, 3, f"trato inválido: {trato}"))
         passagens.append((linha.numero, referencia, ids, trato))
+        registrar_colunas_faltando(linha, colunas_passagens)
 
     _, linhas_citacoes = ler_tabela(linhas, "Citações literais previstas")
+    colunas_citacoes = ("Id", "Trecho (original)", "Uso")
     for linha in linhas_citacoes:
-        if len(linha.celulas) < 3:
-            continue
         referencia = linha.celulas[0]
         _, textos, faltantes = _conferir_ids(slug, referencia)
         if faltantes:
             erros.append((linha.numero, 0, f"id inexistente: {referencia}"))
-            continue
-        citacao = linha.celulas[1].strip().strip('"“”«»')
-        if not citacao_confere(citacao, textos):
-            erros.append(
-                (
-                    linha.numero,
-                    1,
-                    f"citação não confere em {referencia}: {citacao}",
+        elif len(linha.celulas) > 1:
+            citacao = linha.celulas[1].strip().strip('"“”«»')
+            if not citacao_confere(citacao, textos):
+                erros.append(
+                    (
+                        linha.numero,
+                        1,
+                        f"citação não confere em {referencia}: {citacao}",
+                    )
                 )
-            )
+        registrar_colunas_faltando(linha, colunas_citacoes)
 
     _, linhas_dados = ler_tabela(linhas, "Dados da web")
+    colunas_dados = ("Id", "Dado", "Uso")
     for linha in linhas_dados:
         if not linha.celulas:
             continue
@@ -390,6 +406,7 @@ def validar_briefing(
         _, _, faltantes = _conferir_ids(slug, referencia)
         if faltantes:
             erros.append((linha.numero, 0, f"id inexistente: {referencia}"))
+        registrar_colunas_faltando(linha, colunas_dados)
 
     problemas.extend(
         f"{numero}: {mensagem}" for numero, _, mensagem in sorted(erros)
