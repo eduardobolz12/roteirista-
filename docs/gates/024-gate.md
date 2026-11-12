@@ -20,3 +20,11 @@
 | tests/acceptance/024-invariantes/fixtures/roteiro-en-humanizado.md | 84236a89cae1c0dbf5ab75b1f4e6a27d827d2aa512ad2fa8983f2f238a119511 |
 | tests/acceptance/024-invariantes/fixtures/roteiro-en.md | b5292c0727f9ce0259d5f92b3677f67fae6f122246dc4f2dc8fe593cf6d4bde3 |
 | tests/acceptance/024-invariantes/fixtures/roteiro-pt.md | d858e7baccc1ccb7f9a9cc71f143a87475f276dbcff21036c29352f8c18194f7 |
+
+## Prova
+- Data: 2026-11-12
+- Commit: 68792c579020c0e87ae05c834401126686b521d5
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde
+- Manual: 2 de 3 passos conformes. Passo 1 não conforme: 3 alertas falsos de nome novo (4.3 e 5.4 Haitian; 4.6 President), porque o glossário não vale nos dois sentidos quando o termo em português é minúsculo. Passos 2 e 3 acusam o esperado (1.2 números 7 → 6; 2.6 nome sumiu: Isnard; citação em 2.12), com os mesmos 3 falsos. Em arquivos mínimos: números fora de ordem dão alerta com os dois lados iguais; I’m com apóstrofo curvo vira nome; nome depois de inicial no meio do parágrafo (W. B.) não é conferido; número por extenso não bate entre línguas (duzentos contra two hundred), limite da própria spec.

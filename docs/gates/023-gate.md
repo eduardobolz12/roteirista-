@@ -19,3 +19,11 @@
 | tests/acceptance/023-glossario/fixtures/roteiro-en-glossario.md | 80f5f7fab97d3c53d76bb8bb7973acc0f83ddf330dab4721879d7be0507b1aaa |
 | tests/acceptance/023-glossario/fixtures/roteiro-en.md | b5292c0727f9ce0259d5f92b3677f67fae6f122246dc4f2dc8fe593cf6d4bde3 |
 | tests/acceptance/023-glossario/fixtures/roteiro-pt.md | d858e7baccc1ccb7f9a9cc71f143a87475f276dbcff21036c29352f8c18194f7 |
+
+## Prova
+- Data: 2026-11-12
+- Commit: af4248f0133a73410f499064ccb2348037bb2d44
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde
+- Manual: 3 de 3 passos conformes (17 termos listados em ordem; tema 1 com 17 termos e 0 alertas; "society" trocado por "association" acusa 1.1).
