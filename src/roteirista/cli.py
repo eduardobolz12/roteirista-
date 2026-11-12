@@ -8,13 +8,15 @@ import re
 import sys
 import unicodedata
 
-from roteirista import banco, modelo, web
+from roteirista import banco, modelo, nuvem, revisao, web
 from roteirista.epub import extrair as extrair_epub
 from roteirista.pdf import Livro, extrair as extrair_pdf
 
 
 _LINGUAS = {"en", "fr", "pt", "es", "de", "it"}
-_INTERVALO = re.compile(r"^(\d{2})\.(\d{3})-(\d{2})\.(\d{3})$")
+_INTERVALO = re.compile(
+    r"^((?:\d{2}|W\d{2}))\.(\d{3})-((?:\d{2}|W\d{2}))\.(\d{3})$"
+)
 _MARCAS_HESITACAO = {
     "en": (
         (
@@ -72,6 +74,11 @@ def _argumentos() -> argparse.ArgumentParser:
     montar = comandos.add_parser("montar")
     montar.add_argument("slug")
     montar.add_argument("ids", nargs="+")
+
+    revisar = comandos.add_parser("revisar")
+    revisar.add_argument("slug")
+    revisar.add_argument("texto", type=Path)
+    revisar.add_argument("ids", nargs="+")
 
     conferir = comandos.add_parser("conferir")
     conferir.add_argument("slug")
@@ -351,6 +358,40 @@ def _lista_hesitacoes(
     return resultado
 
 
+def _prompt_documento(nome: str) -> str:
+    caminho = Path(__file__).resolve().parents[2] / "docs" / "prompts" / nome
+    return caminho.read_text(encoding="utf-8")
+
+
+def _revisar(slug: str, arquivo: Path, argumentos: list[str]) -> int:
+    blocos, erro = _montar(slug, argumentos)
+    if erro is not None:
+        sys.stderr.write(f"{erro}\n")
+        return 2
+    texto = arquivo.read_text(encoding="utf-8")
+    material = "\n\n".join(f"## {id}\n\n{conteudo}" for id, conteudo in blocos)
+    prompt = _prompt_documento("revisar.txt").replace("{material}", material)
+    prompt = prompt.replace("{texto}", texto)
+    try:
+        modelo_usado, resposta = nuvem.responder(prompt)
+    except nuvem.ChaveNaoInformada:
+        sys.stderr.write("chave da nuvem não informada: ROTEIRISTA_NUVEM_CHAVE\n")
+        return 2
+    except nuvem.NenhumModeloRespondeu:
+        sys.stderr.write("nenhum modelo gratuito respondeu\n")
+        return 3
+    linhas, apontamentos, descartados = revisao.conferir(
+        texto, resposta, {id for id, _ in blocos}
+    )
+    linhas.append(
+        f"{apontamentos} apontamentos, {descartados} descartados — {modelo_usado}"
+    )
+    saida = "\n".join(linhas) + "\n"
+    arquivo.with_suffix(".revisao.txt").write_text(saida, encoding="utf-8", newline="\n")
+    sys.stdout.write(saida)
+    return 0
+
+
 def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
@@ -521,6 +562,9 @@ def main() -> None:
             raise SystemExit(2)
         banco.julgar_hesitacao(args.slug, args.id, args.julgamento, args.nota)
         return
+
+    if args.comando == "revisar":
+        raise SystemExit(_revisar(args.slug, args.texto, args.ids))
 
     if args.comando == "montar":
         blocos, erro = _montar(args.slug, args.ids)
