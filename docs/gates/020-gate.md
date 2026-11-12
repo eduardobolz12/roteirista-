@@ -20,3 +20,11 @@
 | tests/acceptance/020-validar-briefing/fixtures/briefing-ok.md | 8ca652ca1cb615c8606f44ee0a2ff9721594a97db6bf78fcba4e591fc17caeec |
 | tests/acceptance/020-validar-briefing/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
 | tests/acceptance/020-validar-briefing/fixtures/europepmc/11111111.json | 6334f6e2b91f54dc8452ebdece5a5bacc8b4b8716fe5d8be2aaceedf21ebaf76 |
+
+## Prova
+- Data: 2026-11-12
+- Commit: aaf4f759e11277ce9787a5ec07f00e5112d4c527
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 017 verde, 018 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 016 verde
+- Manual: 11 de 12 passos; falha no passo 2 do 020 — linha de tabela sem a coluna Trato é ignorada em silêncio e os ids dela não são conferidos (03.038 da maquete não acusado). Lacuna da SPEC 020, não desvio da construção.

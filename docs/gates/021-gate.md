@@ -21,3 +21,10 @@
 | tests/acceptance/021-casa-dos-assuntos/fixtures/dois-capitulos.pdf | c2f9bfbc214d074ecada1eb02d9123fd8a133ff0152c49760fa8199521b8513b |
 | tests/acceptance/021-casa-dos-assuntos/fixtures/temas-erros.md | 92281094ce71363aea2ad449ecbccf18736afe52adaae154e0872de4e43b7b99 |
 | tests/acceptance/021-casa-dos-assuntos/fixtures/temas-ok.md | e595ee273edba94ae93ba77c6e96114eb9c9b71afadbd912240c0db63e509015 |
+
+## Prova
+- Data: 2026-11-12
+- Commit: 6da73d49049a3625208753be7632c864f48bc0b2
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 017 verde, 018 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 016 verde, 020 verde
