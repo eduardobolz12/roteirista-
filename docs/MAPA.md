@@ -99,12 +99,15 @@ problemas. O Decisor leu o roteiro e aceitou; escolheu os temas 1, 2, 3 e 4, nes
 Regras rodadas antes no ensaio E-008 (o tema 1 do Serpent traduzido para o inglês: 62 parágrafos, 0
 falsos alarmes nas invariantes) e em cinco arquivos de exemplo (12 de 12 saídas). D-029. Ordem: 023, 024,
 025.
+A 023 foi aceita; a 024 e a 025, aceitas com correção: o roteiro manual achou alertas falsos e nomes que
+escapavam, e o número por extenso contado palavra por palavra não batia entre línguas (fatia 045).
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
 | 023 | glossário | 001, 022 | `livro glossario` grava termo → tradução por livro e língua, com formas; `--conferir` aponta o parágrafo em que o termo não virou a tradução do glossário |
 | 024 | invariantes entre versões | 022, 023 | `livro invariantes <slug> <antes> <depois>` aponta o parágrafo em que mudou citação, número ou nome, com os nomes traduzidos pelo glossário |
 | 025 | legibilidade en/fr | 023, 024 | `livro legibilidade` dá, por parágrafo, frase acima de 25 palavras, palavra rara pela `wordfreq` e expressão idiomática da lista do projeto |
+| 045 | correção das conferências | 024, 025 | o tema 1 do Serpent dá `62 parágrafos, 0 alertas` nas invariantes e as 6 palavras raras do E-008 na legibilidade: glossário nos dois sentidos, inicial e título que não fecham a frase, `I’m` que não é nome, número por extenso lido pelo valor e comparado em qualquer ordem |
 
 ## Lote 8 — Retrotradução, tela e skills da tradução
 

@@ -28,3 +28,10 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde
 - Manual: 2 de 3 passos conformes. Passo 1 não conforme: 3 alertas falsos de nome novo (4.3 e 5.4 Haitian; 4.6 President), porque o glossário não vale nos dois sentidos quando o termo em português é minúsculo. Passos 2 e 3 acusam o esperado (1.2 números 7 → 6; 2.6 nome sumiu: Isnard; citação em 2.12), com os mesmos 3 falsos. Em arquivos mínimos: números fora de ordem dão alerta com os dois lados iguais; I’m com apóstrofo curvo vira nome; nome depois de inicial no meio do parágrafo (W. B.) não é conferido; número por extenso não bate entre línguas (duzentos contra two hundred), limite da própria spec.
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito com correção
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: os passos 2 e 3 acusaram o esperado (`1.2: números: 7 → 6`; `2.6: nome sumiu: Isnard`, com o nome no começo da frase; a citação em 2.12).
+- Ressalva: o passo 1 falhou, com 3 alertas falsos de nome novo (4.3 e 5.4 Haitian, 4.6 President): o glossário só valia para nome com maiúscula no português. Em arquivos mínimos, mais três desvios da spec: números fora de ordem davam alerta com os dois lados iguais; `I’m` com apóstrofo curvo virava nome; nome depois de inicial no meio do parágrafo (`W. B.`) não era conferido. E uma lacuna da própria SPEC 024: número por extenso contado palavra por palavra não bate entre línguas (`duzentos` contra `two hundred`). Correção na SPEC 045.

@@ -27,3 +27,9 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde
 - Manual: 3 de 3 passos conformes (17 termos listados em ordem; tema 1 com 17 termos e 0 alertas; "society" trocado por "association" acusa 1.1).
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: os 17 termos do E-008 gravados no Serpent (com `Estados Unidos|americano|americana → United States|American`) e listados em ordem, `17 termos (en)`; o tema 1 deu `17 termos, 0 alertas`; com "association" no lugar de "society", o alerta saiu em 1.1.

@@ -28,3 +28,10 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde
 - Manual: 1 de 3 passos conforme (o 2: some "peasantry" e volta a frase de 27 palavras em 2.14). Passos 1 e 3 não conformes: "seabrook", nome de pessoa depois de "W. B.", contado como palavra rara em 5.3; o resto igual ao E-008.
+
+## Aceite
+- Data: 2026-11-12
+- Decisor: aceito com correção
+- Evidência: roteiros manuais com os arquivos reais do Serpent em 2026-11-12, depois da entrega do Kimi.
+- Roteiro manual: o passo 2 conferiu (some `peasantry` e volta `2.14: frase de 27 palavras`); as outras 6 palavras raras e as 2 expressões são as do E-008.
+- Ressalva: os passos 1 e 3 falharam: `seabrook`, nome de pessoa depois de `W. B.`, saiu como palavra rara em 5.3, porque o ponto da inicial no meio do parágrafo fechava a frase. Correção na SPEC 045.
