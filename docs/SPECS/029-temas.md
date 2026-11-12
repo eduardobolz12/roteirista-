@@ -1,7 +1,6 @@
 # SPEC 029 — /temas
 
-**Estado:** skill escrita e testada no Serpent pelo arquiteto em 2026-11-12; aguardando o roteiro manual
-e o aceite do Decisor
+**Estado:** aceito pelo Decisor em 2026-11-12, depois do roteiro manual
 
 ## Intenção
 Como Decisor, quero receber a sugestão de temas de um livro já conferida, montada só a partir do índice,

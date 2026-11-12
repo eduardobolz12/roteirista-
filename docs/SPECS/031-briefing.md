@@ -1,7 +1,6 @@
 # SPEC 031 — /briefing
 
-**Estado:** skill escrita e testada no Serpent pelo arquiteto em 2026-11-12; aguardando o roteiro manual
-e o aceite do Decisor
+**Estado:** aceito pelo Decisor em 2026-11-12, depois do roteiro manual
 
 ## Intenção
 Como Decisor, quero receber o plano do vídeo e os 6 briefings de um tema já conferidos (ids que existem,

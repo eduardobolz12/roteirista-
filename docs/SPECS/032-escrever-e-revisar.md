@@ -1,7 +1,6 @@
 # SPEC 032 — /escrever e /revisar
 
-**Estado:** skills escritas e testadas no Serpent pelo arquiteto em 2026-11-12; aguardando o roteiro
-manual e o aceite do Decisor
+**Estado:** aceito pelo Decisor em 2026-11-12, depois do roteiro manual
 
 ## Intenção
 Como Decisor, quero que cada capítulo saia escrito em português só a partir do briefing aprovado, com as

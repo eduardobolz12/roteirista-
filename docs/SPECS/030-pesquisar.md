@@ -1,7 +1,6 @@
 # SPEC 030 — /pesquisar
 
-**Estado:** skill escrita e testada no Serpent pelo arquiteto em 2026-11-12; aguardando o roteiro manual
-e o aceite do Decisor
+**Estado:** aceito pelo Decisor em 2026-11-12, depois do roteiro manual
 
 ## Intenção
 Como Decisor, quero que a pesquisa de fora do livro de cada tema escolhido (a obra e a recepção, o

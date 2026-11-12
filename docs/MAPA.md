@@ -73,10 +73,7 @@ A 020 foi aceita com correção: linha de tabela com coluna faltando era ignorad
 
 | 044 | colunas faltando no briefing | 020 | linha de tabela do briefing com menos colunas que as do formato gera `<linha>: faltam colunas: <nomes>`, e as colunas que ela tem continuam conferidas (correção da 020, aceita em 2026-11-12) |
 
-
-# A seguir
-
-## Lote 6 — Skills: do tema ao capítulo escrito
+## Bloco F — Skills do tema ao roteiro em português (lote 6, aceito em 2026-11-12)
 
 As skills são prompts: o resultado delas não é sim/não e não passa por teste automático de conteúdo.
 Cada uma vira fatia **depois** do núcleo que ela usa, com aceite pelo validador do arquivo que ela
@@ -84,8 +81,8 @@ produz + roteiro manual. As skills são escritas pelo arquiteto (D-019).
 
 Antes de escrever, o arquiteto leu as skills que já existem para este trabalho (E-007): o piloto é a
 base; das de terceiros entraram regras de gancho, checagem de fonte, escrita para o ouvido e vícios de IA.
-Skills escritas e testadas de ponta a ponta no tema 1 do Serpent em 2026-11-12; aguardam o roteiro manual
-e o aceite do Decisor.
+Testadas de ponta a ponta no tema 1 do Serpent (O tribunal da noite): 1.722 palavras, 10 citações, 0
+problemas. O Decisor leu o roteiro e aceitou; escolheu os temas 1, 2, 3 e 4, nessa ordem.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
@@ -93,6 +90,9 @@ e o aceite do Decisor.
 | 030 | /pesquisar | 018 | todo achado da `pesquisa.md` tem id W que existe; a 019 (PDFs externos) fica na reserva, e a lacuna que só ela resolveria vira "link do Decisor" ou "sem fonte" |
 | 031 | /briefing | 020, 021, 044, 029, 030 | os 6 briefings passam no `validar-briefing --temas` |
 | 032 | /escrever e /revisar | 022, 042, 031 | cada capítulo passa no `contar --briefing` com 0 problemas e cada apontamento do `revisar` está decidido |
+
+
+# A seguir
 
 ## Lote 7 — Tradução, humanização e aprovação
 
