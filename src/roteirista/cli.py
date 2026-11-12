@@ -96,6 +96,10 @@ def _argumentos() -> argparse.ArgumentParser:
     glossario.add_argument("traducao", nargs="?")
     glossario.add_argument("--conferir", type=Path, nargs=2)
 
+    retraduzir = comandos.add_parser("retraduzir")
+    retraduzir.add_argument("slug")
+    retraduzir.add_argument("roteiro", type=Path)
+
     invariantes = comandos.add_parser("invariantes")
     invariantes.add_argument("slug")
     invariantes.add_argument("antes", type=Path)
@@ -479,6 +483,35 @@ def main() -> None:
     sys.stdout.reconfigure(encoding="utf-8", newline="\n")
     sys.stderr.reconfigure(encoding="utf-8", newline="\n")
     args = _argumentos().parse_args()
+
+    if args.comando == "retraduzir":
+        from roteirista import retrotraducao
+
+        lingua = traducao.lingua_arquivo(args.roteiro)
+        if lingua is None:
+            sys.stderr.write(f"língua desconhecida: {args.roteiro.name}\n")
+            raise SystemExit(2)
+        if lingua == "pt":
+            sys.stderr.write(
+                f"o roteiro já está em português: {args.roteiro.name}\n"
+            )
+            raise SystemExit(2)
+        try:
+            resultado = retrotraducao.retraduzir(args.slug, args.roteiro, lingua)
+        except FileNotFoundError as erro:
+            sys.stderr.write(f"arquivo inexistente: {erro.filename}\n")
+            raise SystemExit(2)
+        except modelo.ModeloInacessivel as erro:
+            sys.stderr.write(f"modelo inacessível: {erro.url}\n")
+            raise SystemExit(3)
+        saida = args.roteiro.with_name(f"retro-pt-{args.roteiro.name}")
+        saida.write_text(resultado.conteudo, encoding="utf-8", newline="\n")
+        for aviso in resultado.avisos:
+            sys.stdout.write(f"{aviso}\n")
+        sys.stdout.write(
+            f"{resultado.paragrafos} parágrafos retraduzidos em {saida.name}\n"
+        )
+        return
 
     if args.comando == "glossario":
         if args.lingua not in {"en", "fr"}:
