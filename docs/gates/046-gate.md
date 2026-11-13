@@ -21,3 +21,11 @@
 | tests/acceptance/046-portugues-aprovado-legivel/fixtures/roteiro-en-humanizado.md | 2978da18dd0b38a8dd5d0d7cbacb6973748b03f38b9b60bcd23bf8ec6e61c5bd |
 | tests/acceptance/046-portugues-aprovado-legivel/fixtures/roteiro-en.md | 5e80f96a24621452fe8663eb2955c422a0df836a1c8f704169db72df51a51c75 |
 | tests/acceptance/046-portugues-aprovado-legivel/fixtures/roteiro-pt.md | e7db7226ef6f1a68b56930c75271d2b447830d28691322221cf736e6259db401 |
+
+## Prova
+- Data: 2026-11-13
+- Commit: ae83662acd8c92ec39a982ac93b2c05ec2f78c4b
+- Hashes: todos iguais ao gate
+- Junit: tests=3 failures=0 errors=0 skipped=0
+- Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 026 verde, 027 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde, 045 verde
+- Manual: 3 de 3 passos conformes: no navegador, sem rede, em janela larga o "Português aprovado" aberto fica embaixo do inglês e da retrotradução, na largura das duas colunas; em janela de 600 px, na largura toda; o resto da página não muda: 62 parágrafos em 6 capítulos, 0 marcados, página igual ao stdout.
