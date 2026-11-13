@@ -108,17 +108,20 @@ aceita em 2026-11-12).
 | 025 | legibilidade en/fr | 023, 024 | `livro legibilidade` dá, por parágrafo, frase acima de 25 palavras, palavra rara pela `wordfreq` e expressão idiomática da lista do projeto |
 | 045 | correção das conferências | 024, 025 | o tema 1 do Serpent dá `62 parágrafos, 0 alertas` nas invariantes e as 6 palavras raras do E-008 na legibilidade: glossário nos dois sentidos, inicial e título que não fecham a frase, `I’m` que não é nome, número por extenso lido pelo valor e comparado em qualquer ordem |
 
+## Bloco H — Retrotradução, tela e skills da tradução (lote 8, aceito em 2026-11-13)
 
-# A seguir
+Regras e prompt rodados antes no ensaio E-009: o tema 1 do Serpent humanizado, retraduzido pelo qwen3:14b
+e montado na tela. Deu 0 alertas e 2 erros de sentido da retrotradução em 62 parágrafos, um por capítulo,
+depois de entrarem o capítulo como contexto e a regra de não traduzir nomes. D-011 e D-012. Ordem: 026,
+027, 046 e 033.
 
-## Lote 8 — Retrotradução, tela e skills da tradução
-
-Regras e prompt rodados antes no ensaio E-009 (o tema 1 do Serpent humanizado, retraduzido pelo
-qwen3:14b e montado na tela: 0 alertas; 2 erros de sentido da retrotradução em 62 parágrafos, um por
-capítulo, depois do capítulo como contexto e da regra de não traduzir nomes). D-011 e D-012. Ordem: 026,
-027, 046; a 033 (skills) fecha com o Decisor lendo a tela do tema 1.
-A 026 foi aceita; a 027, aceita com correção: aberto, o português aprovado caía na coluna estreita do
-número (fatia 046), aceita em 2026-11-13. No aceite, o Decisor gravou `facão → machete` e `búzio → conch` no glossário do Serpent.
+- A 026 foi aceita. No aceite, o Decisor gravou `facão → machete` e `búzio → conch` no glossário do
+  Serpent.
+- A 027 foi aceita com correção: aberto, o português aprovado caía na coluna estreita do número. A correção
+  foi a fatia 046, aceita em 2026-11-13.
+- A 033 foi aceita em 2026-11-13, com as skills revisadas pelo E-010 (pesquisa, verificação e reavaliação
+  com juiz independente). O tema 1 ficou aprovado em inglês e em francês, nos 6 capítulos; as escolhas de
+  texto se resolvem em cada roteiro, na hora em que ele for feito.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
@@ -126,6 +129,12 @@ número (fatia 046), aceita em 2026-11-13. No aceite, o Decisor gravou `facão �
 | 027 | tela lado a lado | 026, 024 | `livro lado-a-lado` gera o HTML da M-002 sem rede e sem tokens; parágrafo com alerta aparece marcado |
 | 046 | português aprovado legível | 027 | aberto, o português aprovado fica embaixo das duas colunas de texto, como a nota de alerta, e na largura toda em tela estreita (correção da 027) |
 | 033 | /traduzir e /humanizar | 023, 024, 025, 027 | o capítulo humanizado passa nas invariantes e gera a tela lado a lado |
+
+
+# A seguir
+
+Nenhum lote planejado. O próximo sai do uso: `/traduzir` e `/humanizar` nos temas 2 a 4 do Serpent, em
+inglês e em francês (D-025).
 
 # Reserva
 

@@ -3,7 +3,8 @@
 **Estado:** rascunho testado no ensaio E-009 em 2026-11-12. Revisado em 2026-11-13 pelo E-010, com a lista
 numerada de vícios (`docs/prompts/vicios-de-ia.md`), a passada de sentido contra o português, a
 retrotradução como ouvinte de teste, os falsos cognatos e os caminhos nos comandos. O tema 1 foi refeito por
-essa versão. O aceite vem com o roteiro manual do Decisor.
+essa versão, em inglês e em francês. **Aceito pelo Decisor em 2026-11-13.** O tema 1 ficou aprovado nas duas
+línguas, nos 6 capítulos, e as escolhas de texto se resolvem em cada roteiro, na hora em que ele for feito.
 
 ## Intenção
 Como Decisor, quero que o roteiro aprovado em português vire o texto da narração em inglês ou francês,
