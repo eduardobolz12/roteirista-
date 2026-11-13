@@ -42,3 +42,5 @@
     .par p.pt::before { content: "Retrotradução (pt)"; }
   }
   p { margin: 0; }
+details { grid-column: 2 / 4; }
+@media (max-width: 700px) { details { grid-column: 1; } }
