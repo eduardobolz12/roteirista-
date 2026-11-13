@@ -9,7 +9,7 @@ argument-hint: <slug> <número do tema> <en|fr>
 
 Argumentos (`$ARGUMENTS`): o slug, o número do tema e a língua. Pasta do tema: `livros/<slug>/temas/<n>/`
 (nos comandos abaixo, `<pasta>`). Entrada: `roteiro-<língua>.md`. Saída: `roteiro-<língua>-humanizado.md`,
-`humanizacao.md`, a retrotradução `retro-pt-roteiro-<língua>-humanizado.md` e a tela
+`humanizacao-<língua>.md`, a retrotradução `retro-pt-roteiro-<língua>-humanizado.md` e a tela
 `lado-a-lado-roteiro-<língua>-humanizado.html`.
 
 Antes de tudo, leia `docs/prompts/roteiro-regras.md` e `docs/prompts/vicios-de-ia.md`. Valem os dois.
@@ -26,7 +26,7 @@ por isso a conferência é dos scripts, do modelo local e do Decisor, e nenhuma 
 
 ## Pré-condições
 
-- `roteiro-<língua>.md` existe, e `traducao.md` registra 0 alertas nas duas conferências e a data do
+- `roteiro-<língua>.md` existe, e `traducao-<língua>.md` registra 0 alertas nas duas conferências e a data do
   `roteiro-pt.md` traduzido. Se o `roteiro-pt.md` mudou depois dessa data, a tradução está desatualizada:
   pare e avise o Decisor.
 - Leia `decisoes.md`: o que ele protege não muda.
@@ -84,7 +84,7 @@ por isso a conferência é dos scripts, do modelo local e do Decisor, e nenhuma 
    - `livro glossario <slug> <língua> --conferir <pasta>/roteiro-pt.md <pasta>/roteiro-<língua>-humanizado.md`.
 
    Depois, rode `livro legibilidade <slug> <pasta>/roteiro-<língua>-humanizado.md`. O que sobrar precisa de
-   motivo (palavra sem troca fiel, expressão comum) anotado em `humanizacao.md`.
+   motivo (palavra sem troca fiel, expressão comum) anotado em `humanizacao-<língua>.md`.
 
 6. **Retrotradução e tela.**
    - Rode `livro retraduzir <slug> <pasta>/roteiro-<língua>-humanizado.md` em segundo plano: o modelo local
@@ -93,17 +93,17 @@ por isso a conferência é dos scripts, do modelo local e do Decisor, e nenhuma 
    - Leia a retrotradução parágrafo por parágrafo. O modelo local faz o papel de um ouvinte de teste (E-010).
      Quando ele entende errado, pergunte primeiro se o texto humanizado permite aquela leitura:
      - se permite, o humanizado muda, e os passos 4 a 6 rodam de novo para aquele parágrafo;
-     - se não permite, o erro é do modelo. Anote em `humanizacao.md`, para o Decisor saber o que não é do
+     - se não permite, o erro é do modelo. Anote em `humanizacao-<língua>.md`, para o Decisor saber o que não é do
        texto.
 
-7. **Gravar `humanizacao.md`** no formato abaixo. Diga ao Decisor para abrir a tela e decidir cada
+7. **Gravar `humanizacao-<língua>.md`** no formato abaixo. Diga ao Decisor para abrir a tela e decidir cada
    capítulo: aprovado, aprovado com sugestões (em português, citando o §) ou refazer. Diga também as
    escolhas que são dele.
 
 8. **Sugestões do Decisor.** Aplique cada sugestão no texto humanizado e rode de novo os passos 4 a 6.
    Acrescente em `decisoes.md` o que ele aprovou (D-016).
 
-## Formato de `humanizacao.md`
+## Formato de `humanizacao-<língua>.md`
 
 ```markdown
 # Humanização — Tema <n> <título> (<língua>)

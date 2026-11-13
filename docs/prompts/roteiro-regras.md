@@ -11,7 +11,7 @@ Tudo de um livro fica em `livros/<slug>/`, fora do git (direitos autorais, D-015
 - `temas/<n>/`, uma pasta por tema escolhido, com `<n>` o número do tema em `temas.md`:
   `decisoes.md`, `pesquisa.md`, `plano.md`, `briefing-1.md` a `briefing-6.md`, `cap-1.md` a `cap-6.md`
   com as conferências, `roteiro-pt.md` e `revisao.md`; depois, por língua (`en` ou `fr`),
-  `roteiro-<língua>.md` e `traducao.md` (`/traduzir`), `roteiro-<língua>-humanizado.md` e `humanizacao.md`
+  `roteiro-<língua>.md` e `traducao-<língua>.md` (`/traduzir`), `roteiro-<língua>-humanizado.md` e `humanizacao-<língua>.md`
   (`/humanizar`), a retrotradução `retro-pt-roteiro-<língua>-humanizado.md` e a tela
   `lado-a-lado-roteiro-<língua>-humanizado.html`.
 

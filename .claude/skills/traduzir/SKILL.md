@@ -9,7 +9,7 @@ argument-hint: <slug> <número do tema> [en|fr]
 
 Argumentos (`$ARGUMENTS`): o slug, o número do tema e a língua (`en` ou `fr`). Sem a língua, pergunte ao
 Decisor "Traduzir para o inglês (en) ou para o francês (fr)?" e espere. Pasta do tema:
-`livros/<slug>/temas/<n>/` (nos comandos abaixo, `<pasta>`). Saída: `roteiro-<língua>.md`, `traducao.md`
+`livros/<slug>/temas/<n>/` (nos comandos abaixo, `<pasta>`). Saída: `roteiro-<língua>.md`, `traducao-<língua>.md`
 e os termos novos no glossário do livro.
 
 Antes de tudo, leia `docs/prompts/roteiro-regras.md`. Valem as regras de lá.
@@ -71,16 +71,16 @@ por vez.
    - `livro glossario <slug> <língua> --conferir <pasta>/roteiro-pt.md <pasta>/roteiro-<língua>.md`;
    - `livro invariantes <slug> <pasta>/roteiro-pt.md <pasta>/roteiro-<língua>.md`.
 
-   Alerta se corrige na tradução, nunca no português. Se for falso alarme da regra, anote em `traducao.md`
+   Alerta se corrige na tradução, nunca no português. Se for falso alarme da regra, anote em `traducao-<língua>.md`
    com o motivo, e o Decisor decide.
 
 5. **Legibilidade.** Rode `livro legibilidade <slug> <pasta>/roteiro-<língua>.md` e anote os números. Não
    simplifique aqui: a lista é o ponto de partida da `/humanizar`.
 
-6. **Gravar `traducao.md`** no formato abaixo, com a data de modificação do `roteiro-pt.md` traduzido. Se o
+6. **Gravar `traducao-<língua>.md`** no formato abaixo, com a data de modificação do `roteiro-pt.md` traduzido. Se o
    português mudar depois, a tradução fica desatualizada, e a `/humanizar` para.
 
-## Formato de `traducao.md`
+## Formato de `traducao-<língua>.md`
 
 ```markdown
 # Tradução — Tema <n> <título> (<língua>)

@@ -2,7 +2,7 @@
 
 Lista comum da `/escrever` e da `/revisar` (português) e da `/humanizar` (inglês e francês). Vem do E-007 e
 do E-010: humanizer 4.0, unslop, slopkit e os guias da Wikipédia em inglês, português e francês. Cada vício
-tem número fixo. Os relatórios (`revisao.md`, `humanizacao.md`) contam e citam pelo número, e um número
+tem número fixo. Os relatórios (`revisao.md`, `humanizacao-<língua>.md`) contam e citam pelo número, e um número
 tirado da lista não volta a ser usado.
 
 **Para que serve.** A meta é clareza e fidelidade para quem ouve, não esconder que houve IA. A Wikipédia

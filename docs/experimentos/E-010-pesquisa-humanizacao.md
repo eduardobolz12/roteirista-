@@ -210,6 +210,26 @@ E-009 produziram os textos fora das skills. O aceite da 033 (item 1) pede o `hum
 - Foram gravados o `traducao.md` e o `humanizacao.md`.
 - As três escolhas (2.2, 4.9, 5.3) ficam com o Decisor.
 
+**Tema 1 em francês (2026-11-13), pelas skills revisadas.**
+- Decisões do Decisor:
+  - o verso do cap. 1 vai traduzido (`decisoes.md`, item 4);
+  - o glossário francês tem 20 termos; dois foram escolha dele: vodu → vodou e terreiro → péristyle.
+- Tradução: glossário e invariantes com 0 alertas na primeira rodada; 17 raras e 1 expressão.
+- Humanizado: 0 alertas; legibilidade com 5 raras (2 delas falso alarme) e 0 expressões.
+- A primeira retrotradução (486 s) ficou bem mais perto do português que a do inglês. Ela apontou 4
+  leituras que o francês permitia: "Retenez" lido como "Detenha", "coups de fouet" como "chicotadas", "lui
+  est venu" como "veio à mente" e "robes" como vestido de mulher. As quatro foram corrigidas.
+- A segunda retrotradução levou 464 s. A tela deu 62 parágrafos e 2 marcados, os dois por erro do modelo
+  local: manteve "Baron Samedi" como nome e traduziu "Jean Baptiste".
+
+**Achados novos no francês:**
+- `traducao.md` e `humanizacao.md` não levavam a língua no nome, e o francês sobrescreveria o inglês. Agora
+  são `traducao-<língua>.md` e `humanizacao-<língua>.md`.
+- A legibilidade não separa a elisão francesa: nome depois de "l'" ou "qu'" ("l'Artibonite",
+  "qu'Isnard") vira palavra rara.
+- Em janela estreita, a tela tem rótulo para o texto em inglês e não tem para o francês.
+- As duas últimas são candidatas a uma correção pequena, com teste.
+
 ## Fontes
 
 - humanizer: https://github.com/blader/humanizer

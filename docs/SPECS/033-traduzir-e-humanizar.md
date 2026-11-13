@@ -12,9 +12,9 @@ gastar tokens na aprovação (D-011, D-012, D-029).
 
 ## Fronteira
 - `.claude/skills/traduzir/SKILL.md`, chamada como `/traduzir <slug> <n> [en|fr]`. Saídas:
-  `roteiro-<língua>.md`, `traducao.md` e os termos novos no glossário do livro, aprovados pelo Decisor.
+  `roteiro-<língua>.md`, `traducao-<língua>.md` e os termos novos no glossário do livro, aprovados pelo Decisor.
 - `.claude/skills/humanizar/SKILL.md`, chamada como `/humanizar <slug> <n> <en|fr>`. Saídas:
-  `roteiro-<língua>-humanizado.md`, `humanizacao.md`, a retrotradução (`livro retraduzir`, SPEC 026) e a
+  `roteiro-<língua>-humanizado.md`, `humanizacao-<língua>.md`, a retrotradução (`livro retraduzir`, SPEC 026) e a
   tela (`livro lado-a-lado`, SPEC 027).
 - As regras comuns de `docs/prompts/roteiro-regras.md`, que passam a valer para as duas, e a lista de
   vícios `docs/prompts/vicios-de-ia.md`.
@@ -26,7 +26,7 @@ gastar tokens na aprovação (D-011, D-012, D-029).
 1. A tradução passa em `livro glossario --conferir` e em `livro invariantes` (português → tradução) com 0
    alertas. O humanizado passa em `livro invariantes` (tradução → humanizado e português → humanizado) e
    no glossário com 0 alertas; a `livro legibilidade` dele tem menos palavras raras e expressões que a
-   tradução, e o que sobrar tem motivo em `humanizacao.md`.
+   tradução, e o que sobrar tem motivo em `humanizacao-<língua>.md`.
 2. `livro retraduzir` e `livro lado-a-lado` rodam no humanizado, e a tela abre sem rede.
 3. Roteiro manual do Decisor: ler a tela do tema 1 e decidir cada capítulo (aprovado, com sugestões ou
    refazer); as sugestões aplicadas e registradas em `decisoes.md`.
