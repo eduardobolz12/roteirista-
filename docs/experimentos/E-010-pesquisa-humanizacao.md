@@ -230,6 +230,54 @@ E-009 produziram os textos fora das skills. O aceite da 033 (item 1) pede o `hum
 - Em janela estreita, a tela tem rótulo para o texto em inglês e não tem para o francês.
 - As duas últimas são candidatas a uma correção pequena, com teste.
 
+## Reavaliação da qualidade (2026-11-13, a pedido do Decisor)
+
+**Método.** O Claude avalia mal o próprio texto (item 12), então houve dois avaliadores:
+
+- **Um juiz independente e gratuito:** o Nemotron 3 Ultra (550B), pelo 9Router, só no endereço local, com o
+  Ernie 5.5 de reserva. Recebeu um pedido por capítulo e língua, com o português ao lado da tradução, as
+  citações mascaradas e o prompt do método MQM. As categorias foram exatidão (acréscimo, omissão, sentido,
+  trecho sem traduzir), fluência (gramática, literal, registro), termos e ouvinte (ambíguo). A gravidade foi
+  menor, maior ou crítica. Nenhum trecho do livro saiu do computador.
+- **O arquiteto:** fez a triagem de cada achado, aceitando ou recusando com o motivo, e uma passada própria.
+
+**Achados do juiz:** 14, sendo 7 no inglês e 7 no francês. Foram aceitos 8 e recusados 6. Ele acerta pouco
+mais da metade, como os estudos com modelo de juiz já mostravam.
+
+- **Aceitos no inglês:**
+  - 4.8, maior: a metáfora do narrador invertida, "are the same man in different clothes" → "sometimes
+    dress the same man";
+  - 4.6, menor: perdeu a suspeita do "não virou" → "may have become";
+  - 3.3, menor: "them" ambíguo → "these things";
+  - 5.6, menor: "sentence" também quer dizer frase → "a sentence, a punishment".
+- **Aceitos no francês:**
+  - 1.5, maior: "Un secrétaire, une machette et une bougie" soa como uma lista de três → "avec";
+  - 2.14, menor: a frase dividida separava o aviso de adoecer;
+  - 4.9, menor: "d'autres arrivent" ambíguo → "la suite arrive";
+  - 5.3, menor: o decalque "sous le sort de" → "à qui un magicien a jeté un sort".
+- **Recusados:**
+  - 1.10 (en): o "ela" do português é a noite, não a mulher;
+  - 3.4 (en): "a mulher de outro" é de outro homem;
+  - 4.5 (en): "isn't sure" foi simplificação de propósito, sem perder o sentido;
+  - 3.1 (fr): o "aqui" é o momento da história;
+  - 5.7 (fr), dado como crítico: a tradução está certa, o cinema julgou justamente o tribunal que exige prova;
+  - 6.5 (fr): "péristyle" é escolha do Decisor, e a cena é no Haiti.
+- **Da passada do arquiteto:** o 2.14 também no inglês; no francês, 3.3 ("dépôt d'argent") e 5.2 ("groupe
+  de discussion").
+
+**Nota MQM antes destas correções.** Peso 1 para erro menor, 5 para maior, 25 para crítico.
+
+| Língua | Palavras | Pontos | Nota |
+|---|---|---|---|
+| Inglês | 1.851 | 9 (1 maior, 4 menores) | 99,5 de 100 |
+| Francês | 1.970 | 10 (1 maior, 5 menores) | 99,5 de 100 |
+
+Nenhum erro crítico nas duas. Depois das correções, não fica erro conhecido. As conferências seguem com 0
+alertas.
+
+**Proposta:** o juiz independente pode virar um passo fixo da `/humanizar`. Seria um comando da CLI, numa
+fatia com ensaio antes; hoje ele é um script de rascunho.
+
 ## Fontes
 
 - humanizer: https://github.com/blader/humanizer
