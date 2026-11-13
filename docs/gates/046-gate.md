@@ -29,3 +29,9 @@
 - Junit: tests=3 failures=0 errors=0 skipped=0
 - Suítes anteriores: 001 verde, 002 verde, 003 verde, 004 verde, 005 verde, 006 verde, 007 verde, 008 verde, 009 verde, 010 verde, 011 verde, 014 verde, 015 verde, 016 verde, 017 verde, 018 verde, 020 verde, 021 verde, 022 verde, 023 verde, 024 verde, 025 verde, 026 verde, 027 verde, 034 verde, 035 verde, 036 verde, 037 verde, 038 verde, 039 verde, 040 verde, 041 verde, 042 verde, 043 verde, 044 verde, 045 verde
 - Manual: 3 de 3 passos conformes: no navegador, sem rede, em janela larga o "Português aprovado" aberto fica embaixo do inglês e da retrotradução, na largura das duas colunas; em janela de 600 px, na largura toda; o resto da página não muda: 62 parágrafos em 6 capítulos, 0 marcados, página igual ao stdout.
+
+## Aceite
+- Data: 2026-11-13
+- Decisor: aceito
+- Evidência: roteiro manual com os arquivos reais do Serpent em 2026-11-13, depois da entrega do Kimi.
+- Roteiro manual: no navegador, sem rede, o "Português aprovado" aberto fica embaixo do inglês e da retrotradução, na largura das duas colunas; em janela de 600 px, na largura toda; o resto da página não muda (62 parágrafos, 0 marcados). Fecha a ressalva do aceite da 027.

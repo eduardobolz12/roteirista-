@@ -118,7 +118,7 @@ qwen3:14b e montado na tela: 0 alertas; 2 erros de sentido da retrotradução em
 capítulo, depois do capítulo como contexto e da regra de não traduzir nomes). D-011 e D-012. Ordem: 026,
 027, 046; a 033 (skills) fecha com o Decisor lendo a tela do tema 1.
 A 026 foi aceita; a 027, aceita com correção: aberto, o português aprovado caía na coluna estreita do
-número (fatia 046). No aceite, o Decisor gravou `facão → machete` e `búzio → conch` no glossário do Serpent.
+número (fatia 046), aceita em 2026-11-13. No aceite, o Decisor gravou `facão → machete` e `búzio → conch` no glossário do Serpent.
 
 | NNN | nome | depende de | como se sabe que ficou pronta |
 |-----|------|-----------|-------------------------------|
