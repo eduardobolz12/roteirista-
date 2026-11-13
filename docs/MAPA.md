@@ -137,3 +137,9 @@ Fatias do plano original que o ensaio E-004 não pediu. Entram num lote quando f
 | 013 | embeddings e busca por sentido | 001 | `livro vetorizar` grava um vetor por parágrafo no banco; `livro perguntar "<pergunta>"` devolve ids ordenados, nunca texto reescrito |
 | 019 | PDFs externos | 002, 017 | PDF em `externas/` vira fonte `[E ...]` com ids, pelo mesmo caminho do livro |
 | 028 | /novo-livro e /indexar | 005, 009, 011, 012, 013, 014 | um livro de teste sai convertido, indexado e com resumos, sem o Claude ler o livro |
+
+Candidatas do E-010. Ainda sem número; entram num lote com ensaio antes.
+- **Ressalva conferida por script:** "quase", "pelo menos", "até", "mais de", "segundo" e "me parece" do
+  português chegam à tradução e ao humanizado. Hoje só a leitura confere.
+- **Texto para a voz sintética**, quando chegar a narração: sem os ids das citações, número e data como se
+  falam, e a lista de pronúncia dos nomes.

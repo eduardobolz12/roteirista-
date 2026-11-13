@@ -75,6 +75,7 @@ Releia o capítulo procurando, além do que o guia proíbe:
   sujeito.
 
 Uma frase curta e forte é bem-vinda quando carrega um fato. O problema é a fórmula, não o efeito.
+A lista completa, com números e com "Quando não mexer", está em `docs/prompts/vicios-de-ia.md`.
 
 ## Saída
 

@@ -53,6 +53,10 @@ fim. O português tem no máximo duas passadas desta revisão.
      âncora, e nada depois; cada distorção do 5 diz o que pegou e o que descartou.
    - **f. Tempo:** a fatia de cada capítulo no total contra a prevista (16/27/19/14/14/10%); cerca de
      30% acima ou abaixo é sinal leve, dito como proporção, nunca como corte.
+   - **g. Vícios de IA:** os de `docs/prompts/vicios-de-ia.md`, pelo número, com a regra de lá (um forte
+     basta; um fraco, só com outro no mesmo parágrafo). É aqui que eles se cortam: a tradução é fiel e leva
+     para o inglês e o francês o que o português aprovado tiver (no tema 1 do Serpent, três "não é X. É Y."
+     e as frases de efeito do fim de parágrafo, E-010). Vício forte é **média**; fraco, **leve**.
 
 4. **Gravidade.** **grave:** fato errado, atribuição errada, leitura dita como fato, ou algo que o
    espectador não entende. **média:** quebra de regra dos guias ou da curva, ambiguidade, repetição que

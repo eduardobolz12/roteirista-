@@ -1,7 +1,9 @@
 # SPEC 033 — /traduzir e /humanizar
 
-**Estado:** rascunho testado no ensaio E-009 em 2026-11-12; o aceite vem depois da construção da 026 e da
-027, com o roteiro manual
+**Estado:** rascunho testado no ensaio E-009 em 2026-11-12. Revisado em 2026-11-13 pelo E-010, com a lista
+numerada de vícios (`docs/prompts/vicios-de-ia.md`), a passada de sentido contra o português, a
+retrotradução como ouvinte de teste, os falsos cognatos e os caminhos nos comandos. O tema 1 foi refeito por
+essa versão. O aceite vem com o roteiro manual do Decisor.
 
 ## Intenção
 Como Decisor, quero que o roteiro aprovado em português vire o texto da narração em inglês ou francês,
@@ -14,7 +16,8 @@ gastar tokens na aprovação (D-011, D-012, D-029).
 - `.claude/skills/humanizar/SKILL.md`, chamada como `/humanizar <slug> <n> <en|fr>`. Saídas:
   `roteiro-<língua>-humanizado.md`, `humanizacao.md`, a retrotradução (`livro retraduzir`, SPEC 026) e a
   tela (`livro lado-a-lado`, SPEC 027).
-- As regras comuns de `docs/prompts/roteiro-regras.md`, que passam a valer para as duas.
+- As regras comuns de `docs/prompts/roteiro-regras.md`, que passam a valer para as duas, e a lista de
+  vícios `docs/prompts/vicios-de-ia.md`.
 
 ## Fora de escopo
 - A narração gravada e a montagem do vídeo.

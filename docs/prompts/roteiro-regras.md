@@ -17,6 +17,12 @@ Tudo de um livro fica em `livros/<slug>/`, fora do git (direitos autorais, D-015
 
 Cada skill lê dos arquivos o que precisa e pode rodar numa conversa nova.
 
+Os comandos `livro` rodam da raiz do projeto. O arquivo de um tema vai com o caminho inteiro,
+`livros/<slug>/temas/<n>/<arquivo>`; só o nome não basta (E-010).
+
+Os vícios de texto de IA, com número fixo e a lista "Quando não mexer", estão em
+`docs/prompts/vicios-de-ia.md`, comum à `/escrever`, à `/revisar` e à `/humanizar`.
+
 ## O livro nunca entra inteiro (D-004, D-005)
 
 O Claude chega ao livro só pelo índice e por ids:

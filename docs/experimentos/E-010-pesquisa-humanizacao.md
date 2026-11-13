@@ -187,6 +187,29 @@ E-009 produziram os textos fora das skills. O aceite da 033 (item 1) pede o `hum
    Só então o Decisor lê a tela. Assim, o aceite da 033 testa as skills que vão ser usadas nos temas 2 a 4.
 3. **Itens 14 e 15:** entram no MAPA como candidatos, com ensaio antes.
 
+## Feito (2026-11-13, aprovado pelo Decisor)
+
+**Skills.**
+- A lista numerada de vícios ficou em `docs/prompts/vicios-de-ia.md`, comum à `/escrever`, à `/revisar` e à
+  `/humanizar`.
+- A `/humanizar` ganhou: quando não mexer, a passada de sentido, as regras para o ouvido, a retrotradução
+  como ouvinte de teste, os caminhos nos comandos e o tempo medido.
+- A `/traduzir` ganhou: os 4 critérios, os falsos cognatos (`falsos-cognatos.md`), a data da fonte e os
+  caminhos.
+- A `/revisar` ganhou o item "g. Vícios de IA".
+- O `roteiro-regras.md` ganhou a regra dos caminhos.
+
+**Tema 1, pela skill revisada.**
+- As 10 correções da tabela, e mais uma achada pela lista nova: V12 "quietly", em 2.3.
+- A primeira retrotradução (608 s) acertou as correções. Pela regra do ouvinte de teste, apontou mais duas
+  ambiguidades do inglês: "the one court" lido como "a única corte" (5.7) e "This is where" lido como
+  lugar (3.1). As duas foram corrigidas.
+- A segunda retrotradução levou 461 s. As conferências deram 0 alertas, e a tela, 62 parágrafos e 0
+  marcados.
+- Ficaram 5 erros só do modelo local, anotados em `humanizacao.md`.
+- Foram gravados o `traducao.md` e o `humanizacao.md`.
+- As três escolhas (2.2, 4.9, 5.3) ficam com o Decisor.
+
 ## Fontes
 
 - humanizer: https://github.com/blader/humanizer
